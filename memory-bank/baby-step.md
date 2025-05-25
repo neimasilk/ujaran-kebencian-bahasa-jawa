@@ -9,6 +9,7 @@
 **Referensi Dokumen:**
 * `rencana-implementasi.md` (Fase 0)
 * `status-todolist-saran.md` (Saran "Baby-Step To-Do List")
+* `tumpukan-teknologi.md` (untuk versi Python)
 
 **Detail Tugas:**
 
@@ -21,7 +22,7 @@
     * **Validasi:** Repositori berhasil dibuat di GitHub dan dapat diakses melalui URL.
 
 2.  **Clone Repositori ke Lokal:**
-    * Gunakan perintah `git clone https://github.com/new`.
+    * Gunakan perintah `git clone [URL_REPO_ANDA_DARI_LANGKAH_1]`.
     * **Validasi:** Folder proyek dengan nama repositori muncul di direktori lokal dan berisi file dari GitHub (misalnya, `README.md`, `.gitignore`).
 
 3.  **Buat Struktur Folder Proyek Dasar:**
@@ -42,11 +43,12 @@
     * **Validasi:** Verifikasi manual bahwa semua folder dan subfolder telah dibuat dengan benar.
 
 4.  **Inisialisasi dan Aktivasi Virtual Environment Python:**
-    * Dari root folder proyek di terminal, jalankan: `python -m venv .venv`
+    * Pastikan Anda memiliki Python versi 3.8+ terinstall di sistem Anda (sesuai `tumpukan-teknologi.md`). Anda bisa memeriksanya dengan `python --version` atau `python3 --version`.
+    * Dari root folder proyek di terminal, jalankan: `python -m venv .venv` (atau `python3 -m venv .venv` jika perintah `python` Anda merujuk ke versi Python 2.x).
     * Aktivasi environment:
         * Windows: `.venv\Scripts\activate`
         * macOS/Linux: `source .venv/bin/activate`
-    * **Validasi:** Prompt terminal berubah, menunjukkan nama environment (misalnya, `(.venv) ...`).
+    * **Validasi:** Prompt terminal berubah, menunjukkan nama environment (misalnya, `(.venv) ...`). Setelah aktivasi, Anda bisa memeriksa versi Python di dalam venv dengan `python --version` untuk memastikan sesuai.
 
 5.  **Install Library Python Dasar:**
     * Pastikan virtual environment aktif.

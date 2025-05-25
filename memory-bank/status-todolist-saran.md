@@ -58,8 +58,10 @@
         * `tests` (untuk unit test)
         * `docs` (jika diperlukan selain memory-bank)
         * **Tes/Validasi:** Struktur folder sesuai dengan yang didefinisikan.
-    4.  Inisialisasi virtual environment Python (misalnya, menggunakan `venv`: `python -m venv .venv` dan aktivasi).
-        * **Tes/Validasi:** Virtual environment aktif, prompt terminal berubah.
+    4.  Inisialisasi virtual environment Python (misalnya, menggunakan `venv`:
+        * Pastikan Anda memiliki Python versi 3.8+ terinstall di sistem Anda (sesuai `tumpukan-teknologi.md`). Anda bisa memeriksanya dengan `python --version` atau `python3 --version`.
+        * Jalankan `python -m venv .venv` atau `python3 -m venv .venv` jika perintah `python` Anda merujuk ke versi Python 2.x, dan aktivasi).
+        * **Tes/Validasi:** Virtual environment aktif, prompt terminal berubah. Versi Python di dalam venv sesuai.
     5.  Install library Python dasar: `pandas`, `numpy`, `jupyterlab`, `scikit-learn`.
         * **Tes/Validasi:** `pip freeze` menunjukkan library terinstall. Dapat di-import di sesi Python.
     6.  Buat file `requirements.txt` awal dari library yang terinstall (`pip freeze > requirements.txt`).
