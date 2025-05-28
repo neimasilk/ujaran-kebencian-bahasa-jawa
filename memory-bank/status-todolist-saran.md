@@ -1,20 +1,23 @@
 # Status, To-Do List & Saran - Deteksi Ujaran Kebencian Bahasa Jawa
 
-**Update Terakhir:** 26 Mei 2025, 04:00 WIB
+**Update Terakhir:** 26 Mei 2025, 14:30 WIB
 
 ## 1. Status Proyek Saat Ini:
 
 * Tahap 0 (Pengaturan Awal Proyek) selesai.
 * Dokumen perencanaan awal (`dokumen-desain-produk.md`, `tumpukan-teknologi.md`, `rencana-implementasi.md`, `architecture.md`) telah dibuat (versi 0.1).
-* Proyek siap untuk memasuki Tahap 1: Setup Environment & Klarifikasi Awal.
+* Repositori Git telah dibuat dan di-clone ke lokal.
+* Struktur folder proyek dasar telah dibuat.
+* Virtual environment Python telah disetup.
+* Proyek siap untuk memasuki Tahap 1: Pengumpulan & Preprocessing Data Awal.
 
 ## 2. To-Do List (Masa Depan - Berdasarkan `rencana-implementasi.md` MVP):
 
 * **Fase 0: Setup Proyek & Lingkungan (Lanjutan)**
-    * [ ] Inisialisasi repositori Git & GitHub.
-    * [ ] Buat struktur folder proyek dasar.
-    * [ ] Setup virtual environment (Python) dan install library awal.
-    * [ ] Buat file `requirements.txt` awal.
+    * [x] Inisialisasi repositori Git & GitHub.
+    * [x] Buat struktur folder proyek dasar.
+    * [x] Setup virtual environment (Python) dan install library awal.
+    * [x] Buat file `requirements.txt` awal.
 * **Fase 1: Pengumpulan & Preprocessing Data Awal**
     * [ ] Identifikasi sumber data awal.
     * [ ] Lakukan pengumpulan data manual/script sederhana (~500-1000 sampel).

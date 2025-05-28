@@ -1,0 +1,35 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Distribution / packaging
+dist/
+build/
+*.egg-info/
+
+# Virtual environment
+.env
+.venv/
+env/
+venv/
+ENV/
+
+# Jupyter Notebook
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
+
+# VS Code
+.vscode/
+
+# PyCharm
+.idea/
+
+# Data dan Model (sesuaikan jika perlu)
+data/raw/*
+data/processed/*
+models/*
+
+# Sistem operasi
+.DS_Store
+Thumbs.db 
