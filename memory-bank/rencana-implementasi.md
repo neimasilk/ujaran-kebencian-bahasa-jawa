@@ -14,19 +14,16 @@ Membangun sistem dasar yang dapat menerima input teks Bahasa Jawa, mengklasifika
 ### Fase 0: Setup Proyek & Lingkungan (Mengikuti Panduan Vibe Coding)
 * **Langkah 0.1:** Inisialisasi repositori Git & GitHub.
 * **Langkah 0.2:** Buat struktur folder proyek dasar (misalnya, `/data`, `/notebooks`, `/src`, `/models`, `/tests`).
-* **Langkah 0.3:** Setup virtual environment (Python) dan install library awal (`pandas`, `numpy`, `jupyter`).
+* **Langkah 0.3:** Setup conda environment (Python) bernama `ujaran` (lihat `memory-bank/environment-setup.md`) dan install library inti menggunakan `requirements.txt` untuk instalasi.
     * **Validasi:** Berhasil import library di script Python.
 * **Langkah 0.4:** Buat file `requirements.txt` awal.
 
 ### Fase 1: Pengumpulan & Preprocessing Data Awal
-* **Langkah 1.1:** Identifikasi sumber data awal (minimal 2-3 platform online yang disebutkan dalam proposal seperti Twitter, Facebook, forum lokal). [cite: 56, 91]
+* **Langkah 1.1:** Identifikasi dan siapkan dataset awal Bahasa Jawa yang sudah dimiliki. Dataset ini ada di Google Sheets dan akan diakses melalui Google Sheets API.
     * **Validasi:** Daftar sumber data terdokumentasi.
-* **Langkah 1.2:** Lakukan pengumpulan data manual atau dengan script sederhana untuk mendapatkan ~500-1000 sampel teks Bahasa Jawa mentah. [cite: 92]
+* **Langkah 1.2:** Kembangkan script untuk mengambil data dari Google Sheets menggunakan Google Sheets API. Target awal ~500-1000 sampel dari dataset yang sudah ada.
     * **Validasi:** File dataset mentah (misalnya, `.csv`, `.txt`) tersedia.
-* **Langkah 1.3:** Kembangkan script dasar untuk preprocessing data:
-    * Case folding (mengubah ke huruf kecil).
-    * Penghapusan karakter tidak relevan (URL, emoji, tanda baca berlebih). [cite: 94]
-    * Normalisasi teks dasar (misalnya, penanganan slang umum jika diketahui, perbaikan typo sederhana). [cite: 94]
+* **Langkah 1.3:** Lakukan pembersihan dan normalisasi data dari Google Sheets sebelum preprocessing umum. Pastikan format data konsisten dan siap untuk tahap preprocessing selanjutnya.
     * **Validasi:** Script dapat memproses file data mentah dan menghasilkan data bersih.
 * **Langkah 1.4:** Implementasikan fungsi filtering dasar untuk konten duplikat. [cite: 57, 94]
     * **Validasi:** Jumlah data berkurang setelah filtering duplikat.

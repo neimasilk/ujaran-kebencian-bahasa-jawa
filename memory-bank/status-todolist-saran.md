@@ -1,4 +1,4 @@
-# Status, To-Do List & Saran - Deteksi Ujaran Kebencian Bahasa Jawa
+# Status, To-Do List, dan Saran
 
 **Update Terakhir:** 26 Mei 2025, 14:30 WIB
 
@@ -13,65 +13,45 @@
 
 ## 2. To-Do List (Masa Depan - Berdasarkan `rencana-implementasi.md` MVP):
 
-* **Fase 0: Setup Proyek & Lingkungan (Lanjutan)**
-    * [x] Inisialisasi repositori Git & GitHub.
-    * [x] Buat struktur folder proyek dasar.
-    * [x] Setup virtual environment (Python) dan install library awal.
-    * [x] Buat file `requirements.txt` awal.
-* **Fase 1: Pengumpulan & Preprocessing Data Awal**
-    * [ ] Identifikasi sumber data awal.
-    * [ ] Lakukan pengumpulan data manual/script sederhana (~500-1000 sampel).
-    * [ ] Kembangkan script dasar untuk preprocessing data.
-    * [ ] Implementasikan fungsi filtering dasar untuk konten duplikat.
-* **Fase 2: Pelabelan Data Awal & Persiapan Dataset**
-    * [ ] Definisikan pedoman pelabelan awal.
-    * [ ] Lakukan pelabelan manual pada sampel data awal (~200-500 sampel).
-    * [ ] Bagi dataset berlabel menjadi set pelatihan dan validasi.
-* **Fase 3: Pengembangan Model Dasar (Fine-tuning IndoBERT)**
-    * [ ] Setup environment untuk Hugging Face Transformers dan PyTorch/TensorFlow.
-    * [ ] Kembangkan script untuk tokenisasi data.
-    * [ ] Kembangkan script untuk fine-tuning IndoBERT.
-    * [ ] Simpan model yang sudah di-fine-tune.
-* **Fase 4: Evaluasi Model Dasar**
-    * [ ] Kembangkan script untuk prediksi pada set validasi.
-    * [ ] Implementasikan perhitungan metrik evaluasi dasar (Akurasi).
-    * [ ] (Opsional MVP) Implementasikan confusion matrix.
-* **Fase 5: Pengembangan Prototipe API Sederhana**
-    * [ ] Pilih framework API dan setup struktur dasar.
-    * [ ] Buat endpoint API `/detect`.
-    * [ ] (Opsional MVP) Buat antarmuka web sangat sederhana.
+### Fase 0: Setup Proyek & Lingkungan (Lanjutan)
+* Setup conda environment dan pastikan semua dependensi terinstall dengan benar
+* Validasi environment dengan menjalankan script test sederhana
+
+### Fase 1: Pengumpulan & Preprocessing Data Awal
+* Persiapkan akses ke dataset pribadi di Google Sheets melalui Google Sheets API
+* Kembangkan script untuk mengambil data (~500-1000 sampel) dari Google Sheets API
+* Implementasi preprocessing dasar untuk data dari Google Sheets
+
+### Fase 2: Pelabelan Data Awal & Persiapan Dataset
+* [ ] Definisikan pedoman pelabelan awal.
+* [ ] Lakukan pelabelan manual pada sampel data awal (~200-500 sampel).
+* [ ] Bagi dataset berlabel menjadi set pelatihan dan validasi.
+
+### Fase 3: Pengembangan Model Dasar (Fine-tuning IndoBERT)
+* [ ] Setup environment untuk Hugging Face Transformers dan PyTorch/TensorFlow.
+* [ ] Kembangkan script untuk tokenisasi data.
+* [ ] Kembangkan script untuk fine-tuning IndoBERT.
+* [ ] Simpan model yang sudah di-fine-tune.
+
+### Fase 4: Evaluasi Model Dasar
+* [ ] Kembangkan script untuk prediksi pada set validasi.
+* [ ] Implementasikan perhitungan metrik evaluasi dasar (Akurasi).
+* [ ] (Opsional MVP) Implementasikan confusion matrix.
+
+### Fase 5: Pengembangan Prototipe API Sederhana
+* [ ] Pilih framework API dan setup struktur dasar.
+* [ ] Buat endpoint API `/detect`.
+* [ ] (Opsional MVP) Buat antarmuka web sangat sederhana.
 
 ## 3. Saran "Baby-Step To-Do List" untuk Langkah Berikutnya:
 
-* **Baby Step 1: Inisialisasi Proyek & Lingkungan Dasar**
-    1.  Buat repositori baru di GitHub untuk proyek ini.
-        * **Tes/Validasi:** Repositori berhasil dibuat dan dapat diakses.
-    2.  Clone repositori ke lingkungan pengembangan lokal.
-        * **Tes/Validasi:** Folder proyek ada di lokal dengan file `.git`.
-    3.  Buat struktur folder proyek dasar:
-        * `data/raw` (untuk data mentah yang dikumpulkan)
-        * `data/processed` (untuk data yang sudah dibersihkan dan dilabeli)
-        * `notebooks` (untuk eksperimen dan analisis)
-        * `src` (untuk kode sumber Python)
-            * `src/data_collection`
-            * `src/preprocessing`
-            * `src/modelling`
-            * `src/api`
-        * `models` (untuk menyimpan model yang sudah dilatih)
-        * `tests` (untuk unit test)
-        * `docs` (jika diperlukan selain memory-bank)
-        * **Tes/Validasi:** Struktur folder sesuai dengan yang didefinisikan.
-    4.  Inisialisasi virtual environment Python (misalnya, menggunakan `venv`:
-        * Pastikan Anda memiliki Python versi 3.8+ terinstall di sistem Anda (sesuai `tumpukan-teknologi.md`). Anda bisa memeriksanya dengan `python --version` atau `python3 --version`.
-        * Jalankan `python -m venv .venv` atau `python3 -m venv .venv` jika perintah `python` Anda merujuk ke versi Python 2.x, dan aktivasi).
-        * **Tes/Validasi:** Virtual environment aktif, prompt terminal berubah. Versi Python di dalam venv sesuai.
-    5.  Install library Python dasar: `pandas`, `numpy`, `jupyterlab`, `scikit-learn`.
-        * **Tes/Validasi:** `pip freeze` menunjukkan library terinstall. Dapat di-import di sesi Python.
-    6.  Buat file `requirements.txt` awal dari library yang terinstall (`pip freeze > requirements.txt`).
-        * **Tes/Validasi:** File `requirements.txt` berisi daftar library.
-    7.  Buat file `.gitignore` dasar (misalnya, untuk `.venv/`, `__pycache__/`, `*.ipynb_checkpoints`, `data/raw/*` jika data mentah besar dan tidak di-commit).
-        * **Tes/Validasi:** File `.gitignore` ada.
-    8.  Commit semua perubahan awal ini ke Git dan push ke GitHub.
-        * **Tes/Validasi:** Perubahan terlihat di repositori GitHub.
+### Baby Step 1: Inisialisasi Proyek & Lingkungan Dasar
+1. Clone repositori Git ke lokal
+2. Buat branch development
+3. Periksa struktur folder dasar
+4. Aktifkan atau buat conda environment `ujaran` (lihat `memory-bank/environment-setup.md`). Pastikan Python versi 3.11+ (sesuai `requirements.txt`)
+5. Install library Python yang dibutuhkan menggunakan `pip install -r requirements.txt`. Pastikan library untuk Google Sheets API terinstall: `google-api-python-client google-auth-httplib2 google-auth-oauthlib`
+6. Pastikan file `requirements.txt` sudah terbaru dan mencakup library Google Sheets API
+7. Buat script test sederhana untuk memvalidasi environment
 
 --- 

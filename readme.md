@@ -51,15 +51,15 @@ Proyek ini menggunakan Anaconda untuk manajemen environment dan package Python. 
 1. Install [Anaconda](https://www.anaconda.com/download)
 2. Buat environment conda baru:
    ```bash
-   conda create -n ujaran python=3.x
+   conda create -n ujaran python=3.11
    ```
 3. Aktifkan environment:
    ```bash
    conda activate ujaran
    ```
-4. Install dependencies:
+4. Install semua dependencies dari requirements.txt:
    ```bash
-   conda install pandas numpy jupyterlab scikit-learn
+   pip install -r requirements.txt
    ```
 
 Detail lebih lanjut tentang setup environment dapat dilihat di `memory-bank/environment-setup.md`.

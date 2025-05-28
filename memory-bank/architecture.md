@@ -42,19 +42,19 @@ v
 |                                                                                             |
 +---------------------------------------------------------------------------------------------+
 
-```
-
 ## Deskripsi Komponen:
 
-1.  **Pengumpulan Data:** [cite: 56, 91, 92]
-    * **Tanggung Jawab:** Mengumpulkan teks berbahasa Jawa dari berbagai platform online (Twitter, Facebook, YouTube, Instagram, forum lokal).
-    * **Teknologi:** Skrip Python, API platform (jika ada), library web scraping.
-    * **Output:** Dataset teks mentah.
+1.  **Pengumpulan Data:**
+    * **Tanggung Jawab:** Mengakses dan mengambil dataset teks berbahasa Jawa yang sudah ada dari Google Sheets menggunakan Google Sheets API.
+    * **Teknologi:** Skrip Python, Google Sheets API, library klien Google untuk Python, Pandas.
+    * **Input:** Akses ke Google Sheets yang berisi dataset.
+    * **Output:** Dataset mentah dalam format yang dapat diproses (CSV/DataFrame).
 
-2.  **Preprocessing & Filtering Data:** [cite: 24, 57, 93, 94]
-    * **Tanggung Jawab:** Membersihkan data teks (normalisasi, penghapusan noise), memfilter konten duplikat/spam.
-    * **Teknologi:** Python, Pandas, NLTK/library NLP lainnya, algoritma similarity check.
-    * **Output:** Dataset teks bersih.
+2.  **Preprocessing & Filtering Data:**
+    * **Tanggung Jawab:** Membersihkan dan memformat data mentah.
+    * **Teknologi:** Python, Pandas, NLTK/Sastrawi.
+    * **Input:** Dataset mentah dari Google Sheets.
+    * **Output:** Dataset yang sudah dibersihkan dan diformat.
 
 3.  **Pelabelan Data:** [cite: 7, 55, 57, 85, 95, 96, 97]
     * **Tanggung Jawab:** Melakukan pelabelan data secara manual dengan melibatkan ahli bahasa Jawa dan budayawan. Kategori label: ringan, sedang, berat, bukan ujaran kebencian. Konteks budaya dan tingkatan bahasa menjadi pertimbangan.
@@ -74,8 +74,8 @@ v
 
 5.  **Prototipe Aplikasi:**
     * **API Server:** [cite: 7, 62, 108]
-        * **Tanggung Jawab:** Menyediakan endpoint HTTP untuk menerima input teks dan mengembalikan hasil deteksi dari model terlatih.
-        * **Teknologi:** Python, Flask/FastAPI.
+        * **Tanggung Jawab:** Menyediakan endpoint untuk prediksi.
+        * **Teknologi:** FastAPI/Flask.
     * **Logika Aplikasi:**
         * **Tanggung Jawab:** Menangani request API, melakukan preprocessing pada input pengguna, memanggil model untuk prediksi, dan memformat output.
     * **Antarmuka Pengguna (Web - Sederhana):** [cite: 109]
@@ -99,5 +99,16 @@ v
 * **Modularitas:** Setiap komponen dirancang untuk independen sejauh mungkin untuk memudahkan pengembangan, pengujian, dan pembaruan.
 * **Iterasi:** Arsitektur mendukung iterasi, terutama pada Modul Machine Learning (pelatihan ulang dengan data lebih banyak, penyesuaian model) dan Prototipe Aplikasi (penambahan fitur).
 * **Konfigurasi:** Parameter model, path file, dan konfigurasi lainnya akan dikelola secara eksternal (misalnya, file `.env` atau konfigurasi).
+
+## Diagram Alir Data
+```
+[Google Sheets] -> [Data Collection Module] -> [Preprocessing] -> [Model Training/Inference] -> [API Endpoints]
+```
+
+## Interaksi Antar Komponen
+1. Data Collection mengambil data dari Google Sheets
+2. Preprocessing menerima data mentah dan menghasilkan data bersih
+3. Model menerima data bersih untuk training/inference
+4. API menerima request dan mengembalikan hasil prediksi model
 
 --- 
