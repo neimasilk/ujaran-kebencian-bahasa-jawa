@@ -66,7 +66,11 @@ Detail lebih lanjut tentang setup environment dapat dilihat di `memory-bank/envi
 
 ## Panduan Kontribusi
 
-(Akan diisi jika proyek bersifat kolaboratif)
+Untuk berkontribusi pada proyek ini, silakan baca:
+1. Petunjuk pekerjaan manual di [`memory-bank/petunjuk pekerjaan manual.md`](memory-bank/petunjuk-pekerjaan-manual.md)
+2. Setup environment di [`memory-bank/environment-setup.md`](memory-bank/environment-setup.md)
+
+(Akan dilengkapi dengan panduan kontribusi lainnya jika proyek bersifat kolaboratif)
 
 ## Lisensi
 
