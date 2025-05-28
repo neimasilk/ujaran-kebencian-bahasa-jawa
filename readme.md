@@ -25,9 +25,44 @@ Meningkatnya penyebaran ujaran kebencian di platform daring, terutama dalam baha
     * Flask/FastAPI (untuk API prototipe) [cite: 108]
 * **Version Control:** Git, GitHub
 
-## Struktur Proyek (Akan Berkembang)
+## Struktur Proyek
 
-(Akan diisi seiring berjalannya proyek, merujuk pada `architecture.md`)
+```
+.
+├── data/               # Data mentah dan yang sudah diproses
+│   ├── raw/           # Data mentah
+│   └── processed/     # Data yang sudah diproses
+├── notebooks/         # Jupyter notebooks untuk eksperimen
+├── src/              # Source code
+│   ├── data_collection/  # Script pengumpulan data
+│   ├── preprocessing/    # Script preprocessing
+│   ├── modelling/       # Script model ML
+│   ├── api/             # API endpoints
+│   └── utils/           # Fungsi utilitas
+├── models/           # Model yang sudah dilatih
+├── tests/           # Unit tests
+└── docs/            # Dokumentasi tambahan
+```
+
+## Setup Environment
+
+Proyek ini menggunakan Anaconda untuk manajemen environment dan package Python. Berikut langkah-langkah untuk setup environment:
+
+1. Install [Anaconda](https://www.anaconda.com/download)
+2. Buat environment conda baru:
+   ```bash
+   conda create -n ujaran python=3.x
+   ```
+3. Aktifkan environment:
+   ```bash
+   conda activate ujaran
+   ```
+4. Install dependencies:
+   ```bash
+   conda install pandas numpy jupyterlab scikit-learn
+   ```
+
+Detail lebih lanjut tentang setup environment dapat dilihat di `memory-bank/environment-setup.md`.
 
 ## Panduan Kontribusi
 
