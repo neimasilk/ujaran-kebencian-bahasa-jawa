@@ -1,0 +1,56 @@
+Inspecting dataset: src/data_collection/raw-dataset.csv
+
+Dataset loaded successfully.
+
+--- Basic Information ---
+Number of rows: 41759
+Number of columns: 2
+
+Column names:
+- review
+- sentiment
+
+--- Data Types ---
+<class 'pandas.core.frame.DataFrame'>
+RangeIndex: 41759 entries, 0 to 41758
+Data columns (total 2 columns):
+ #   Column     Non-Null Count  Dtype
+---  ------     --------------  -----
+ 0   review     41758 non-null  object
+ 1   sentiment  41757 non-null  object
+dtypes: object(2)
+memory usage: 652.6+ KB
+
+
+--- First 5 Rows (Head) ---
+                                                                         review sentiment
+0                                   Mesthine sah yen wong lanang ngenthu bojone  negative
+1                                    Dalit minangka sampah masyarakat sing asor  negative
+2                                                      Dalit iku wong kang asor  negative
+3                    Iku luwih apik donya nalika wong wadon ora wani takon wong  negative
+4  Aku ora kerja keras supaya para imigran kasebut bisa njupuk kabeh keuntungan  negative
+
+
+--- Last 5 Rows (Tail) ---
+                                                                               review sentiment
+41754                                                     cewek saiki matane do picek  negative
+41755                                                   tempek saiki kok ambune seger  negative
+41756                                                 aku ndek mau mangan lawuh tempe  positive
+41757  Ojo nganti jahatku tangi seko turune sing angkler nek apik ku wes ora diregani  negative
+41758                       Ojo dadi pengecut koyo upil sing umpetan ning ngisor meja  negative
+
+
+--- Descriptive Statistics (for numerical columns) ---
+                                              review sentiment
+count                                          41758     41757
+unique                                         39897         2
+top     Ora ana sing seneng karo wong sing ora sopan  negative
+freq                                              17     22930
+
+
+--- Missing Values per Column ---
+review       1
+sentiment    2
+
+
+Inspection complete.
