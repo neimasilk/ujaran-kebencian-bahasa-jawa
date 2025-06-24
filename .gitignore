@@ -32,4 +32,7 @@ models/*
 
 # Sistem operasi
 .DS_Store
-Thumbs.db 
+Thumbs.db
+
+# Conda installer
+Miniconda3-latest-Linux-x86_64.sh
