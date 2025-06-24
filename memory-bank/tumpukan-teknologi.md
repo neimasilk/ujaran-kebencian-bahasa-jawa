@@ -1,7 +1,7 @@
 # Tumpukan Teknologi (Tech Stack) - Sistem Deteksi Ujaran Kebencian Bahasa Jawa
 
-**Versi:** 0.1
-**Tanggal:** 26 Mei 2025
+**Versi:** 0.2
+**Tanggal:** 29 Mei 2025
 
 Proyek ini akan memanfaatkan kombinasi teknologi yang sudah teruji untuk Pemrosesan Bahasa Alami (NLP) dan pengembangan aplikasi web.
 
@@ -44,16 +44,12 @@ Proyek ini akan memanfaatkan kombinasi teknologi yang sudah teruji untuk Pemrose
 * **Server (untuk prototipe API):**
     * Server pengembangan Flask/FastAPI bawaan untuk development lokal.
     * Platform seperti Heroku, PythonAnywhere, atau Docker container di cloud service (AWS, GCP, Azure) untuk deployment prototipe jika diperlukan untuk pengujian publik.
-* **Google Sheets API:**
-    * Untuk akses dataset.
 
-## 4. Pengumpulan Data
 
-* Akses ke API media sosial (Twitter API, Facebook Graph API - jika memungkinkan dan sesuai kebijakan).
-* Web scraping tools (misalnya, BeautifulSoup, Scrapy dengan Python) untuk mengumpulkan data dari forum online jika API tidak tersedia (dengan memperhatikan etika dan file `robots.txt`). [cite: 56]
-* Dataset pribadi melalui Google Sheets API.
-* Pandas untuk manipulasi data.
-* CSV/Excel untuk penyimpanan lokal.
+## 4. Sumber Data
+
+*   **Dataset Utama:** Proyek akan menggunakan dataset statis yang disimpan dalam file `raw-dataset.csv`.
+*   **Library:** Pandas akan digunakan untuk memuat dan memanipulasi data dari file CSV tersebut.
 
 ## 5. Pertimbangan
 
@@ -65,4 +61,4 @@ Proyek ini akan memanfaatkan kombinasi teknologi yang sudah teruji untuk Pemrose
     * Docker untuk kontainerisasi (opsional).
     * Cloud platform untuk hosting (akan ditentukan).
 
---- 
+---

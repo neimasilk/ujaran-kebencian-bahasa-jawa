@@ -1,7 +1,7 @@
 # Dokumen Desain Produk: Sistem Deteksi Ujaran Kebencian Bahasa Jawa
 
-**Versi:** 0.1
-**Tanggal:** 26 Mei 2025
+**Versi:** 0.2
+**Tanggal:** 29 Mei 2025
 
 ## 1. Pendahuluan dan Visi
 
@@ -29,7 +29,7 @@ Menciptakan sebuah sistem yang mampu secara cerdas dan akurat mendeteksi ujaran 
 2.  **Deteksi Ujaran Kebencian:** Sistem mengklasifikasikan teks sebagai:
     * Ujaran Kebencian
     * Bukan Ujaran Kebencian
-3.  **Klasifikasi Tingkat Keparahan (Dasar):** Jika terdeteksi sebagai ujaran kebencian, memberikan klasifikasi dasar (misalnya, ringan, sedang, berat). [cite: 7, 57]
+3.  *   **Klasifikasi Tingkat Keparahan:** Jika terdeteksi sebagai ujaran kebencian, memberikan klasifikasi: **Ujaran Kebencian Ringan, Ujaran Kebencian Sedang,** atau **Ujaran Kebencian Berat**. [cite: 7, 57]
 4.  **API Sederhana:** Endpoint API untuk menerima teks dan mengembalikan hasil deteksi. [cite: 7, 62, 108]
 
 ### Fitur Pengembangan Lanjutan:
@@ -45,7 +45,7 @@ Menciptakan sebuah sistem yang mampu secara cerdas dan akurat mendeteksi ujaran 
 ## 4. Arsitektur Sistem (Gambaran Umum)
 
 (Detail akan ada di `architecture.md`)
-* **Modul Pengumpulan & Preprocessing Data:** Mengumpulkan data teks Bahasa Jawa dari berbagai sumber, membersihkan, dan melakukan normalisasi. [cite: 24, 91, 93, 94]
+* **Modul Pengumpulan & Preprocessing Data:** Menggunakan dataset `raw-dataset.csv`, membersihkan, dan melakukan normalisasi. [cite: 24, 91, 93, 94]
 * **Modul Pelabelan Data:** Proses pelabelan manual oleh ahli bahasa dan budaya Jawa dengan kategori bertingkat. [cite: 7, 57, 95, 96, 97]
 * **Modul Pelatihan Model:**
     * Menggunakan arsitektur BERT (fine-tuning dari IndoBERT). [cite: 58, 100]
@@ -57,7 +57,7 @@ Menciptakan sebuah sistem yang mampu secara cerdas dan akurat mendeteksi ujaran 
 ## 5. Kriteria Keberhasilan (MVP)
 
 * Model fine-tuned BERT mencapai akurasi minimal (misalnya, ≥75-80% pada data uji awal, target akhir ≥90% [cite: 119]).
-* Dataset awal (misalnya, 1000-2000 sampel) berhasil dikumpulkan, diproses, dan dilabeli. [cite: 92]
+*   Dataset awal dari `raw-dataset.csv` berhasil diproses dan dilabeli. [cite: 92]
 * Prototipe API berfungsi dan dapat mengklasifikasikan input teks Bahasa Jawa.
 * Mampu membedakan setidaknya antara "ujaran kebencian" dan "bukan ujaran kebencian".
 
@@ -81,4 +81,4 @@ Menciptakan sebuah sistem yang mampu secara cerdas dan akurat mendeteksi ujaran 
 * Ekspansi ke bahasa daerah lain di Indonesia. [cite: 26]
 * Pengembangan kerangka etik AI yang memadukan norma budaya Jawa. [cite: 75]
 
---- 
+---

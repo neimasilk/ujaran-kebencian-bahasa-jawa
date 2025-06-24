@@ -2,7 +2,7 @@ import pandas as pd
 import os
 
 # Define the relative path to the dataset
-DATASET_PATH = "data/raw/raw-dataset.csv"  # Updated path
+DATASET_PATH = "data/raw/raw-dataset.csv"
 REPORT_PATH = "memory-bank/dataset_inspection_report.txt"
 
 def inspect_dataset(dataset_path):
