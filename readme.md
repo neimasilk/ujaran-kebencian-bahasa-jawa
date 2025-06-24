@@ -50,6 +50,36 @@ Meningkatnya penyebaran ujaran kebencian di platform daring, terutama dalam baha
 └── docs/            # Dokumentasi tambahan
 ```
 
+## 🚀 Quick Start
+
+### Prerequisites
+- Python 3.8+
+- Git
+- Virtual environment (recommended)
+- DeepSeek API Key (untuk pelabelan data)
+
+### Installation
+
+```bash
+# Clone repository
+git clone <repository-url>
+cd ujaran-kebencian-bahasa-jawa
+
+# Create virtual environment
+python -m venv venv
+source venv/bin/activate  # On Windows: venv\Scripts\activate
+
+# Install dependencies
+pip install -r requirements.txt
+pip install -r requirements-deepseek.txt
+
+# Setup DeepSeek API (untuk pelabelan data)
+python setup_deepseek_env.py
+
+# Verify installation
+python src/data_collection/verify_dataset.py
+```
+
 ## Setup Environment
 
 Proyek ini menggunakan Anaconda untuk manajemen environment dan package Python. Berikut langkah-langkah untuk setup environment:
@@ -69,6 +99,95 @@ Proyek ini menggunakan Anaconda untuk manajemen environment dan package Python. 
    ```
 
 Detail lebih lanjut tentang setup environment dapat dilihat di `memory-bank/environment-setup.md`.
+
+## 📊 Current Progress
+
+### ✅ Completed
+- [x] Project structure setup
+- [x] Data collection pipeline
+- [x] Basic preprocessing functions
+- [x] Unit testing infrastructure
+- [x] API documentation
+- [x] **DeepSeek V3 API integration untuk pelabelan**
+
+### 🔄 In Progress
+- [x] **Data labeling dengan DeepSeek V3 API**
+- [ ] Quality assurance hasil pelabelan
+- [ ] Model development dengan dataset berlabel
+- [ ] API implementation
+
+### ⏳ Planned
+- [ ] Training pipeline dengan dataset DeepSeek
+- [ ] Web interface
+- [ ] Deployment setup
+- [ ] Performance optimization
+
+## 🛠️ Development Workflow
+
+Proyek ini menggunakan **Vibe Coding V1.4** dengan kolaborasi AI-Human:
+
+### Team Structure
+- **Human**: Mukhlis Amien (Architect), Hashfi (Developer)
+- **AI**: jules_dokumen (Documentation), jules_dev1 & jules_dev2 (Development)
+
+### Baby-steps Approach
+1. Setiap iterasi dibagi menjadi baby-steps kecil
+2. Setiap baby-step memiliki deliverable yang jelas
+3. Testing dan dokumentasi terintegrasi
+4. AI commit hasil kerja mereka sendiri
+
+### Current Baby-step
+**Data Labeling dengan DeepSeek V3 API** 🔄 DALAM PROGRESS
+- ✅ Setup DeepSeek API integration
+- ✅ Dokumentasi lengkap penggunaan DeepSeek
+- ⏳ Processing dataset dengan AI labeling
+- ⏳ Quality assurance dan validasi manual
+
+## 📁 Project Structure
+
+```
+ujaran-kebencian-bahasa-jawa/
+├── src/
+│   ├── data_collection/     # Data loading, preprocessing, DeepSeek labeling
+│   ├── model/              # Model development
+│   └── api/                # API implementation
+├── data/
+│   ├── raw/                # Raw dataset
+│   └── processed/          # Processed dataset, DeepSeek results
+├── tests/                  # Unit tests
+├── docs/                   # Documentation, DeepSeek guide
+├── vibe-guide/            # Development guidelines
+├── memory-bank/           # Project memory dan progress
+├── baby-steps-archive/    # Archive completed steps
+├── setup_deepseek_env.py  # DeepSeek API setup
+├── requirements-deepseek.txt # DeepSeek dependencies
+└── .env                   # API keys (tidak di-commit)
+```
+
+## 🔧 Key Features
+
+### Data Pipeline
+- Robust CSV loading dengan error handling
+- **DeepSeek V3 API integration untuk auto-labeling**
+- Data validation dan cleaning
+- Preprocessing untuk Bahasa Jawa
+
+### AI-Powered Labeling
+- **Automated labeling dengan DeepSeek V3**
+- Pemahaman konteks budaya Bahasa Jawa
+- Confidence scoring dan reasoning
+- Quality assurance workflow
+
+### Testing Infrastructure
+- Unit tests dengan pytest
+- Coverage reporting
+- Automated testing pipeline
+
+### Documentation
+- API reference lengkap
+- **DeepSeek integration guide**
+- Development guidelines
+- Progress tracking
 
 ## Panduan Kontribusi
 

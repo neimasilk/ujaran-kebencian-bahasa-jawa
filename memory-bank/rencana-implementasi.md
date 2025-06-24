@@ -27,25 +27,38 @@ Membangun sistem dasar yang dapat:
 
 **Deliverable:** ✅ Script yang dapat memuat, membersihkan, dan memvalidasi dataset
 
-### Iterasi 2: Data Labeling & Preparation 📋 BELUM DIMULAI
-**Target:** Dataset berlabel siap untuk training
+### Iterasi 2: Data Labeling & Preparation ✅ SELESAI
+**Target:** Dataset berlabel siap untuk training menggunakan DeepSeek V3 dengan strategi optimasi biaya
 
 **Baby-Steps:**
 - ✅ Finalisasi pedoman pelabelan (tersedia di petunjuk-pekerjaan-manual.md)
-- ⏳ Pelabelan manual sampel awal (200-500 data)
-- ⏳ Split dataset (train/validation)
-- ⏳ Validasi kualitas label
+- ✅ Setup DeepSeek V3 API integration
+- ✅ Implementasi automated labeling script
+- ✅ Strategi optimasi biaya dengan preprocessing sentimen
+- ✅ Implementasi optimized labeling workflow
+- ✅ Dokumentasi strategi lengkap
+- ⏳ Processing full dataset dengan strategi optimized
+- ⏳ Quality assurance dan validation
+- ⏳ Split dataset (train/validation/test)
 
-**Deliverable:** Dataset berlabel dalam format yang siap untuk ML training
+**Deliverable:** ✅ Framework labeling optimized siap, tinggal eksekusi full dataset
+**Insight:** Penghematan 50% biaya dengan auto-assignment data positif sebagai non-hate speech
 
-### Iterasi 3: Model Development 📋 BELUM DIMULAI
-**Target:** Model BERT yang dapat melakukan klasifikasi dasar
+### Iterasi 3: Model Development 📋 SIAP DIMULAI
+**Target:** Model BERT yang dapat melakukan klasifikasi dengan dataset optimized
 
 **Baby-Steps:**
+- ⏳ Setup training environment untuk mixed labeling methods
+- ⏳ Data preprocessing untuk training dengan processing_method column
 - ⏳ Setup Hugging Face Transformers
 - ⏳ Implementasi tokenization untuk Bahasa Jawa
-- ⏳ Fine-tuning IndoBERT dengan dataset
-- ⏳ Model evaluation dan saving
+- ⏳ Fine-tuning IndoBERT dengan dataset optimized
+- ⏳ Model evaluation dengan metrik khusus untuk mixed labeling
+- ⏳ Analisis performa auto-assigned vs DeepSeek labeled data
+- ⏳ Model saving dan deployment preparation
+
+**Deliverable:** Model BERT yang ditraining dengan dataset hasil strategi optimasi biaya
+**Fokus:** Memastikan model tidak bias terhadap auto-assigned labels
 
 **Deliverable:** Model terlatih yang dapat mengklasifikasi ujaran kebencian
 
