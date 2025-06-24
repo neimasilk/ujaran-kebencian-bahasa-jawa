@@ -19,11 +19,11 @@ Membangun sistem dasar yang dapat menerima input teks Bahasa Jawa, mengklasifika
 * **Langkah 0.4:** Buat file `requirements.txt` awal.
 
 ### Fase 1: Pengumpulan & Preprocessing Data Awal
-* **Langkah 1.1:** Identifikasi dan siapkan dataset awal Bahasa Jawa yang sudah dimiliki. Dataset ini ada di Google Sheets dan akan diakses melalui Google Sheets API.
-    * **Validasi:** Daftar sumber data terdokumentasi.
-* **Langkah 1.2:** Kembangkan script untuk mengambil data dari Google Sheets menggunakan Google Sheets API. Target awal ~500-1000 sampel dari dataset yang sudah ada.
-    * **Validasi:** File dataset mentah (misalnya, `.csv`, `.txt`) tersedia.
-* **Langkah 1.3:** Lakukan pembersihan dan normalisasi data dari Google Sheets sebelum preprocessing umum. Pastikan format data konsisten dan siap untuk tahap preprocessing selanjutnya.
+* **Langkah 1.1:** Identifikasi dan siapkan dataset awal Bahasa Jawa dalam format CSV. Dataset ini disimpan secara lokal dalam proyek.
+    * **Validasi:** File `raw-dataset.csv` tersedia di direktori `src/data_collection/`.
+* **Langkah 1.2:** Kembangkan script untuk memuat dan memeriksa data dari file CSV lokal. Target awal ~500-1000 sampel dari dataset yang sudah ada.
+    * **Validasi:** Script dapat memuat file `.csv` dan menghasilkan laporan inspeksi data.
+* **Langkah 1.3:** Lakukan pembersihan dan normalisasi data dari file CSV sebelum preprocessing umum. Pastikan format data konsisten dan siap untuk tahap preprocessing selanjutnya.
     * **Validasi:** Script dapat memproses file data mentah dan menghasilkan data bersih.
 * **Langkah 1.4:** Implementasikan fungsi filtering dasar untuk konten duplikat. [cite: 57, 94]
     * **Validasi:** Jumlah data berkurang setelah filtering duplikat.
@@ -77,4 +77,4 @@ Membangun sistem dasar yang dapat menerima input teks Bahasa Jawa, mengklasifika
 * Analisis kualitatif kesalahan. [cite: 54, 107]
 * Uji coba prototipe dengan pengguna. [cite: 7, 62, 110]
 
---- 
+---

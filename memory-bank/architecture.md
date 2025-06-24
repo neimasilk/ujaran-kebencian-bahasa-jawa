@@ -1,54 +1,44 @@
 # Arsitektur Sistem - Deteksi Ujaran Kebencian Bahasa Jawa
 
-**Versi:** 0.1
-**Tanggal:** 26 Mei 2025
+**Versi:** 0.2
+**Tanggal:** 29 Mei 2025
 
 Dokumen ini menjelaskan arsitektur yang direncanakan untuk sistem deteksi ujaran kebencian Bahasa Jawa. Arsitektur ini bersifat modular untuk memungkinkan pengembangan dan iterasi yang lebih mudah.
 
 ## Komponen Utama:
 
-```
+```mermaid
+graph TD
+    subgraph "Persiapan Data"
+        A[Pengumpulan Data: raw-dataset.csv] --> B(Preprocessing & Filtering)
+        B --> C{Pelabelan Data Manual}
+    end
 
-+-------------------------+      +--------------------------+      +---------------------+
-|   Pengumpulan Data      |----->|  Preprocessing &         |----->|  Pelabelan Data     |
-| (Online Platforms, etc.)|      |  Filtering Data          |      | (Ahli Bahasa/Budaya)|
-+-------------------------+      +--------------------------+      +---------------------+
-|                                  |
-| (Data Bersih)                    | (Dataset Berlabel)
-|                                  |
-v                                  v
-+---------------------------------------------------------------------------------------------+
-|                                   Modul Machine Learning                                    |
-|                                                                                             |
-|  +--------------------------+      +--------------------------+      +--------------------+ |
-|  |  Dataset Loader &        |----->|  Model BERT (IndoBERT    |----->|  Evaluasi Model    | |
-|  |  Tokenizer               |      |  Fine-tuning &           |      | (Metrik, Analisis) | |
-|  |                          |      |  Lapisan Klasifikasi)    |      +--------------------+ |
-|  +--------------------------+      +--------------------------+                             |
-|                                           ^         | (Model Terlatih)                       |
-|                                           |_________| (Iterasi)                              |
-+---------------------------------------------------------------------------------------------+
-|
-| (Model Terlatih)
-v
-+---------------------------------------------------------------------------------------------+
-|                                       Prototipe Aplikasi                                    |
-|                                                                                             |
-|  +--------------------------+      +--------------------------+      +--------------------+ |
-|  |  API Server              |<---->|  Logika Aplikasi         |<---->|  Antarmuka Pengguna| |
-|  |  (Flask/FastAPI)         |      |  (Preprocessing Input,   |      |  (Web - Sederhana) | |
-|  |                          |      |   Prediksi Model)        |      +--------------------+ |
-|  +--------------------------+      +--------------------------+                             |
-|                                                                                             |
-+---------------------------------------------------------------------------------------------+
+    subgraph "Modul Machine Learning"
+        C -- Dataset Berlabel --> D[Dataset Loader & Tokenizer]
+        D --> E{Fine-tuning Model BERT}
+        E --> F[Evaluasi Model]
+        F -- Model Terlatih --> G((Simpan Model))
+        E -- Iterasi --> E
+    end
+
+    subgraph "Prototipe Aplikasi"
+        G -- Model Terlatih --> H{API Server: FastAPI}
+        H <--> I[Logika Aplikasi]
+        I <--> J[Antarmuka Pengguna Web]
+    end
+
+    J -- Input Teks --> I
+    I -- Prediksi --> J
+```
 
 ## Deskripsi Komponen:
 
 1.  **Pengumpulan Data:**
-    * **Tanggung Jawab:** Mengakses dan mengambil dataset teks berbahasa Jawa yang sudah ada dari Google Sheets menggunakan Google Sheets API.
-    * **Teknologi:** Skrip Python, Google Sheets API, library klien Google untuk Python, Pandas.
-    * **Input:** Akses ke Google Sheets yang berisi dataset.
-    * **Output:** Dataset mentah dalam format yang dapat diproses (CSV/DataFrame).
+    * **Tanggung Jawab:** Menggunakan dataset teks berbahasa Jawa yang sudah ada dan tersimpan dalam format CSV (`raw-dataset.csv`).
+    * **Teknologi:** Skrip Python, Pandas.
+    * **Input:** File `raw-dataset.csv` yang berada di direktori `src/data_collection/`.
+    * **Output:** Dataset mentah dalam bentuk DataFrame Pandas.
 
 2.  **Preprocessing & Filtering Data:**
     * **Tanggung Jawab:** Membersihkan dan memformat data mentah.
@@ -65,7 +55,7 @@ v
         * **Tanggung Jawab:** Memuat dataset berlabel, melakukan tokenisasi teks menggunakan tokenizer dari model BERT (IndoBERT).
         * **Teknologi:** Python, Hugging Face Datasets/Pandas, Hugging Face Tokenizers.
     * **Model BERT (Fine-tuning & Lapisan Klasifikasi):** [cite: 58, 59, 100, 101, 103]
-        * **Tanggung Jawab:** Menggunakan model IndoBERT pre-trained, melakukan fine-tuning dengan dataset Bahasa Jawa berlabel. Menambahkan lapisan klasifikasi untuk tugas deteksi ujaran kebencian (4 kelas).
+        * **Tanggung Jawab:** Menggunakan model IndoBERT pre-trained, melakukan fine-tuning dengan dataset Bahasa Jawa berlabel. Menambahkan lapisan klasifikasi untuk tugas deteksi ujaran kebencian dengan 4 kelas: **Bukan Ujaran Kebencian, Ujaran Kebencian Ringan, Ujaran Kebencian Sedang,** dan **Ujaran Kebencian Berat**.
         * **Teknologi:** Python, Hugging Face Transformers, PyTorch/TensorFlow.
     * **Evaluasi Model:** [cite: 54, 60, 61, 106, 107]
         * **Tanggung Jawab:** Mengukur performa model menggunakan metrik kuantitatif (akurasi, presisi, recall, F1-score) dan analisis confusion matrix. Melakukan analisis kualitatif terhadap kesalahan klasifikasi.
@@ -100,15 +90,16 @@ v
 * **Iterasi:** Arsitektur mendukung iterasi, terutama pada Modul Machine Learning (pelatihan ulang dengan data lebih banyak, penyesuaian model) dan Prototipe Aplikasi (penambahan fitur).
 * **Konfigurasi:** Parameter model, path file, dan konfigurasi lainnya akan dikelola secara eksternal (misalnya, file `.env` atau konfigurasi).
 
-## Diagram Alir Data
+## Diagram Alir Data (Sederhana)
+
 ```
-[Google Sheets] -> [Data Collection Module] -> [Preprocessing] -> [Model Training/Inference] -> [API Endpoints]
+[raw-dataset.csv] -> [Preprocessing] -> [Pelabelan] -> [Training Model] -> [Model Tersimpan] -> [API Server]
 ```
 
 ## Interaksi Antar Komponen
-1. Data Collection mengambil data dari Google Sheets
-2. Preprocessing menerima data mentah dan menghasilkan data bersih
-3. Model menerima data bersih untuk training/inference
-4. API menerima request dan mengembalikan hasil prediksi model
+1.  Skrip preprocessing memuat data dari `raw-dataset.csv`.
+2.  Data yang sudah bersih dan berlabel digunakan untuk melatih model.
+3.  Model yang sudah terlatih disimpan dalam direktori `models/`.
+4.  API Server memuat model yang tersimpan untuk melakukan prediksi pada data baru yang masuk.
 
---- 
+---

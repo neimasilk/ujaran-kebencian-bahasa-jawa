@@ -1,7 +1,7 @@
 # Petunjuk Pekerjaan Manual - Sistem Deteksi Ujaran Kebencian Bahasa Jawa
 
-**Versi:** 0.1
-**Tanggal:** 28 Mei 2025
+**Versi:** 0.2
+**Tanggal:** 29 Mei 2025
 
 ## 1. Pendahuluan
 
@@ -50,8 +50,8 @@ Setiap sampel teks akan diklasifikasikan ke dalam salah satu kategori berikut. K
 
 1.  **Persiapan Pelabelan:**
     * **Pahami Pedoman:** Setiap pelabel harus memahami dengan saksama definisi masing-masing kategori label dan pedoman umum pelabelan ini.
-    * **Alat Pelabelan:** Siapkan alat yang akan digunakan. Ini bisa berupa spreadsheet (misalnya, Google Sheets, Excel) dengan kolom untuk teks, label, dan catatan, atau alat anotasi teks khusus jika tersedia.
-    * **Akses Data:** Pastikan akses ke dataset teks Bahasa Jawa yang sudah melalui tahap preprocessing awal (pembersihan dari noise seperti URL berlebih, karakter non-tekstual, dll.).
+    *   **Alat Pelabelan:** Gunakan spreadsheet (misalnya, Google Sheets, Excel) dengan kolom untuk teks, label, dan catatan.
+    *   **Akses Data:** Proses pelabelan dilakukan pada data yang berasal dari `raw-dataset.csv` setelah melalui tahap preprocessing awal.
 
 2.  **Analisis Teks dan Konteks:**
     * Baca setiap sampel teks Bahasa Jawa secara menyeluruh.
@@ -86,29 +86,6 @@ Setiap sampel teks akan diklasifikasikan ke dalam salah satu kategori berikut. K
 * **Dokumentasi Kasus Sulit:** Catat contoh-contoh teks yang sulit dilabeli beserta alasannya. Ini akan membantu dalam diskusi tim dan penyempurnaan pedoman.
 * **Keterbatasan Data Awal:** Ingat bahwa dataset awal mungkin belum mencakup semua variasi ujaran kebencian. Tetap terbuka untuk menemukan pola-pola baru.
 
-## 3. Pengumpulan Data Manual Awal (Jika Diperlukan Sebagai Tambahan)
+## 3. Sumber Data
 
-Meskipun sebagian besar proses pengumpulan data direncanakan menggunakan script atau API, mungkin ada kebutuhan untuk pengumpulan data manual awal atau tambahan, terutama untuk:
-
-* Mengidentifikasi sumber-sumber data baru atau spesifik (misalnya, grup komunitas online, forum lokal tertentu berbahasa Jawa).
-* Mengumpulkan sampel dari platform yang sulit di-scrape secara otomatis.
-* Memahami secara kualitatif jenis-jenis ujaran kebencian yang muncul di berbagai platform.
-
-### 3.1. Langkah-langkah Pengumpulan Data Manual Awal
-
-1.  **Identifikasi Sumber Potensial:**
-    * Berdasarkan diskusi tim dan pengetahuan lokal, buat daftar platform online, forum, grup media sosial, atau kolom komentar yang sering menggunakan Bahasa Jawa dan berpotensi mengandung ujaran kebencian.
-2.  **Eksplorasi Manual:**
-    * Kunjungi sumber-sumber tersebut.
-    * Gunakan kata kunci pencarian yang relevan dalam Bahasa Jawa (misalnya, istilah-istilah yang sering muncul dalam konteks perdebatan panas, hinaan, dll.).
-3.  **Pengumpulan Sampel:**
-    * Jika menemukan teks yang relevan (baik yang jelas ujaran kebencian maupun yang ambigu atau kontekstual), salin (copy-paste) teks tersebut.
-    * Simpan dalam sebuah file (misalnya, spreadsheet atau dokumen teks).
-    * Sertakan informasi sumber jika memungkinkan (misalnya, URL, nama grup/forum, tanggal akses). Ini penting untuk melacak asal data dan potensi bias.
-4.  **Fokus pada Keragaman:**
-    * Upayakan untuk mengumpulkan sampel dari berbagai dialek dan tingkatan bahasa Jawa jika memungkinkan.
-    * Cari juga contoh teks netral atau positif dari sumber yang sama sebagai data pembanding.
-5.  **Etika Pengumpulan Data:**
-    * Selalu perhatikan etika dan privasi. Hindari mengumpulkan informasi pribadi yang tidak relevan. Jika data berasal dari sumber tertutup, pastikan memiliki izin yang sesuai atau anonimkan data.
-
-Proses manual ini bersifat komplementer terhadap pengumpulan data otomatis dan bertujuan untuk memperkaya dataset awal dengan sampel-sampel yang mungkin terlewat.
+Fokus utama pekerjaan manual adalah pelabelan data yang sudah ada di `raw-dataset.csv`. Proses pengumpulan data baru tidak menjadi bagian dari lingkup pekerjaan manual saat ini, karena dataset awal dianggap sudah cukup untuk fase MVP. Semua upaya akan difokuskan pada kualitas pelabelan.
