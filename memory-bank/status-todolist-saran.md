@@ -46,12 +46,17 @@
 ## 3. Saran "Baby-Step To-Do List" untuk Langkah Berikutnya:
 
 ### Baby Step 1: Inisialisasi Proyek & Lingkungan Dasar
-1. Clone repositori Git ke lokal
-2. Buat branch development
-3. Periksa struktur folder dasar
-4. Aktifkan atau buat conda environment `ujaran` (lihat `memory-bank/environment-setup.md`). Pastikan Python versi 3.11+ (sesuai `requirements.txt`)
-5. Install library Python yang dibutuhkan menggunakan `pip install -r requirements.txt`. Pastikan library untuk Google Sheets API terinstall: `google-api-python-client google-auth-httplib2 google-auth-oauthlib`
-6. Pastikan file `requirements.txt` sudah terbaru dan mencakup library Google Sheets API
-7. Buat script test sederhana untuk memvalidasi environment
+1. Clone repositori Git ke lokal.
+2. Buat branch `development` dari `main` (atau branch default Anda).
+3. Periksa dan pastikan struktur folder dasar proyek sudah sesuai dengan yang direncanakan di `readme.md`.
+4. Aktifkan atau buat conda environment `ujaran` sesuai panduan di `memory-bank/environment-setup.md`. Pastikan versi Python (misalnya 3.11.x) sesuai.
+5. **Persiapkan `requirements.txt`**:
+   * File `requirements.txt` yang ada terlihat seperti ekspor lengkap dari sebuah environment conda. Untuk langkah awal, pastikan library krusial untuk Fase 1 (Pengumpulan Data dari Google Sheets) yaitu `google-api-python-client`, `google-auth-httplib2`, dan `google-auth-oauthlib` tercantum di dalamnya.
+   * Jika belum ada, tambahkan library tersebut ke file `requirements.txt` yang ada. Anda mungkin juga ingin mempertimbangkan untuk membuat file `requirements.txt` yang lebih minimal dan terkurasi untuk proyek ini di masa mendatang.
+6. Setelah memastikan `requirements.txt` mencakup semua paket yang diperlukan untuk tahap awal (terutama Google API Client Libraries), install semua library Python dari environment `ujaran` yang aktif menggunakan:
+   ```bash
+   pip install -r requirements.txt
+   ```
+7. Buat script Python sederhana (misalnya, `check_env.py` di root proyek atau di folder `tests`) yang mengimpor library-library utama yang baru diinstal (contoh: `import pandas`, `from googleapiclient.discovery import build`). Jalankan script ini untuk memvalidasi bahwa environment dan instalasi library berhasil tanpa error.
 
---- 
+---
