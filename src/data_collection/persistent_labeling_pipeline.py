@@ -36,7 +36,7 @@ logger = setup_logger("persistent_pipeline")
 class CheckpointManager:
     """Manager untuk checkpoint dan resume functionality."""
     
-    def __init__(self, checkpoint_dir: str = "checkpoints"):
+    def __init__(self, checkpoint_dir: str = "src/checkpoints"):
         """Initialize checkpoint manager.
         
         Args:
@@ -307,7 +307,13 @@ class PersistentLabelingPipeline:
             logger.info("All negative data already processed")
             return results
         
+        # Hitung total batches dari seluruh dataset untuk progress yang lebih informatif
+        total_negative_samples = len(negative_df)
+        total_batches_overall = (total_negative_samples - 1) // batch_size + 1
+        processed_batches = len(processed_indices) // batch_size
+        
         logger.info(f"Processing {len(remaining_df)} remaining negative samples")
+        logger.info(f"Overall progress: {len(processed_indices)}/{total_negative_samples} samples processed ({processed_batches}/{total_batches_overall} batches)")
         
         # Cek strategi biaya sebelum memulai
         should_process, reason = self.cost_optimizer.should_process_now(self.cost_strategy)
@@ -323,9 +329,12 @@ class PersistentLabelingPipeline:
                 batch_df = remaining_df.iloc[i:i+batch_size]
                 batch_texts = batch_df['text'].tolist()
                 
-                batch_num = i//batch_size + 1
-                total_batches = (len(remaining_df)-1)//batch_size + 1
-                logger.info(f"Processing batch {batch_num}/{total_batches}")
+                # Hitung batch number berdasarkan progress keseluruhan
+                current_batch_in_remaining = i//batch_size + 1
+                remaining_batches = (len(remaining_df)-1)//batch_size + 1
+                current_batch_overall = processed_batches + current_batch_in_remaining
+                
+                logger.info(f"Processing batch {current_batch_overall}/{total_batches_overall} (remaining: {current_batch_in_remaining}/{remaining_batches})")
                 
                 # Label batch dengan DeepSeek
                 batch_results = self.client.label_batch(batch_texts)
@@ -365,12 +374,12 @@ class PersistentLabelingPipeline:
                     
                     # Save intermediate results
                     self._save_results(all_results, output_file)
-                    logger.info(f"Checkpoint saved after batch {batch_num}")
+                    logger.info(f"Checkpoint saved after batch {current_batch_overall}")
                 
                 # Progress info
                 if batch_results:
                     avg_confidence = sum(r.confidence for r in batch_results) / len(batch_results)
-                    logger.info(f"Batch {batch_num} completed. Avg confidence: {avg_confidence:.3f}")
+                    logger.info(f"Batch {current_batch_overall} completed. Avg confidence: {avg_confidence:.3f}")
         
         except KeyboardInterrupt:
             logger.info("Processing interrupted by user. Saving checkpoint...")

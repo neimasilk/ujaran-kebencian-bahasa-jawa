@@ -146,7 +146,7 @@ def evaluate_model(model, val_texts, val_labels):
     return dummy_metrics
 
 
-def save_model(model, path="models/trained_bert_javanese_hatespeech.pt"):
+def save_model(model, path="src/models/trained_bert_javanese_hatespeech.pt"):
     """
     Menyimpan model yang sudah dilatih (placeholder).
 

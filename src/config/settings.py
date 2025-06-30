@@ -17,12 +17,12 @@ class Settings(BaseSettings):
     model_name: str = "indolem/indobert-base-uncased"
     model_max_length: int = 512
     num_labels: int = 4
-    model_cache_dir: str = "./models/cache"
+    model_cache_dir: str = "./src/models/cache"
     
     # Data Configuration  
-    data_dir: str = "./data"
+    data_dir: str = "./src/data"
     raw_dataset_path: str = "./src/data_collection/raw-dataset.csv"
-    processed_dataset_path: str = "./data/processed/dataset.csv"
+    processed_dataset_path: str = "./src/data/processed/dataset.csv"
     train_split: float = 0.7
     val_split: float = 0.15
     test_split: float = 0.15
@@ -55,8 +55,8 @@ class Settings(BaseSettings):
     rate_limit_per_minute: int = 60
     
     # Model Training
-    model_save_path: str = "models/"
-    checkpoint_dir: str = "checkpoints/"
+    model_save_path: str = "src/models/"
+    checkpoint_dir: str = "src/checkpoints/"
     
     # Labels Configuration
     label_mapping: dict = {
@@ -71,7 +71,17 @@ class Settings(BaseSettings):
 # Global settings instance
 settings = Settings()
 
-# Create necessary directories
-os.makedirs(os.path.dirname(settings.log_file) if settings.log_file else "logs", exist_ok=True)
-os.makedirs(settings.model_save_path, exist_ok=True)
-os.makedirs(settings.checkpoint_dir, exist_ok=True)
+# Create necessary directories with absolute paths
+from pathlib import Path
+base_dir = Path(__file__).parent.parent  # Points to src directory
+
+# Create directories relative to src
+log_dir = base_dir / "logs" if not settings.log_file else (base_dir / settings.log_file).parent
+os.makedirs(log_dir, exist_ok=True)
+
+# Ensure model_save_path and checkpoint_dir are absolute
+model_path = base_dir / settings.model_save_path.replace("src/", "").replace("./src/", "")
+checkpoint_path = base_dir / settings.checkpoint_dir.replace("src/", "").replace("./src/", "")
+
+os.makedirs(model_path, exist_ok=True)
+os.makedirs(checkpoint_path, exist_ok=True)

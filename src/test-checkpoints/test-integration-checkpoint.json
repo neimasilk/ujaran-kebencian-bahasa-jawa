@@ -1,0 +1,14 @@
+{
+  "checkpoint_id": "test_integration_001",
+  "timestamp": "2025-07-01T05:59:23.376231",
+  "processed_indices": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "total_samples": 100,
+  "current_batch": 1,
+  "test_mode": true
+}
