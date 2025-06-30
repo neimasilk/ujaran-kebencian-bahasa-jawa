@@ -1,13 +1,21 @@
 # Petunjuk Pekerjaan Manual - Sistem Deteksi Ujaran Kebencian Bahasa Jawa
 
-**Versi:** 0.2
-**Tanggal:** 29 Mei 2025
+**Versi:** 1.0
+**Tanggal:** 29 Desember 2024
+**Mengikuti:** Vibe Coding Guide v1.4
 
 ## 1. Pendahuluan
 
-Dokumen ini bertujuan untuk memberikan panduan terstruktur bagi pekerjaan manual yang esensial dalam proyek "Integrasi Kecerdasan Buatan dan Kearifan Lokal dalam Sistem Deteksi Ujaran Kebencian Bahasa Jawa Menggunakan BERT". Pekerjaan manual ini terutama berkaitan dengan aspek-aspek yang memerlukan interpretasi manusia, pemahaman konteks budaya mendalam, dan penilaian subjektif yang sulit atau belum bisa sepenuhnya diotomatisasi, khususnya dalam pembuatan dan pelabelan dataset.
+Dokumen ini memberikan panduan terstruktur untuk pekerjaan manual yang esensial dalam proyek "Sistem Deteksi Ujaran Kebencian Bahasa Jawa Menggunakan BERT". Proyek ini dikembangkan menggunakan metodologi Vibe Coding v1.4 dengan tim hibrida (manusia + AI).
 
-Kualitas dari pekerjaan manual ini akan berdampak langsung pada kualitas dataset dan, pada akhirnya, performa model machine learning yang akan dikembangkan.
+Pekerjaan manual terutama berkaitan dengan aspek-aspek yang memerlukan interpretasi manusia, pemahaman konteks budaya mendalam, dan penilaian subjektif yang sulit diotomatisasi, khususnya dalam pembuatan dan pelabelan dataset.
+
+**Referensi Terkait:**
+- Spesifikasi Produk: [`spesifikasi-produk.md`](spesifikasi-produk.md)
+- Tim Manifest: [`../vibe-guide/team-manifest.md`](../vibe-guide/team-manifest.md)
+- Panduan Utama: [`../vibe-guide/VIBE_CODING_GUIDE.md`](../vibe-guide/VIBE_CODING_GUIDE.md)
+
+Kualitas pekerjaan manual ini akan berdampak langsung pada kualitas dataset dan performa model machine learning yang dikembangkan.
 
 ## 2. Panduan Pelabelan Data Ujaran Kebencian Bahasa Jawa
 
