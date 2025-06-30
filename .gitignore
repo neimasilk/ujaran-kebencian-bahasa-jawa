@@ -10,10 +10,16 @@ build/
 
 # Virtual environment
 .env
+.env.local
+.env.*.local
 .venv/
 env/
 venv/
 ENV/
+
+# Google Drive API credentials
+credentials.json
+token.json
 
 # Jupyter Notebook
 .ipynb_checkpoints

@@ -1,0 +1,11 @@
+original_text,original_label,deepseek_label_id,deepseek_label_name,confidence,response_time,error
+Mesthine sah yen wong lanang ngenthu bojone,negative,1,Ujaran Kebencian Ringan,0.75,4.889126300811768,
+Dalit minangka sampah masyarakat sing asor,negative,3,Ujaran Kebencian Berat,0.95,3.735647678375244,
+Dalit iku wong kang asor,negative,2,Ujaran Kebencian Sedang,0.9,3.274458169937134,
+Iku luwih apik donya nalika wong wadon ora wani takon wong,negative,1,Ujaran Kebencian Ringan,0.75,3.086230754852295,
+Aku ora kerja keras supaya para imigran kasebut bisa njupuk kabeh keuntungan,negative,2,Ujaran Kebencian Sedang,0.8,4.264760732650757,
+Aku ora kerja keras supaya para migran bisa njupuk kabeh keuntungan,negative,1,Ujaran Kebencian Ringan,0.75,3.1514575481414795,
+Aku ora kerja keras supaya wong liyo bisa njupuk kabeh bathi,negative,1,Ujaran Kebencian Ringan,0.75,3.8264756202697754,
+Aku ora kerja keras supaya Hispanik bisa njupuk kabeh keuntungan,negative,2,Ujaran Kebencian Sedang,0.9,3.719611644744873,
+Aku ora bisa iki hard supaya sing chavs bisa njupuk kabeh keuntungan,negative,2,Ujaran Kebencian Sedang,0.75,3.6353745460510254,
+Aku ora kerja keras supaya kabeh pakis bisa entuk manfaat,negative,1,Ujaran Kebencian Ringan,0.75,3.534797191619873,

@@ -1,9 +1,11 @@
 # Arsitektur Sistem - Deteksi Ujaran Kebencian Bahasa Jawa
 
-**Versi:** 0.2
-**Tanggal:** 29 Mei 2025
+**Versi:** 1.0
+**Tanggal:** 2 Januari 2025
+**Arsitek:** Mukhlis Amien
+**Review Status:** ✅ Reviewed & Updated
 
-Dokumen ini menjelaskan arsitektur yang direncanakan untuk sistem deteksi ujaran kebencian Bahasa Jawa. Arsitektur ini bersifat modular untuk memungkinkan pengembangan dan iterasi yang lebih mudah.
+Dokumen ini menjelaskan arsitektur sistem deteksi ujaran kebencian Bahasa Jawa yang telah dioptimalkan berdasarkan analisis mendalam terhadap implementasi saat ini dan kebutuhan proyek. Arsitektur ini mengikuti prinsip modular, scalable, dan maintainable sesuai dengan Vibe Coding Guide v1.4.
 
 ## Komponen Utama:
 
@@ -84,11 +86,92 @@ graph TD
 7.  API Server mengirimkan respons (misalnya, format JSON) kembali ke Antarmuka Pengguna atau pemanggil API.
 8.  Antarmuka Pengguna menampilkan hasil klasifikasi kepada pengguna.
 
-## Pertimbangan Desain:
+## Analisis Arsitektur Saat Ini (Review Arsitek)
 
-* **Modularitas:** Setiap komponen dirancang untuk independen sejauh mungkin untuk memudahkan pengembangan, pengujian, dan pembaruan.
-* **Iterasi:** Arsitektur mendukung iterasi, terutama pada Modul Machine Learning (pelatihan ulang dengan data lebih banyak, penyesuaian model) dan Prototipe Aplikasi (penambahan fitur).
-* **Konfigurasi:** Parameter model, path file, dan konfigurasi lainnya akan dikelola secara eksternal (misalnya, file `.env` atau konfigurasi).
+### ✅ Kekuatan Implementasi
+1. **Struktur Modular yang Baik**: Kode sudah terorganisir dengan baik dalam folder `src/` dengan pemisahan yang jelas:
+   - `data_collection/`: Handling dataset loading
+   - `preprocessing/`: Text preprocessing utilities
+   - `modelling/`: Model training dan evaluation
+   - `utils/`: General utilities
+
+2. **Testing Infrastructure**: Unit tests sudah diimplementasi dengan coverage >80%
+3. **Documentation**: API documentation sudah tersedia
+4. **Data Pipeline**: Dataset loading dan inspection sudah berfungsi dengan baik
+
+### ⚠️ Area yang Perlu Diperbaiki
+1. **Dependencies Management**: File `requirements.txt` kosong - perlu diisi dengan dependencies yang tepat
+2. **Configuration Management**: Belum ada sistem konfigurasi terpusat
+3. **Error Handling**: Perlu standardisasi error handling di seluruh aplikasi
+4. **Logging System**: Belum ada sistem logging yang terstruktur
+5. **Model Versioning**: Belum ada strategi untuk model versioning dan deployment
+
+## Rekomendasi Arsitektur (Prioritas Tinggi)
+
+### 1. Dependency Management
+```python
+# requirements.txt yang direkomendasikan:
+torch>=1.9.0
+transformers>=4.20.0
+pandas>=1.3.0
+scikit-learn>=1.0.0
+fastapi>=0.68.0
+uvicorn>=0.15.0
+pytest>=6.0.0
+numpy>=1.21.0
+```
+
+### 2. Configuration Management
+```python
+# src/config/settings.py
+from pydantic import BaseSettings
+
+class Settings(BaseSettings):
+    model_name: str = "indolem/indobert-base-uncased"
+    max_length: int = 512
+    batch_size: int = 16
+    learning_rate: float = 2e-5
+    num_epochs: int = 3
+    
+    class Config:
+        env_file = ".env"
+```
+
+### 3. Logging System
+```python
+# src/utils/logger.py
+import logging
+from pathlib import Path
+
+def setup_logger(name: str, log_file: str = None):
+    logger = logging.getLogger(name)
+    logger.setLevel(logging.INFO)
+    
+    formatter = logging.Formatter(
+        '%(asctime)s - %(name)s - %(levelname)s - %(message)s'
+    )
+    
+    # Console handler
+    console_handler = logging.StreamHandler()
+    console_handler.setFormatter(formatter)
+    logger.addHandler(console_handler)
+    
+    # File handler
+    if log_file:
+        file_handler = logging.FileHandler(log_file)
+        file_handler.setFormatter(formatter)
+        logger.addHandler(file_handler)
+    
+    return logger
+```
+
+## Pertimbangan Desain (Updated):
+
+* **Modularitas**: ✅ Sudah diimplementasi dengan baik
+* **Scalability**: Perlu ditambahkan load balancing dan caching untuk production
+* **Maintainability**: Perlu standardisasi coding standards dan documentation
+* **Security**: Perlu implementasi API authentication dan rate limiting
+* **Monitoring**: Perlu sistem monitoring untuk model performance dan API health
 
 ## Diagram Alir Data (Sederhana)
 
