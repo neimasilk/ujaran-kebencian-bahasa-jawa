@@ -56,12 +56,28 @@ Setiap sampel teks akan diklasifikasikan ke dalam salah satu kategori berikut. K
 
 ### 2.4. Proses Pelabelan (Langkah-langkah Manual)
 
-1.  **Persiapan Pelabelan:**
-    * **Pahami Pedoman:** Setiap pelabel harus memahami dengan saksama definisi masing-masing kategori label dan pedoman umum pelabelan ini.
-    *   **Alat Pelabelan:** Gunakan spreadsheet (misalnya, Google Sheets, Excel) dengan kolom untuk teks, label, dan catatan.
-    *   **Akses Data:** Proses pelabelan dilakukan pada data yang berasal dari `raw-dataset.csv` setelah melalui tahap preprocessing awal.
+#### Strategi Cost-Efficient dengan DeepSeek API
 
-2.  **Analisis Teks dan Konteks:**
+**Pembagian Data:**
+- **Data Positif** (label: "positive") → Langsung dilabeli sebagai "Bukan Ujaran Kebencian" (tidak perlu API)
+- **Data Negatif** (label: "negative") → Dilabeli detail menggunakan DeepSeek API
+
+1.  **Persiapan Environment:**
+    * Setup file `.env` dengan konfigurasi DeepSeek API
+    * Install dependencies: `pip install -r requirements.txt`
+    * Test koneksi API dengan mode mock
+    * Siapkan file `raw-dataset.csv`
+
+2.  **Labeling Otomatis:**
+    ```bash
+    # Mode testing (mock API)
+    python src/data_collection/deepseek_labeling_pipeline.py --mock --sample 50
+    
+    # Mode production (real API)
+    python src/data_collection/deepseek_labeling_pipeline.py --input raw-dataset.csv --output labeled-dataset.csv
+    ```
+
+3.  **Analisis Teks dan Konteks (untuk validasi manual):**
     * Baca setiap sampel teks Bahasa Jawa secara menyeluruh.
     * Pertimbangkan konteks linguistik:
         * **Tingkatan Bahasa:** Apakah teks menggunakan Ngoko, Krama Madya, atau Krama Inggil? Penggunaan tingkatan bahasa yang tidak sesuai dapat menjadi indikator.
@@ -69,17 +85,17 @@ Setiap sampel teks akan diklasifikasikan ke dalam salah satu kategori berikut. K
         * **Metafora & Ungkapan Lokal (Pasemon):** Perhatikan penggunaan metafora, peribahasa, atau ungkapan khas Jawa yang mungkin mengandung makna tersirat terkait ujaran kebencian.
     * Pertimbangkan konteks sosial dan budaya yang lebih luas jika informasi tersebut tersedia atau dapat diinferensikan secara wajar.
 
-3.  **Pemberian Label:**
-    * Setelah analisis, tentukan satu kategori label yang paling sesuai untuk sampel teks tersebut.
-    * Jika sebuah teks dapat masuk ke lebih dari satu kategori (misalnya, mengandung hinaan langsung dan sindiran), pilih kategori yang paling dominan atau paling berat dampaknya.
-    * Masukkan label yang dipilih pada kolom yang sesuai di alat pelabelan.
+4.  **Validasi Manual:**
+    * **Review hasil API** untuk data negatif
+    * **Validasi confidence score** rendah (<0.6)
+    * **Spot check** 10% hasil secara random
+    * **Koreksi manual** jika diperlukan
 
-4.  **Pencatatan (Opsional namun Bermanfaat):**
-    * Jika ada keraguan, ambiguitas, atau kasus menarik, buat catatan singkat di kolom catatan. Ini akan berguna untuk diskusi tim dan penyempurnaan pedoman.
-
-5.  **Diskusi dan Konsensus:**
-    * Untuk kasus-kasus yang ambigu atau sulit, diskusikan dengan anggota tim pelabel lainnya atau dengan ahli bahasa/budaya Jawa.
-    * Tujuannya adalah mencapai konsensus dan memastikan konsistensi pelabelan.
+5.  **Quality Assurance:**
+    * Analisis distribusi label hasil
+    * Review consistency antar kategori
+    * Dokumentasi edge cases
+    * Update guidelines jika diperlukan
 
 6.  **Verifikasi dan Iterasi (Direkomendasikan):**
     * Setelah sejumlah data dilabeli, sebagian sampel dapat diverifikasi oleh pelabel lain (proses *cross-validation* atau *inter-annotator agreement check*).
@@ -94,6 +110,27 @@ Setiap sampel teks akan diklasifikasikan ke dalam salah satu kategori berikut. K
 * **Dokumentasi Kasus Sulit:** Catat contoh-contoh teks yang sulit dilabeli beserta alasannya. Ini akan membantu dalam diskusi tim dan penyempurnaan pedoman.
 * **Keterbatasan Data Awal:** Ingat bahwa dataset awal mungkin belum mencakup semua variasi ujaran kebencian. Tetap terbuka untuk menemukan pola-pola baru.
 
-## 3. Sumber Data
+## 3. Target dan Metrik Kualitas
+
+### 3.1. Target Kuantitatif
+- **Target Minimum:** 200 sampel berlabel untuk MVP
+- **Target Optimal:** 500-1000 sampel berlabel untuk model yang lebih robust
+- **Distribusi Label:** Usahakan distribusi yang relatif seimbang antar kategori (tidak ada kategori yang kurang dari 5% dari total)
+
+### 3.2. Metrik Kualitas
+- **Inter-annotator Agreement:** Target >80% untuk konsistensi antar pelabel
+- **Consistency Rate:** >90% konsistensi dalam pelabelan ulang sampel yang sama
+- **Coverage:** Semua kategori harus terwakili dalam dataset final
+- **Documentation:** Semua edge cases dan keputusan sulit harus terdokumentasi
+- **API Confidence:** >70% average confidence score dari DeepSeek API
+- **Cost Efficiency:** >50% penghematan biaya API melalui strategi positif/negatif
+
+### 3.3. Metrik DeepSeek API
+- **Success Rate:** >95% API calls berhasil
+- **Response Time:** <2 detik average per sample
+- **Cost Optimization:** Maksimal 50% data menggunakan API (sisanya rule-based)
+- **Quality Validation:** Manual review untuk confidence score <0.6
+
+## 4. Sumber Data
 
 Fokus utama pekerjaan manual adalah pelabelan data yang sudah ada di `raw-dataset.csv`. Proses pengumpulan data baru tidak menjadi bagian dari lingkup pekerjaan manual saat ini, karena dataset awal dianggap sudah cukup untuk fase MVP. Semua upaya akan difokuskan pada kualitas pelabelan.
