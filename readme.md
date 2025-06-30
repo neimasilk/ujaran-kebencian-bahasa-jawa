@@ -1,6 +1,8 @@
 # Sistem Deteksi Ujaran Kebencian Bahasa Jawa Menggunakan BERT
 
-Proyek ini bertujuan untuk membangun sebuah sistem yang mampu secara cerdas dan akurat mendeteksi ujaran kebencian dalam teks berbahasa Jawa, dengan memanfaatkan model IndoBERT yang di-fine-tuning.
+**Status Proyek:** Development Phase | **Vibe Coding Guide:** v1.4 | **Tim:** Hibrida (Manusia + AI)
+
+Proyek ini bertujuan untuk membangun sebuah sistem yang mampu secara cerdas dan akurat mendeteksi ujaran kebencian dalam teks berbahasa Jawa, dengan memanfaatkan model IndoBERT yang di-fine-tuning. Proyek ini dikembangkan menggunakan metodologi Vibe Coding v1.4 dengan kolaborasi tim hibrida antara manusia dan AI.
 
 ## Dataset
 
@@ -70,13 +72,47 @@ Proyek ini menggunakan Anaconda untuk manajemen environment dan package Python. 
 
 Detail lebih lanjut tentang setup environment dapat dilihat di `memory-bank/environment-setup.md`.
 
-## Panduan Kontribusi
+## 🚀 Quick Start
 
-Untuk berkontribusi pada proyek ini, silakan baca:
-1. Petunjuk pekerjaan manual di [`memory-bank/petunjuk pekerjaan manual.md`](memory-bank/petunjuk-pekerjaan-manual.md)
-2. Setup environment di [`memory-bank/environment-setup.md`](memory-bank/environment-setup.md)
+### Untuk Kontributor Baru
+1. **Baca Panduan Utama:** [`vibe-guide/VIBE_CODING_GUIDE.md`](vibe-guide/VIBE_CODING_GUIDE.md)
+2. **Pahami Tim:** [`vibe-guide/team-manifest.md`](vibe-guide/team-manifest.md)
+3. **Setup Environment:** [`memory-bank/environment-setup.md`](memory-bank/environment-setup.md)
+4. **Lihat Status Terkini:** [`memory-bank/papan-proyek.md`](memory-bank/papan-proyek.md)
 
-(Akan dilengkapi dengan panduan kontribusi lainnya jika proyek bersifat kolaboratif)
+### Untuk Development
+```bash
+# Clone dan setup
+git clone [repository-url]
+cd ujaran-kebencian-bahasa-jawa
+
+# Setup environment
+conda create -n ujaran python=3.11
+conda activate ujaran
+pip install -r requirements.txt
+
+# Verifikasi setup
+python check_env.py
+```
+
+## 📋 Dokumentasi Proyek
+
+| Dokumen | Deskripsi | Status |
+|---------|-----------|--------|
+| [`memory-bank/spesifikasi-produk.md`](memory-bank/spesifikasi-produk.md) | Kebutuhan dan spesifikasi produk lengkap | ✅ Selesai |
+| [`memory-bank/architecture.md`](memory-bank/architecture.md) | Arsitektur sistem dan komponen | ✅ Selesai |
+| [`memory-bank/papan-proyek.md`](memory-bank/papan-proyek.md) | Status dan tugas terkini | 🔄 Aktif |
+| [`memory-bank/progress.md`](memory-bank/progress.md) | Log progress dan milestone | 🔄 Aktif |
+
+## 🤝 Tim Pengembang
+
+Proyek ini dikembangkan oleh tim hibrida yang terdiri dari:
+- **Mukhlis Amien** (Manusia) - Arsitek/Kepala Tim
+- **Hashfi** (Manusia) - Developer
+- **jules_dokumen** (AI) - Maintainer Dokumentasi
+- **jules_dev1 & jules_dev2** (AI) - Developer
+
+Detail lengkap tim tersedia di [`vibe-guide/team-manifest.md`](vibe-guide/team-manifest.md).
 
 ## Lisensi
 

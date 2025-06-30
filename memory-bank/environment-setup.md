@@ -1,10 +1,14 @@
-# Setup Environment Proyek
+# Environment Setup - Sistem Deteksi Ujaran Kebencian Bahasa Jawa
 
-## Conda Environment
+**Mengikuti:** Vibe Coding Guide v1.4
+**Update:** 29 Desember 2024
 
-* Nama Environment: `ujaran`
-* Python Version: Python 3.8+ (Direkomendasikan 3.11.x seperti pada `requirements.txt` yang ada)
-* Package Manager: Anaconda
+## Spesifikasi Environment
+
+* **Nama Environment:** `ujaran`
+* **Python Version:** 3.11.x (Sesuai requirements.txt)
+* **Package Manager:** Anaconda/Miniconda
+* **OS Support:** Windows, macOS, Linux
 
 ## Library Dasar Awal (untuk MVP Fase 0)
 * pandas
@@ -46,5 +50,30 @@ conda list --export > requirements.txt
 pip freeze > requirements.txt
 ```
 
+## Verifikasi Setup
+
+Setelah setup selesai, jalankan script verifikasi:
+```bash
+python check_env.py
+```
+
+Script ini akan memverifikasi:
+- ✅ Python version compatibility
+- ✅ Required packages installation
+- ✅ Dataset accessibility
+- ✅ Basic functionality
+
+## Troubleshooting
+
+### Common Issues
+1. **Conda command not found:** Pastikan Anaconda/Miniconda sudah terinstall dan PATH sudah dikonfigurasi
+2. **Package conflicts:** Gunakan `conda clean --all` kemudian reinstall
+3. **Permission errors:** Jalankan terminal sebagai administrator (Windows) atau gunakan `sudo` (Linux/macOS)
+
+### Referensi Terkait
+- **Panduan Utama:** [`../vibe-guide/VIBE_CODING_GUIDE.md`](../vibe-guide/VIBE_CODING_GUIDE.md)
+- **Quick Start:** [`../readme.md`](../readme.md)
+- **Tim Support:** [`../vibe-guide/team-manifest.md`](../vibe-guide/team-manifest.md)
+
 ---
-**Catatan:** File ini berisi informasi teknis tentang setup environment proyek. Gunakan sebagai referensi untuk setup ulang atau dokumentasi. 
+**Catatan:** File ini berisi informasi teknis tentang setup environment proyek. Gunakan sebagai referensi untuk setup ulang atau dokumentasi. Untuk bantuan lebih lanjut, hubungi tim sesuai manifest.
