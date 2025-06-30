@@ -132,7 +132,7 @@ def demo_persistence_scenario():
     # Simulate initial processing
     print("1. Simulating Initial Processing Session...")
     
-    manager = CloudCheckpointManager(
+    manager1 = CloudCheckpointManager(
         project_folder='ujaran-kebencian-demo',
         local_cache_dir='src/demo-checkpoints'
     )

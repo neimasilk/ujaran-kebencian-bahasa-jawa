@@ -38,9 +38,21 @@ Dataset yang digunakan dalam proyek ini adalah kumpulan teks Bahasa Jawa yang te
 - **Periode Standar**: ~$5.70
 - **Penghematan**: ~$2.85 (50%) dengan strategi optimal
 
+## 🚀 Quick Start - Labeling
+
+**Ingin langsung mulai labeling? Gunakan perintah sederhana ini:**
+
+```bash
+python labeling.py
+```
+
+📖 **[Baca Panduan Lengkap Labeling](PANDUAN_LABELING.md)** - Dokumentasi lengkap untuk pengguna baru
+
 ## 📚 Documentation
 
-- [Labeling System Documentation](memory-bank/labeling-system-documentation.md) - **Comprehensive guide untuk tim**
+- **[📋 Panduan Labeling](PANDUAN_LABELING.md)** - **Panduan lengkap untuk pengguna**
+- [Labeling System Documentation](memory-bank/labeling-system-documentation.md) - Comprehensive guide untuk tim
+- [Google Drive Setup Guide](GOOGLE_DRIVE_SETUP_GUIDE.md) - Setup Google Drive backup
 - [DeepSeek API Strategy](memory-bank/deepseek-api-strategy.md)
 - [Cost Optimization Strategy](memory-bank/cost-optimization-strategy.md)
 - [Architecture Documentation](memory-bank/architecture.md)

@@ -46,7 +46,7 @@ def dummy_eval_tokenizer_func(texts, truncation=True, padding=True, max_length=1
 class TestEvaluationModule(unittest.TestCase):
 
     def setUp(self):
-        self.model_dir = "test_eval_model_dir"
+        self.model_dir = "src/test_eval_model_dir"
         os.makedirs(self.model_dir, exist_ok=True)
 
         self.dummy_eval_data = {
