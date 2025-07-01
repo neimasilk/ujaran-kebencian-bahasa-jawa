@@ -1,41 +1,151 @@
 text,label,final_label,confidence_score,labeling_method,response_time
-Mesthine sah yen wong lanang ngenthu bojone,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.959875345230103
-Dalit minangka sampah masyarakat sing asor,negative,Ujaran Kebencian - Berat,0.95,deepseek_api,3.0623466968536377
-Dalit iku wong kang asor,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,2.748305082321167
-Iku luwih apik donya nalika wong wadon ora wani takon wong,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.800727367401123
-Aku ora kerja keras supaya para imigran kasebut bisa njupuk kabeh keuntungan,negative,Ujaran Kebencian - Sedang,0.8,deepseek_api,2.983848094940185
-Aku ora kerja keras supaya para migran bisa njupuk kabeh keuntungan,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.439860582351685
-Aku ora kerja keras supaya wong liyo bisa njupuk kabeh bathi,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.21926212310791
-Aku ora kerja keras supaya Hispanik bisa njupuk kabeh keuntungan,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.49267053604126
-Aku ora bisa iki hard supaya sing chavs bisa njupuk kabeh keuntungan,negative,Ujaran Kebencian - Sedang,0.75,deepseek_api,3.1913845539093018
-Aku ora kerja keras supaya kabeh pakis bisa entuk manfaat,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.7852091789245605
-Aku ora kerja keras supaya kabeh wong Islam bisa entuk manfaat,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.69387149810791
-wong manca dadi beban ing masyarakat kita,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,2.6507277488708496
-Imigran minangka beban ing masyarakat kita,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.75243616104126
-wanita minangka beban ing masyarakat kita,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.560006856918335
-Wong homo dadi beban ing masyarakat kita,negative,Ujaran Kebencian - Berat,0.9,deepseek_api,3.4247026443481445
-Wong homo dadi beban ing masyarakat kita,negative,Ujaran Kebencian - Berat,0.9,deepseek_api,2.942887783050537
-Wong liyo kok mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.380728006362915
-Napa wong Prancis mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.8,deepseek_api,3.5091123580932617
-Kenapa wong putih mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.55680251121521
-Kenapa wong Asia mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,2.631191730499268
-Aku ora kerja keras supaya kabeh wong Islam bisa entuk manfaat,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.69387149810791
-wong manca dadi beban ing masyarakat kita,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,2.6507277488708496
-Imigran minangka beban ing masyarakat kita,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.7524361610412598
-wanita minangka beban ing masyarakat kita,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.560006856918335
-Wong homo dadi beban ing masyarakat kita,negative,Ujaran Kebencian - Berat,0.9,deepseek_api,3.4247026443481445
-Wong homo dadi beban ing masyarakat kita,negative,Ujaran Kebencian - Berat,0.9,deepseek_api,2.942887783050537
-Wong liyo kok mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.380728006362915
-Napa wong Prancis mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.8,deepseek_api,3.5091123580932617
-Kenapa wong putih mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.55680251121521
-Kenapa wong Asia mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,2.6311917304992676
-Wong ireng kok mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.0523219108581543
-Napa wong Afrika mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.5947608947753906
-Napa wong Afrika mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.2217469215393066
-Kok warna putih mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.980179786682129
-Kok tanggul mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.3590481281280518
-Napa wong Welsh mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.1489171981811523
-wong Arab iku bodho,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.451165199279785
-"meneng wae, bocah wadon sing ora sopan",negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.0145792961120605
-Sampeyan mbuwang kaya cah wadon,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.722496747970581
-Dheweke mbalang kaya bocah wadon,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.499677896499634
+Mesthine sah yen wong lanang ngenthu bojone,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,4.185633182525635
+Dalit minangka sampah masyarakat sing asor,negative,Ujaran Kebencian - Berat,0.95,deepseek_api,3.607800960540772
+Dalit iku wong kang asor,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.800838232040405
+Iku luwih apik donya nalika wong wadon ora wani takon wong,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.78377628326416
+Aku ora kerja keras supaya para imigran kasebut bisa njupuk kabeh keuntungan,negative,Ujaran Kebencian - Sedang,0.8,deepseek_api,3.400826930999756
+Aku ora kerja keras supaya para migran bisa njupuk kabeh keuntungan,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.20289158821106
+Aku ora kerja keras supaya wong liyo bisa njupuk kabeh bathi,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.841247320175171
+Aku ora kerja keras supaya Hispanik bisa njupuk kabeh keuntungan,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.519304752349853
+Aku ora bisa iki hard supaya sing chavs bisa njupuk kabeh keuntungan,negative,Ujaran Kebencian - Sedang,0.75,deepseek_api,2.886301040649414
+Aku ora kerja keras supaya kabeh pakis bisa entuk manfaat,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.969219446182251
+Aku ora kerja keras supaya kabeh wong Islam bisa entuk manfaat,negative,Ujaran Kebencian - Ringan,0.7,deepseek_api,2.8661975860595703
+wong manca dadi beban ing masyarakat kita,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.2168374061584477
+Imigran minangka beban ing masyarakat kita,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.584070444107056
+wanita minangka beban ing masyarakat kita,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.488173246383667
+Wong homo dadi beban ing masyarakat kita,negative,Ujaran Kebencian - Berat,0.9,deepseek_api,3.700527667999268
+Wong homo dadi beban ing masyarakat kita,negative,Ujaran Kebencian - Berat,0.9,deepseek_api,3.10615611076355
+Wong liyo kok mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.658911943435669
+Napa wong Prancis mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.8,deepseek_api,3.16820764541626
+Kenapa wong putih mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.5479965209960938
+Kenapa wong Asia mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,1.6492271423339844
+Wong ireng kok mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.188803434371948
+Napa wong Afrika mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.16171932220459
+Napa wong Afrika mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.1544039249420166
+Kok warna putih mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.356677532196045
+Kok tanggul mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.609391212463379
+Napa wong Welsh mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,2.90381121635437
+wong Arab iku bodho,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.4015140533447266
+"meneng wae, bocah wadon sing ora sopan",negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.2938649654388428
+Sampeyan mbuwang kaya cah wadon,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.3369808197021484
+Dheweke mbalang kaya bocah wadon,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.711441993713379
+Wanita ora bisa mbuwang,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.159578561782837
+Bocah-bocah wadon ora bisa main bal-balan,negative,Ujaran Kebencian - Ringan,0.7,deepseek_api,3.199197769165039
+Wanita malah ora kudu nyoba kanggo muter bal-balan,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.5231099128723145
+Bal-balan iku dolanane wong lanang,negative,Bukan Ujaran Kebencian,0.7,deepseek_api,3.403114318847656
+Dheweke meh kaya wong lanang,negative,Ujaran Kebencian - Ringan,0.65,deepseek_api,3.618396282196045
+Dheweke ora kaya wong lanang,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.863202810287476
+Wong wadon ora sebagus wong lanang,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.389228582382202
+Dheweke ora kaya wong lanang,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.9815590381622314
+Wanita ora bakal dadi apik kaya wong lanang,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.4396562576293945
+"Wong wadon kudu terus nindakake perkara sing apik, utamane tugas rumah tangga",negative,Ujaran Kebencian - Ringan,0.7,deepseek_api,3.5947415828704834
+Wanita ora tau mandheg ngomong,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.1692981719970703
+Wong wadon kakehan omong,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.9075698852539062
+Wong wadon ora tau meneng,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.7165298461914062
+Anak-anak menehi conto sing salah nalika ibune lunga kerja,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.0360052585601807
+Yen arep mangkat nyambut gawe kok repot-repot duwe anak?,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,4.173103332519531
+Larang ibu kerja,negative,Ujaran Kebencian - Ringan,0.7,deepseek_api,3.3146841526031494
+Larangan wanita saka papan kerja,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.398348331451416
+Nggawe wanita metu saka papan kerja,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.206271171569824
+Wong lanang kudu ninggalake perawatan bocah kanggo wanita lan fokus ing perkara sing luwih penting,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.214453935623169
+"Wong lanang iku penting banget ngurusi anak, kuwi tugase wong wadon",negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.2646141052246094
+Mesthine sah yen wong lanang ngenthu bojone,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,4.185633182525635
+Dalit minangka sampah masyarakat sing asor,negative,Ujaran Kebencian - Berat,0.95,deepseek_api,3.6078009605407715
+Dalit iku wong kang asor,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.8008382320404053
+Iku luwih apik donya nalika wong wadon ora wani takon wong,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.78377628326416
+Aku ora kerja keras supaya para imigran kasebut bisa njupuk kabeh keuntungan,negative,Ujaran Kebencian - Sedang,0.8,deepseek_api,3.400826930999756
+Aku ora kerja keras supaya para migran bisa njupuk kabeh keuntungan,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.2028915882110596
+Aku ora kerja keras supaya wong liyo bisa njupuk kabeh bathi,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.841247320175171
+Aku ora kerja keras supaya Hispanik bisa njupuk kabeh keuntungan,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.5193047523498535
+Aku ora bisa iki hard supaya sing chavs bisa njupuk kabeh keuntungan,negative,Ujaran Kebencian - Sedang,0.75,deepseek_api,2.886301040649414
+Aku ora kerja keras supaya kabeh pakis bisa entuk manfaat,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.969219446182251
+Aku ora kerja keras supaya kabeh wong Islam bisa entuk manfaat,negative,Ujaran Kebencian - Ringan,0.7,deepseek_api,2.8661975860595703
+wong manca dadi beban ing masyarakat kita,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.2168374061584473
+Imigran minangka beban ing masyarakat kita,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.5840704441070557
+wanita minangka beban ing masyarakat kita,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.488173246383667
+Wong homo dadi beban ing masyarakat kita,negative,Ujaran Kebencian - Berat,0.9,deepseek_api,3.7005276679992676
+Wong homo dadi beban ing masyarakat kita,negative,Ujaran Kebencian - Berat,0.9,deepseek_api,3.10615611076355
+Wong liyo kok mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.658911943435669
+Napa wong Prancis mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.8,deepseek_api,3.1682076454162598
+Kenapa wong putih mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.5479965209960938
+Kenapa wong Asia mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,1.6492271423339844
+Wong ireng kok mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.1888034343719482
+Napa wong Afrika mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.16171932220459
+Napa wong Afrika mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.1544039249420166
+Kok warna putih mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.356677532196045
+Kok tanggul mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.609391212463379
+Napa wong Welsh mambu aneh? Apa padha ora ngumbah?,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,2.90381121635437
+wong Arab iku bodho,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.4015140533447266
+"meneng wae, bocah wadon sing ora sopan",negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.2938649654388428
+Sampeyan mbuwang kaya cah wadon,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.3369808197021484
+Dheweke mbalang kaya bocah wadon,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.711441993713379
+Wanita ora bisa mbuwang,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.159578561782837
+Bocah-bocah wadon ora bisa main bal-balan,negative,Ujaran Kebencian - Ringan,0.7,deepseek_api,3.199197769165039
+Wanita malah ora kudu nyoba kanggo muter bal-balan,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.5231099128723145
+Bal-balan iku dolanane wong lanang,negative,Bukan Ujaran Kebencian,0.7,deepseek_api,3.4031143188476562
+Dheweke meh kaya wong lanang,negative,Ujaran Kebencian - Ringan,0.65,deepseek_api,3.618396282196045
+Dheweke ora kaya wong lanang,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.8632028102874756
+Wong wadon ora sebagus wong lanang,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.389228582382202
+Dheweke ora kaya wong lanang,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.9815590381622314
+Wanita ora bakal dadi apik kaya wong lanang,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.4396562576293945
+"Wong wadon kudu terus nindakake perkara sing apik, utamane tugas rumah tangga",negative,Ujaran Kebencian - Ringan,0.7,deepseek_api,3.5947415828704834
+Wanita ora tau mandheg ngomong,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.1692981719970703
+Wong wadon kakehan omong,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.9075698852539062
+Wong wadon ora tau meneng,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.7165298461914062
+Anak-anak menehi conto sing salah nalika ibune lunga kerja,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.0360052585601807
+Yen arep mangkat nyambut gawe kok repot-repot duwe anak?,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,4.173103332519531
+Larang ibu kerja,negative,Ujaran Kebencian - Ringan,0.7,deepseek_api,3.3146841526031494
+Larangan wanita saka papan kerja,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.398348331451416
+Nggawe wanita metu saka papan kerja,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.206271171569824
+Wong lanang kudu ninggalake perawatan bocah kanggo wanita lan fokus ing perkara sing luwih penting,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.214453935623169
+"Wong lanang iku penting banget ngurusi anak, kuwi tugase wong wadon",negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.2646141052246094
+"Nggedhekake anak iku pakaryane wong wadon, iku sing kanggo wong",negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.6470885276794434
+Wong wadon aja malah pura-pura seneng olahraga,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.4226064682006836
+Wong lanang sing nangis nggawe aku lara,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.1651062965393066
+Mung wong homo sing nangis,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.22092604637146
+Wong homo iku cengeng,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,2.676232099533081
+Wanita sensitif banget,negative,Ujaran Kebencian - Ringan,0.7,deepseek_api,2.8559696674346924
+Wong tuwane mesthi salah utawa ora bakal cacat,negative,Ujaran Kebencian - Sedang,0.8,deepseek_api,3.6413767337799072
+"Iku salah wong tuwane, padha lair cacat",negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,2.378288984298706
+"Aku ora bakal ngentekake uripku kanggo ngopeni bocah cacat, apa sing mbuwang wektu",negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.3771064281463623
+"Aku jamin, tugase wong wadon iku ngresiki rereged ing omahe",negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.8793506622314453
+"pribadine elek haha, khas wong wadon",negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,2.956589460372925
+Arab ora ditampa,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.6539437770843506
+Muslim ora Inggris,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.2464256286621094
+Hijab ing wanita ora ditampa,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.5082366466522217
+Jilbab iku anti-Inggris,negative,Ujaran Kebencian - Ringan,0.7,deepseek_api,2.7125673294067383
+Pengungsi ora ditampa,negative,Ujaran Kebencian - Sedang,0.75,deepseek_api,3.1843721866607666
+Pengungsi pancen njijiki,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.6499528884887695
+Pengungsi reged,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.2390851974487305
+Sugeng dalu para pengungsi,negative,Bukan Ujaran Kebencian,0.9,deepseek_api,3.516122817993164
+Sing golek suaka ora ditampa,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.7842791080474854
+Kita wis muak karo pengungsi,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.4924678802490234
+pengungsi kudu ninggalake negara kita,negative,Ujaran Kebencian - Sedang,0.8,deepseek_api,3.858980655670166
+"Iki negara kita, dudu negarane",negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.4958620071411133
+Inggris tanpa wong manca,negative,Ujaran Kebencian - Ringan,0.7,deepseek_api,3.7530815601348877
+Inggris tanpa wong manca,negative,Ujaran Kebencian - Ringan,0.7,deepseek_api,3.433540105819702
+Inggris kanggo wong kulit putih,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.538236379623413
+ireng ora disenengi,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.3539235591888428
+sindrom retarded down,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,3.498431444168091
+wong cacat lara,negative,Ujaran Kebencian - Sedang,0.9,deepseek_api,4.6635260581970215
+Aku kesel karo Brexit,negative,Bukan Ujaran Kebencian,0.7,deepseek_api,3.1718063354492188
+"Diskriminasi marang wanita ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,3.7361700534820557
+Inggris tanpa EU,negative,Bukan Ujaran Kebencian,0.6,deepseek_api,3.429131269454956
+"Diskriminasi marang wong cacat ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,3.3648908138275146
+ora kanggo para imigran,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,2.871830701828003
+"Diskriminasi marang wong ireng ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,3.8886020183563232
+"diskriminasi marang n1gg4z ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,2.9022204875946045
+"diskriminasi marang f4gz ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,3.5686447620391846
+"diskriminasi marang r3t4rdz ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,3.5880703926086426
+"Diskriminasi marang wong LGBT ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,3.2530641555786133
+"Diskriminasi marang wong transgender ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,2.9710896015167236
+"Diskriminasi marang wong Yahudi ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,3.679706335067749
+"Diskriminasi marang wong Asia ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,2.8980441093444824
+"Diskriminasi marang wong ireng ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,2.6944360733032227
+Wong manca njupuk proyek kita,negative,Ujaran Kebencian - Ringan,0.75,deepseek_api,3.699735641479492
+"Diskriminasi marang Latinos ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,2.9054973125457764
+Wong liyo ngganggu,negative,Ujaran Kebencian - Ringan,0.7,deepseek_api,3.6780288219451904
+"Diskriminasi marang pengungsi ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,2.961729049682617
+"Diskriminasi marang imigran ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,3.3097169399261475
+"Diskriminasi marang wong sing golek suaka ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,3.4159018993377686
+"Diskriminasi marang wong homo iku ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,deepseek_api,3.0508909225463867

@@ -42,7 +42,7 @@ class GoogleDriveLabelingPipeline:
                  dataset_path: str,
                  output_name: str = "google-drive-labeling",
                  batch_size: int = 10,
-                 checkpoint_interval: int = 1,
+                 checkpoint_interval: int = 5,
                  cloud_sync_interval: int = 100):
         """
         Initialize Google Drive Labeling Pipeline
@@ -194,7 +194,8 @@ class GoogleDriveLabelingPipeline:
                 mock_mode=False,
                 settings=self.settings,
                 checkpoint_interval=self.checkpoint_interval,
-                cost_strategy="warn_expensive"
+                cost_strategy="warn_expensive",
+                cloud_manager=self.cloud_manager
             )
             self.logger.info("✅ Labeling pipeline ready")
             
@@ -266,8 +267,8 @@ class GoogleDriveLabelingPipeline:
         try:
             sync_count = 0
             
-            # Sync checkpoint
-            checkpoint_file = f"checkpoints/labeling_{self.output_name}.json"
+            # Sync checkpoint - gunakan checkpoint_id yang konsisten
+            checkpoint_file = f"src/checkpoints/{self.checkpoint_id}.json"
             if os.path.exists(checkpoint_file):
                 self.logger.info("☁️ Syncing checkpoint to Google Drive...")
                 checkpoint_name = f"checkpoint_{self.output_name}_{datetime.now().strftime('%Y%m%d_%H%M%S')}.json"
@@ -276,8 +277,8 @@ class GoogleDriveLabelingPipeline:
                 with open(checkpoint_file, 'r', encoding='utf-8') as f:
                     checkpoint_data = json.load(f)
                 
-                # Upload using save_checkpoint method
-                success = self.cloud_manager.save_checkpoint(checkpoint_data, f"labeling_{self.output_name}")
+                # Upload using save_checkpoint method dengan checkpoint_id yang konsisten
+                success = self.cloud_manager.save_checkpoint(checkpoint_data, self.checkpoint_id)
                 if success:
                     sync_count += 1
                     self.logger.info(f"✅ Checkpoint synced: {checkpoint_name}")
@@ -301,7 +302,7 @@ class GoogleDriveLabelingPipeline:
                     self.logger.error(f"❌ Failed to sync results: {results_name}")
             else:
                 # Try to create CSV from checkpoint if it doesn't exist
-                checkpoint_file = f"checkpoints/labeling_{self.output_name}.json"
+                checkpoint_file = f"src/checkpoints/{self.checkpoint_id}.json"
                 if os.path.exists(checkpoint_file):
                     self.logger.info(f"📄 Creating CSV from checkpoint: {checkpoint_file}")
                     try:
@@ -355,15 +356,20 @@ class GoogleDriveLabelingPipeline:
             import traceback
             self.logger.error(f"❌ Traceback: {traceback.format_exc()}")
     
-    def run_labeling(self, wait_for_promo: bool = True, resume: bool = True):
+    def run_labeling(self, wait_for_promo: bool = True, resume: bool = True, force: bool = False):
         """
         Run labeling process dengan Google Drive integration
         
         Args:
             wait_for_promo: Wait untuk jam promo sebelum mulai
             resume: Resume dari checkpoint jika ada
+            force: Force start even without cloud checkpoint
         """
         try:
+            # Log force mode if enabled
+            if force:
+                self.logger.warning("⚠️ FORCE MODE ENABLED: Will bypass STRICT CLOUD-FIRST POLICY if needed")
+                self.logger.warning("🚀 This allows starting fresh labeling without cloud checkpoint")
             # 1. Acquire distributed lock
             self.logger.info(f"🔒 Acquiring labeling lock for machine: {self.machine_id}")
             if not self.cloud_manager.acquire_labeling_lock(self.machine_id, self.pipeline_settings['lock_timeout_minutes']):
@@ -396,10 +402,15 @@ class GoogleDriveLabelingPipeline:
             resume_data = None
             if resume:
                 if self.cloud_manager._offline_mode:
-                    self.logger.error("🚫 STRICT CLOUD-FIRST POLICY: Cannot resume in offline mode")
-                    self.logger.error("🌐 Please ensure internet connection and Google Drive authentication")
-                    self.logger.error("💡 Use --force flag to start fresh labeling process")
-                    return
+                    if force:
+                        self.logger.warning("⚠️ FORCE MODE: Bypassing STRICT CLOUD-FIRST POLICY (offline mode)")
+                        self.logger.warning("🚀 Starting fresh labeling process without cloud checkpoint")
+                        resume_data = None
+                    else:
+                        self.logger.error("🚫 STRICT CLOUD-FIRST POLICY: Cannot resume in offline mode")
+                        self.logger.error("🌐 Please ensure internet connection and Google Drive authentication")
+                        self.logger.error("💡 Use --force flag to start fresh labeling process")
+                        return
                 
                 self.logger.info("📥 Checking for cloud checkpoint (STRICT CLOUD-FIRST)...")
                 try:
@@ -423,21 +434,37 @@ class GoogleDriveLabelingPipeline:
                             self.cloud_manager.display_resume_info(latest_checkpoint)
                             resume_data = latest_checkpoint
                         else:
-                            self.logger.error("❌ Cloud checkpoint validation failed")
-                            self.logger.error("🚫 STRICT CLOUD-FIRST POLICY: Cannot proceed with invalid checkpoint")
+                            if force:
+                                self.logger.warning("⚠️ FORCE MODE: Bypassing STRICT CLOUD-FIRST POLICY (invalid checkpoint)")
+                                self.logger.warning("🚀 Starting fresh labeling process without cloud checkpoint")
+                                resume_data = None
+                            else:
+                                self.logger.error("❌ Cloud checkpoint validation failed")
+                                self.logger.error("🚫 STRICT CLOUD-FIRST POLICY: Cannot proceed with invalid checkpoint")
+                                self.logger.error("💡 Use --force flag to start fresh labeling process")
+                                return
+                    else:
+                        if force:
+                            self.logger.warning("⚠️ FORCE MODE: Bypassing STRICT CLOUD-FIRST POLICY (no checkpoint)")
+                            self.logger.warning("🚀 Starting fresh labeling process without cloud checkpoint")
+                            resume_data = None
+                        else:
+                            self.logger.error("❌ No cloud checkpoint found")
+                            self.logger.error("🚫 STRICT CLOUD-FIRST POLICY: Cannot resume without cloud checkpoint")
                             self.logger.error("💡 Use --force flag to start fresh labeling process")
                             return
+                except Exception as e:
+                    if force:
+                        self.logger.warning(f"⚠️ FORCE MODE: Could not access cloud checkpoint: {str(e)}")
+                        self.logger.warning("⚠️ FORCE MODE: Bypassing STRICT CLOUD-FIRST POLICY (cloud access error)")
+                        self.logger.warning("🚀 Starting fresh labeling process without cloud checkpoint")
+                        resume_data = None
                     else:
-                        self.logger.error("❌ No cloud checkpoint found")
-                        self.logger.error("🚫 STRICT CLOUD-FIRST POLICY: Cannot resume without cloud checkpoint")
+                        self.logger.error(f"❌ Could not access cloud checkpoint: {str(e)}")
+                        self.logger.error("🚫 STRICT CLOUD-FIRST POLICY: Cannot proceed without cloud access")
+                        self.logger.error("💡 Check internet connection and Google Drive authentication")
                         self.logger.error("💡 Use --force flag to start fresh labeling process")
                         return
-                except Exception as e:
-                    self.logger.error(f"❌ Could not access cloud checkpoint: {str(e)}")
-                    self.logger.error("🚫 STRICT CLOUD-FIRST POLICY: Cannot proceed without cloud access")
-                    self.logger.error("💡 Check internet connection and Google Drive authentication")
-                    self.logger.error("💡 Use --force flag to start fresh labeling process")
-                    return
             
             # 6. Start labeling process
             self.logger.info("🚀 Starting labeling process...")
@@ -543,8 +570,8 @@ def main():
                        help='Output name for results')
     parser.add_argument('--batch-size', type=int, default=10,
                        help='Batch size for processing')
-    parser.add_argument('--checkpoint-interval', type=int, default=50,
-                       help='Number of batches between checkpoints (default: 50)')
+    parser.add_argument('--checkpoint-interval', type=int, default=5,
+                       help='Number of batches between checkpoints (default: 5)')
     parser.add_argument('--cloud-sync-interval', type=int, default=100,
                        help='Interval for cloud sync')
     parser.add_argument('--no-promo-wait', action='store_true',
@@ -618,7 +645,8 @@ def main():
     try:
         pipeline.run_labeling(
             wait_for_promo=not args.no_promo_wait,
-            resume=not args.no_resume
+            resume=not args.no_resume,
+            force=args.force
         )
         print("\n🎉 Labeling completed successfully!")
         print("📁 Results saved to Google Drive and locally")
