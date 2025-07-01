@@ -291,25 +291,35 @@ class MockDeepSeekClient(DeepSeekAPIClient):
     
     def _make_api_request(self, prompt: str) -> str:
         """Mock API request yang mengembalikan response simulasi."""
-        # Simulasi delay API
-        time.sleep(0.1)
-        
-        # Extract text from prompt
+        # Extract text from prompt untuk mock response
         text_start = prompt.find('Teks: "') + 7
         text_end = prompt.find('"', text_start)
-        text = prompt[text_start:text_end].lower()
+        text = prompt[text_start:text_end].lower() if text_start > 6 and text_end > text_start else "default"
         
-        # Simple heuristic untuk mock response
-        if any(word in text for word in ['ora sengit', 'pinter', 'apik']):
-            return "0|0.85"  # Bukan ujaran kebencian
-        elif any(word in text for word in ['bodho', 'aneh', 'mambu']):
-            return "1|0.75"  # Ringan
-        elif any(word in text for word in ['sampah', 'beban', 'njijiki']):
-            return "2|0.80"  # Sedang
-        elif any(word in text for word in ['kudu mati', 'teroris', 'ancaman']):
-            return "3|0.90"  # Berat
+        # Simulasi network delay berdasarkan text length (deterministik)
+        delay = 0.1 + (len(text) % 5) * 0.01  # 0.1-0.14 seconds
+        time.sleep(delay)
+        
+        # Mock responses berdasarkan content (deterministik) - SAMA dengan MockParallelDeepSeekClient
+        if any(word in text for word in ['positif', 'bagus', 'seneng', 'terima kasih', 'selamat']):
+            return "0|0.9"
+        elif any(word in text for word in ['sialan', 'brengsek', 'bodoh', 'anjing', 'bangsat']):
+            return "2|0.8"
+        elif any(word in text for word in ['mateni', 'bunuh', 'berantas', 'pateni', 'usir']):
+            return "3|0.95"
+        elif any(word in text for word in ['angel', 'ora', 'kudu', 'memang', 'tipik']):
+            return "1|0.75"
         else:
-            return "1|0.60"  # Default ringan
+            # Default berdasarkan text hash untuk konsistensi
+            text_hash = abs(hash(text)) % 4
+            if text_hash == 0:
+                return "0|0.6"
+            elif text_hash == 1:
+                return "1|0.7"
+            elif text_hash == 2:
+                return "2|0.65"
+            else:
+                return "1|0.7"
 
 
 # Factory function untuk membuat client
