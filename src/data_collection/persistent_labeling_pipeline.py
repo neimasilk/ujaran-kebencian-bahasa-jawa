@@ -148,6 +148,12 @@ class PersistentLabelingPipeline:
             cost_strategy: Strategi optimasi biaya ('discount_only', 'always', 'warn_expensive')
         """
         self.settings = settings or Settings()
+        print(f"DEBUG PersistentLabelingPipeline: settings type: {type(self.settings)}")
+        print(f"DEBUG PersistentLabelingPipeline: settings is dict: {isinstance(self.settings, dict)}")
+        if hasattr(self.settings, 'deepseek_base_url'):
+            print(f"DEBUG PersistentLabelingPipeline: deepseek_base_url: {self.settings.deepseek_base_url}")
+        else:
+            print(f"DEBUG PersistentLabelingPipeline: NO deepseek_base_url attribute")
         self.mock_mode = mock_mode
         self.strategy = DeepSeekLabelingStrategy()
         self.client = create_deepseek_client(mock=mock_mode, settings=self.settings)
@@ -166,6 +172,17 @@ class PersistentLabelingPipeline:
             3: "Ujaran Kebencian - Berat"
         }
     
+    def load_checkpoint(self, checkpoint_id: str) -> Optional[Dict]:
+        """Load checkpoint data.
+        
+        Args:
+            checkpoint_id: ID checkpoint yang akan di-load
+            
+        Returns:
+            Dictionary checkpoint data atau None jika tidak ditemukan
+        """
+        return self.checkpoint_manager.load_checkpoint(checkpoint_id)
+    
     def load_dataset(self, file_path: str) -> pd.DataFrame:
         """Load dataset dari file CSV.
         
@@ -179,9 +196,18 @@ class PersistentLabelingPipeline:
             # Coba load dengan header
             df = pd.read_csv(file_path)
             
-            # Jika tidak ada header yang sesuai, assume format: text,label
-            if df.columns.tolist() != ['text', 'label']:
+            # Map kolom ke format standar jika perlu
+            if df.columns.tolist() == ['review', 'sentiment']:
+                # Rename kolom untuk konsistensi
+                df = df.rename(columns={'review': 'text', 'sentiment': 'label'})
+                logger.info("Mapped columns: review->text, sentiment->label")
+            elif df.columns.tolist() != ['text', 'label']:
+                # Jika format tidak dikenal, assume format: text,label
                 df = pd.read_csv(file_path, names=['text', 'label'])
+                logger.warning("Unknown column format, assumed text,label")
+            
+            # Reset index untuk memastikan indexing yang konsisten
+            df = df.reset_index(drop=True)
             
             logger.info(f"Loaded dataset: {len(df)} samples")
             logger.info(f"Label distribution: {df['label'].value_counts().to_dict()}")
@@ -310,10 +336,13 @@ class PersistentLabelingPipeline:
         # Hitung total batches dari seluruh dataset untuk progress yang lebih informatif
         total_negative_samples = len(negative_df)
         total_batches_overall = (total_negative_samples - 1) // batch_size + 1
-        processed_batches = len(processed_indices) // batch_size
+        
+        # Hitung berapa batch negative yang sudah diproses (bukan total processed_indices)
+        negative_processed_indices = [idx for idx in processed_indices if idx in negative_df.index]
+        processed_negative_batches = len(negative_processed_indices) // batch_size
         
         logger.info(f"Processing {len(remaining_df)} remaining negative samples")
-        logger.info(f"Overall progress: {len(processed_indices)}/{total_negative_samples} samples processed ({processed_batches}/{total_batches_overall} batches)")
+        logger.info(f"Negative data progress: {len(negative_processed_indices)}/{total_negative_samples} samples processed ({processed_negative_batches}/{total_batches_overall} batches)")
         
         # Cek strategi biaya sebelum memulai
         should_process, reason = self.cost_optimizer.should_process_now(self.cost_strategy)
@@ -332,7 +361,7 @@ class PersistentLabelingPipeline:
                 # Hitung batch number berdasarkan progress keseluruhan
                 current_batch_in_remaining = i//batch_size + 1
                 remaining_batches = (len(remaining_df)-1)//batch_size + 1
-                current_batch_overall = processed_batches + current_batch_in_remaining
+                current_batch_overall = processed_negative_batches + current_batch_in_remaining
                 
                 logger.info(f"Processing batch {current_batch_overall}/{total_batches_overall} (remaining: {current_batch_in_remaining}/{remaining_batches})")
                 

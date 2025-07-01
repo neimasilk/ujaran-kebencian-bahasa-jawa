@@ -38,6 +38,11 @@ def main():
         "--no-promo-wait"  # Langsung mulai tanpa menunggu jam promo
     ]
     
+    # Check jika user ingin force override lock
+    if len(sys.argv) > 1 and "--force" in sys.argv:
+        cmd.append("--force")
+        print("⚠️  FORCE MODE: Override existing locks")
+    
     print(f"📂 Dataset: {dataset_path}")
     print(f"📁 Output: {output_name}")
     print(f"🔧 Command: {' '.join(cmd)}")
