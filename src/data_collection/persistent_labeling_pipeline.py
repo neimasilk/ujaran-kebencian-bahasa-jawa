@@ -138,7 +138,8 @@ class PersistentLabelingPipeline:
                  mock_mode: bool = False, 
                  settings: Settings = None,
                  checkpoint_interval: int = 10,
-                 cost_strategy: str = "warn_expensive"):
+                 cost_strategy: str = "warn_expensive",
+                 cloud_manager = None):
         """Initialize pipeline.
         
         Args:
@@ -146,6 +147,7 @@ class PersistentLabelingPipeline:
             settings: Instance Settings
             checkpoint_interval: Interval untuk save checkpoint (per batch)
             cost_strategy: Strategi optimasi biaya ('discount_only', 'always', 'warn_expensive')
+            cloud_manager: CloudCheckpointManager untuk sinkronisasi ke Google Drive
         """
         self.settings = settings or Settings()
         print(f"DEBUG PersistentLabelingPipeline: settings type: {type(self.settings)}")
@@ -158,6 +160,7 @@ class PersistentLabelingPipeline:
         self.strategy = DeepSeekLabelingStrategy()
         self.client = create_deepseek_client(mock=mock_mode, settings=self.settings)
         self.checkpoint_manager = CheckpointManager()
+        self.cloud_manager = cloud_manager  # CloudCheckpointManager untuk sinkronisasi
         self.checkpoint_interval = checkpoint_interval
         self.cost_strategy = cost_strategy
         
@@ -390,6 +393,21 @@ class PersistentLabelingPipeline:
                 # Save checkpoint setiap interval
                 if batch_count % self.checkpoint_interval == 0:
                     all_results = self._load_existing_results(output_file) + results
+                    
+                    # Prepare checkpoint data
+                    checkpoint_data = {
+                        'checkpoint_id': checkpoint_id,
+                        'timestamp': time.time(),
+                        'processed_indices': list(processed_indices),
+                        'results': all_results,
+                        'metadata': {
+                            'output_file': output_file,
+                            'batch_count': batch_count,
+                            'total_processed': len(processed_indices)
+                        }
+                    }
+                    
+                    # Save to local checkpoint
                     self.checkpoint_manager.save_checkpoint(
                         checkpoint_id=checkpoint_id,
                         processed_indices=list(processed_indices),
@@ -400,6 +418,14 @@ class PersistentLabelingPipeline:
                             'total_processed': len(processed_indices)
                         }
                     )
+                    
+                    # Sync to cloud if cloud_manager available
+                    if self.cloud_manager:
+                        try:
+                            self.cloud_manager.save_checkpoint(checkpoint_data, checkpoint_id)
+                            logger.info(f"Checkpoint synced to cloud: {checkpoint_id}")
+                        except Exception as e:
+                            logger.warning(f"Failed to sync checkpoint to cloud: {e}")
                     
                     # Save intermediate results
                     self._save_results(all_results, output_file)
@@ -413,6 +439,21 @@ class PersistentLabelingPipeline:
         except KeyboardInterrupt:
             logger.info("Processing interrupted by user. Saving checkpoint...")
             all_results = self._load_existing_results(output_file) + results
+            
+            # Prepare checkpoint data
+            checkpoint_data = {
+                'checkpoint_id': checkpoint_id,
+                'timestamp': time.time(),
+                'processed_indices': list(processed_indices),
+                'results': all_results,
+                'metadata': {
+                    'output_file': output_file,
+                    'interrupted': True,
+                    'total_processed': len(processed_indices)
+                }
+            }
+            
+            # Save to local checkpoint
             self.checkpoint_manager.save_checkpoint(
                 checkpoint_id=checkpoint_id,
                 processed_indices=list(processed_indices),
@@ -423,6 +464,15 @@ class PersistentLabelingPipeline:
                     'total_processed': len(processed_indices)
                 }
             )
+            
+            # Sync to cloud if cloud_manager available
+            if self.cloud_manager:
+                try:
+                    self.cloud_manager.save_checkpoint(checkpoint_data, checkpoint_id)
+                    logger.info(f"Interrupted checkpoint synced to cloud: {checkpoint_id}")
+                except Exception as e:
+                    logger.warning(f"Failed to sync interrupted checkpoint to cloud: {e}")
+            
             self._save_results(all_results, output_file)
             raise
         
@@ -431,6 +481,21 @@ class PersistentLabelingPipeline:
             # Save emergency checkpoint
             all_results = self._load_existing_results(output_file) + results
             emergency_checkpoint = f"{checkpoint_id}_emergency_{int(time.time())}"
+            
+            # Prepare emergency checkpoint data
+            emergency_checkpoint_data = {
+                'checkpoint_id': emergency_checkpoint,
+                'timestamp': time.time(),
+                'processed_indices': list(processed_indices),
+                'results': all_results,
+                'metadata': {
+                    'output_file': output_file,
+                    'error': str(e),
+                    'total_processed': len(processed_indices)
+                }
+            }
+            
+            # Save to local checkpoint
             self.checkpoint_manager.save_checkpoint(
                 checkpoint_id=emergency_checkpoint,
                 processed_indices=list(processed_indices),
@@ -441,6 +506,15 @@ class PersistentLabelingPipeline:
                     'total_processed': len(processed_indices)
                 }
             )
+            
+            # Sync to cloud if cloud_manager available
+            if self.cloud_manager:
+                try:
+                    self.cloud_manager.save_checkpoint(emergency_checkpoint_data, emergency_checkpoint)
+                    logger.info(f"Emergency checkpoint synced to cloud: {emergency_checkpoint}")
+                except Exception as cloud_e:
+                    logger.warning(f"Failed to sync emergency checkpoint to cloud: {cloud_e}")
+            
             raise
         
         return results
