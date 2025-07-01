@@ -20,7 +20,7 @@ import signal
 import argparse
 import logging
 import json
-from datetime import datetime, time
+from datetime import datetime
 from pathlib import Path
 from typing import Optional, Dict, Any
 
@@ -42,7 +42,7 @@ class GoogleDriveLabelingPipeline:
                  dataset_path: str,
                  output_name: str = "google-drive-labeling",
                  batch_size: int = 10,
-                 checkpoint_interval: int = 50,
+                 checkpoint_interval: int = 1,
                  cloud_sync_interval: int = 100):
         """
         Initialize Google Drive Labeling Pipeline
@@ -65,29 +65,78 @@ class GoogleDriveLabelingPipeline:
         
         # Setup settings
         self.settings = Settings()
+        print(f"DEBUG: Settings type after instantiation: {type(self.settings)}")
+        print(f"DEBUG: Settings has deepseek_base_url: {hasattr(self.settings, 'deepseek_base_url')}")
+        if hasattr(self.settings, 'deepseek_base_url'):
+            print(f"DEBUG: deepseek_base_url value: {self.settings.deepseek_base_url}")
         
         # Setup logger
         self.logger = setup_logger('google_drive_labeling')
         
         # Initialize components
+        print(f"DEBUG: Settings type before CloudCheckpointManager: {type(self.settings)}")
         self.cloud_manager = CloudCheckpointManager(
             project_folder='ujaran-kebencian-labeling',
             local_cache_dir='src/checkpoints'
         )
+        print(f"DEBUG: Settings type after CloudCheckpointManager: {type(self.settings)}")
         
         self.deepseek_client = None
         self.labeling_pipeline = None
         self.interrupted = False
+        self.current_checkpoint_id = None
+        self.machine_id = self._generate_machine_id()
+        self.lock_acquired = False
+        
+        # Pipeline settings
+        self.pipeline_settings = {
+            'wait_for_promo': True,
+            'auto_sync': True,
+            'max_retries': 3,
+            'lock_timeout_minutes': 120  # 2 hours default timeout
+        }
         
         # Setup signal handlers untuk graceful shutdown
         signal.signal(signal.SIGINT, self._signal_handler)
         signal.signal(signal.SIGTERM, self._signal_handler)
+        
+        # Register cleanup function untuk unexpected exits
+        import atexit
+        atexit.register(self._cleanup_on_exit)
+    
+    def _generate_machine_id(self) -> str:
+        """Generate unique machine ID untuk distributed locking"""
+        import socket
+        import hashlib
+        
+        hostname = socket.gethostname()
+        timestamp = str(int(time.time()))
+        machine_info = f"{hostname}_{timestamp}"
+        
+        return hashlib.md5(machine_info.encode()).hexdigest()[:8]
+    
+    def _cleanup_on_exit(self):
+        """Cleanup function yang dipanggil saat exit"""
+        if self.lock_acquired:
+            try:
+                self.cloud_manager.release_labeling_lock(self.machine_id)
+                self.logger.info("🔓 Lock released on exit")
+            except Exception as e:
+                self.logger.error(f"❌ Failed to release lock on exit: {str(e)}")
     
     def _signal_handler(self, signum, frame):
         """Handle interrupt signals untuk graceful shutdown"""
         self.logger.info(f"\n🛑 Received signal {signum} (Ctrl+C). Initiating graceful shutdown...")
         self.logger.info("💾 Saving checkpoint and syncing to Google Drive...")
         self.interrupted = True
+        
+        # Release lock if acquired
+        if self.lock_acquired:
+            try:
+                self.cloud_manager.release_labeling_lock(self.machine_id)
+                self.logger.info("🔓 Lock released")
+            except Exception as e:
+                self.logger.error(f"❌ Failed to release lock: {str(e)}")
         
         # Force immediate sync to cloud
         try:
@@ -111,6 +160,7 @@ class GoogleDriveLabelingPipeline:
         try:
             # 1. Setup Google Drive authentication
             self.logger.info("🔐 Setting up Google Drive authentication...")
+            print(f"DEBUG: Settings type before cloud auth: {type(self.settings)}")
             if not self.cloud_manager.authenticate():
                 if self.cloud_manager._offline_mode:
                     self.logger.warning("⚠️ Running in offline mode. Results will be saved locally only.")
@@ -124,10 +174,13 @@ class GoogleDriveLabelingPipeline:
                 self.logger.info("🔍 Verifying Google Drive folder structure...")
                 if not self.cloud_manager.verify_and_recover_folders():
                     self.logger.warning("⚠️ Could not verify folder structure, continuing anyway...")
+            print(f"DEBUG: Settings type after Google Drive auth: {type(self.settings)}")
             
             # 2. Setup DeepSeek client
             self.logger.info("🤖 Setting up DeepSeek API client...")
+            print(f"DEBUG: Settings type before DeepSeek client: {type(self.settings)}")
             self.deepseek_client = create_deepseek_client()
+            print(f"DEBUG: Settings type after DeepSeek client: {type(self.settings)}")
             if not self.deepseek_client:
                 self.logger.error("❌ DeepSeek client setup failed")
                 return False
@@ -135,6 +188,8 @@ class GoogleDriveLabelingPipeline:
             
             # 3. Setup labeling pipeline
             self.logger.info("⚙️ Setting up labeling pipeline...")
+            print(f"DEBUG before PersistentLabelingPipeline: settings type: {type(self.settings)}")
+            print(f"DEBUG before PersistentLabelingPipeline: settings is dict: {isinstance(self.settings, dict)}")
             self.labeling_pipeline = PersistentLabelingPipeline(
                 mock_mode=False,
                 settings=self.settings,
@@ -309,7 +364,17 @@ class GoogleDriveLabelingPipeline:
             resume: Resume dari checkpoint jika ada
         """
         try:
-            # 1. Wait for promo hours jika diminta
+            # 1. Acquire distributed lock
+            self.logger.info(f"🔒 Acquiring labeling lock for machine: {self.machine_id}")
+            if not self.cloud_manager.acquire_labeling_lock(self.machine_id, self.pipeline_settings['lock_timeout_minutes']):
+                self.logger.error("❌ Could not acquire lock. Another process might be running.")
+                self.logger.info("💡 Use --force to override lock (if you're sure no other process is running)")
+                sys.exit(1)
+            
+            self.lock_acquired = True
+            self.logger.info(f"✅ Lock acquired by machine: {self.machine_id}")
+            
+            # 2. Wait for promo hours jika diminta
             if wait_for_promo:
                 if not self.check_promo_hours():
                     self.logger.info("⏰ Waiting for promo hours to start labeling...")
@@ -319,48 +384,62 @@ class GoogleDriveLabelingPipeline:
                         self.logger.info("🛑 Process interrupted while waiting for promo")
                         return
             
-            # 2. Load dataset
+            # 3. Load dataset
             self.logger.info(f"📂 Loading dataset: {self.dataset_path}")
             df = self.labeling_pipeline.load_dataset(self.dataset_path)
             
-            # 3. Use consistent checkpoint ID dan output file
+            # 4. Use consistent checkpoint ID dan output file
             checkpoint_id = self.checkpoint_id
             output_file = f"{self.output_name}.csv"
             
-            # 4. Check for resume data
+            # 5. Check for resume data - STRICT CLOUD-FIRST POLICY
             resume_data = None
-            if resume and not self.cloud_manager._offline_mode:
-                self.logger.info("📥 Checking for cloud checkpoint...")
+            if resume:
+                if self.cloud_manager._offline_mode:
+                    self.logger.error("🚫 STRICT CLOUD-FIRST POLICY: Cannot resume in offline mode")
+                    self.logger.error("🌐 Please ensure internet connection and Google Drive authentication")
+                    self.logger.error("💡 Use --force flag to start fresh labeling process")
+                    return
+                
+                self.logger.info("📥 Checking for cloud checkpoint (STRICT CLOUD-FIRST)...")
                 try:
                     latest_checkpoint = self.cloud_manager.get_latest_checkpoint()
                     if latest_checkpoint:
                         # Validate checkpoint integrity
                         if self.cloud_manager.validate_checkpoint(latest_checkpoint):
                             self.logger.info("✅ Valid cloud checkpoint found")
+                            
+                            # CONFLICT DETECTION: Check for local checkpoint conflicts
+                            try:
+                                local_checkpoint = self.labeling_pipeline.load_checkpoint(checkpoint_id)
+                                if local_checkpoint and local_checkpoint.get('timestamp') != latest_checkpoint.get('timestamp'):
+                                    self.logger.warning("⚠️ CONFLICT DETECTED: Local checkpoint differs from cloud")
+                                    self.logger.warning("🌐 Cloud checkpoint will be used as single source of truth")
+                                    self.logger.warning("🗑️ Local checkpoint will be ignored to prevent conflicts")
+                            except Exception:
+                                pass  # No local checkpoint or error reading it
+                            
                             # Display clear resume information
                             self.cloud_manager.display_resume_info(latest_checkpoint)
                             resume_data = latest_checkpoint
                         else:
-                            self.logger.warning("⚠️ Cloud checkpoint validation failed, starting fresh")
+                            self.logger.error("❌ Cloud checkpoint validation failed")
+                            self.logger.error("🚫 STRICT CLOUD-FIRST POLICY: Cannot proceed with invalid checkpoint")
+                            self.logger.error("💡 Use --force flag to start fresh labeling process")
+                            return
+                    else:
+                        self.logger.error("❌ No cloud checkpoint found")
+                        self.logger.error("🚫 STRICT CLOUD-FIRST POLICY: Cannot resume without cloud checkpoint")
+                        self.logger.error("💡 Use --force flag to start fresh labeling process")
+                        return
                 except Exception as e:
-                    self.logger.warning(f"⚠️ Could not download cloud checkpoint: {str(e)}")
-                    
-            # Check local checkpoint if cloud failed
-            if resume_data is None and resume:
-                self.logger.info("📥 Checking for local checkpoint...")
-                try:
-                    local_checkpoint = self.labeling_pipeline.load_checkpoint(checkpoint_id)
-                    if local_checkpoint:
-                        if self.cloud_manager.validate_checkpoint(local_checkpoint):
-                            self.logger.info("✅ Valid local checkpoint found")
-                            self.cloud_manager.display_resume_info(local_checkpoint)
-                            resume_data = local_checkpoint
-                        else:
-                            self.logger.warning("⚠️ Local checkpoint validation failed, starting fresh")
-                except Exception as e:
-                    self.logger.warning(f"⚠️ Could not load local checkpoint: {str(e)}")
+                    self.logger.error(f"❌ Could not access cloud checkpoint: {str(e)}")
+                    self.logger.error("🚫 STRICT CLOUD-FIRST POLICY: Cannot proceed without cloud access")
+                    self.logger.error("💡 Check internet connection and Google Drive authentication")
+                    self.logger.error("💡 Use --force flag to start fresh labeling process")
+                    return
             
-            # 5. Start labeling process
+            # 6. Start labeling process
             self.logger.info("🚀 Starting labeling process...")
             
             # Setup periodic sync during processing
@@ -389,18 +468,34 @@ class GoogleDriveLabelingPipeline:
                 # Final sync to cloud
                 self.sync_to_cloud(force=True)
                 
+                # Release lock
+                if self.lock_acquired:
+                    self.cloud_manager.release_labeling_lock(self.machine_id)
+                    self.lock_acquired = False
+                    self.logger.info("🔓 Lock released")
+                
                 return report
                 
             except KeyboardInterrupt:
                 self.logger.info("🛑 Process interrupted during labeling")
                 # Emergency sync
                 self.sync_to_cloud(force=True)
+                # Release lock
+                if self.lock_acquired:
+                    self.cloud_manager.release_labeling_lock(self.machine_id)
+                    self.lock_acquired = False
+                    self.logger.info("🔓 Lock released")
                 raise
             
         except Exception as e:
-            self.logger.error(f"❌ Labeling process failed: {str(e)}")
+            self.logger.error(f"❌ Labeling failed: {str(e)}")
             # Emergency sync
             self.sync_to_cloud(force=True)
+            # Release lock
+            if self.lock_acquired:
+                self.cloud_manager.release_labeling_lock(self.machine_id)
+                self.lock_acquired = False
+                self.logger.info("🔓 Lock released")
             raise
     
     def status(self):
@@ -449,7 +544,7 @@ def main():
     parser.add_argument('--batch-size', type=int, default=10,
                        help='Batch size for processing')
     parser.add_argument('--checkpoint-interval', type=int, default=50,
-                       help='Interval for local checkpoints')
+                       help='Number of batches between checkpoints (default: 50)')
     parser.add_argument('--cloud-sync-interval', type=int, default=100,
                        help='Interval for cloud sync')
     parser.add_argument('--no-promo-wait', action='store_true',
@@ -460,6 +555,8 @@ def main():
                        help='Show current status')
     parser.add_argument('--setup', action='store_true',
                        help='Show setup instructions')
+    parser.add_argument('--force', action='store_true',
+                       help='Force start even if lock exists (use with caution)')
     
     args = parser.parse_args()
     
@@ -483,6 +580,11 @@ def main():
         print("   ✅ Automatic promo hour detection")
         print("   ✅ Google Drive auto-sync")
         print("   ✅ Multi-device support")
+        print("   ✅ Distributed locking (prevents conflicts)")
+        print("\n5. Multi-device usage:")
+        print("   - Only one device can run labeling at a time")
+        print("   - Use --force to override stuck locks")
+        print("   - Automatic lock release on completion/interruption")
         print("\n" + "="*60)
         return
     
@@ -504,6 +606,14 @@ def main():
         print("❌ Setup failed. Use --setup for instructions.")
         return
     
+    # Handle force flag
+    if args.force:
+        pipeline.logger.warning("⚠️ Force mode enabled - overriding any existing locks")
+        try:
+            pipeline.cloud_manager.force_release_lock()
+        except Exception as e:
+            pipeline.logger.warning(f"⚠️ Could not release existing lock: {str(e)}")
+    
     # Run labeling
     try:
         pipeline.run_labeling(
@@ -517,11 +627,13 @@ def main():
         print("\n🛑 Process interrupted by user")
         print("💾 Progress has been saved and synced to Google Drive")
         print("🔄 Use the same command to resume from where you left off")
+        print("💡 If stuck with lock error, use --force flag")
     
     except Exception as e:
         print(f"\n❌ Error: {str(e)}")
         print("💾 Emergency save completed")
         print("🔄 Check logs and try resuming")
+        print("💡 If stuck with lock error, use --force flag")
 
 if __name__ == '__main__':
     main()

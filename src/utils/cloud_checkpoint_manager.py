@@ -35,7 +35,7 @@ class CloudCheckpointManager:
                  credentials_file: str = 'credentials.json',
                  token_file: str = 'token.json',
                  project_folder: str = 'ujaran-kebencian-datasets',
-                 local_cache_dir: str = 'src/checkpoints'):
+                 local_cache_dir: str = None):
         """
         Initialize CloudCheckpointManager
         
@@ -48,7 +48,12 @@ class CloudCheckpointManager:
         self.credentials_file = credentials_file
         self.token_file = token_file
         self.project_folder = project_folder
-        self.local_cache_dir = Path(local_cache_dir)
+        
+        # Set default local cache directory to user home if not provided
+        if local_cache_dir is None:
+            self.local_cache_dir = Path.home() / '.labeling_cache'
+        else:
+            self.local_cache_dir = Path(local_cache_dir)
         
         self.scopes = ['https://www.googleapis.com/auth/drive']
         self.service = None
@@ -187,6 +192,97 @@ class CloudCheckpointManager:
         except Exception as e:
             print(f"❌ Checkpoint validation failed: {e}")
             return False
+    
+    def detect_and_resolve_conflicts(self, checkpoint_id: str) -> bool:
+        """
+        Detect conflicts between local and cloud checkpoints and resolve them
+        by prioritizing cloud checkpoint as single source of truth
+        
+        Args:
+            checkpoint_id: ID of checkpoint to check for conflicts
+            
+        Returns:
+            bool: True if conflicts were detected and resolved
+        """
+        try:
+            # Get cloud checkpoint
+            cloud_checkpoint = self.get_latest_checkpoint()
+            if not cloud_checkpoint:
+                print("📥 No cloud checkpoint found")
+                return False
+            
+            # Check for local checkpoint
+            local_checkpoint_path = os.path.join(self.local_cache_dir, f"{checkpoint_id}.json")
+            if not os.path.exists(local_checkpoint_path):
+                print("📥 No local checkpoint found")
+                return False
+            
+            # Load local checkpoint
+            with open(local_checkpoint_path, 'r', encoding='utf-8') as f:
+                local_checkpoint = json.load(f)
+            
+            # Compare timestamps
+            cloud_timestamp = cloud_checkpoint.get('timestamp')
+            local_timestamp = local_checkpoint.get('timestamp')
+            
+            if cloud_timestamp != local_timestamp:
+                print("⚠️ CONFLICT DETECTED: Local and cloud checkpoints differ")
+                print(f"🌐 Cloud timestamp: {cloud_timestamp}")
+                print(f"💻 Local timestamp: {local_timestamp}")
+                
+                # Remove conflicting local checkpoint
+                os.remove(local_checkpoint_path)
+                print(f"🗑️ Removed conflicting local checkpoint: {local_checkpoint_path}")
+                
+                # Save cloud checkpoint to local cache
+                with open(local_checkpoint_path, 'w', encoding='utf-8') as f:
+                    json.dump(cloud_checkpoint, f, indent=2, ensure_ascii=False)
+                print(f"💾 Synced cloud checkpoint to local cache")
+                
+                return True
+            else:
+                print("✅ No conflicts detected: Local and cloud checkpoints are synchronized")
+                return False
+                
+        except Exception as e:
+            print(f"❌ Error during conflict detection: {e}")
+            return False
+    
+    def enforce_cloud_first_policy(self, checkpoint_id: str) -> Optional[Dict[str, Any]]:
+        """
+        Enforce strict cloud-first policy for checkpoint loading
+        
+        Args:
+            checkpoint_id: ID of checkpoint to load
+            
+        Returns:
+            Dict containing checkpoint data if successful, None otherwise
+        """
+        try:
+            if self._offline_mode:
+                print("🚫 STRICT CLOUD-FIRST POLICY: Cannot load checkpoint in offline mode")
+                return None
+            
+            # Get latest cloud checkpoint
+            cloud_checkpoint = self.get_latest_checkpoint()
+            if not cloud_checkpoint:
+                print("🚫 STRICT CLOUD-FIRST POLICY: No cloud checkpoint available")
+                return None
+            
+            # Validate cloud checkpoint
+            if not self.validate_checkpoint(cloud_checkpoint):
+                print("🚫 STRICT CLOUD-FIRST POLICY: Cloud checkpoint validation failed")
+                return None
+            
+            # Detect and resolve any conflicts
+            self.detect_and_resolve_conflicts(checkpoint_id)
+            
+            print("✅ STRICT CLOUD-FIRST POLICY: Cloud checkpoint loaded successfully")
+            return cloud_checkpoint
+            
+        except Exception as e:
+            print(f"❌ STRICT CLOUD-FIRST POLICY: Failed to load cloud checkpoint: {e}")
+            return None
             
             # Setup project folders
             self._setup_project_folders()
@@ -755,6 +851,293 @@ class CloudCheckpointManager:
             print(f"❌ Failed to upload dataset: {e}")
             return False
     
+    def acquire_labeling_lock(self, machine_id: str, timeout_minutes: int = 60) -> bool:
+        """
+        Acquire lock untuk labeling process untuk mencegah multiple labeling
+        
+        Args:
+            machine_id: Unique identifier untuk machine ini
+            timeout_minutes: Timeout untuk lock dalam menit
+            
+        Returns:
+            bool: True jika berhasil acquire lock
+        """
+        try:
+            lock_data = {
+                'machine_id': machine_id,
+                'timestamp': datetime.now().isoformat(),
+                'timeout_minutes': timeout_minutes,
+                'process_id': os.getpid(),
+                'hostname': os.environ.get('COMPUTERNAME', 'unknown')
+            }
+            
+            # Check existing lock
+            existing_lock = self._get_labeling_lock()
+            if existing_lock:
+                # Check if lock is expired
+                lock_time = datetime.fromisoformat(existing_lock['timestamp'])
+                elapsed_minutes = (datetime.now() - lock_time).total_seconds() / 60
+                
+                if elapsed_minutes < existing_lock.get('timeout_minutes', 60):
+                    if existing_lock['machine_id'] != machine_id:
+                        print(f"❌ Labeling already in progress on machine: {existing_lock['machine_id']}")
+                        print(f"   Started at: {existing_lock['timestamp']}")
+                        print(f"   Hostname: {existing_lock.get('hostname', 'unknown')}")
+                        return False
+                    else:
+                        print(f"🔄 Refreshing existing lock for this machine")
+                else:
+                    print(f"🔓 Previous lock expired, acquiring new lock")
+            
+            # Save lock locally
+            lock_file = self.local_cache_dir / 'labeling.lock'
+            with open(lock_file, 'w', encoding='utf-8') as f:
+                json.dump(lock_data, f, indent=2)
+            
+            # Save lock to cloud if available
+            if not self._offline_mode and self._authenticated:
+                self._save_labeling_lock_cloud(lock_data)
+            
+            print(f"🔒 Labeling lock acquired for machine: {machine_id}")
+            return True
+            
+        except Exception as e:
+            print(f"❌ Failed to acquire labeling lock: {e}")
+            return False
+    
+    def release_labeling_lock(self, machine_id: str) -> bool:
+        """
+        Release labeling lock
+        
+        Args:
+            machine_id: Machine ID yang acquire lock
+            
+        Returns:
+            bool: True jika berhasil release
+        """
+        try:
+            # Check if we own the lock
+            existing_lock = self._get_labeling_lock()
+            if existing_lock and existing_lock['machine_id'] != machine_id:
+                print(f"⚠️ Cannot release lock owned by different machine: {existing_lock['machine_id']}")
+                return False
+            
+            # Remove local lock
+            lock_file = self.local_cache_dir / 'labeling.lock'
+            if lock_file.exists():
+                lock_file.unlink()
+            
+            # Remove cloud lock if available
+            if not self._offline_mode and self._authenticated:
+                self._remove_labeling_lock_cloud()
+            
+            print(f"🔓 Labeling lock released for machine: {machine_id}")
+            return True
+            
+        except Exception as e:
+            print(f"❌ Failed to release labeling lock: {e}")
+            return False
+    
+    def _get_labeling_lock(self) -> Optional[Dict[str, Any]]:
+        """
+        Get current labeling lock dari cloud atau local
+        
+        Returns:
+            Lock data atau None jika tidak ada lock
+        """
+        # Try cloud first
+        if not self._offline_mode and self._authenticated:
+            cloud_lock = self._get_labeling_lock_cloud()
+            if cloud_lock:
+                return cloud_lock
+        
+        # Fallback to local
+        lock_file = self.local_cache_dir / 'labeling.lock'
+        if lock_file.exists():
+            try:
+                with open(lock_file, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+            except Exception:
+                return None
+        
+        return None
+    
+    def _save_labeling_lock_cloud(self, lock_data: Dict[str, Any]) -> bool:
+        """
+        Save labeling lock ke Google Drive
+        """
+        if not self._authenticated or not self.project_folder_id:
+            return False
+        
+        temp_file_path = None
+        try:
+            # Create temporary file
+            with tempfile.NamedTemporaryFile(mode='w', suffix='.json', delete=False, encoding='utf-8') as temp_file:
+                json.dump(lock_data, temp_file, indent=2, ensure_ascii=False)
+                temp_file_path = temp_file.name
+            
+            filename = 'labeling.lock'
+            
+            # Check if file already exists
+            existing_file_id = self._find_file_in_folder(filename, self.project_folder_id)
+            
+            file_metadata = {
+                'name': filename,
+                'parents': [self.project_folder_id]
+            }
+            
+            media = MediaFileUpload(temp_file_path, mimetype='application/json')
+            
+            if existing_file_id:
+                # Update existing file
+                self.service.files().update(
+                    fileId=existing_file_id,
+                    body={'name': filename},
+                    media_body=media
+                ).execute()
+            else:
+                # Create new file
+                self.service.files().create(
+                    body=file_metadata,
+                    media_body=media,
+                    fields='id'
+                ).execute()
+            
+            return True
+                
+        except Exception as e:
+            print(f"❌ Failed to save lock to cloud: {e}")
+            return False
+        finally:
+            # Cleanup temporary file
+            if temp_file_path and os.path.exists(temp_file_path):
+                try:
+                    os.unlink(temp_file_path)
+                except Exception:
+                    pass
+    
+    def _get_labeling_lock_cloud(self) -> Optional[Dict[str, Any]]:
+        """
+        Get labeling lock dari Google Drive
+        """
+        if not self._authenticated or not self.project_folder_id:
+            return None
+        
+        try:
+            filename = 'labeling.lock'
+            file_id = self._find_file_in_folder(filename, self.project_folder_id)
+            
+            if not file_id:
+                return None
+            
+            # Download file
+            request = self.service.files().get_media(fileId=file_id)
+            
+            with tempfile.NamedTemporaryFile(mode='w+b', delete=False) as temp_file:
+                downloader = MediaIoBaseDownload(temp_file, request)
+                done = False
+                while done is False:
+                    status, done = downloader.next_chunk()
+                
+                temp_file_path = temp_file.name
+            
+            try:
+                # Read downloaded file
+                with open(temp_file_path, 'r', encoding='utf-8') as f:
+                    return json.load(f)
+                    
+            finally:
+                # Cleanup temporary file
+                os.unlink(temp_file_path)
+                
+        except Exception as e:
+            print(f"❌ Failed to get lock from cloud: {e}")
+            return None
+    
+    def _remove_labeling_lock_cloud(self) -> bool:
+        """
+        Remove labeling lock dari Google Drive
+        """
+        if not self._authenticated or not self.project_folder_id:
+            return False
+        
+        try:
+            filename = 'labeling.lock'
+            file_id = self._find_file_in_folder(filename, self.project_folder_id)
+            
+            if file_id:
+                self.service.files().delete(fileId=file_id).execute()
+                return True
+            
+            return True  # File doesn't exist, consider it removed
+                
+        except Exception as e:
+            print(f"❌ Failed to remove lock from cloud: {e}")
+            return False
+    
+    def check_labeling_status(self) -> Dict[str, Any]:
+        """
+        Check status labeling process
+        
+        Returns:
+            Dict dengan labeling status information
+        """
+        lock_data = self._get_labeling_lock()
+        
+        if not lock_data:
+            return {
+                'is_running': False,
+                'message': 'No active labeling process'
+            }
+        
+        # Check if lock is expired
+        lock_time = datetime.fromisoformat(lock_data['timestamp'])
+        elapsed_minutes = (datetime.now() - lock_time).total_seconds() / 60
+        timeout_minutes = lock_data.get('timeout_minutes', 60)
+        
+        if elapsed_minutes >= timeout_minutes:
+            return {
+                'is_running': False,
+                'message': 'Previous labeling process expired',
+                'expired_lock': lock_data
+            }
+        
+        return {
+            'is_running': True,
+            'machine_id': lock_data['machine_id'],
+            'hostname': lock_data.get('hostname', 'unknown'),
+            'started_at': lock_data['timestamp'],
+            'elapsed_minutes': round(elapsed_minutes, 1),
+            'timeout_minutes': timeout_minutes,
+            'remaining_minutes': round(timeout_minutes - elapsed_minutes, 1)
+        }
+    
+    def force_release_lock(self) -> bool:
+        """
+        Force release labeling lock (untuk emergency situations)
+        
+        Returns:
+            bool: True jika berhasil
+        """
+        try:
+            # Remove local lock
+            lock_file = self.local_cache_dir / 'labeling.lock'
+            if lock_file.exists():
+                lock_file.unlink()
+                print("🔓 Local lock removed")
+            
+            # Remove cloud lock if available
+            if not self._offline_mode and self._authenticated:
+                if self._remove_labeling_lock_cloud():
+                    print("☁️ Cloud lock removed")
+            
+            print("🔓 Labeling lock force released")
+            return True
+            
+        except Exception as e:
+            print(f"❌ Failed to force release lock: {e}")
+            return False
+    
     def get_status(self) -> Dict[str, Any]:
         """
         Get status informasi dari checkpoint manager
@@ -767,6 +1150,8 @@ class CloudCheckpointManager:
         local_count = sum(1 for c in checkpoints if c['source'] in ['local', 'both'])
         cloud_count = sum(1 for c in checkpoints if c['source'] in ['cloud', 'both'])
         
+        labeling_status = self.check_labeling_status()
+        
         return {
             'authenticated': self._authenticated,
             'offline_mode': self._offline_mode,
@@ -775,5 +1160,6 @@ class CloudCheckpointManager:
             'cloud_checkpoints': cloud_count,
             'project_folder': self.project_folder,
             'local_cache_dir': str(self.local_cache_dir),
-            'latest_checkpoint': checkpoints[0]['id'] if checkpoints else None
+            'latest_checkpoint': checkpoints[0]['id'] if checkpoints else None,
+            'labeling_status': labeling_status
         }
