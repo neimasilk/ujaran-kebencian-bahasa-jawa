@@ -274,10 +274,11 @@ Setiap run menghasilkan comprehensive report:
 - **Architecture**: `memory-bank/architecture.md` - Arsitektur sistem lengkap
 - **API Strategy**: `memory-bank/deepseek-api-strategy.md` - Strategi penggunaan DeepSeek API
 - **Cost Optimization**: `memory-bank/cost-optimization-strategy.md` - Optimasi biaya operasional
-- **Google Drive Setup**: `memory-bank/google-drive-persistence-strategy.md` - Konfigurasi persistence
+- **Google Drive Integration**: `memory-bank/google-drive-integration.md` - Integrasi dan troubleshooting Google Drive
+- **Implementation & Testing**: `memory-bank/implementation-testing.md` - Implementasi force mode dan testing results
 
 ### Panduan Tim
-- **Manual Guidelines**: `memory-bank/petunjuk-pekerjaan-manual.md` - Panduan labeling manual
+- **Manual Work Guide**: `memory-bank/manual-work-guide.md` - Panduan lengkap pekerjaan manual
 - **Product Specification**: `memory-bank/spesifikasi-produk.md` - Spesifikasi produk lengkap
 - **Team Manifest**: `vibe-guide/team-manifest.md` - Filosofi dan struktur tim
 
@@ -287,9 +288,10 @@ Sistem labeling ini dirancang untuk efisiensi biaya dan kemudahan penggunaan. De
 
 **Untuk memulai**:
 1. Baca `memory-bank/quick-start-guide.md` untuk setup cepat
-2. Pahami workflow di `memory-bank/workflow-diagram.md`
-3. Siapkan error handling dengan `memory-bank/error-handling-guide.md`
-4. Ikuti implementasi sesuai dokumentasi teknis
+2. Setup Google Drive dengan `memory-bank/google-drive-integration.md`
+3. Pahami manual work dengan `memory-bank/manual-work-guide.md`
+4. Siapkan error handling dengan `memory-bank/error-handling-guide.md`
+5. Ikuti implementasi sesuai dokumentasi teknis
 
 **Untuk troubleshooting**: Selalu rujuk ke error handling guide dan konsultasi dengan tim jika diperlukan.
 
