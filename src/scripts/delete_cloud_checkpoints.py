@@ -5,7 +5,11 @@ Script untuk menghapus checkpoint dari Google Drive secara manual
 
 import sys
 import os
-sys.path.append(os.path.join(os.path.dirname(__file__), 'src'))
+from pathlib import Path
+
+# Add src to path
+src_path = Path(__file__).parent.parent
+sys.path.insert(0, str(src_path))
 
 from utils.cloud_checkpoint_manager import CloudCheckpointManager
 

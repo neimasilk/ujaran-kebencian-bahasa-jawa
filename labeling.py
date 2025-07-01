@@ -28,17 +28,17 @@ def parse_arguments():
         epilog="""
 Examples:
   python labeling.py                    # Serial labeling (default)
-  python labeling.py --parallel         # Parallel labeling (20x faster)
-  python labeling.py --parallel --workers 5  # Custom worker count
+  python labeling.py --parallel         # PRODUCTION parallel labeling (real API, 20x faster)
+  python labeling.py --parallel --workers 5  # Custom worker count for production
   python labeling.py --force            # Override existing locks
-  python labeling.py --parallel --mock  # Test with mock API
+  python labeling.py --parallel --mock  # Test with mock API (no cost)
         """
     )
     
     parser.add_argument(
         "--parallel", 
         action="store_true",
-        help="Enable parallel processing (20x+ faster)"
+        help="Enable parallel processing for PRODUCTION (20x+ faster, uses real API by default)"
     )
     
     parser.add_argument(
@@ -57,7 +57,7 @@ Examples:
     parser.add_argument(
         "--mock", 
         action="store_true",
-        help="Use mock API for testing (no cost)"
+        help="Use mock API for testing only (no cost, overrides production mode)"
     )
     
     parser.add_argument(
@@ -86,7 +86,7 @@ def main():
     # Tentukan script yang akan digunakan
     if args.parallel:
         print("⚡ PARALLEL MODE: 20x+ faster processing!")
-        script_path = Path(__file__).parent / "demo_parallel_labeling.py"
+        script_path = Path(__file__).parent / "production_parallel_labeling.py"
         
         # Command untuk parallel labeling
         cmd = [
@@ -102,7 +102,8 @@ def main():
             print("🧪 MOCK MODE: Testing without API cost")
         else:
             cmd.append("--real")
-            print("💰 REAL API MODE: Using DeepSeek API")
+            print("💰 PRODUCTION MODE: Using real DeepSeek API (promo period!)")
+            print("🎯 Ready for production labeling with cost optimization")
             
     else:
         print("🐌 SERIAL MODE: Traditional processing")

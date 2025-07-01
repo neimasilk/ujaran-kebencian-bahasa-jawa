@@ -10,7 +10,7 @@ import pandas as pd
 from pathlib import Path
 
 # Add src to path
-src_path = Path(__file__).parent / 'src'
+src_path = Path(__file__).parent.parent
 sys.path.insert(0, str(src_path))
 
 from utils.cloud_checkpoint_manager import CloudCheckpointManager
@@ -30,8 +30,8 @@ def check_google_drive_results():
         print("🔐 Menghubungkan ke Google Drive...")
         checkpoint_manager = CloudCheckpointManager()
         
-        # Check if authenticated
-        if not checkpoint_manager.is_authenticated():
+        # Try to authenticate
+        if not checkpoint_manager.authenticate():
             print("❌ Google Drive tidak terautentikasi")
             print("💡 Jalankan setup Google Drive terlebih dahulu")
             return
@@ -43,22 +43,31 @@ def check_google_drive_results():
         print("📂 Mengecek file di Google Drive/ujaran-kebencian-datasets/...")
         
         # Check for checkpoint files
-        checkpoint_files = checkpoint_manager.list_checkpoint_files()
+        checkpoint_files = checkpoint_manager.list_checkpoints()
         print(f"📋 Ditemukan {len(checkpoint_files)} file checkpoint:")
         
         for i, file_info in enumerate(checkpoint_files, 1):
-            print(f"  {i}. {file_info['name']} (Modified: {file_info.get('modified', 'Unknown')})")
+            source_icon = "☁️" if file_info['source'] == 'cloud' else "💾" if file_info['source'] == 'local' else "🔄"
+            print(f"  {i}. {source_icon} {file_info['id']} ({file_info['source']})")
+            print(f"      Modified: {file_info.get('timestamp', 'Unknown')}")
         
         print()
         
-        # Check for hasil-labeling.csv
+        # Check for hasil-labeling.csv (simplified check)
         print("🔍 Mencari file hasil-labeling.csv...")
-        result_files = checkpoint_manager.list_result_files()
         
-        if result_files:
-            print(f"✅ Ditemukan {len(result_files)} file hasil:")
-            for i, file_info in enumerate(result_files, 1):
-                print(f"  {i}. {file_info['name']} (Size: {file_info.get('size', 'Unknown')} bytes)")
+        # Check local first
+        import pandas as pd
+        from pathlib import Path
+        
+        local_result_file = Path('hasil-labeling.csv')
+        if local_result_file.exists():
+            print("✅ File hasil lokal ditemukan")
+            try:
+                df = pd.read_csv(local_result_file)
+                print(f"   📊 Jumlah baris: {len(df):,}")
+            except Exception as e:
+                print(f"   ⚠️ Error membaca file: {e}")
         else:
             print("⚠️ File hasil-labeling.csv belum ditemukan")
             print("💡 Proses mungkin masih berjalan atau belum selesai")
@@ -69,7 +78,7 @@ def check_google_drive_results():
         print("📥 Mengunduh checkpoint terbaru untuk analisis...")
         
         # Try to get the latest checkpoint
-        checkpoint_data = checkpoint_manager.download_checkpoint('labeling_raw-dataset_hasil-labeling')
+        checkpoint_data = checkpoint_manager.get_latest_checkpoint()
         
         if checkpoint_data:
             print("✅ Checkpoint berhasil diunduh")
