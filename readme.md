@@ -1,103 +1,97 @@
-# Sistem Deteksi Ujaran Kebencian Bahasa Jawa Menggunakan BERT
+# Sistem Deteksi Ujaran Kebencian Bahasa Jawa
 
 **Status Proyek:** Development Phase | **Vibe Coding Guide:** v1.4 | **Tim:** Hibrida (Manusia + AI)
 
-Proyek ini bertujuan untuk membangun sebuah sistem yang mampu secara cerdas dan akurat mendeteksi ujaran kebencian dalam teks berbahasa Jawa, dengan memanfaatkan model IndoBERT yang di-fine-tuning. Proyek ini dikembangkan menggunakan metodologi Vibe Coding v1.4 dengan kolaborasi tim hibrida antara manusia dan AI.
+Sistem machine learning untuk mendeteksi ujaran kebencian dalam teks berbahasa Jawa menggunakan model IndoBERT yang di-fine-tuning. Proyek ini dikembangkan menggunakan metodologi Vibe Coding v1.4 dengan kolaborasi tim hibrida antara manusia dan AI.
 
-## 📊 Dataset
+## 🚀 Quick Start
+
+### Instalasi
+```bash
+# Clone repository
+git clone <repository-url>
+cd ujaran-kebencian-bahasa-jawa
+
+# Install dependencies
+pip install -r requirements.txt
+
+# Setup environment
+cp .env.template .env
+# Edit .env dengan konfigurasi Anda
+```
+
+### Labeling Dataset
+```bash
+# Mulai proses labeling
+python labeling.py
+
+# Atau gunakan mode parallel untuk performa lebih baik
+python production_parallel_labeling.py
+```
+
+### Training Model
+```bash
+# Train model dengan dataset yang sudah dilabel
+python src/modelling/train_model.py
+
+# Evaluasi model
+python src/modelling/evaluate_model.py
+```
+
+## 📊 Dataset Overview
 
 - **Ukuran**: 41,759 samples
 - **Bahasa**: Bahasa Jawa
-- **Label**: Binary (positive/negative)
-- **Format**: CSV dengan kolom `text` dan `label`
-- **Distribusi**: 
-  - Negative (Hate Speech): 20,879 samples
-  - Positive (Not Hate Speech): 20,880 samples
+- **Format**: CSV (text, label)
+- **Distribusi**: Balanced (50% hate speech, 50% normal)
+- **Lokasi**: `src/data_collection/raw-dataset.csv`
 
-Dataset yang digunakan dalam proyek ini adalah kumpulan teks Bahasa Jawa yang telah diberi label. Dataset disimpan dalam format CSV dan terletak di `src/data_collection/raw-dataset.csv`. Proses pemuatan dan inspeksi data ditangani oleh script di `src/data_collection/load_csv_dataset.py`.
+## 📚 Dokumentasi
 
-## 💰 Cost Optimization
+### Panduan Utama
+- **[Memory Bank](memory-bank/README.md)** - Pusat dokumentasi proyek
+- **[Panduan Labeling](memory-bank/PANDUAN_LABELING.md)** - Tutorial lengkap labeling
+- **[Quick Start Guide](memory-bank/quick-start-guide.md)** - Setup cepat untuk tim baru
 
-### Fitur Optimasi Biaya
-- **Smart Scheduling**: Otomatis mendeteksi periode diskon DeepSeek API (50% OFF)
-- **Real-time Monitoring**: Tracking biaya per batch dan total penghematan
+### Dokumentasi Teknis
+- **[Architecture](memory-bank/architecture.md)** - Arsitektur sistem
+- **[API Strategy](memory-bank/deepseek-api-strategy.md)** - Strategi penggunaan DeepSeek API
+- **[Cost Optimization](memory-bank/cost-optimization-strategy.md)** - Optimasi biaya operasional
+- **[Google Drive Integration](memory-bank/google-drive-integration.md)** - Setup cloud persistence
+
+### Panduan Tim
+- **[Vibe Coding Guide](vibe-guide/VIBE_CODING_GUIDE.md)** - Metodologi pengembangan
+- **[Team Roles](vibe-guide/PERAN_TIM.md)** - Peran dan tanggung jawab tim
+- **[Project Board](memory-bank/papan-proyek.md)** - Status dan task management
+
+## 🛠️ Fitur Utama
+
+### Cost Optimization
+- **Smart Scheduling**: Deteksi otomatis periode diskon DeepSeek API (50% OFF)
+- **Real-time Monitoring**: Tracking biaya dan penghematan
 - **Multiple Strategies**: 3 strategi optimasi sesuai kebutuhan
-- **Persistence**: Resume otomatis jika terinterupsi
 
-### Periode Harga (GMT+7)
-- **Diskon 50%**: 23:30 - 07:30 WIB (8 jam/hari)
-- **Harga Standar**: 07:30 - 23:30 WIB (16 jam/hari)
+### Cloud Persistence
+- **Cross-device**: Sinkronisasi otomatis dengan Google Drive
+- **Offline Mode**: Fallback ke local storage
+- **Conflict Resolution**: Handling concurrent modifications
 
-### Strategi Optimasi
-1. **`discount_only`**: Hanya proses saat periode diskon (penghematan maksimal)
-2. **`warn_expensive`**: Proses kapan saja dengan peringatan biaya (default)
-3. **`always`**: Proses tanpa batasan waktu (fleksibilitas maksimal)
+### Parallel Processing
+- **Multi-threading**: Proses labeling paralel untuk performa optimal
+- **Checkpoint System**: Resume otomatis jika terinterupsi
+- **Progress Tracking**: Monitoring real-time progress
 
-### Estimasi Biaya (41,759 samples)
-- **Periode Diskon**: ~$2.85 💰
-- **Periode Standar**: ~$5.70
-- **Penghematan**: ~$2.85 (50%) dengan strategi optimal
+## 🤝 Kontribusi
 
-## 🚀 Quick Start - Labeling
+Proyek ini menggunakan metodologi Vibe Coding v1.4. Silakan baca [panduan kontribusi](vibe-guide/VIBE_CODING_GUIDE.md) sebelum berkontribusi.
 
-**Ingin langsung mulai labeling? Gunakan perintah sederhana ini:**
+## 📄 Lisensi
 
-```bash
-python labeling.py
-```
+MIT License - Lihat file LICENSE untuk detail lengkap.
 
-📖 **[Baca Panduan Lengkap Labeling](PANDUAN_LABELING.md)** - Dokumentasi lengkap untuk pengguna baru
+---
 
-## 📚 Documentation
-
-- **[📋 Panduan Labeling](PANDUAN_LABELING.md)** - **Panduan lengkap untuk pengguna**
-- [Labeling System Documentation](memory-bank/labeling-system-documentation.md) - Comprehensive guide untuk tim
-- [Google Drive Setup Guide](GOOGLE_DRIVE_SETUP_GUIDE.md) - Setup Google Drive backup
-- [DeepSeek API Strategy](memory-bank/deepseek-api-strategy.md)
-- [Cost Optimization Strategy](memory-bank/cost-optimization-strategy.md)
-- [Architecture Documentation](memory-bank/architecture.md)
-- [Product Specification](memory-bank/spesifikasi-produk.md)
-
-## Google Drive Cloud Persistence
-
-Sistem persistence yang memungkinkan kerja lintas perangkat dengan sinkronisasi otomatis:
-
-### Features
-- **Cross-device Persistence**: Akses dataset dan checkpoint dari komputer manapun
-- **Automatic Sync**: Sinkronisasi otomatis antara local cache dan Google Drive
-- **Offline Mode**: Fallback ke local storage jika cloud tidak tersedia
-- **Conflict Resolution**: Handling untuk concurrent modifications
-- **Secure Authentication**: OAuth 2.0 untuk akses Google Drive yang aman
-
-### Setup Google Drive Integration
-1. **Install Dependencies**:
-   ```bash
-   pip install google-api-python-client google-auth-httplib2 google-auth-oauthlib
-   ```
-
-2. **Setup Google Cloud Project**:
-   - Go to [Google Cloud Console](https://console.cloud.google.com/)
-   - Create new project atau pilih existing project
-   - Enable Google Drive API
-   - Create OAuth 2.0 Credentials (Desktop Application)
-   - Download credentials sebagai `credentials.json`
-   - Place file di root directory project
-
-3. **Test Integration**:
-   ```bash
-   python demo_cloud_checkpoint.py --setup  # Setup instructions
-   python demo_cloud_checkpoint.py          # Run demo
-   ```
-
-### Usage Scenarios
-- **Kampus ↔ Rumah**: Mulai labeling di kampus, lanjutkan di rumah
-- **Multiple Computers**: Bekerja dengan tim menggunakan komputer berbeda
-- **Backup & Recovery**: Automatic backup checkpoint ke cloud
-- **Collaboration**: Share progress dengan team members
-
-📖 **Full Documentation**: [Google Drive Persistence Strategy](memory-bank/google-drive-persistence-strategy.md)
-
-## Ringkasan Proyek
+**Dikembangkan dengan ❤️ menggunakan Vibe Coding v1.4**
 
 Proyek ini bertujuan untuk mengembangkan sistem deteksi ujaran kebencian dalam Bahasa Jawa dengan mengintegrasikan Kecerdasan Buatan (AI) dan kearifan lokal. [cite: 20] Model utama yang akan digunakan adalah BERT (Bidirectional Encoder Representations from Transformers)[cite: 19, 22], yang akan dilatih dan disesuaikan untuk mengenali nuansa linguistik dan budaya Bahasa Jawa. [cite: 23, 49]
 
