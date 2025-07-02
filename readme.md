@@ -31,8 +31,12 @@ python production_parallel_labeling.py
 
 ### Training Model
 ```bash
-# Train model dengan dataset yang sudah dilabel
+# Train model dengan dataset yang sudah dilabel (CPU)
 python src/modelling/train_model.py
+
+# Train model dengan GPU (lebih cepat)
+# Pastikan CUDA tersedia dan PyTorch dengan GPU support terinstal
+CUDA_VISIBLE_DEVICES=0 python src/modelling/train_model.py
 
 # Evaluasi model
 python src/modelling/evaluate_model.py
@@ -40,11 +44,13 @@ python src/modelling/evaluate_model.py
 
 ## 📊 Dataset Overview
 
-- **Ukuran**: 41,759 samples
+- **Ukuran**: 41,759 samples (raw), 41,346 samples (labeled)
 - **Bahasa**: Bahasa Jawa
 - **Format**: CSV (text, label)
-- **Distribusi**: Balanced (50% hate speech, 50% normal)
-- **Lokasi**: `src/data_collection/raw-dataset.csv`
+- **Distribusi**: 4 kategori (Bukan Ujaran Kebencian, Ringan, Sedang, Berat)
+- **Lokasi Raw**: `src/data_collection/raw-dataset.csv`
+- **Lokasi Labeled**: `src/data_collection/hasil-labeling.csv`
+- **Status**: ✅ Dataset telah dilabeli dan siap untuk training
 
 ## 📚 Dokumentasi
 
@@ -66,6 +72,13 @@ python src/modelling/evaluate_model.py
 
 ## 🛠️ Fitur Utama
 
+### Model Training
+- **IndoBERT Base**: Menggunakan model `indobenchmark/indobert-base-p1`
+- **GPU Support**: Dukungan CUDA untuk training yang lebih cepat
+- **4-Class Classification**: Deteksi 4 kategori ujaran kebencian
+- **Automatic Checkpointing**: Penyimpanan otomatis model terbaik
+- **Progress Monitoring**: Logging detail selama training
+
 ### Cost Optimization
 - **Smart Scheduling**: Deteksi otomatis periode diskon DeepSeek API (50% OFF)
 - **Real-time Monitoring**: Tracking biaya dan penghematan
@@ -80,6 +93,65 @@ python src/modelling/evaluate_model.py
 - **Multi-threading**: Proses labeling paralel untuk performa optimal
 - **Checkpoint System**: Resume otomatis jika terinterupsi
 - **Progress Tracking**: Monitoring real-time progress
+
+## 🚀 Pencapaian Terbaru
+
+### ✅ Dataset Labeling (Selesai)
+- **41,346 samples** telah berhasil dilabeli menggunakan DeepSeek API
+- **4 kategori** ujaran kebencian: Bukan Ujaran Kebencian, Ringan, Sedang, Berat
+- **Cost optimization** berhasil menghemat biaya labeling hingga 50%
+- **Cloud persistence** dengan Google Drive untuk backup otomatis
+
+### ✅ Model Training Pipeline (Siap)
+- **IndoBERT fine-tuning** untuk klasifikasi ujaran kebencian Bahasa Jawa
+- **GPU acceleration** support untuk training yang lebih cepat
+- **Automatic checkpointing** dan progress monitoring
+- **Error handling** yang robust untuk data loading dan preprocessing
+
+### 🔄 Status Saat Ini
+- Dataset labeling: **100% selesai**
+- Model training pipeline: **Siap digunakan**
+- GPU optimization: **Tersedia**
+- Evaluasi model: **Menunggu training selesai**
+
+## 💻 GPU Training Guide
+
+### Persyaratan GPU
+```bash
+# Cek ketersediaan CUDA
+python -c "import torch; print(f'CUDA available: {torch.cuda.is_available()}')"
+python -c "import torch; print(f'GPU count: {torch.cuda.device_count()}')"
+```
+
+### Install PyTorch dengan GPU Support
+```bash
+# Untuk CUDA 11.8
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu118
+
+# Untuk CUDA 12.1
+pip install torch torchvision torchaudio --index-url https://download.pytorch.org/whl/cu121
+
+# Verifikasi instalasi
+python -c "import torch; print(torch.cuda.get_device_name(0) if torch.cuda.is_available() else 'No GPU')"
+```
+
+### Training dengan GPU
+```bash
+# Single GPU
+CUDA_VISIBLE_DEVICES=0 python src/modelling/train_model.py
+
+# Multi-GPU (jika tersedia)
+CUDA_VISIBLE_DEVICES=0,1 python src/modelling/train_model.py
+
+# Monitoring GPU usage
+nvidia-smi -l 1  # Update setiap detik
+```
+
+### Estimasi Waktu Training
+- **CPU Only**: ~6-8 jam (41,346 samples, 3 epochs)
+- **GPU (RTX 3060)**: ~45-60 menit
+- **GPU (RTX 4090)**: ~20-30 menit
+- **GPU (A100)**: ~10-15 menit
 
 ## 🤝 Kontribusi
 

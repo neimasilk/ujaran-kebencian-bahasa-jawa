@@ -3,59 +3,60 @@ Utilitas untuk pelatihan dan evaluasi model deteksi ujaran kebencian.
 """
 
 # Import library yang umum digunakan untuk ML
-# from sklearn.model_selection import train_test_split
-# from sklearn.metrics import accuracy_score, precision_recall_fscore_support, confusion_matrix
-# import pandas as pd
-# import numpy as np
+from sklearn.model_selection import train_test_split
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support, confusion_matrix
+import pandas as pd
+import numpy as np
+import logging
 
-# Jika menggunakan Hugging Face Transformers & PyTorch/TensorFlow:
-# import torch
-# from transformers import AutoTokenizer, AutoModelForSequenceClassification, AdamW, get_scheduler
-# from torch.utils.data import DataLoader, TensorDataset
+# Setup logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-def split_data(df, label_column='sentiment', test_size=0.2, random_state=42):
+def split_data(df, text_column='text', label_column='label', test_size=0.2, random_state=42):
     """
-    Membagi DataFrame menjadi set pelatihan dan validasi/test.
-    (Ini adalah placeholder, implementasi sebenarnya akan bergantung pada library yang digunakan)
+    Membagi DataFrame menjadi set pelatihan dan validasi dengan stratifikasi.
 
     Args:
         df (pandas.DataFrame): DataFrame input yang sudah diproses dan berlabel.
+        text_column (str): Nama kolom yang berisi teks.
         label_column (str): Nama kolom yang berisi label.
         test_size (float): Proporsi dataset untuk dijadikan set tes/validasi.
         random_state (int): Seed untuk random state demi reproduktifitas.
 
     Returns:
-        tuple: Berisi (X_train, X_val, y_train, y_val) atau format lain tergantung library.
-               Atau (train_df, val_df) jika ingin membagi DataFrame secara langsung.
+        tuple: Berisi (train_df, val_df) - DataFrame untuk training dan validation.
     """
     if df is None or df.empty:
-        print("DataFrame kosong, tidak bisa melakukan pembagian data.")
-        return None, None, None, None
+        logger.error("DataFrame kosong, tidak bisa melakukan pembagian data.")
+        return None, None
 
-    print(f"Membagi data menjadi train/validation set dengan test_size={test_size}...")
-    # Contoh menggunakan scikit-learn (jika sudah diinstal)
-    # from sklearn.model_selection import train_test_split
-    # texts = df[df.columns.difference([label_column])] # Semua kolom kecuali label
-    # labels = df[label_column]
-    # X_train, X_val, y_train, y_val = train_test_split(texts, labels, test_size=test_size, random_state=random_state, stratify=labels if label_column in df else None)
-    # print("Pembagian data selesai.")
-    # return X_train, X_val, y_train, y_val
+    if text_column not in df.columns or label_column not in df.columns:
+        logger.error(f"Kolom {text_column} atau {label_column} tidak ditemukan dalam DataFrame.")
+        return None, None
 
-    # Placeholder: Mengembalikan DataFrame yang dibagi secara acak (tidak ideal untuk ML sebenarnya)
-    # Pastikan pandas sudah diimport
+    logger.info(f"Membagi data menjadi train/validation set dengan test_size={test_size}...")
+    logger.info(f"Total data: {len(df)}")
+    logger.info(f"Distribusi label: {df[label_column].value_counts().sort_index().to_dict()}")
+    
     try:
-        val_df = df.sample(frac=test_size, random_state=random_state)
-        train_df = df.drop(val_df.index)
-        print("Pembagian data (placeholder) selesai.")
-        # Jika ingin mengembalikan fitur dan label terpisah:
-        # X_train = train_df.drop(label_column, axis=1)
-        # y_train = train_df[label_column]
-        # X_val = val_df.drop(label_column, axis=1)
-        # y_val = val_df[label_column]
-        # return X_train, X_val, y_train, y_val
+        # Gunakan stratify untuk mempertahankan distribusi label
+        train_df, val_df = train_test_split(
+            df, 
+            test_size=test_size, 
+            random_state=random_state, 
+            stratify=df[label_column]
+        )
+        
+        logger.info(f"Data training: {len(train_df)} sampel")
+        logger.info(f"Data validation: {len(val_df)} sampel")
+        logger.info(f"Distribusi label training: {train_df[label_column].value_counts().sort_index().to_dict()}")
+        logger.info(f"Distribusi label validation: {val_df[label_column].value_counts().sort_index().to_dict()}")
+        
         return train_df, val_df
+        
     except Exception as e:
-        print(f"Error saat membagi data (placeholder): {e}")
+        logger.error(f"Error saat membagi data: {e}")
         return None, None
 
 

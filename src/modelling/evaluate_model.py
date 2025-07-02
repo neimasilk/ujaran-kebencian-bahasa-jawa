@@ -2,10 +2,12 @@ import os
 import pandas as pd
 import torch
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trainer, TrainingArguments
-from sklearn.metrics import accuracy_score, precision_recall_fscore_support, confusion_matrix
+from sklearn.metrics import accuracy_score, precision_recall_fscore_support, confusion_matrix, classification_report
 import numpy as np
 import json
 import logging
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 # Setup logging
 logging.basicConfig(level=logging.INFO)
@@ -105,7 +107,7 @@ def predict(model, eval_dataset, device=None):
 
 
 def compute_metrics(labels, predictions):
-    """Menghitung metrik evaluasi."""
+    """Menghitung metrik evaluasi lengkap."""
     if labels is None or predictions is None:
         logger.error("Label atau prediksi tidak valid untuk perhitungan metrik.")
         return None
@@ -113,19 +115,57 @@ def compute_metrics(labels, predictions):
         logger.error(f"Jumlah label ({len(labels)}) dan prediksi ({len(predictions)}) tidak cocok.")
         return None
 
-    precision, recall, f1, _ = precision_recall_fscore_support(labels, predictions, average='weighted', zero_division=0)
+    # Metrik per kelas dan rata-rata
+    precision_macro, recall_macro, f1_macro, _ = precision_recall_fscore_support(labels, predictions, average='macro', zero_division=0)
+    precision_weighted, recall_weighted, f1_weighted, _ = precision_recall_fscore_support(labels, predictions, average='weighted', zero_division=0)
+    precision_per_class, recall_per_class, f1_per_class, support_per_class = precision_recall_fscore_support(labels, predictions, average=None, zero_division=0)
+    
     acc = accuracy_score(labels, predictions)
     cm = confusion_matrix(labels, predictions)
+    
+    # Classification report untuk detail per kelas
+    class_names = ['Bukan Ujaran Kebencian', 'Ujaran Kebencian - Ringan', 'Ujaran Kebencian - Sedang', 'Ujaran Kebencian - Berat']
+    class_report = classification_report(labels, predictions, target_names=class_names, output_dict=True, zero_division=0)
 
     metrics = {
-        'accuracy': acc,
-        'f1': f1,
-        'precision': precision,
-        'recall': recall,
-        'confusion_matrix': cm.tolist() # Konversi ke list agar bisa di-serialize JSON
+        'accuracy': float(acc),
+        'f1_macro': float(f1_macro),
+        'f1_weighted': float(f1_weighted),
+        'precision_macro': float(precision_macro),
+        'precision_weighted': float(precision_weighted),
+        'recall_macro': float(recall_macro),
+        'recall_weighted': float(recall_weighted),
+        'precision_per_class': precision_per_class.tolist(),
+        'recall_per_class': recall_per_class.tolist(),
+        'f1_per_class': f1_per_class.tolist(),
+        'support_per_class': support_per_class.tolist(),
+        'confusion_matrix': cm.tolist(),
+        'classification_report': class_report
     }
-    logger.info(f"Metrik Evaluasi: {metrics}")
+    
+    logger.info(f"Accuracy: {acc:.4f}")
+    logger.info(f"F1-Score (Macro): {f1_macro:.4f}")
+    logger.info(f"F1-Score (Weighted): {f1_weighted:.4f}")
+    
     return metrics
+
+
+def plot_confusion_matrix(cm, class_names, save_path=None):
+    """Membuat visualisasi confusion matrix."""
+    plt.figure(figsize=(10, 8))
+    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues', 
+                xticklabels=class_names, yticklabels=class_names)
+    plt.title('Confusion Matrix')
+    plt.xlabel('Predicted Label')
+    plt.ylabel('True Label')
+    plt.tight_layout()
+    
+    if save_path:
+        plt.savefig(save_path, dpi=300, bbox_inches='tight')
+        logger.info(f"Confusion matrix disimpan di: {save_path}")
+    
+    plt.show()
+    return plt
 
 def save_evaluation_results(results, output_path):
     """Menyimpan hasil evaluasi ke file JSON."""
@@ -225,36 +265,70 @@ if __name__ == '__main__':
     # Contoh penggunaan:
     # 1. Pastikan model sudah dilatih dan tersimpan di MODEL_DIR
     #    Misalnya, setelah menjalankan train_model.py, akan ada di 'models/bert_jawa_hate_speech'
-    # 2. Siapkan file data evaluasi (misalnya, 'eval_data.csv') dengan kolom 'text' dan 'label'
+    # 2. Gunakan dataset hasil labeling untuk evaluasi
 
     MODEL_DIR = "models/bert_jawa_hate_speech" # Path ke model yang sudah dilatih
-
-    # Buat file evaluasi dummy
-    dummy_eval_data = {
-        'text': [
-            "iki conto teks sing apik tenan",
-            "teks iki ngemot ujaran kebencian ringan",
-            "rasah kakean omong!",
-            "produk iki pancen nggilani tenan",
-            "netral wae lah teks iki"
-        ],
-        'label': [0, 1, 2, 3, 0] # 0:Bukan, 1:Ringan, 2:Sedang, 3:Berat
+    EVAL_DATA_FILE = "data/hasil-labeling.csv" # Path ke dataset hasil labeling
+    
+    # Mapping label string ke numerik (sama seperti di train_model.py)
+    LABEL_MAPPING = {
+        "Bukan Ujaran Kebencian": 0,
+        "Ujaran Kebencian - Ringan": 1,
+        "Ujaran Kebencian - Sedang": 2,
+        "Ujaran Kebencian - Berat": 3
     }
-    dummy_eval_df = pd.DataFrame(dummy_eval_data)
-    dummy_eval_file = "dummy_eval_data.csv"
-    dummy_eval_df.to_csv(dummy_eval_file, index=False)
+    
+    # Siapkan data evaluasi dari dataset hasil labeling
+    if os.path.exists(EVAL_DATA_FILE):
+        logger.info(f"Memuat data evaluasi dari: {EVAL_DATA_FILE}")
+        eval_df = pd.read_csv(EVAL_DATA_FILE)
+        
+        # Filter data dengan confidence score tinggi untuk evaluasi
+        eval_df = eval_df[eval_df['confidence_score'] >= 0.8].copy()
+        eval_df = eval_df.dropna(subset=['text', 'final_label'])
+        eval_df = eval_df[eval_df['error'].isna()]
+        
+        # Map label string ke numerik
+        eval_df['label'] = eval_df['final_label'].map(LABEL_MAPPING)
+        eval_df = eval_df.dropna(subset=['label'])
+        eval_df['label'] = eval_df['label'].astype(int)
+        
+        # Ambil subset untuk evaluasi (20% dari data)
+        eval_sample = eval_df.sample(n=min(2000, len(eval_df)), random_state=42)
+        
+        # Simpan sebagai file evaluasi sementara
+        eval_file = "temp_eval_data.csv"
+        eval_sample[['text', 'label']].to_csv(eval_file, index=False)
+        
+        logger.info(f"Data evaluasi disiapkan: {len(eval_sample)} sampel")
+        logger.info(f"Distribusi label: {eval_sample['label'].value_counts().sort_index().to_dict()}")
+    else:
+        logger.error(f"File data evaluasi tidak ditemukan: {EVAL_DATA_FILE}")
+        eval_file = None
 
-    if os.path.exists(MODEL_DIR):
-        logger.info(f"Mengevaluasi model dari: {MODEL_DIR} dengan data: {dummy_eval_file}")
-        evaluation_results = evaluate_model(MODEL_DIR, dummy_eval_file, text_column='text', label_column='label')
+    if os.path.exists(MODEL_DIR) and eval_file:
+        logger.info(f"Mengevaluasi model dari: {MODEL_DIR} dengan data: {eval_file}")
+        evaluation_results = evaluate_model(MODEL_DIR, eval_file, text_column='text', label_column='label')
         if evaluation_results:
             logger.info("Evaluasi selesai.")
+            logger.info(f"Accuracy: {evaluation_results.get('accuracy', 0):.4f}")
+            logger.info(f"F1-Score (Macro): {evaluation_results.get('f1_macro', 0):.4f}")
+            
+            # Buat visualisasi confusion matrix
+            if 'confusion_matrix' in evaluation_results:
+                class_names = ['Bukan Ujaran Kebencian', 'Ujaran Kebencian - Ringan', 
+                              'Ujaran Kebencian - Sedang', 'Ujaran Kebencian - Berat']
+                cm_plot_path = os.path.join(MODEL_DIR, "confusion_matrix.png")
+                plot_confusion_matrix(evaluation_results['confusion_matrix'], class_names, cm_plot_path)
+            
             # Hasil akan tersimpan di MODEL_DIR/evaluation_results.json
         else:
             logger.error("Evaluasi gagal.")
-    else:
-        logger.warn(f"Direktori model {MODEL_DIR} tidak ditemukan. Tidak dapat menjalankan contoh evaluasi.")
+    elif not os.path.exists(MODEL_DIR):
+        logger.warn(f"Direktori model {MODEL_DIR} tidak ditemukan. Tidak dapat menjalankan evaluasi.")
         logger.warn("Jalankan train_model.py terlebih dahulu untuk menghasilkan model.")
+    elif not eval_file:
+        logger.warn("Data evaluasi tidak tersedia. Tidak dapat menjalankan evaluasi.")
 
     # Contoh evaluasi teks mentah tanpa label
     raw_texts_to_evaluate = [
@@ -270,7 +344,7 @@ if __name__ == '__main__':
         else:
             logger.error("Evaluasi teks mentah gagal.")
 
-    # Hapus file dummy
-    if os.path.exists(dummy_eval_file):
-        os.remove(dummy_eval_file)
-        logger.info(f"File evaluasi dummy {dummy_eval_file} dihapus.")
+    # Hapus file evaluasi sementara
+    if eval_file and os.path.exists(eval_file):
+        os.remove(eval_file)
+        logger.info(f"File evaluasi sementara {eval_file} dihapus.")

@@ -4,10 +4,22 @@ from sklearn.model_selection import train_test_split
 from transformers import AutoModelForSequenceClassification, AutoTokenizer, Trainer, TrainingArguments
 import torch
 import logging
+import os
 
 # Setup logging
-logging.basicConfig(level=logging.INFO)
+logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(name)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
+
+# GPU Configuration
+device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
+logger.info(f"Using device: {device}")
+if torch.cuda.is_available():
+    logger.info(f"GPU: {torch.cuda.get_device_name(0)}")
+    logger.info(f"GPU Memory: {torch.cuda.get_device_properties(0).total_memory / 1024**3:.1f} GB")
+else:
+    logger.info("GPU tidak tersedia. Training akan menggunakan CPU (lebih lambat).")
+    logger.info("Untuk training yang lebih cepat, install PyTorch dengan CUDA support.")
+    logger.info("Panduan: https://pytorch.org/get-started/locally/")
 
 # Constants
 TOKENIZER_CHECKPOINT = "indobenchmark/indobert-base-p1"
@@ -34,27 +46,77 @@ class JavaneseHateSpeechDataset(torch.utils.data.Dataset):
     def __len__(self):
         return len(self.labels)
 
-def load_processed_data(processed_data_path):
+def load_labeled_data(labeled_data_path="src/data_collection/hasil-labeling.csv"):
     """
-    Memuat data yang sudah diproses (misalnya, dari output text_preprocessing).
-    Asumsi data adalah CSV dengan kolom 'processed_text' dan 'label'.
-    Label diasumsikan sudah di-encode menjadi integer.
+    Memuat data yang sudah dilabeli dari hasil-labeling.csv.
+    Melakukan mapping label dari string ke numerik dan filtering berdasarkan confidence score.
     """
-    if not os.path.exists(processed_data_path):
-        logger.error(f"File data yang diproses tidak ditemukan di: {processed_data_path}")
+    if not os.path.exists(labeled_data_path):
+        logger.error(f"File data berlabel tidak ditemukan di: {labeled_data_path}")
         return None
     try:
-        df = pd.read_csv(processed_data_path)
-        if 'processed_text' not in df.columns or 'label' not in df.columns:
-            logger.error("Kolom 'processed_text' atau 'label' tidak ditemukan dalam data.")
+        df = pd.read_csv(labeled_data_path)
+        
+        # Cek kolom yang diperlukan
+        required_columns = ['text', 'final_label', 'confidence_score']
+        missing_columns = [col for col in required_columns if col not in df.columns]
+        if missing_columns:
+            logger.error(f"Kolom yang diperlukan tidak ditemukan: {missing_columns}")
             return None
-        # Hapus baris dengan teks kosong setelah preprocessing jika ada
-        df = df.dropna(subset=['processed_text'])
-        df = df[df['processed_text'].str.strip() != '']
-        return df
+        
+        # Filter data berdasarkan confidence score (>= 0.7)
+        logger.info(f"Data sebelum filtering: {len(df)} samples")
+        df = df[df['confidence_score'] >= 0.7]
+        logger.info(f"Data setelah filtering (confidence >= 0.7): {len(df)} samples")
+        
+        # Hapus baris dengan error atau teks kosong
+        df = df[df['error'].isna() | (df['error'] == '')]
+        df = df.dropna(subset=['text', 'final_label'])
+        df = df[df['text'].str.strip() != '']
+        
+        # Mapping label dari string ke numerik
+        label_mapping = {
+            "Bukan Ujaran Kebencian": 0,
+            "Ujaran Kebencian - Ringan": 1, 
+            "Ujaran Kebencian - Sedang": 2,
+            "Ujaran Kebencian - Berat": 3
+        }
+        
+        # Apply mapping
+        df['label_numeric'] = df['final_label'].map(label_mapping)
+        
+        # Debug: Check what's in final_label and label_numeric
+        logger.debug(f"Sample final_label values: {df['final_label'].head().values.tolist()}")
+        logger.debug(f"Sample label_numeric values before dropna: {df['label_numeric'].head().values.tolist()}")
+        
+        # Hapus baris dengan label yang tidak dikenali
+        df = df.dropna(subset=['label_numeric'])
+        df['label_numeric'] = df['label_numeric'].astype(int)
+        
+        # Debug: Check after conversion
+        logger.debug(f"Sample label_numeric values after conversion: {df['label_numeric'].head().values.tolist()}")
+        
+        # Drop original label column to avoid conflicts and rename columns for consistency
+        df = df.drop(columns=['label'], errors='ignore')  # Drop original label column if it exists
+        df = df.rename(columns={'text': 'processed_text', 'label_numeric': 'label'})
+        
+        # Debug: Check final labels
+        logger.debug(f"Sample final labels: {df['label'].head().values.tolist()}")
+        
+        # Log distribusi label
+        try:
+            label_distribution = df['label'].value_counts().sort_index()
+            logger.info(f"Distribusi label: {label_distribution.to_dict()}")
+        except Exception as e:
+            logger.warning(f"Tidak dapat menghitung distribusi label: {e}")
+            logger.info(f"Jumlah data final: {len(df)}")
+        
+        return df[['processed_text', 'label']]
+        
     except Exception as e:
-        logger.error(f"Error saat memuat data yang diproses: {e}")
+        logger.error(f"Error saat memuat data berlabel: {e}")
         return None
+
 
 def prepare_datasets(df, text_column='processed_text', label_column='label', test_size=0.2):
     """
@@ -70,7 +132,7 @@ def prepare_datasets(df, text_column='processed_text', label_column='label', tes
 
     try:
         train_texts, val_texts, train_labels, val_labels = train_test_split(
-            df[text_column].tolist(), df[label_column].tolist(), test_size=test_size, random_state=42
+            df[text_column].values.tolist(), df[label_column].values.tolist(), test_size=test_size, random_state=42
         )
 
         # Pastikan semua label ada dalam rentang yang valid (0 hingga NUM_LABELS-1)
@@ -78,11 +140,30 @@ def prepare_datasets(df, text_column='processed_text', label_column='label', tes
         logger.debug(f"prepare_datasets: Original train_labels sample: {train_labels[:5]}")
         logger.debug(f"prepare_datasets: Original val_labels sample: {val_labels[:5]}")
 
+        # Validasi label - pastikan semua label adalah integer dalam rentang yang benar
         combined_labels = train_labels + val_labels
-        invalid_labels = [lbl for lbl in combined_labels if not (0 <= lbl < NUM_LABELS)]
+        invalid_labels = []
+        for lbl in combined_labels:
+            try:
+                # Handle case where label might be a list or other type
+                if isinstance(lbl, (list, tuple)):
+                    invalid_labels.append(str(lbl))
+                    continue
+                    
+                if not isinstance(lbl, (int, float)) or not (0 <= int(lbl) < NUM_LABELS):
+                    invalid_labels.append(str(lbl))
+            except (TypeError, ValueError):
+                invalid_labels.append(str(lbl))
+        
         if invalid_labels:
-            logger.error(f"Label mengandung nilai di luar rentang yang diharapkan [0, {NUM_LABELS-1}]. Label tidak valid: {list(set(invalid_labels))[:5]}") # Tampilkan beberapa contoh label tidak valid
+            # Konversi invalid_labels ke string untuk menghindari error unhashable
+            unique_invalid = list(set(invalid_labels))[:5]
+            logger.error(f"Label mengandung nilai di luar rentang yang diharapkan [0, {NUM_LABELS-1}]. Label tidak valid: {unique_invalid}")
             return None, None
+        
+        # Konversi semua label ke integer
+        train_labels = [int(lbl) for lbl in train_labels]
+        val_labels = [int(lbl) for lbl in val_labels]
 
         train_encodings = tokenizer(train_texts, truncation=True, padding=True, max_length=128)
         val_encodings = tokenizer(val_texts, truncation=True, padding=True, max_length=128)
@@ -110,24 +191,60 @@ def train_model(train_dataset, val_dataset, model_output_dir=MODEL_OUTPUT_DIR, n
         return None
 
     try:
+        logger.info(f"Loading model: {TOKENIZER_CHECKPOINT}")
         model = AutoModelForSequenceClassification.from_pretrained(
-            TOKENIZER_CHECKPOINT, # Bisa juga model checkpoint lain jika berbeda dengan tokenizer
+            TOKENIZER_CHECKPOINT,
             num_labels=num_labels
         )
+        
+        # Move model to appropriate device
+        model.to(device)
+        logger.info(f"Model moved to device: {device}")
+        
+        # Log model info
+        total_params = sum(p.numel() for p in model.parameters())
+        trainable_params = sum(p.numel() for p in model.parameters() if p.requires_grad)
+        logger.info(f"Total parameters: {total_params:,}")
+        logger.info(f"Trainable parameters: {trainable_params:,}")
+        logger.info(f"Model size: ~{total_params * 4 / 1024**2:.1f} MB")
+
+        # Optimasi batch size berdasarkan device
+        if torch.cuda.is_available():
+            # GPU: batch size lebih besar untuk efisiensi
+            gpu_memory_gb = torch.cuda.get_device_properties(0).total_memory / 1024**3
+            if gpu_memory_gb >= 24:  # High-end GPU (A100, RTX 4090, etc.)
+                per_device_train_batch_size = min(per_device_train_batch_size * 4, 64)
+                per_device_eval_batch_size = min(per_device_eval_batch_size * 4, 128)
+            elif gpu_memory_gb >= 12:  # Mid-range GPU (RTX 3080, RTX 4070, etc.)
+                per_device_train_batch_size = min(per_device_train_batch_size * 2, 32)
+                per_device_eval_batch_size = min(per_device_eval_batch_size * 2, 64)
+            logger.info(f"GPU detected. Optimized batch sizes - Train: {per_device_train_batch_size}, Eval: {per_device_eval_batch_size}")
+        else:
+            # CPU: batch size lebih kecil untuk menghindari memory issues
+            per_device_train_batch_size = min(per_device_train_batch_size, 8)
+            per_device_eval_batch_size = min(per_device_eval_batch_size, 16)
+            logger.info(f"CPU detected. Conservative batch sizes - Train: {per_device_train_batch_size}, Eval: {per_device_eval_batch_size}")
 
         training_args = TrainingArguments(
             output_dir=model_output_dir,
-            num_train_epochs=num_train_epochs, # Jumlah epoch kecil untuk contoh/tes
+            num_train_epochs=num_train_epochs,
             per_device_train_batch_size=per_device_train_batch_size,
             per_device_eval_batch_size=per_device_eval_batch_size,
             learning_rate=learning_rate,
             weight_decay=weight_decay,
-            # evaluation_strategy="epoch", # Sementara dihapus untuk mengatasi TypeError
-            # save_strategy="epoch",       # Sementara dihapus
-            load_best_model_at_end=False, # Dinonaktifkan sementara karena butuh eval_strategy
+            evaluation_strategy="steps",
+            eval_steps=500,
+            save_strategy="steps",
+            save_steps=500,
+            load_best_model_at_end=True,
+            metric_for_best_model="eval_loss",
+            greater_is_better=False,
             logging_steps=logging_steps,
             save_total_limit=save_total_limit,
-            # report_to="none"
+            dataloader_pin_memory=torch.cuda.is_available(),  # Pin memory untuk GPU
+            dataloader_num_workers=4 if torch.cuda.is_available() else 0,  # Parallel data loading untuk GPU
+            fp16=torch.cuda.is_available(),  # Mixed precision untuk GPU
+            report_to="none"
         )
 
         trainer = Trainer(
@@ -156,51 +273,9 @@ def train_model(train_dataset, val_dataset, model_output_dir=MODEL_OUTPUT_DIR, n
         return None
 
 if __name__ == '__main__':
-    # Contoh penggunaan (membutuhkan file data dummy)
-    # 1. Buat file CSV dummy 'dummy_processed_data.csv'
-    # Kolom: processed_text,label
-    # Contoh isi:
-    # "iki teks proses siji",0
-    # "teks loro kanggo conto",1
-    # "telu papat limo enem pitu",2
-    # "wolu songo sepuluh sewelas",3
-    # "iki maneh teks proses siji",0
-    # "teks loro liyane kanggo conto",1
-    # "telu papat limo enem pitu maneh",2
-    # "wolu songo sepuluh sewelas liyane",3
-    # "siji loro telu papat",0
-    # "limo enem pitu wolu",1
-    # "songo sepuluh sewelas rolas",2
-    # "telulas patbelas limolas nembelas",3
-
-    dummy_data = {
-        'processed_text': [
-            "iki teks proses siji", "teks loro kanggo conto", "telu papat limo enem pitu", "wolu songo sepuluh sewelas",
-            "iki maneh teks proses siji", "teks loro liyane kanggo conto", "telu papat limo enem pitu maneh", "wolu songo sepuluh sewelas liyane",
-            "siji loro telu papat", "limo enem pitu wolu", "songo sepuluh sewelas rolas", "telulas patbelas limolas nembelas",
-            "iki teks positif banget", "iki teks negatif tenan", "iki teks netral wae", "iki teks super positif",
-            "iki teks super negatif", "iki teks cukup netral", "ora ono opo opo", "seneng banget aku",
-            "sedih rasane atiku", "biasa wae ora ono sing spesial", "mantap jiwa", "elek banget iki barang"
-        ],
-        'label': [
-            0, 1, 2, 3,
-            0, 1, 2, 3,
-            0, 1, 2, 3,
-            0, 3, 1, 0, # positif, ujaran kebencian berat (contoh salah), ujaran kebencian ringan, positif
-            3, 1, 0, 0, # ujaran kebencian berat (contoh salah), ringan, netral, netral
-            1, 2, 0, 3  # ringan, sedang, netral, berat (contoh salah)
-        ]
-    }
-    # Pastikan ada cukup sampel per kelas untuk stratifikasi jika digunakan (default train_test_split tidak stratify)
-    # dan untuk evaluasi yang bermakna.
-    # Untuk contoh ini, kita hanya punya 24 sampel. Batch size 8, jadi 3 step per epoch.
-
-    dummy_df = pd.DataFrame(dummy_data)
-    dummy_file_path = "dummy_processed_data.csv"
-    dummy_df.to_csv(dummy_file_path, index=False)
-
-    logger.info(f"Memuat data dummy dari {dummy_file_path}")
-    df_loaded = load_processed_data(dummy_file_path)
+    # Menggunakan dataset hasil labeling yang sudah ada
+    logger.info("Memuat data berlabel dari hasil-labeling.csv")
+    df_loaded = load_labeled_data()
 
     if df_loaded is not None:
         logger.info("Mempersiapkan dataset...")
@@ -215,30 +290,38 @@ if __name__ == '__main__':
             # if os.path.exists(MODEL_OUTPUT_DIR):
             #     shutil.rmtree(MODEL_OUTPUT_DIR)
 
-            logger.info("Memulai contoh pelatihan dengan data dummy...")
-            # Kurangi epoch dan batch size untuk pengujian cepat
+            logger.info("Memulai pelatihan model IndoBERT untuk deteksi ujaran kebencian...")
+            # Konfigurasi training sesuai technical briefing
             trained_model_path = train_model(
                 train_ds, val_ds,
-                num_train_epochs=1,
-                per_device_train_batch_size=4, # Lebih kecil agar bisa jalan di CPU dengan memori terbatas
-                per_device_eval_batch_size=4,
-                logging_steps=5
+                num_train_epochs=3,  # Sesuai rekomendasi technical briefing
+                per_device_train_batch_size=16,  # Sesuai rekomendasi
+                per_device_eval_batch_size=32,   # Sesuai rekomendasi
+                learning_rate=2e-5,              # Sesuai rekomendasi
+                weight_decay=0.01,
+                logging_steps=50
             )
             if trained_model_path:
-                logger.info(f"Contoh pelatihan selesai. Model disimpan di: {trained_model_path}")
+                logger.info(f"Pelatihan model selesai. Model disimpan di: {trained_model_path}")
+                logger.info("Model siap untuk evaluasi dan deployment.")
             else:
-                logger.error("Contoh pelatihan gagal.")
+                logger.error("Pelatihan model gagal.")
         else:
-            logger.error("Gagal mempersiapkan dataset dummy.")
+            logger.error("Gagal mempersiapkan dataset untuk training.")
     else:
-        logger.error("Gagal memuat data dummy.")
+        logger.error("Gagal memuat data berlabel dari hasil-labeling.csv.")
 
-    # Hapus file dummy setelah selesai
-    if os.path.exists(dummy_file_path):
-        os.remove(dummy_file_path)
-        logger.info(f"File dummy {dummy_file_path} dihapus.")
-
-    # Untuk menjalankan ini, pastikan PyTorch terinstal.
-    # Jika tidak ada GPU, Hugging Face Trainer akan otomatis menggunakan CPU.
-    # Proses fine-tuning BERT, bahkan untuk 1 epoch dengan data kecil, bisa memakan waktu beberapa menit di CPU.
-    # Outputnya akan ada di folder models/bert_jawa_hate_speech/
+    logger.info("Training pipeline selesai.")
+    logger.info("\n=== PANDUAN TRAINING ===")
+    logger.info("1. Pastikan PyTorch dan transformers terinstal")
+    if torch.cuda.is_available():
+        logger.info("2. ✅ GPU tersedia - Training akan lebih cepat")
+        logger.info(f"   GPU: {torch.cuda.get_device_name(0)}")
+        logger.info(f"   Memory: {torch.cuda.get_device_properties(0).total_memory / 1024**3:.1f} GB")
+    else:
+        logger.info("2. ⚠️  GPU tidak tersedia - Training akan menggunakan CPU (lebih lambat)")
+        logger.info("   Install PyTorch dengan CUDA: https://pytorch.org/get-started/locally/")
+    logger.info("3. Model akan disimpan di: models/bert_jawa_hate_speech/")
+    logger.info("4. Gunakan evaluate_model.py untuk evaluasi performa")
+    logger.info("5. Monitor training dengan: nvidia-smi -l 1 (untuk GPU)")
+    logger.info("========================\n")
