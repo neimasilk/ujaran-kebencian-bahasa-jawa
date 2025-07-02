@@ -19,6 +19,8 @@ Memory Bank adalah pusat dokumentasi untuk proyek deteksi ujaran kebencian bahas
 - **`cost-optimization-strategy.md`** - Strategi optimasi biaya operasional
 - **`google-drive-integration.md`** - ✨ **BARU** - Panduan lengkap integrasi Google Drive (konsolidasi dari 3 file)
 - **`implementation-testing.md`** - ✨ **BARU** - Implementasi force mode dan hasil testing (konsolidasi dari 3 file)
+- **`google-drive-upload-fix.md`** - ✨ **DIPINDAHKAN** - Dokumentasi perbaikan bug upload Google Drive
+- **`panduan-sinkronisasi-cloud.md`** - ✨ **DIPINDAHKAN** - Panduan sinkronisasi data ke cloud
 
 ### 👥 Panduan Tim
 - **`manual-work-guide.md`** - ✨ **BARU** - Panduan lengkap pekerjaan manual (konsolidasi dari 2 file)
@@ -31,7 +33,11 @@ Memory Bank adalah pusat dokumentasi untuk proyek deteksi ujaran kebencian bahas
 - **`papan-proyek.md`** - Status board dan task management
 - **`progress.txt`** - Log progress dalam format teks
 
-## 🧹 Pembersihan Dokumentasi
+## 🧹 Reorganisasi Dokumentasi (Desember 2024)
+
+### File yang Dipindahkan dari Root
+- **`GOOGLE_DRIVE_UPLOAD_FIX.md`** → `google-drive-upload-fix.md` - Dokumentasi teknis perbaikan bug
+- **`PANDUAN_SINKRONISASI_CLOUD.md`** → `panduan-sinkronisasi-cloud.md` - Panduan operasional cloud
 
 ### File yang Dikonsolidasikan
 
