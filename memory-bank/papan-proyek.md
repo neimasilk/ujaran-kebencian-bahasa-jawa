@@ -14,23 +14,23 @@
 
 ### BABY-STEP SAAT INI
 
-**"Infrastructure Hardening & Data Labeling Preparation"** ✅ SELESAI
+**"Model Training & Evaluation"** 🚀 SIAP DIMULAI
+- **Tujuan:** Melatih model deteksi ujaran kebencian menggunakan dataset yang telah dilabeli secara otomatis dan mengevaluasi performanya secara menyeluruh.
+- **Tugas:**
+     - [ ] **T1: Implementasi `train_model.py`** | **File:** `src/modelling/train_model.py` | **Tes:** Skrip dapat memuat data dari `hasil-labeling.csv`, melakukan fine-tuning pada model, dan menyimpan model terlatih. | **Assignee:** Developer Backend
+     - [ ] **T2: Implementasi `evaluate_model.py`** | **File:** `src/modelling/evaluate_model.py` | **Tes:** Skrip dapat memuat model terlatih, melakukan prediksi pada data uji, dan menghasilkan laporan metrik (akurasi, presisi, recall, F1-score) serta confusion matrix. | **Assignee:** Developer Backend
+     - [ ] **T3: Integrasi Utilitas Pelatihan** | **File:** `src/modelling/train_utils.py` | **Tes:** Fungsi-fungsi bantuan untuk pelatihan (misalnya, data loader, optimizer setup) terintegrasi dengan baik. | **Assignee:** Developer Backend
+     - [ ] **T4: Pembuatan Unit Test** | **File:** `src/tests/test_training.py`, `src/tests/test_evaluation.py` | **Tes:** Unit test untuk memverifikasi fungsionalitas skrip pelatihan dan evaluasi. | **Assignee:** Developer Backend
 
 ### BABY-STEP SELANJUTNYA
 
-**"Production Deployment & Real Data Labeling"** 🚀 SIAP DIMULAI
-- **Tujuan:** Memperkuat infrastruktur teknis dan mempersiapkan proses data labeling yang berkualitas tinggi.
-- **Tugas:**
-     - [x] **T1:** Architecture Review & Documentation Update | **File:** `memory-bank/architecture.md` | **Tes:** Dokumentasi arsitektur lengkap dengan rekomendasi | **Assignee:** Mukhlis Amien ✅
-     - [x] **T2:** Dependencies Management Setup | **File:** `requirements.txt` | **Tes:** Semua dependencies terinstall tanpa konflik | **Assignee:** Mukhlis Amien ✅
-     - [x] **T3:** Configuration Management System | **File:** `src/config/settings.py` | **Tes:** Konfigurasi terpusat dan environment variables | **Assignee:** Mukhlis Amien ✅
-     - [x] **T4:** Logging Infrastructure | **File:** `src/utils/logger.py` | **Tes:** Structured logging untuk semua komponen | **Assignee:** Mukhlis Amien ✅
-     - [x] **T4.1:** Labeling System Documentation | **File:** `memory-bank/labeling-system-documentation.md` | **Tes:** Comprehensive documentation untuk tim tentang sistem pelabelan | **Assignee:** Mukhlis Amien ✅
-     - [x] **T4.2:** Documentation Consolidation | **File:** `memory-bank/` | **Tes:** Semua dokumentasi proyek terpusat di memory-bank sesuai Vibe Coding Guide | **Assignee:** Mukhlis Amien ✅
-     - [x] **T4.3:** Project Structure Reorganization | **Purpose:** Consolidated all source code, data, and project files into `src/` directory, creating clean 3-directory structure: `vibe-guide/`, `memory-bank/`, and `src/` | **Status:** ✅ SELESAI
-     - [x] **T5:** Parallel DeepSeek API Labeling Implementation | **File:** `src/data_collection/parallel_deepseek_pipeline.py`, `src/utils/deepseek_client_parallel.py` | **Tes:** Parallel labeling dengan 20x+ speedup, consistency verified | **Assignee:** Mukhlis Amien ✅
-     - [x] **T5.1:** Parallel Labeling Testing & Documentation | **File:** `test_parallel_labeling.py`, `vibe-guide/PARALLEL_LABELING_GUIDE.md` | **Tes:** Comprehensive testing dan dokumentasi lengkap | **Assignee:** Mukhlis Amien ✅
-     - [ ] **T6:** Environment Setup & Testing | **File:** `.env`, test results | **Tes:** Semua dependencies terinstall, tests pass | **Assignee:** Mukhlis Amien, jules_dev1
+**"API Development & Prototyping"** ⏳ MENUNGGU
+- **Tujuan:** Membangun API untuk menyajikan model dan membuat prototipe antarmuka pengguna sederhana.
+
+### REFERENSI ARSIP
+- **Arsip 1:** Production Deployment & Real Data Labeling (selesai)
+- **Arsip 2:** Implementasi Testing dan Dokumentasi API (selesai)
+- Arsip lengkap tersedia di: `baby-steps-archive/`
 
 ## ✅ Selesai Dikerjakan
 

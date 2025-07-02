@@ -13,7 +13,7 @@ Dokumen ini menjelaskan arsitektur sistem deteksi ujaran kebencian Bahasa Jawa y
 graph TD
     subgraph "Persiapan Data"
         A[Pengumpulan Data: raw-dataset.csv] --> B(Preprocessing & Filtering)
-        B --> C{Pelabelan Data Manual}
+        B --> C{Pelabelan Data Otomatis (DeepSeek API)}
     end
 
     subgraph "Modul Machine Learning"
@@ -48,9 +48,10 @@ graph TD
     * **Input:** Dataset mentah dari Google Sheets.
     * **Output:** Dataset yang sudah dibersihkan dan diformat.
 
-3.  **Pelabelan Data:** [cite: 7, 55, 57, 85, 95, 96, 97]
-    * **Tanggung Jawab:** Melakukan pelabelan data secara manual dengan melibatkan ahli bahasa Jawa dan budayawan. Kategori label: ringan, sedang, berat, bukan ujaran kebencian. Konteks budaya dan tingkatan bahasa menjadi pertimbangan.
-    * **Output:** Dataset teks berlabel yang siap untuk pelatihan model. Pedoman pelabelan.
+3.  **Pelabelan Data:**
+    * **Tanggung Jawab:** Melakukan pelabelan data secara otomatis menggunakan **DeepSeek API** untuk efisiensi dan skalabilitas. Proses ini diimplementasikan dalam `deepseek_labeling_pipeline.py` dan `parallel_deepseek_pipeline.py` untuk pemrosesan paralel.
+    * **Teknologi:** Python, DeepSeek API, Pandas.
+    * **Output:** Dataset teks berlabel (`hasil-labeling.csv`) yang siap untuk pelatihan model, lengkap dengan skor kepercayaan dan metrik lainnya.
 
 4.  **Modul Machine Learning:**
     * **Dataset Loader & Tokenizer:**
@@ -176,7 +177,7 @@ def setup_logger(name: str, log_file: str = None):
 ## Diagram Alir Data (Sederhana)
 
 ```
-[raw-dataset.csv] -> [Preprocessing] -> [Pelabelan] -> [Training Model] -> [Model Tersimpan] -> [API Server]
+[raw-dataset.csv] -> [Preprocessing] -> [Pelabelan Otomatis (DeepSeek API)] -> [Training Model] -> [Model Tersimpan] -> [API Server]
 ```
 
 ## Interaksi Antar Komponen
