@@ -39,8 +39,8 @@
 → [`02-research-active/research-publication-strategy.md`](02-research-active/research-publication-strategy.md)  
 → [`02-research-active/academic-paper-documentation.md`](02-research-active/academic-paper-documentation.md)  
 → [`02-research-active/architectural-documentation-for-paper.md`](02-research-active/architectural-documentation-for-paper.md)  
-→ [`02-research-active/dataset-analysis-post-labeling.md`](02-research-active/dataset-analysis-post-labeling.md)  
-→ [`02-research-active/technical-briefing-model-training.md`](02-research-active/technical-briefing-model-training.md)
+→ [`02-research-active/technical-briefing-model-training.md`](02-research-active/technical-briefing-model-training.md)  
+→ [`04-archive-ready/dataset-analysis-final.md`](04-archive-ready/dataset-analysis-final.md) (Archived)
 
 ### 🎯 Saya ingin memahami visi produk
 → [`01-project-core/spesifikasi-produk.md`](01-project-core/spesifikasi-produk.md)

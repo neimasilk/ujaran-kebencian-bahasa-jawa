@@ -1,17 +1,18 @@
 # Papan Proyek - Sistem Deteksi Ujaran Kebencian Bahasa Jawa
 
-### STATUS [Update: 2025-01-02 - Architectural Review Complete]
+### STATUS [Update: 2025-01-02 - Model Training Complete]
 - ✅ Proyek telah disiapkan sesuai dengan Vibe Coding Guide v1.4
 - ✅ Spesifikasi produk telah diperbaiki dan disesuaikan dengan template PRD
 - ✅ Tim manifest telah disiapkan dengan peran yang jelas
 - ✅ Environment setup dan modular code structure telah diimplementasi
 - ✅ Dataset inspection dan basic testing infrastructure telah selesai
 - ✅ **PELABELAN DATASET SELESAI** - 41,346 samples berlabel tersedia di `hasil-labeling.csv`
-- ✅ **MODEL TRAINING PIPELINE SIAP** - IndoBERT dengan GPU optimization dan error handling
+- ✅ **MODEL TRAINING SELESAI** - IndoBERT berhasil dilatih dengan 41,346 samples (3 Juli 2025)
 - ✅ **DOKUMENTASI LENGKAP** - README.md dan progress.md diperbarui dengan pencapaian terbaru
 - ✅ **GPU ACCELERATION SUPPORT** - Mixed precision, automatic device detection, batch size optimization
 - ✅ **ARCHITECTURAL REVIEW COMPLETE** - Comprehensive architecture analysis dan roadmap tersedia
-- 🎯 **SIAP UNTUK TRAINING** - Pipeline teruji dan siap untuk eksekusi model training
+- ✅ **TRAINING EVALUATION COMPLETE** - Model evaluation menunjukkan performa 73.8% accuracy pada balanced dataset
+- 🎯 **SIAP UNTUK API DEVELOPMENT** - Model tersimpan dan siap untuk deployment
 
 ### REFERENSI ARSIP
 - Baby-step sebelumnya: Implementasi Testing dan Dokumentasi API (selesai)
@@ -19,22 +20,22 @@
 
 ### BABY-STEP SAAT INI
 
-**"Model Training & Evaluation"** ✅ SELESAI PERSIAPAN - SIAP EKSEKUSI
-- **Tujuan:** Melatih model IndoBERT untuk deteksi ujaran kebencian menggunakan dataset berlabel (41,346 samples) dan mengevaluasi performanya secara menyeluruh.
+**"API Development & Model Serving"** 🚀 SIAP DIMULAI
+- **Tujuan:** Membangun API FastAPI untuk serving model dan membuat endpoint untuk prediksi ujaran kebencian.
 - **Tugas:**
-     - [x] **T1: Finalisasi Data Preprocessing untuk Training** | **File:** `src/modelling/train_model.py` | **Tes:** ✅ Script dapat memuat `hasil-labeling.csv`, melakukan mapping label ke format numerik (0-3), dan mempersiapkan dataset untuk training. | **Assignee:** AI Assistant
-     - [x] **T2: Implementasi Training Pipeline** | **File:** `src/modelling/train_model.py` | **Tes:** ✅ Fine-tuning IndoBERT dengan 4-class classification, GPU optimization, automatic checkpointing, error handling lengkap. | **Assignee:** AI Assistant
-     - [ ] **T3: Eksekusi Model Training** | **File:** `src/modelling/train_model.py` | **Tes:** Model berhasil dilatih dan tersimpan di `models/bert_jawa_hate_speech/` dengan metrics evaluation. | **Assignee:** User/Developer
-     - [ ] **T4: Implementasi Evaluation Pipeline** | **File:** `src/modelling/evaluate_model.py` | **Tes:** Script menghasilkan laporan lengkap (accuracy, precision, recall, F1-score, confusion matrix) dan visualisasi performa model. | **Assignee:** Developer Backend
+     - [ ] **T1: Setup FastAPI Project Structure** | **File:** `src/api/main.py` | **Tes:** FastAPI server dapat dijalankan dan menampilkan dokumentasi API di /docs | **Assignee:** Developer Backend
+     - [ ] **T2: Implementasi Model Loading & Inference** | **File:** `src/api/model_service.py` | **Tes:** Model dapat dimuat dan melakukan prediksi pada teks input Bahasa Jawa | **Assignee:** AI Assistant
+     - [ ] **T3: Create Prediction Endpoints** | **File:** `src/api/endpoints.py` | **Tes:** Endpoint /predict menerima teks dan mengembalikan klasifikasi ujaran kebencian dengan confidence score | **Assignee:** Developer Backend
+     - [ ] **T4: Add Input Validation & Error Handling** | **File:** `src/api/validators.py` | **Tes:** API menangani input invalid dengan error message yang informatif | **Assignee:** AI Assistant
 
 ### BABY-STEP SELANJUTNYA
 
-**"Model Training Execution & Evaluation"** 🚀 SIAP DIMULAI
-- **Tujuan:** Menjalankan training model IndoBERT dan melakukan evaluasi performa secara menyeluruh.
-- **Prasyarat:** ✅ Training pipeline siap, dataset berlabel tersedia, GPU optimization terimplementasi
+**"Model Improvement & Optimization"** ⏳ FASE BERIKUTNYA
+- **Tujuan:** Meningkatkan performa model berdasarkan hasil evaluasi (73.8% accuracy) dan mengoptimasi untuk production.
+- **Prasyarat:** ✅ Model training selesai, evaluation report tersedia, API development dimulai
 
-**"API Development & Prototyping"** ⏳ FASE BERIKUTNYA
-- **Tujuan:** Membangun API untuk menyajikan model dan membuat prototipe antarmuka pengguna sederhana.
+**"Frontend Development & User Interface"** ⏳ FASE LANJUTAN
+- **Tujuan:** Membangun antarmuka pengguna untuk demo dan testing model secara interaktif.
 
 ### REFERENSI ARSIP
 - **Arsip 1:** Production Deployment & Real Data Labeling (selesai)
