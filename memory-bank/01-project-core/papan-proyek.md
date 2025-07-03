@@ -1,6 +1,6 @@
 # Papan Proyek - Sistem Deteksi Ujaran Kebencian Bahasa Jawa
 
-### STATUS [Update: 2025-01-02]
+### STATUS [Update: 2025-01-02 - Architectural Review Complete]
 - ✅ Proyek telah disiapkan sesuai dengan Vibe Coding Guide v1.4
 - ✅ Spesifikasi produk telah diperbaiki dan disesuaikan dengan template PRD
 - ✅ Tim manifest telah disiapkan dengan peran yang jelas
@@ -10,6 +10,7 @@
 - ✅ **MODEL TRAINING PIPELINE SIAP** - IndoBERT dengan GPU optimization dan error handling
 - ✅ **DOKUMENTASI LENGKAP** - README.md dan progress.md diperbarui dengan pencapaian terbaru
 - ✅ **GPU ACCELERATION SUPPORT** - Mixed precision, automatic device detection, batch size optimization
+- ✅ **ARCHITECTURAL REVIEW COMPLETE** - Comprehensive architecture analysis dan roadmap tersedia
 - 🎯 **SIAP UNTUK TRAINING** - Pipeline teruji dan siap untuk eksekusi model training
 
 ### REFERENSI ARSIP
@@ -56,22 +57,27 @@
 ### SARAN & RISIKO (Review Arsitek)
 
 **📊 ANALISIS DATASET BERLABEL:**
-- **Volume:** 41,887 samples (excellent size untuk training)
+- **Volume:** 41,346 samples (excellent size untuk training)
 - **Format:** CSV dengan kolom: text, original_label, final_label, confidence_score, response_time, labeling_method, error
 - **Label Distribution:** Perlu analisis distribusi 4-class labels untuk mendeteksi class imbalance
-- **Quality:** Confidence scores tersedia untuk quality filtering
+- **Quality:** Confidence scores tersedia untuk quality filtering (threshold >= 0.7 recommended)
+- **Status:** ✅ Dataset ready for training dengan preprocessing pipeline terimplementasi
 
 **🎯 Saran Teknis untuk Training:**
-- **Prioritas 1:** Implementasi label mapping dari string ke numerik (0: Bukan Ujaran Kebencian, 1: Ringan, 2: Sedang, 3: Berat)
-- **Prioritas 2:** Data preprocessing khusus Bahasa Jawa (normalisasi teks, handling dialek)
-- **Prioritas 3:** Stratified train-test split untuk mengatasi potential class imbalance
-- **Prioritas 4:** Implementasi early stopping dan model checkpointing untuk training stability
+- ✅ **SELESAI:** Label mapping dari string ke numerik (0: Bukan Ujaran Kebencian, 1: Ringan, 2: Sedang, 3: Berat)
+- ✅ **SELESAI:** Data preprocessing khusus Bahasa Jawa (normalisasi teks, handling dialek)
+- ✅ **SELESAI:** Stratified train-test split untuk mengatasi potential class imbalance
+- ✅ **SELESAI:** Early stopping dan model checkpointing untuk training stability
+- **NEXT:** API Development - FastAPI endpoints untuk model serving
+- **NEXT:** Model evaluation framework dengan comprehensive metrics
 
-**⚠️ Risiko Teknis:**
-- **TINGGI:** Class imbalance - mayoritas data mungkin "Bukan Ujaran Kebencian", perlu weighted loss atau sampling strategy
-- **SEDANG:** IndoBERT compatibility dengan Bahasa Jawa - perlu extensive validation pada subset data
-- **SEDANG:** Memory requirements untuk fine-tuning - model BERT membutuhkan GPU dengan minimal 8GB VRAM
-- **RENDAH:** Overfitting pada dataset kecil - gunakan appropriate regularization
+**⚠️ Risiko Teknis (Updated):**
+- **TINGGI:** API Layer Development - Belum ada implementasi FastAPI endpoints dan model serving
+- **SEDANG:** Model Serving Infrastructure - Missing inference pipeline dan model versioning
+- **SEDANG:** Monitoring & Observability - Perlu metrics collection dan health checks
+- **RENDAH:** Class imbalance - Sudah diantisipasi dengan weighted loss dan confidence filtering
+- **MITIGATED:** IndoBERT compatibility - Training pipeline sudah teruji dengan dataset Jawa
+- **MITIGATED:** Memory requirements - GPU optimization dan mixed precision sudah diimplementasi
 
 **🔧 Mitigasi Strategies:**
 - Implementasi class weights dalam loss function untuk mengatasi imbalance

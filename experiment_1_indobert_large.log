@@ -1,0 +1,22 @@
+2025-07-03 12:11:30,903 - INFO - Starting Experiment 1: IndoBERT Large Fine-tuning
+2025-07-03 12:11:30,931 - INFO - Using device: cuda
+2025-07-03 12:11:30,932 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-07-03 12:11:30,932 - INFO - GPU Memory: 17.2 GB
+2025-07-03 12:11:30,932 - INFO - Loading data from data/processed/final_dataset.csv
+2025-07-03 12:11:30,933 - ERROR - Experiment failed: [Errno 2] No such file or directory: 'data/processed/final_dataset.csv'
+2025-07-03 12:17:42,090 - INFO - Starting Experiment 1: IndoBERT Large Fine-tuning
+2025-07-03 12:17:42,120 - INFO - Using device: cuda
+2025-07-03 12:17:42,121 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-07-03 12:17:42,122 - INFO - GPU Memory: 17.2 GB
+2025-07-03 12:17:42,123 - INFO - Loading data from data/processed/final_dataset.csv
+2025-07-03 12:17:42,182 - INFO - Dataset shape: (39896, 6)
+2025-07-03 12:17:42,188 - INFO - Class distribution:
+2025-07-03 12:17:42,188 - INFO -   Bukan Ujaran Kebencian: 19479 (48.82%)
+2025-07-03 12:17:42,188 - INFO -   Ujaran Kebencian - Ringan: 5922 (14.84%)
+2025-07-03 12:17:42,188 - INFO -   Ujaran Kebencian - Sedang: 8077 (20.25%)
+2025-07-03 12:17:42,188 - INFO -   Ujaran Kebencian - Berat: 6418 (16.09%)
+2025-07-03 12:17:42,189 - INFO - Creating stratified train-test split
+2025-07-03 12:17:42,198 - INFO - Train set size: 31916
+2025-07-03 12:17:42,198 - INFO - Test set size: 7980
+2025-07-03 12:17:42,198 - INFO - Loading tokenizer and model: indobenchmark/indobert-large-p1
+2025-07-03 12:27:09,815 - ERROR - Experiment failed: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'

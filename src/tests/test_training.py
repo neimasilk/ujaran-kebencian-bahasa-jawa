@@ -6,13 +6,13 @@ import shutil
 import sys
 
 # Add src to path for imports
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 # Now import the module to be tested
 # Assuming torch and transformers are installed in the environment,
 # no need to mock them at the sys.modules level for basic import.
 # We will mock specific classes/functions as needed.
-from modelling.train_model import load_processed_data, prepare_datasets, train_model, JavaneseHateSpeechDataset, NUM_LABELS
+from modelling.train_model import load_labeled_data, prepare_datasets, train_model, JavaneseHateSpeechDataset, NUM_LABELS
 
 # Define a dummy tokenizer function for testing purposes if the real one can't load
 def dummy_tokenizer_func(texts, truncation=True, padding=True, max_length=128):
@@ -87,36 +87,52 @@ class TestTrainingModule(unittest.TestCase):
         self.patcher_mt_torch_tensor.stop() # Stop the new patcher
 
 
-    def test_load_processed_data_success(self):
-        df = load_processed_data(self.dummy_csv_path)
-        self.assertIsNotNone(df)
-        self.assertEqual(len(df), len(self.dummy_data['processed_text']))
-        self.assertTrue('processed_text' in df.columns)
-        self.assertTrue('label' in df.columns)
+    def test_load_labeled_data_success(self):
+        # Create dummy data with correct columns for load_labeled_data
+        dummy_labeled_data = {
+            'text': ["teks siji kanggo tes", "teks loro uga kanggo tes", "telu papat limo enem"],
+            'final_label': ["Bukan Ujaran Kebencian", "Ujaran Kebencian - Ringan", "Ujaran Kebencian - Sedang"],
+            'confidence_score': [0.8, 0.9, 0.75],
+            'error': ['', '', '']
+        }
+        dummy_df = pd.DataFrame(dummy_labeled_data)
+        dummy_df.to_csv(self.dummy_csv_path, index=False)
+        
+        with patch('modelling.train_model.pd.read_csv', return_value=dummy_df):
+            df = load_labeled_data()
+            self.assertIsNotNone(df)
+            self.assertTrue('processed_text' in df.columns)
+            self.assertTrue('label' in df.columns)
 
-    def test_load_processed_data_file_not_found(self):
-        df = load_processed_data("non_existent_file.csv")
-        self.assertIsNone(df)
+    def test_load_labeled_data_file_not_found(self):
+        with patch('modelling.train_model.pd.read_csv', side_effect=FileNotFoundError()):
+            df = load_labeled_data()
+            self.assertIsNone(df)
 
-    def test_load_processed_data_missing_columns(self):
-        bad_data = {'text': ["satu"], 'sentiment': [0]}
+    def test_load_labeled_data_missing_columns(self):
+        bad_data = {'text': ["satu"], 'sentiment': [0]}  # Missing required columns
         bad_df = pd.DataFrame(bad_data)
-        bad_df.to_csv(self.dummy_csv_path, index=False)
-        df = load_processed_data(self.dummy_csv_path)
-        self.assertIsNone(df)
+        with patch('modelling.train_model.pd.read_csv', return_value=bad_df):
+            df = load_labeled_data()
+            self.assertIsNone(df)
 
     def test_prepare_datasets_success(self):
+        # Create dummy data with correct columns for prepare_datasets
+        dummy_data = {
+            'processed_text': ["teks siji kanggo tes", "teks loro uga kanggo tes", "telu papat limo enem", "pitu wolu songo"],
+            'label': [0, 1, 2, 3]
+        }
+        dummy_df = pd.DataFrame(dummy_data)
+        
         # Ensure the global tokenizer in train_model is our mock
         with patch('modelling.train_model.tokenizer', self.mock_tokenizer_instance):
-            train_ds, val_ds = prepare_datasets(self.dummy_df)
+            train_ds, val_ds = prepare_datasets(dummy_df)
             self.assertIsNotNone(train_ds)
             self.assertIsNotNone(val_ds)
             # Basic check on dataset size (split is 80/20)
-            # Total 6 samples -> train 4 (0.8*6=4.8, floor or ceil based on implementation, usually 4 or 5)
-            # val 2 (or 1)
-            # With random_state=42 and 6 samples, train_test_split gives 4 train, 2 val
-            self.assertEqual(len(train_ds), 4)
-            self.assertEqual(len(val_ds), 2)
+            # Total 4 samples -> train 3, val 1 (with random_state=42)
+            self.assertEqual(len(train_ds), 3)
+            self.assertEqual(len(val_ds), 1)
 
             # Check structure of one item
             item = train_ds[0]

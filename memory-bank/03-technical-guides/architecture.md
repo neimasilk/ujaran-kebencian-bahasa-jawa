@@ -1,9 +1,10 @@
 # Arsitektur Sistem - Deteksi Ujaran Kebencian Bahasa Jawa
 
-**Versi:** 1.0
+**Versi:** 1.1
 **Tanggal:** 2 Januari 2025
 **Arsitek:** Mukhlis Amien
-**Review Status:** ✅ Reviewed & Updated
+**Review Status:** ✅ Comprehensive Architectural Review Complete
+**Last Updated:** 2025-01-02 (Post-Training Pipeline Implementation)
 
 Dokumen ini menjelaskan arsitektur sistem deteksi ujaran kebencian Bahasa Jawa yang telah dioptimalkan berdasarkan analisis mendalam terhadap implementasi saat ini dan kebutuhan proyek. Arsitektur ini mengikuti prinsip modular, scalable, dan maintainable sesuai dengan Vibe Coding Guide v1.4.
 
@@ -87,17 +88,126 @@ graph TD
 7.  API Server mengirimkan respons (misalnya, format JSON) kembali ke Antarmuka Pengguna atau pemanggil API.
 8.  Antarmuka Pengguna menampilkan hasil klasifikasi kepada pengguna.
 
-## Analisis Arsitektur Saat Ini (Review Arsitek)
+## Analisis Arsitektur Saat Ini (Comprehensive Review)
 
 ### ✅ Kekuatan Implementasi
-1. **Struktur Modular yang Baik**: Kode sudah terorganisir dengan baik dalam folder `src/` dengan pemisahan yang jelas:
-   - `data_collection/`: Handling dataset loading
-   - `preprocessing/`: Text preprocessing utilities
-   - `modelling/`: Model training dan evaluation
-   - `utils/`: General utilities
+1. **Struktur Modular yang Excellent**: Kode terorganisir dengan sangat baik dalam folder `src/` dengan pemisahan yang jelas:
+   - `data_collection/`: Dataset loading, parallel labeling pipeline, DeepSeek API integration
+   - `preprocessing/`: Text preprocessing utilities khusus Bahasa Jawa
+   - `modelling/`: Model training dan evaluation dengan GPU optimization
+   - `utils/`: General utilities, cost optimizer, cloud checkpoint manager
+   - `api/`: API layer (ready for development)
+   - `tests/`: Comprehensive testing suite
+   - `scripts/`: Utility scripts untuk monitoring dan maintenance
 
-2. **Testing Infrastructure**: Unit tests sudah diimplementasi dengan coverage >80%
-3. **Documentation**: API documentation sudah tersedia
+2. **Robust Data Pipeline**: 
+   - Parallel DeepSeek labeling dengan 41,346 samples berhasil dilabeli
+   - Checkpoint system untuk recovery dan resume
+   - Cost optimization dengan smart scheduling
+   - Cloud integration dengan Google Drive
+
+3. **Advanced Training Infrastructure**:
+   - GPU optimization dengan mixed precision training
+   - Automatic device detection (CUDA/CPU)
+   - Comprehensive error handling dan progress monitoring
+   - Model checkpointing dan early stopping
+
+4. **Testing Infrastructure**: Unit tests sudah diimplementasi dengan coverage >80%
+5. **Documentation**: Comprehensive documentation dengan tutorial dan guides
+6. **Cost Optimization**: Smart scheduling berdasarkan DeepSeek API discount periods
+
+### ⚠️ Area yang Perlu Diperkuat
+
+1. **API Layer Development** (Prioritas Tinggi):
+   - `src/api/__init__.py` masih kosong
+   - Belum ada implementasi FastAPI endpoints
+   - Missing model serving layer
+   - Tidak ada inference pipeline
+
+2. **Monitoring & Observability** (Prioritas Menengah):
+   - Logging sudah ada tapi perlu diperkuat dengan structured logging
+   - Missing metrics collection dan health checks
+   - Tidak ada performance monitoring
+
+3. **Model Serving Infrastructure** (Prioritas Menengah):
+   - Belum ada model versioning system
+   - Missing model caching mechanism
+   - Tidak ada batch prediction support
+
+### 🎯 Roadmap Arsitektur
+
+#### Phase 1: Model Training & Evaluation (Current - 90% Complete)
+- ✅ Dataset preparation dan labeling
+- ✅ Training pipeline implementation
+- 🔄 Model training execution
+- 🔄 Comprehensive evaluation framework
+
+#### Phase 2: API Development & Prototyping (Next Priority)
+- FastAPI implementation dengan endpoints:
+  - `/predict` - Single text prediction
+  - `/batch-predict` - Batch prediction
+  - `/health` - Health check
+  - `/metrics` - Performance metrics
+- Model serving layer dengan caching
+- Basic monitoring dan logging
+
+#### Phase 3: Production Readiness
+- Containerization dengan Docker
+- CI/CD pipeline setup
+- Advanced monitoring dengan Prometheus/Grafana
+- Load testing dan performance optimization
+
+#### Phase 4: Scale & Advanced Features
+- Model A/B testing framework
+- Real-time model retraining
+- Analytics dashboard
+- Advanced security features
+
+### 🔧 Rekomendasi Teknis Immediate
+
+1. **API Development Structure**:
+```
+src/api/
+├── __init__.py
+├── main.py          # FastAPI app
+├── routes/
+│   ├── __init__.py
+│   ├── prediction.py # Prediction endpoints
+│   └── health.py    # Health check
+├── models/
+│   ├── __init__.py
+│   ├── request.py   # Pydantic request models
+│   └── response.py  # Pydantic response models
+└── middleware/
+    ├── __init__.py
+    ├── auth.py      # Authentication
+    └── rate_limit.py # Rate limiting
+```
+
+2. **Environment Configuration Updates**:
+```env
+# Model Serving
+MODEL_CACHE_SIZE=3
+INFERENCE_BATCH_SIZE=32
+MODEL_WARMUP_SAMPLES=10
+
+# Monitoring
+METRICS_ENABLED=true
+METRICS_PORT=9090
+HEALTH_CHECK_INTERVAL=30
+```
+
+3. **Dependencies Enhancement**:
+```
+# API & Serving
+fastapi[all]>=0.104.0
+uvicorn[standard]>=0.24.0
+gunicorn>=21.2.0
+
+# Monitoring
+prometheus-client>=0.19.0
+psutil>=5.9.0
+```
 4. **Data Pipeline**: Dataset loading dan inspection sudah berfungsi dengan baik
 
 ### ⚠️ Area yang Perlu Diperbaiki

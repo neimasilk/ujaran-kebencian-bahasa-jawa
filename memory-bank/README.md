@@ -1,113 +1,109 @@
 # Memory Bank - Dokumentasi Proyek Ujaran Kebencian Bahasa Jawa
 
-> **Catatan**: Dokumentasi ini telah dibersihkan dan diorganisir ulang pada Desember 2024 untuk menghilangkan redundansi dan meningkatkan struktur.
+## 📋 Struktur Organisasi
 
-## 📋 Overview
+Dokumentasi proyek telah diorganisir ulang sesuai standar Vibe Coding untuk memudahkan navigasi dan pemeliharaan. Berikut adalah struktur folder yang telah diterapkan:
 
-Memory Bank adalah pusat dokumentasi untuk proyek deteksi ujaran kebencian bahasa Jawa. Direktori ini berisi dokumentasi aktif yang mendukung pengembangan dan operasional sistem.
+### 📁 01-project-core/
+**Dokumentasi inti proyek dan status terkini**
+- `papan-proyek.md` - Status proyek dan baby-steps tracking
+- `progress.md` - Log kemajuan berdasarkan deliverable
+- `project-summary.md` - Ringkasan status dan pencapaian
+- `project-readme.md` - README utama proyek
+- `spesifikasi-produk.md` - Visi produk dan target pengguna
 
-## 📁 Struktur Dokumentasi
+### 📁 02-research-active/
+**Penelitian dan eksperimen yang sedang aktif**
+- `academic-paper-documentation.md` - Dokumentasi untuk paper akademik
+- `architectural-documentation-for-paper.md` - Arsitektur untuk publikasi
+- `architectural-review-2025-01-02.md` - Tinjauan arsitektur komprehensif
+- `comprehensive-model-review.md` - Review komprehensif model
+- `dataset-analysis-post-labeling.md` - Analisis dataset setelah labeling
+- `evaluation-comparison-report.md` - Laporan evaluasi dan perbandingan model
+- `experiment-documentation-for-paper.md` - Dokumentasi eksperimen untuk publikasi
+- `final-model-improvement-report.md` - Laporan perbaikan model final
+- `IMPROVED_MODEL_COMPARISON_REPORT.md` - Laporan perbandingan model yang diperbaiki
+- `model-development-roadmap.md` - Roadmap pengembangan model lanjutan
+- `NEXT_EXPERIMENTS_PLAN.md` - Rencana eksperimen selanjutnya
+- `refactoring-plan.md` - Rencana refactoring struktur kode
+- `research-publication-strategy.md` - Strategi publikasi akademik
+- `technical-briefing-model-training.md` - Briefing teknis untuk training model
+- `TRAINING_EVALUATION_REPORT.md` - Laporan training dan evaluasi
 
-### 🎯 Dokumentasi Utama
-- **`project-summary.md`** - Ringkasan status proyek, pencapaian, dan metrik terkini
-- **`quick-start-guide.md`** - Panduan setup cepat untuk anggota tim baru
-- **`labeling-system-documentation.md`** - Dokumentasi lengkap sistem labeling dataset
+### 📁 03-technical-guides/
+**Panduan teknis dan implementasi**
+- `api_data_loading.md` - Dokumentasi API data loading
+- `architecture.md` - Arsitektur sistem
+- `cost-optimization-strategy.md` - Strategi optimasi biaya API
+- `dataset-preparation-documentation.md` - Dokumentasi persiapan dataset
+- `deepseek-api-strategy.md` - Strategi penggunaan DeepSeek API
+- `environment-setup.md` - Panduan setup environment
+- `error-handling-guide.md` - Panduan troubleshooting dan error handling
+- `google-drive-integration.md` - Panduan integrasi Google Drive
+- `gpu-optimization-guide.md` - Panduan optimasi GPU
+- `implementation-testing.md` - Dokumentasi implementasi dan testing
+- `labeling-system-documentation.md` - Dokumentasi sistem labeling
+- `manual-work-guide.md` - Panduan pekerjaan manual dan quality assurance
+- `MODEL_IMPROVEMENT_GUIDE.md` - Panduan perbaikan model
+- `PANDUAN_LABELING.md` - Panduan lengkap labeling dataset
+- `panduan-sinkronisasi-cloud.md` - Panduan sinkronisasi data ke cloud
+- `PARALLEL_LABELING_GUIDE.md` - Panduan parallel labeling dengan DeepSeek API
+- `quick-start-guide.md` - Panduan quick start untuk tim baru
+- `recovery-testing-scenarios.md` - Skenario testing dan recovery sistem
+- `technical-implementation-guide.md` - Panduan implementasi teknis
+- `TUTORIAL_PARALLEL_LABELING.md` - Tutorial sistem labeling paralel
 
-### 🔧 Dokumentasi Teknis
-- **`architecture.md`** - Arsitektur sistem dan komponen utama
-- **`deepseek-api-strategy.md`** - Strategi penggunaan DeepSeek API
-- **`cost-optimization-strategy.md`** - Strategi optimasi biaya operasional
-- **`google-drive-integration.md`** - ✨ **BARU** - Panduan lengkap integrasi Google Drive (konsolidasi dari 3 file)
-- **`implementation-testing.md`** - ✨ **BARU** - Implementasi force mode dan hasil testing (konsolidasi dari 3 file)
-- **`google-drive-upload-fix.md`** - ✨ **DIPINDAHKAN** - Dokumentasi perbaikan bug upload Google Drive
-- **`panduan-sinkronisasi-cloud.md`** - ✨ **DIPINDAHKAN** - Panduan sinkronisasi data ke cloud
+### 📁 04-archive-ready/
+**Dokumen yang siap diarsipkan**
+- `README.md` - Ringkasan reorganisasi dokumentasi (Desember 2024)
+- `dataset_inspection_report.txt` - Laporan inspeksi dataset awal
+- `google-drive-upload-fix.md` - Dokumentasi perbaikan bug Google Drive upload
+- `papan-proyek.md` - Versi lama papan proyek (sudah diperbarui di 01-project-core)
+- `project-summary.md` - Versi lama ringkasan proyek (sudah diperbarui di 01-project-core)
+- `research-project-reorganization.md` - Proposal reorganisasi (sudah diimplementasi)
 
-### 👥 Panduan Tim
-- **`manual-work-guide.md`** - ✨ **BARU** - Panduan lengkap pekerjaan manual (konsolidasi dari 2 file)
-- **`spesifikasi-produk.md`** - Spesifikasi produk dan requirements
-- **`PANDUAN_LABELING.md`** - Panduan khusus untuk proses labeling
+### 📁 memory-bank-arsip/
+**Arsip dokumentasi lama** (folder yang sudah ada sebelumnya)
 
-### 📊 Dokumentasi Operasional
-- **`error-handling-guide.md`** - Panduan troubleshooting dan error handling
-- **`progress.md`** - Tracking progress dan milestone proyek
-- **`papan-proyek.md`** - Status board dan task management
-- **`progress.txt`** - Log progress dalam format teks
+## 🧭 Cara Navigasi
 
-## 🧹 Reorganisasi Dokumentasi (Desember 2024)
+### Untuk Developer Baru:
+1. Mulai dari `01-project-core/project-summary.md` untuk overview
+2. Baca `01-project-core/spesifikasi-produk.md` untuk memahami visi produk
+3. Lihat `01-project-core/papan-proyek.md` untuk status terkini
 
-### File yang Dipindahkan dari Root
-- **`GOOGLE_DRIVE_UPLOAD_FIX.md`** → `google-drive-upload-fix.md` - Dokumentasi teknis perbaikan bug
-- **`PANDUAN_SINKRONISASI_CLOUD.md`** → `panduan-sinkronisasi-cloud.md` - Panduan operasional cloud
+### Untuk Researcher:
+1. Cek `02-research-active/` untuk eksperimen dan penelitian aktif
+2. Review `02-research-active/model-development-roadmap.md` untuk roadmap
+3. Lihat `02-research-active/research-publication-strategy.md` untuk strategi publikasi
 
-### File yang Dikonsolidasikan
+### Untuk Technical Implementation:
+1. Mulai dari `03-technical-guides/architecture.md`
+2. Ikuti `03-technical-guides/technical-implementation-guide.md`
+3. Gunakan `03-technical-guides/gpu-optimization-guide.md` untuk optimasi
 
-#### Google Drive Integration
-**File baru**: `google-drive-integration.md`
-**Menggabungkan**:
-- ~~`GDRIVE_SYNC_FIXES.md`~~ - Solusi masalah sinkronisasi
-- ~~`GOOGLE_DRIVE_SETUP_GUIDE.md`~~ - Panduan setup Google Drive API
-- ~~`google-drive-persistence-strategy.md`~~ - Strategi persistence
+## 📝 Prinsip Organisasi
 
-#### Implementation & Testing
-**File baru**: `implementation-testing.md`
-**Menggabungkan**:
-- ~~`FORCE_MODE_IMPLEMENTATION.md`~~ - Implementasi force mode
-- ~~`ROBUSTNESS_IMPLEMENTATION.md`~~ - Implementasi robustness solutions
-- ~~`ROBUSTNESS_TESTING_RESULTS.md`~~ - Hasil testing robustness
-- ~~`testing-scenarios-documentation.md`~~ - Skenario testing
+### Kategori Dokumen:
+- **Project Core**: Dokumentasi fundamental yang selalu relevan
+- **Research Active**: Penelitian dan eksperimen yang sedang berjalan
+- **Technical Guides**: Panduan implementasi dan teknis
+- **Archive Ready**: Dokumen yang sudah selesai dan siap diarsipkan
 
-#### Manual Work Guide
-**File baru**: `manual-work-guide.md`
-**Menggabungkan**:
-- ~~`pekerjaan-manual-arsitek.md`~~ - Task manual prioritas tinggi
-- ~~`petunjuk-pekerjaan-manual.md`~~ - Panduan pekerjaan manual
+### Aturan Pemeliharaan:
+1. **Dokumen aktif** tetap di folder utama
+2. **Dokumen selesai** dipindah ke `04-archive-ready/`
+3. **Dokumen usang** dipindah ke `baby-steps-archive/` (di root proyek)
+4. **Update berkala** sesuai siklus baby-steps
 
-### File yang Dihapus
+## 🔄 Siklus Pemeliharaan
 
-#### File Teknis yang Sudah Tidak Relevan
-- ~~`tumpukan-teknologi.md`~~ - Informasi sudah ada di dokumentasi lain
-- ~~`workflow-diagram.md`~~ - Diagram sudah terintegrasi di dokumentasi utama
-- ~~`rencana-implementasi.md`~~ - Sudah tidak relevan dengan kondisi terkini
-- ~~`Integrasi Kecerdasan Buatan dan Kearifan Lokal dalam Sistem Deteksi Ujaran Kebencian Bahasa Jawa Menggunakan BERT.pdf`~~ - File PDF yang sudah tidak diperlukan
-
-## 🚀 Cara Menggunakan Dokumentasi
-
-### Untuk Anggota Tim Baru
-1. Mulai dengan **`quick-start-guide.md`** untuk setup environment
-2. Baca **`project-summary.md`** untuk memahami status proyek
-3. Pelajari **`manual-work-guide.md`** untuk memahami tugas manual
-4. Setup Google Drive dengan **`google-drive-integration.md`**
-
-### Untuk Development
-1. Rujuk **`architecture.md`** untuk memahami struktur sistem
-2. Gunakan **`implementation-testing.md`** untuk implementasi dan testing
-3. Ikuti **`cost-optimization-strategy.md`** untuk efisiensi biaya
-4. Konsultasi **`error-handling-guide.md`** untuk troubleshooting
-
-### Untuk Labeling Data
-1. Baca **`labeling-system-documentation.md`** untuk overview sistem
-2. Ikuti **`PANDUAN_LABELING.md`** untuk prosedur labeling
-3. Gunakan **`manual-work-guide.md`** untuk panduan detail
-4. Setup persistence dengan **`google-drive-integration.md`**
-
-## 📈 Status Dokumentasi
-
-- ✅ **Dibersihkan**: Redundansi dihilangkan
-- ✅ **Dikonsolidasikan**: File terkait digabung
-- ✅ **Diperbarui**: Referensi dan link diperbaiki
-- ✅ **Terstruktur**: Organisasi yang lebih baik
-
-## 🔄 Maintenance
-
-Dokumentasi ini akan diupdate secara berkala seiring perkembangan proyek. Untuk update atau pertanyaan:
-
-1. **Update rutin**: Setiap milestone atau perubahan signifikan
-2. **Review berkala**: Setiap bulan untuk memastikan relevansi
-3. **Feedback**: Silakan buat issue atau diskusi untuk saran perbaikan
+Sesuai dengan Vibe Coding Guide, dokumentasi akan dipelihara secara berkelanjutan:
+- **Harian**: Update progress dan status
+- **Mingguan**: Review dan reorganisasi minor
+- **Per Baby-Step**: Arsipkan dokumen selesai
+- **Per Siklus**: Cleanup dan reorganisasi major
 
 ---
 
-*Dokumentasi ini mengikuti prinsip Vibe Coding v1.4 dengan fokus pada kolaborasi tim hybrid dan dokumentasi yang jelas.*
-
-**Terakhir diupdate**: Desember 2024  
-**Status**: Aktif dan terpelihara
+*Dokumentasi ini mengikuti standar Vibe Coding untuk Tim Hibrida dengan Peran Fleksibel*
