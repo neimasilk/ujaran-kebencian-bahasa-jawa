@@ -9,7 +9,7 @@ import sys
 import torch # Ditambahkan untuk mengatasi NameError
 
 # Add src to path for imports
-sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..', 'src')))
+sys.path.insert(0, os.path.abspath(os.path.join(os.path.dirname(__file__), '..')))
 
 from modelling.evaluate_model import (
     load_model_and_tokenizer,
@@ -165,18 +165,22 @@ class TestEvaluationModule(unittest.TestCase):
 
 
     def test_compute_metrics_success(self):
-        labels = np.array([0, 1, 0, 1, 2, 0])
-        predictions = np.array([0, 1, 0, 0, 2, 1]) # 2 incorrect: pred[3] (0 vs 1), pred[5] (1 vs 0)
+        # Use all 4 classes (0, 1, 2, 3) to match the model definition
+        labels = np.array([0, 1, 2, 3, 0, 1, 2, 3])
+        predictions = np.array([0, 1, 2, 2, 0, 0, 2, 3]) # Some incorrect predictions
 
         metrics = compute_metrics(labels, predictions)
         self.assertIsNotNone(metrics)
         self.assertIn('accuracy', metrics)
-        self.assertIn('f1', metrics)
-        self.assertIn('precision', metrics)
-        self.assertIn('recall', metrics)
+        self.assertIn('f1_macro', metrics)
+        self.assertIn('precision_macro', metrics)
+        self.assertIn('recall_macro', metrics)
         self.assertIn('confusion_matrix', metrics)
+        self.assertIn('classification_report', metrics)
 
-        expected_accuracy = (4/6) # 4 correct out of 6
+        # Check that accuracy is calculated correctly
+        # Correct predictions: [0, 1, 2, _, 0, _, 2, 3] = 6 out of 8
+        expected_accuracy = 6/8
         self.assertAlmostEqual(metrics['accuracy'], expected_accuracy)
         # For more precise checks on f1, precision, recall, you'd pre-calculate them.
 
