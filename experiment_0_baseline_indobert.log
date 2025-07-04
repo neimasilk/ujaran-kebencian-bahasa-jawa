@@ -1,0 +1,112 @@
+2025-07-04 10:16:00,387 - INFO - ============================================================
+2025-07-04 10:16:00,387 - INFO - EXPERIMENT 0: BASELINE INDOBERT BASE
+2025-07-04 10:16:00,387 - INFO - ============================================================
+2025-07-04 10:16:00,387 - INFO - Loading data from data/processed/final_dataset.csv
+2025-07-04 10:16:00,501 - INFO - Dataset shape: (39896, 6)
+2025-07-04 10:16:00,501 - INFO - Columns: ['text', 'label', 'label_id', 'confidence_score', 'labeling_method', 'response_time']
+2025-07-04 10:16:00,501 - INFO - First 3 rows of dataframe:
+2025-07-04 10:16:00,508 - INFO -                                                                                                                                                                     text                     label  label_id  confidence_score        labeling_method  response_time
+0  Ana karakter Hunger Games sing diterangake minangka "rambut ireng kandel, kulit coklat peteng sutra" lan wong-wong ilang pikirane nalika dimainake dening wong ireng.    Bukan Ujaran Kebencian         0              1.00    rule_based_positive       0.000000
+1                                                                                                                                           Aku ora seneng diarani negro    Bukan Ujaran Kebencian         0              1.00    rule_based_positive       0.000000
+2                                                                     ing masyarakat kita, wong wadon sing ora bisa duwe anak kudu pindhah lan manggon ing planet liyane  Ujaran Kebencian - Berat         3              0.95  deepseek_api_parallel       4.281824
+2025-07-04 10:16:00,529 - INFO - After cleaning - Dataset shape: (39896, 2)
+2025-07-04 10:16:00,533 - INFO - Class distribution:
+2025-07-04 10:16:00,533 - INFO -   Bukan Ujaran Kebencian: 19479 (48.82%)
+2025-07-04 10:16:00,534 - INFO -   Ujaran Kebencian - Ringan: 5922 (14.84%)
+2025-07-04 10:16:00,535 - INFO -   Ujaran Kebencian - Sedang: 8077 (20.25%)
+2025-07-04 10:16:00,535 - INFO -   Ujaran Kebencian - Berat: 6418 (16.09%)
+2025-07-04 10:16:00,536 - INFO - Creating stratified train-test split
+2025-07-04 10:16:00,550 - INFO - Train set size: 31916
+2025-07-04 10:16:00,550 - INFO - Test set size: 7980
+2025-07-04 10:16:00,551 - INFO - Training set distribution:
+2025-07-04 10:16:00,552 - INFO -   Bukan Ujaran Kebencian: 15583 (48.83%)
+2025-07-04 10:16:00,552 - INFO -   Ujaran Kebencian - Ringan: 4738 (14.85%)
+2025-07-04 10:16:00,553 - INFO -   Ujaran Kebencian - Sedang: 6461 (20.24%)
+2025-07-04 10:16:00,553 - INFO -   Ujaran Kebencian - Berat: 5134 (16.09%)
+2025-07-04 10:16:00,553 - INFO - Loading tokenizer and model: indobenchmark/indobert-base-p1
+2025-07-04 10:16:03,029 - INFO - Creating datasets
+2025-07-04 10:16:03,590 - INFO - Starting training...
+2025-07-04 10:19:52,812 - INFO - Training completed in 229.22 seconds
+2025-07-04 10:19:52,813 - INFO - Saving model to models/indobert_baseline_hate_speech
+2025-07-04 10:19:57,453 - INFO - Performing detailed evaluation
+2025-07-04 10:19:57,453 - INFO - Performing detailed evaluation
+2025-07-04 10:20:09,489 - INFO - Saving experiment results
+2025-07-04 10:20:10,231 - INFO - Results saved to experiments\results\experiment_0_baseline_indobert
+2025-07-04 10:20:10,231 - INFO - ============================================================
+2025-07-04 10:20:10,232 - INFO - EXPERIMENT COMPLETED SUCCESSFULLY
+2025-07-04 10:20:10,232 - INFO - ============================================================
+2025-07-04 10:20:10,232 - INFO - Accuracy: 0.2967
+2025-07-04 10:20:10,232 - INFO - F1-Score Macro: 0.3001
+2025-07-04 10:20:10,233 - INFO - Precision Macro: 0.4722
+2025-07-04 10:20:10,233 - INFO - Recall Macro: 0.4291
+2025-07-04 10:20:10,233 - INFO - Training Time: 229.22 seconds
+2025-07-04 10:20:10,233 - INFO - Results saved to: experiments\results\experiment_0_baseline_indobert
+2025-07-04 10:20:10,233 - INFO - Model saved to: models/indobert_baseline_hate_speech
+2025-07-04 10:20:10,234 - INFO - ============================================================
+2025-07-04 10:20:10,234 - INFO - COMPARISON WITH TARGET BASELINE
+2025-07-04 10:20:10,234 - INFO - ============================================================
+2025-07-04 10:20:10,234 - INFO - Target F1-Score Macro: 0.8036
+2025-07-04 10:20:10,235 - INFO - Current F1-Score Macro: 0.3001
+2025-07-04 10:20:10,235 - INFO - Difference: -0.5035
+2025-07-04 10:30:56,123 - INFO - ============================================================
+2025-07-04 10:30:56,123 - INFO - EXPERIMENT 0: BASELINE INDOBERT BASE
+2025-07-04 10:30:56,123 - INFO - ============================================================
+2025-07-04 10:30:56,123 - INFO - Loading data from data/processed/final_dataset_shuffled.csv
+2025-07-04 10:30:56,181 - INFO - Dataset shape: (41757, 8)
+2025-07-04 10:30:56,181 - INFO - Columns: ['text', 'label', 'final_label', 'confidence_score', 'response_time', 'labeling_method', 'error', 'original_index']
+2025-07-04 10:30:56,181 - INFO - First 3 rows of dataframe:
+2025-07-04 10:30:56,183 - INFO -                                                                                                                                 text     label                final_label  confidence_score  response_time        labeling_method  error  original_index
+0  Aku ora seneng yen kanca-kancaku diarani cumdumpster. Hak istimewa iku mine, wong wadon seneng yen aku ngomong karo wong-wong mau  negative  Ujaran Kebencian - Sedang              0.90       5.372167  deepseek_api_parallel    NaN         11287.0
+1                   Logika wanita: komunikasi iku penting anggere sampeyan mikir aku bener. Iki amarga padha ora bisa ngerti logika.  negative  Ujaran Kebencian - Ringan              0.75       3.531508  deepseek_api_parallel    NaN         28124.0
+2                                                                                        manuk dimaksudaké kanggo masak, ora politik  negative  Ujaran Kebencian - Ringan              0.70       3.466027  deepseek_api_parallel    NaN         13168.0
+2025-07-04 10:30:56,184 - ERROR - Experiment failed: "['label_id'] not in index"
+2025-07-04 10:34:26,474 - INFO - ============================================================
+2025-07-04 10:34:26,475 - INFO - EXPERIMENT 0: BASELINE INDOBERT BASE
+2025-07-04 10:34:26,475 - INFO - ============================================================
+2025-07-04 10:34:26,475 - INFO - Loading data from data/processed/final_dataset_shuffled.csv
+2025-07-04 10:34:26,538 - INFO - Dataset shape: (41757, 8)
+2025-07-04 10:34:26,538 - INFO - Columns: ['text', 'label', 'final_label', 'confidence_score', 'response_time', 'labeling_method', 'error', 'original_index']
+2025-07-04 10:34:26,538 - INFO - First 3 rows of dataframe:
+2025-07-04 10:34:26,541 - INFO -                                                                                                                                 text     label                final_label  confidence_score  response_time        labeling_method  error  original_index
+0  Aku ora seneng yen kanca-kancaku diarani cumdumpster. Hak istimewa iku mine, wong wadon seneng yen aku ngomong karo wong-wong mau  negative  Ujaran Kebencian - Sedang              0.90       5.372167  deepseek_api_parallel    NaN         11287.0
+1                   Logika wanita: komunikasi iku penting anggere sampeyan mikir aku bener. Iki amarga padha ora bisa ngerti logika.  negative  Ujaran Kebencian - Ringan              0.75       3.531508  deepseek_api_parallel    NaN         28124.0
+2                                                                                        manuk dimaksudaké kanggo masak, ora politik  negative  Ujaran Kebencian - Ringan              0.70       3.466027  deepseek_api_parallel    NaN         13168.0
+2025-07-04 10:34:26,546 - INFO - After cleaning - Dataset shape: (41757, 2)
+2025-07-04 10:34:26,547 - INFO - Class distribution:
+2025-07-04 10:34:26,547 - INFO -   Bukan Ujaran Kebencian: 20205 (48.39%)
+2025-07-04 10:34:26,547 - INFO -   Ujaran Kebencian - Ringan: 6241 (14.95%)
+2025-07-04 10:34:26,547 - INFO -   Ujaran Kebencian - Sedang: 8600 (20.60%)
+2025-07-04 10:34:26,547 - INFO -   Ujaran Kebencian - Berat: 6711 (16.07%)
+2025-07-04 10:34:26,547 - INFO - Creating stratified train-test split
+2025-07-04 10:34:26,556 - INFO - Train set size: 33405
+2025-07-04 10:34:26,556 - INFO - Test set size: 8352
+2025-07-04 10:34:26,556 - INFO - Training set distribution:
+2025-07-04 10:34:26,556 - INFO -   Bukan Ujaran Kebencian: 16164 (48.39%)
+2025-07-04 10:34:26,556 - INFO -   Ujaran Kebencian - Ringan: 4993 (14.95%)
+2025-07-04 10:34:26,556 - INFO -   Ujaran Kebencian - Sedang: 6880 (20.60%)
+2025-07-04 10:34:26,556 - INFO -   Ujaran Kebencian - Berat: 5368 (16.07%)
+2025-07-04 10:34:26,556 - INFO - Loading tokenizer and model: indobenchmark/indobert-base-p1
+2025-07-04 10:34:28,413 - INFO - Creating datasets
+2025-07-04 10:34:28,804 - INFO - Starting training...
+2025-07-04 10:41:58,902 - INFO - Training completed in 450.10 seconds
+2025-07-04 10:41:58,902 - INFO - Saving model to models/indobert_baseline_hate_speech
+2025-07-04 10:42:00,908 - INFO - Performing detailed evaluation
+2025-07-04 10:42:00,908 - INFO - Performing detailed evaluation
+2025-07-04 10:42:11,409 - INFO - Saving experiment results
+2025-07-04 10:42:11,664 - INFO - Results saved to experiments\results\experiment_0_baseline_indobert
+2025-07-04 10:42:11,665 - INFO - ============================================================
+2025-07-04 10:42:11,665 - INFO - EXPERIMENT COMPLETED SUCCESSFULLY
+2025-07-04 10:42:11,665 - INFO - ============================================================
+2025-07-04 10:42:11,665 - INFO - Accuracy: 0.4280
+2025-07-04 10:42:11,665 - INFO - F1-Score Macro: 0.4328
+2025-07-04 10:42:11,665 - INFO - Precision Macro: 0.4918
+2025-07-04 10:42:11,666 - INFO - Recall Macro: 0.5240
+2025-07-04 10:42:11,666 - INFO - Training Time: 450.10 seconds
+2025-07-04 10:42:11,666 - INFO - Results saved to: experiments\results\experiment_0_baseline_indobert
+2025-07-04 10:42:11,666 - INFO - Model saved to: models/indobert_baseline_hate_speech
+2025-07-04 10:42:11,666 - INFO - ============================================================
+2025-07-04 10:42:11,666 - INFO - COMPARISON WITH TARGET BASELINE
+2025-07-04 10:42:11,666 - INFO - ============================================================
+2025-07-04 10:42:11,666 - INFO - Target F1-Score Macro: 0.8036
+2025-07-04 10:42:11,666 - INFO - Current F1-Score Macro: 0.4328
+2025-07-04 10:42:11,666 - INFO - Difference: -0.3708

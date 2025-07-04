@@ -20,3 +20,120 @@
 2025-07-03 12:17:42,198 - INFO - Test set size: 7980
 2025-07-03 12:17:42,198 - INFO - Loading tokenizer and model: indobenchmark/indobert-large-p1
 2025-07-03 12:27:09,815 - ERROR - Experiment failed: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'
+2025-07-03 14:30:20,917 - INFO - Starting Experiment 1: IndoBERT Large Fine-tuning
+2025-07-03 14:30:20,946 - INFO - Using device: cuda
+2025-07-03 14:30:20,948 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-07-03 14:30:20,948 - INFO - GPU Memory: 17.2 GB
+2025-07-03 14:30:20,948 - INFO - Loading data from data/processed/final_dataset.csv
+2025-07-03 14:30:21,004 - INFO - Dataset shape: (39896, 6)
+2025-07-03 14:30:21,010 - INFO - Class distribution:
+2025-07-03 14:30:21,010 - INFO -   Bukan Ujaran Kebencian: 19479 (48.82%)
+2025-07-03 14:30:21,010 - INFO -   Ujaran Kebencian - Ringan: 5922 (14.84%)
+2025-07-03 14:30:21,010 - INFO -   Ujaran Kebencian - Sedang: 8077 (20.25%)
+2025-07-03 14:30:21,011 - INFO -   Ujaran Kebencian - Berat: 6418 (16.09%)
+2025-07-03 14:30:21,011 - INFO - Creating stratified train-test split
+2025-07-03 14:30:21,020 - INFO - Train set size: 31916
+2025-07-03 14:30:21,020 - INFO - Test set size: 7980
+2025-07-03 14:30:21,020 - INFO - Loading tokenizer and model: indobenchmark/indobert-large-p1
+2025-07-03 14:30:24,433 - INFO - Starting training...
+2025-07-03 14:30:24,674 - ERROR - Experiment failed: CustomTrainer.compute_loss() got an unexpected keyword argument 'num_items_in_batch'
+2025-07-03 14:31:25,330 - INFO - Starting Experiment 1: IndoBERT Large Fine-tuning
+2025-07-03 14:31:25,350 - INFO - Using device: cuda
+2025-07-03 14:31:25,351 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-07-03 14:31:25,351 - INFO - GPU Memory: 17.2 GB
+2025-07-03 14:31:25,352 - INFO - Loading data from data/processed/final_dataset.csv
+2025-07-03 14:31:25,411 - INFO - Dataset shape: (39896, 6)
+2025-07-03 14:31:25,418 - INFO - Class distribution:
+2025-07-03 14:31:25,418 - INFO -   Bukan Ujaran Kebencian: 19479 (48.82%)
+2025-07-03 14:31:25,418 - INFO -   Ujaran Kebencian - Ringan: 5922 (14.84%)
+2025-07-03 14:31:25,418 - INFO -   Ujaran Kebencian - Sedang: 8077 (20.25%)
+2025-07-03 14:31:25,418 - INFO -   Ujaran Kebencian - Berat: 6418 (16.09%)
+2025-07-03 14:31:25,418 - INFO - Creating stratified train-test split
+2025-07-03 14:31:25,426 - INFO - Train set size: 31916
+2025-07-03 14:31:25,426 - INFO - Test set size: 7980
+2025-07-03 14:31:25,427 - INFO - Loading tokenizer and model: indobenchmark/indobert-large-p1
+2025-07-03 14:31:28,206 - INFO - Starting training...
+2025-07-03 14:35:06,593 - INFO - Training completed in 218.39 seconds
+2025-07-03 14:35:06,595 - INFO - Saving model to models/indobert_large_hate_speech
+2025-07-03 14:35:15,731 - INFO - Performing detailed evaluation
+2025-07-03 14:35:36,806 - INFO - Saving experiment results
+2025-07-03 14:35:37,158 - INFO - Results saved to experiments\results\experiment_1_indobert_large
+2025-07-03 14:35:37,159 - INFO - ==================================================
+2025-07-03 14:35:37,159 - INFO - EXPERIMENT 1 RESULTS
+2025-07-03 14:35:37,159 - INFO - ==================================================
+2025-07-03 14:35:37,159 - INFO - Accuracy: 0.2330
+2025-07-03 14:35:37,159 - INFO - F1-Score Macro: 0.1897
+2025-07-03 14:35:37,159 - INFO - Baseline F1-Score: 0.8036
+2025-07-03 14:35:37,159 - INFO - Improvement: -0.6139
+2025-07-03 14:35:37,159 - INFO - Training Time: 218.39 seconds
+2025-07-03 14:35:37,159 - INFO - 
+Per-class Results:
+2025-07-03 14:35:37,159 - INFO -   Bukan Ujaran Kebencian:
+2025-07-03 14:35:37,159 - INFO -     F1-Score: 0.2513
+2025-07-03 14:35:37,159 - INFO -     Precision: 0.5214
+2025-07-03 14:35:37,160 - INFO -     Recall: 0.1656
+2025-07-03 14:35:37,160 - INFO -   Ujaran Kebencian - Ringan:
+2025-07-03 14:35:37,160 - INFO -     F1-Score: 0.0131
+2025-07-03 14:35:37,160 - INFO -     Precision: 0.2353
+2025-07-03 14:35:37,160 - INFO -     Recall: 0.0068
+2025-07-03 14:35:37,160 - INFO -   Ujaran Kebencian - Sedang:
+2025-07-03 14:35:37,160 - INFO -     F1-Score: 0.2288
+2025-07-03 14:35:37,160 - INFO -     Precision: 0.1999
+2025-07-03 14:35:37,160 - INFO -     Recall: 0.2673
+2025-07-03 14:35:37,160 - INFO -   Ujaran Kebencian - Berat:
+2025-07-03 14:35:37,160 - INFO -     F1-Score: 0.2654
+2025-07-03 14:35:37,160 - INFO -     Precision: 0.1702
+2025-07-03 14:35:37,160 - INFO -     Recall: 0.6028
+2025-07-03 14:35:37,160 - INFO - 
+Total experiment time: 251.83 seconds
+2025-07-03 14:35:37,161 - INFO - Experiment 1 completed successfully!
+2025-07-03 15:02:48,760 - INFO - Starting Experiment 1: IndoBERT Large Fine-tuning
+2025-07-03 15:02:48,799 - INFO - Using device: cuda
+2025-07-03 15:02:48,801 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-07-03 15:02:48,801 - INFO - GPU Memory: 17.2 GB
+2025-07-03 15:02:48,801 - INFO - Loading data from data/processed/final_dataset.csv
+2025-07-03 15:02:48,900 - INFO - Dataset shape: (39896, 6)
+2025-07-03 15:02:48,907 - INFO - Class distribution:
+2025-07-03 15:02:48,907 - INFO -   Bukan Ujaran Kebencian: 19479 (48.82%)
+2025-07-03 15:02:48,907 - INFO -   Ujaran Kebencian - Ringan: 5922 (14.84%)
+2025-07-03 15:02:48,907 - INFO -   Ujaran Kebencian - Sedang: 8077 (20.25%)
+2025-07-03 15:02:48,907 - INFO -   Ujaran Kebencian - Berat: 6418 (16.09%)
+2025-07-03 15:02:48,907 - INFO - Creating stratified train-test split
+2025-07-03 15:02:48,917 - INFO - Train set size: 31916
+2025-07-03 15:02:48,917 - INFO - Test set size: 7980
+2025-07-03 15:02:48,917 - INFO - Loading tokenizer and model: indobenchmark/indobert-large-p1
+2025-07-03 15:02:52,093 - INFO - Starting training...
+2025-07-03 15:18:04,550 - INFO - Training completed in 912.46 seconds
+2025-07-03 15:18:04,550 - INFO - Saving model to models/indobert_large_hate_speech
+2025-07-03 15:18:09,387 - INFO - Performing detailed evaluation
+2025-07-03 15:18:30,361 - INFO - Saving experiment results
+2025-07-03 15:18:30,675 - INFO - Results saved to experiments\results\experiment_1_indobert_large
+2025-07-03 15:18:30,675 - INFO - ==================================================
+2025-07-03 15:18:30,675 - INFO - EXPERIMENT 1 RESULTS
+2025-07-03 15:18:30,675 - INFO - ==================================================
+2025-07-03 15:18:30,675 - INFO - Accuracy: 0.3980
+2025-07-03 15:18:30,675 - INFO - F1-Score Macro: 0.3830
+2025-07-03 15:18:30,675 - INFO - Baseline F1-Score: 0.8036
+2025-07-03 15:18:30,676 - INFO - Improvement: -0.4206
+2025-07-03 15:18:30,676 - INFO - Training Time: 912.46 seconds
+2025-07-03 15:18:30,676 - INFO - 
+Per-class Results:
+2025-07-03 15:18:30,676 - INFO -   Bukan Ujaran Kebencian:
+2025-07-03 15:18:30,676 - INFO -     F1-Score: 0.4675
+2025-07-03 15:18:30,676 - INFO -     Precision: 0.6110
+2025-07-03 15:18:30,676 - INFO -     Recall: 0.3786
+2025-07-03 15:18:30,676 - INFO -   Ujaran Kebencian - Ringan:
+2025-07-03 15:18:30,676 - INFO -     F1-Score: 0.3218
+2025-07-03 15:18:30,676 - INFO -     Precision: 0.2421
+2025-07-03 15:18:30,676 - INFO -     Recall: 0.4797
+2025-07-03 15:18:30,676 - INFO -   Ujaran Kebencian - Sedang:
+2025-07-03 15:18:30,676 - INFO -     F1-Score: 0.3678
+2025-07-03 15:18:30,676 - INFO -     Precision: 0.3091
+2025-07-03 15:18:30,676 - INFO -     Recall: 0.4542
+2025-07-03 15:18:30,676 - INFO -   Ujaran Kebencian - Berat:
+2025-07-03 15:18:30,677 - INFO -     F1-Score: 0.3748
+2025-07-03 15:18:30,677 - INFO -     Precision: 0.4722
+2025-07-03 15:18:30,677 - INFO -     Recall: 0.3107
+2025-07-03 15:18:30,677 - INFO - 
+Total experiment time: 941.92 seconds
+2025-07-03 15:18:30,677 - INFO - Experiment 1 completed successfully!

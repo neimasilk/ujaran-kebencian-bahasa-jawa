@@ -1,18 +1,20 @@
 # Papan Proyek - Sistem Deteksi Ujaran Kebencian Bahasa Jawa
 
-### STATUS [Update: 2025-01-02 - Model Training Complete]
+### STATUS [Update: 2025-01-03 - Advanced Model Optimization Complete]
 - ✅ Proyek telah disiapkan sesuai dengan Vibe Coding Guide v1.4
 - ✅ Spesifikasi produk telah diperbaiki dan disesuaikan dengan template PRD
 - ✅ Tim manifest telah disiapkan dengan peran yang jelas
 - ✅ Environment setup dan modular code structure telah diimplementasi
 - ✅ Dataset inspection dan basic testing infrastructure telah selesai
 - ✅ **PELABELAN DATASET SELESAI** - 41,346 samples berlabel tersedia di `hasil-labeling.csv`
-- ✅ **MODEL TRAINING SELESAI** - IndoBERT berhasil dilatih dengan 41,346 samples (3 Juli 2025)
-- ✅ **DOKUMENTASI LENGKAP** - README.md dan progress.md diperbarui dengan pencapaian terbaru
+- ✅ **EKSPERIMEN 1 SELESAI** - IndoBERT baseline dengan 73.8% accuracy (class imbalance terdeteksi)
+- ✅ **EKSPERIMEN 2 SELESAI** - Model diperbaiki dengan class weighting + focal loss, F1-Score Macro meningkat dari 40% → 80.36%
+- ✅ **CLASS IMBALANCE SOLVED** - Stratified sampling, class weighting, dan focal loss berhasil diterapkan
+- ✅ **THRESHOLD OPTIMIZATION COMPLETE** - Per-class threshold tuning menghasilkan performa optimal
+- ✅ **DOKUMENTASI LENGKAP** - Comprehensive experiment documentation dan evaluation reports tersedia
 - ✅ **GPU ACCELERATION SUPPORT** - Mixed precision, automatic device detection, batch size optimization
 - ✅ **ARCHITECTURAL REVIEW COMPLETE** - Comprehensive architecture analysis dan roadmap tersedia
-- ✅ **TRAINING EVALUATION COMPLETE** - Model evaluation menunjukkan performa 73.8% accuracy pada balanced dataset
-- 🎯 **SIAP UNTUK API DEVELOPMENT** - Model tersimpan dan siap untuk deployment
+- 🎯 **SIAP UNTUK ADVANCED EXPERIMENTS** - Model baseline 80.36% F1-Score, target >85% untuk eksperimen lanjutan
 
 ### REFERENSI ARSIP
 - Baby-step sebelumnya: Implementasi Testing dan Dokumentasi API (selesai)
@@ -20,21 +22,25 @@
 
 ### BABY-STEP SAAT INI
 
-**"API Development & Model Serving"** 🚀 SIAP DIMULAI
-- **Tujuan:** Membangun API FastAPI untuk serving model dan membuat endpoint untuk prediksi ujaran kebencian.
+**"Advanced Model Experiments - Target >85% F1-Score"** 🚀 PRIORITAS TINGGI
+- **Tujuan:** Meningkatkan performa model dari baseline 80.36% F1-Score Macro ke target >85% melalui eksperimen lanjutan.
+- **Baseline Saat Ini:** F1-Score Macro 80.36%, Accuracy 80.37%
 - **Tugas:**
-     - [ ] **T1: Setup FastAPI Project Structure** | **File:** `src/api/main.py` | **Tes:** FastAPI server dapat dijalankan dan menampilkan dokumentasi API di /docs | **Assignee:** Developer Backend
-     - [ ] **T2: Implementasi Model Loading & Inference** | **File:** `src/api/model_service.py` | **Tes:** Model dapat dimuat dan melakukan prediksi pada teks input Bahasa Jawa | **Assignee:** AI Assistant
-     - [ ] **T3: Create Prediction Endpoints** | **File:** `src/api/endpoints.py` | **Tes:** Endpoint /predict menerima teks dan mengembalikan klasifikasi ujaran kebencian dengan confidence score | **Assignee:** Developer Backend
-     - [ ] **T4: Add Input Validation & Error Handling** | **File:** `src/api/validators.py` | **Tes:** API menangani input invalid dengan error message yang informatif | **Assignee:** AI Assistant
+     - [x] ✅ **T1: IndoBERT Large Experiment** | **File:** `experiments/experiment_1_indobert_large.py` | **Status:** IMPLEMENTED & READY | **Target:** +3% improvement (83.36% F1-Score) | **Features:** WeightedFocalLoss, Custom Trainer, Comprehensive Evaluation | **Assignee:** AI Assistant
+     - [ ] **T2: XLM-RoBERTa Cross-lingual Experiment** | **File:** `experiments/experiment_2_xlm_roberta.py` | **Tes:** XLM-RoBERTa model dilatih untuk leverage multilingual representation | **Assignee:** AI Assistant
+     - [ ] **T3: Advanced Training Techniques** | **File:** `experiments/advanced_training_techniques.py` | **Tes:** Multi-stage fine-tuning dan advanced loss functions diimplementasi | **Assignee:** AI Assistant
+     - [ ] **T4: Ensemble Methods Development** | **File:** `experiments/ensemble_methods.py` | **Tes:** Heterogeneous ensemble dari multiple models untuk performa optimal | **Assignee:** AI Assistant
 
 ### BABY-STEP SELANJUTNYA
 
-**"Model Improvement & Optimization"** ⏳ FASE BERIKUTNYA
-- **Tujuan:** Meningkatkan performa model berdasarkan hasil evaluasi (73.8% accuracy) dan mengoptimasi untuk production.
-- **Prasyarat:** ✅ Model training selesai, evaluation report tersedia, API development dimulai
+**"API Development & Model Serving"** ⏳ FASE BERIKUTNYA
+- **Tujuan:** Membangun API FastAPI untuk serving model terbaik dan membuat endpoint untuk prediksi ujaran kebencian.
+- **Prasyarat:** ✅ Model optimization experiments selesai, model terbaik dipilih
 
-**"Frontend Development & User Interface"** ⏳ FASE LANJUTAN
+**"Production Deployment & Monitoring"** ⏳ FASE LANJUTAN
+- **Tujuan:** Deploy model ke production dengan monitoring dan observability yang komprehensif.
+
+**"Frontend Development & User Interface"** ⏳ FASE AKHIR
 - **Tujuan:** Membangun antarmuka pengguna untuk demo dan testing model secara interaktif.
 
 ### REFERENSI ARSIP
@@ -72,13 +78,15 @@
 - **NEXT:** API Development - FastAPI endpoints untuk model serving
 - **NEXT:** Model evaluation framework dengan comprehensive metrics
 
-**⚠️ Risiko Teknis (Updated):**
-- **TINGGI:** API Layer Development - Belum ada implementasi FastAPI endpoints dan model serving
-- **SEDANG:** Model Serving Infrastructure - Missing inference pipeline dan model versioning
-- **SEDANG:** Monitoring & Observability - Perlu metrics collection dan health checks
-- **RENDAH:** Class imbalance - Sudah diantisipasi dengan weighted loss dan confidence filtering
-- **MITIGATED:** IndoBERT compatibility - Training pipeline sudah teruji dengan dataset Jawa
-- **MITIGATED:** Memory requirements - GPU optimization dan mixed precision sudah diimplementasi
+**⚠️ Risiko Teknis (Updated 2025-01-03):**
+- **TINGGI:** Advanced Model Experiments - Eksperimen dengan model yang lebih besar memerlukan computational resources yang signifikan
+- **TINGGI:** Ensemble Methods - Kompleksitas implementasi dan potential overfitting
+- **SEDANG:** API Layer Development - Belum ada implementasi FastAPI endpoints untuk model serving
+- **SEDANG:** Production Deployment - Perlu infrastructure untuk model versioning dan A/B testing
+- **RENDAH:** Inference Speed - Model yang lebih besar atau ensemble dapat mempengaruhi latency
+- **MITIGATED:** Class imbalance - Sudah diselesaikan dengan stratified sampling, class weighting, dan focal loss
+- **MITIGATED:** Evaluation Bias - Balanced evaluation methodology sudah diimplementasi
+- **MITIGATED:** Threshold Optimization - Per-class threshold tuning sudah dilakukan
 
 **🔧 Mitigasi Strategies:**
 - Implementasi class weights dalam loss function untuk mengatasi imbalance
