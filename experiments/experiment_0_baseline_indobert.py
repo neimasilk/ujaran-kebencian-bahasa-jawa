@@ -1,8 +1,8 @@
 #!/usr/bin/env python3
 """
-Eksperimen 1: IndoBERT Large Fine-tuning
-Tujuan: Meningkatkan baseline performance dengan model yang lebih besar
-Target: F1-Score Macro >83% (peningkatan 3% dari baseline 80.36%)
+Experiment 0: IndoBERT Base Baseline
+Tujuan: Membuat baseline dengan IndoBERT Base menggunakan dataset yang sama dengan Experiment 1.2
+Target: Reproduksi hasil baseline 80.36% F1-Score Macro
 
 Author: AI Research Assistant
 Date: 3 Juli 2025
@@ -39,43 +39,49 @@ logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('experiment_1_indobert_large.log'),
+        logging.FileHandler('experiment_0_baseline_indobert.log'),
         logging.StreamHandler()
-    ]
+    ],
+    force=True
 )
 logger = logging.getLogger(__name__)
 
-class ExperimentConfig:
-    """Configuration for IndoBERT Large experiment"""
+# Ensure immediate output
+import sys
+sys.stdout.flush()
+sys.stderr.flush()
+
+class BaselineConfig:
+    """Configuration for IndoBERT Base baseline experiment"""
     
     # Model configuration
-    MODEL_NAME = "indobenchmark/indobert-large-p1"
-    MAX_LENGTH = 256  # Increased from 128
+    MODEL_NAME = "indobenchmark/indobert-base-p1"
+    MAX_LENGTH = 128
     NUM_LABELS = 4
     
     # Training configuration
-    BATCH_SIZE = 8  # Reduced due to larger model
-    GRADIENT_ACCUMULATION_STEPS = 2
-    LEARNING_RATE = 2e-5  # Increased from 1e-5 for better convergence
-    NUM_EPOCHS = 5
-    WARMUP_RATIO = 0.2  # Increased from 0.1 for better warmup
+    BATCH_SIZE = 16
+    GRADIENT_ACCUMULATION_STEPS = 1
+    LEARNING_RATE = 2e-5
+    NUM_EPOCHS = 3
+    WARMUP_RATIO = 0.1
     WEIGHT_DECAY = 0.01
     
-    # Early stopping (FIXED: More lenient settings)
-    EARLY_STOPPING_PATIENCE = 5  # Increased from 2 to 5
-    EARLY_STOPPING_THRESHOLD = 0.01  # Increased from 0.001 to 0.01
+    # Early stopping
+    EARLY_STOPPING_PATIENCE = 3
+    EARLY_STOPPING_THRESHOLD = 0.001
     
     # Paths
-    DATA_PATH = "data/processed/final_dataset.csv"
-    OUTPUT_DIR = "experiments/results/experiment_1_indobert_large"
-    MODEL_SAVE_PATH = "models/indobert_large_hate_speech"
+    DATA_PATH = "data/processed/final_dataset_shuffled.csv"
+    OUTPUT_DIR = "experiments/results/experiment_0_baseline_indobert"
+    MODEL_SAVE_PATH = "models/indobert_baseline_hate_speech"
     
-    # Class weights (FIXED: More balanced weights)
+    # Class weights for baseline (balanced approach)
     CLASS_WEIGHTS = {
         0: 1.0,    # Bukan Ujaran Kebencian
-        1: 3.0,    # Ujaran Kebencian - Ringan (Reduced from 8.5)
-        2: 2.5,    # Ujaran Kebencian - Sedang (Reduced from 15.2)
-        3: 3.5     # Ujaran Kebencian - Berat (Reduced from 25.8)
+        1: 11.3,   # Ujaran Kebencian - Ringan
+        2: 17.0,   # Ujaran Kebencian - Sedang
+        3: 34.0    # Ujaran Kebencian - Berat
     }
     
     # Label mapping
@@ -161,26 +167,42 @@ def load_and_preprocess_data(data_path: str) -> Tuple[pd.DataFrame, np.ndarray, 
     
     df = pd.read_csv(data_path)
     logger.info(f"Dataset shape: {df.shape}")
+    logger.info(f"Columns: {df.columns.tolist()}")
     
-    # Clean and prepare data
+    # Log first few rows for debugging
+    logger.info(f"First 3 rows of dataframe:")
+    logger.info(df.head(3).to_string())
+    
+    # Create label_id mapping from label column
+    label_mapping = {
+        'Bukan Ujaran Kebencian': 0,
+        'Ujaran Kebencian - Ringan': 1,
+        'Ujaran Kebencian - Sedang': 2,
+        'Ujaran Kebencian - Berat': 3
+    }
+    
+    # If dataset has 'final_label' column, use it; otherwise use 'label'
+    if 'final_label' in df.columns:
+        df['label_id'] = df['final_label'].map(label_mapping)
+    else:
+        df['label_id'] = df['label'].map(label_mapping)
+    
+    # Use text and label_id columns explicitly
+    df = df[['text', 'label_id']].copy()
+    df = df.rename(columns={'label_id': 'label'})
+    
+    # Clean data
     df = df.dropna(subset=['text', 'label'])
     df['text'] = df['text'].astype(str)
+    df['label'] = df['label'].astype(int)
     
-    # Convert labels to numeric if needed
-    if df['label'].dtype == 'object':
-        label_map = {
-            'Bukan Ujaran Kebencian': 0,
-            'Ujaran Kebencian - Ringan': 1,
-            'Ujaran Kebencian - Sedang': 2,
-            'Ujaran Kebencian - Berat': 3
-        }
-        df['label'] = df['label'].map(label_map)
+    logger.info(f"After cleaning - Dataset shape: {df.shape}")
     
     # Log class distribution
     class_counts = df['label'].value_counts().sort_index()
     logger.info("Class distribution:")
     for label, count in class_counts.items():
-        logger.info(f"  {ExperimentConfig.LABEL_MAPPING[label]}: {count} ({count/len(df)*100:.2f}%)")
+        logger.info(f"  {BaselineConfig.LABEL_MAPPING[label]}: {count} ({count/len(df)*100:.2f}%)")
     
     return df, df['text'].values, df['label'].values
 
@@ -197,6 +219,12 @@ def create_stratified_split(texts: np.ndarray, labels: np.ndarray, test_size: fl
     
     logger.info(f"Train set size: {len(X_train)}")
     logger.info(f"Test set size: {len(X_test)}")
+    
+    # Log train distribution
+    train_counts = pd.Series(y_train).value_counts().sort_index()
+    logger.info("Training set distribution:")
+    for label, count in train_counts.items():
+        logger.info(f"  {BaselineConfig.LABEL_MAPPING[label]}: {count} ({count/len(y_train)*100:.2f}%)")
     
     return X_train, X_test, y_train, y_test
 
@@ -215,7 +243,7 @@ def compute_metrics(eval_pred):
         'recall_macro': recall
     }
 
-def detailed_evaluation(model, tokenizer, X_test, y_test, config: ExperimentConfig):
+def detailed_evaluation(model, tokenizer, X_test, y_test, config: BaselineConfig):
     """Perform detailed evaluation of the model"""
     logger.info("Performing detailed evaluation")
     
@@ -238,40 +266,42 @@ def detailed_evaluation(model, tokenizer, X_test, y_test, config: ExperimentConf
             outputs = model(input_ids=input_ids, attention_mask=attention_mask)
             logits = outputs.logits
             probabilities = torch.softmax(logits, dim=-1)
-            predictions = torch.argmax(logits, dim=-1)
             
-            all_predictions.extend(predictions.cpu().numpy())
+            all_predictions.extend(torch.argmax(logits, dim=-1).cpu().numpy())
             all_labels.extend(labels.cpu().numpy())
             all_probabilities.extend(probabilities.cpu().numpy())
     
     # Calculate metrics
     accuracy = accuracy_score(all_labels, all_predictions)
-    precision, recall, f1, support = precision_recall_fscore_support(
-        all_labels, all_predictions, average=None
-    )
-    macro_f1 = precision_recall_fscore_support(all_labels, all_predictions, average='macro')[2]
+    precision, recall, f1, _ = precision_recall_fscore_support(all_labels, all_predictions, average='macro')
+    precision_w, recall_w, f1_w, _ = precision_recall_fscore_support(all_labels, all_predictions, average='weighted')
     
-    # Create detailed report
-    report = {
+    # Per-class metrics
+    class_report = classification_report(all_labels, all_predictions, 
+                                       target_names=list(config.LABEL_MAPPING.values()),
+                                       output_dict=True)
+    
+    # Confusion matrix
+    cm = confusion_matrix(all_labels, all_predictions)
+    
+    results = {
         'accuracy': accuracy,
-        'f1_macro': macro_f1,
-        'per_class_metrics': {},
-        'confusion_matrix': confusion_matrix(all_labels, all_predictions).tolist(),
-        'classification_report': classification_report(all_labels, all_predictions, target_names=list(config.LABEL_MAPPING.values()))
+        'f1_macro': f1,
+        'f1_weighted': f1_w,
+        'precision_macro': precision,
+        'recall_macro': recall,
+        'precision_weighted': precision_w,
+        'recall_weighted': recall_w,
+        'confusion_matrix': cm.tolist(),
+        'classification_report': class_report,
+        'predictions': all_predictions,
+        'true_labels': all_labels,
+        'probabilities': all_probabilities
     }
     
-    for i, label_name in config.LABEL_MAPPING.items():
-        if i < len(precision):
-            report['per_class_metrics'][label_name] = {
-                'precision': float(precision[i]),
-                'recall': float(recall[i]),
-                'f1_score': float(f1[i]),
-                'support': int(support[i])
-            }
-    
-    return report, all_predictions, all_probabilities
+    return results
 
-def save_results(report: Dict, config: ExperimentConfig, training_time: float):
+def save_results(report: Dict, config: BaselineConfig, training_time: float):
     """Save experiment results"""
     logger.info("Saving experiment results")
     
@@ -288,46 +318,48 @@ def save_results(report: Dict, config: ExperimentConfig, training_time: float):
         'num_epochs': config.NUM_EPOCHS,
         'training_time_seconds': training_time,
         'timestamp': datetime.now().isoformat(),
-        'baseline_comparison': {
-            'baseline_f1_macro': 0.8036,
+        'experiment_type': 'baseline_indobert_base',
+        'target_comparison': {
+            'target_f1_macro': 0.8036,
             'current_f1_macro': report['f1_macro'],
-            'improvement': report['f1_macro'] - 0.8036
+            'difference': report['f1_macro'] - 0.8036
         }
     }
     
     # Save detailed results
-    with open(output_dir / 'experiment_1_results.json', 'w', encoding='utf-8') as f:
-        json.dump(report, f, indent=2, ensure_ascii=False)
+    results_file = output_dir / 'detailed_results.json'
+    with open(results_file, 'w', encoding='utf-8') as f:
+        json.dump(report, f, indent=2, ensure_ascii=False, default=str)
     
-    # Save confusion matrix plot
-    plt.figure(figsize=(10, 8))
-    cm = np.array(report['confusion_matrix'])
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
-                xticklabels=list(config.LABEL_MAPPING.values()),
-                yticklabels=list(config.LABEL_MAPPING.values()))
-    plt.title('Confusion Matrix - IndoBERT Large')
-    plt.ylabel('True Label')
-    plt.xlabel('Predicted Label')
-    plt.tight_layout()
-    plt.savefig(output_dir / 'confusion_matrix.png', dpi=300, bbox_inches='tight')
-    plt.close()
+    # Save summary
+    summary = {
+        'experiment': 'Baseline IndoBERT Base',
+        'model': config.MODEL_NAME,
+        'dataset': config.DATA_PATH,
+        'results': {
+            'accuracy': f"{report['accuracy']:.4f}",
+            'f1_macro': f"{report['f1_macro']:.4f}",
+            'precision_macro': f"{report['precision_macro']:.4f}",
+            'recall_macro': f"{report['recall_macro']:.4f}"
+        },
+        'training_time': f"{training_time:.2f} seconds",
+        'timestamp': datetime.now().isoformat()
+    }
+    
+    summary_file = output_dir / 'experiment_summary.json'
+    with open(summary_file, 'w', encoding='utf-8') as f:
+        json.dump(summary, f, indent=2, ensure_ascii=False)
     
     logger.info(f"Results saved to {output_dir}")
+    return output_dir
 
 def main():
-    """Main experiment execution"""
-    logger.info("Starting Experiment 1: IndoBERT Large Fine-tuning")
-    start_time = time.time()
+    """Main experiment function"""
+    logger.info("=" * 60)
+    logger.info("EXPERIMENT 0: BASELINE INDOBERT BASE")
+    logger.info("=" * 60)
     
-    config = ExperimentConfig()
-    
-    # Check GPU availability
-    device = torch.device('cuda' if torch.cuda.is_available() else 'cpu')
-    logger.info(f"Using device: {device}")
-    
-    if torch.cuda.is_available():
-        logger.info(f"GPU: {torch.cuda.get_device_name(0)}")
-        logger.info(f"GPU Memory: {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
+    config = BaselineConfig()
     
     try:
         # Load and preprocess data
@@ -336,7 +368,7 @@ def main():
         # Create train-test split
         X_train, X_test, y_train, y_test = create_stratified_split(texts, labels)
         
-        # Initialize tokenizer and model
+        # Load tokenizer and model
         logger.info(f"Loading tokenizer and model: {config.MODEL_NAME}")
         tokenizer = AutoTokenizer.from_pretrained(config.MODEL_NAME)
         model = AutoModelForSequenceClassification.from_pretrained(
@@ -345,8 +377,9 @@ def main():
         )
         
         # Create datasets
+        logger.info("Creating datasets")
         train_dataset = HateSpeechDataset(X_train, y_train, tokenizer, config.MAX_LENGTH)
-        eval_dataset = HateSpeechDataset(X_test, y_test, tokenizer, config.MAX_LENGTH)
+        val_dataset = HateSpeechDataset(X_test, y_test, tokenizer, config.MAX_LENGTH)
         
         # Training arguments
         training_args = TrainingArguments(
@@ -358,27 +391,25 @@ def main():
             warmup_ratio=config.WARMUP_RATIO,
             weight_decay=config.WEIGHT_DECAY,
             learning_rate=config.LEARNING_RATE,
-            logging_dir=f"{config.OUTPUT_DIR}/logs",
+            logging_dir=f'{config.OUTPUT_DIR}/logs',
             logging_steps=50,
-            eval_steps=50,  # Reduced from 100 for more frequent monitoring
             eval_strategy="steps",
+            eval_steps=100,
             save_strategy="steps",
             save_steps=100,
             load_best_model_at_end=True,
-            metric_for_best_model="f1_macro",
+            metric_for_best_model="eval_f1_macro",
             greater_is_better=True,
-            save_total_limit=3,
-            report_to=None,  # Disable wandb
-            dataloader_num_workers=0,  # Avoid multiprocessing issues
-            fp16=torch.cuda.is_available(),  # Use mixed precision if GPU available
+            report_to=None,
+            dataloader_pin_memory=False,
         )
         
-        # Initialize trainer
+        # Create trainer
         trainer = CustomTrainer(
             model=model,
             args=training_args,
             train_dataset=train_dataset,
-            eval_dataset=eval_dataset,
+            eval_dataset=val_dataset,
             compute_metrics=compute_metrics,
             class_weights=config.CLASS_WEIGHTS,
             callbacks=[EarlyStoppingCallback(
@@ -387,49 +418,56 @@ def main():
             )]
         )
         
-        # Train the model
+        # Train model
         logger.info("Starting training...")
-        train_start = time.time()
+        start_time = time.time()
         trainer.train()
-        training_time = time.time() - train_start
+        training_time = time.time() - start_time
         
         logger.info(f"Training completed in {training_time:.2f} seconds")
         
-        # Save the model
+        # Save model
         logger.info(f"Saving model to {config.MODEL_SAVE_PATH}")
+        model_save_path = Path(config.MODEL_SAVE_PATH)
+        model_save_path.mkdir(parents=True, exist_ok=True)
         trainer.save_model(config.MODEL_SAVE_PATH)
         tokenizer.save_pretrained(config.MODEL_SAVE_PATH)
         
         # Detailed evaluation
-        report, predictions, probabilities = detailed_evaluation(
-            model, tokenizer, X_test, y_test, config
-        )
+        logger.info("Performing detailed evaluation")
+        evaluation_results = detailed_evaluation(model, tokenizer, X_test, y_test, config)
         
         # Save results
-        save_results(report, config, training_time)
+        output_dir = save_results(evaluation_results, config, training_time)
         
-        # Log final results
-        logger.info("=" * 50)
-        logger.info("EXPERIMENT 1 RESULTS")
-        logger.info("=" * 50)
-        logger.info(f"Accuracy: {report['accuracy']:.4f}")
-        logger.info(f"F1-Score Macro: {report['f1_macro']:.4f}")
-        logger.info(f"Baseline F1-Score: 0.8036")
-        logger.info(f"Improvement: {report['f1_macro'] - 0.8036:.4f}")
+        # Print summary
+        logger.info("=" * 60)
+        logger.info("EXPERIMENT COMPLETED SUCCESSFULLY")
+        logger.info("=" * 60)
+        logger.info(f"Accuracy: {evaluation_results['accuracy']:.4f}")
+        logger.info(f"F1-Score Macro: {evaluation_results['f1_macro']:.4f}")
+        logger.info(f"Precision Macro: {evaluation_results['precision_macro']:.4f}")
+        logger.info(f"Recall Macro: {evaluation_results['recall_macro']:.4f}")
         logger.info(f"Training Time: {training_time:.2f} seconds")
+        logger.info(f"Results saved to: {output_dir}")
+        logger.info(f"Model saved to: {config.MODEL_SAVE_PATH}")
         
-        logger.info("\nPer-class Results:")
-        for class_name, metrics in report['per_class_metrics'].items():
-            logger.info(f"  {class_name}:")
-            logger.info(f"    F1-Score: {metrics['f1_score']:.4f}")
-            logger.info(f"    Precision: {metrics['precision']:.4f}")
-            logger.info(f"    Recall: {metrics['recall']:.4f}")
+        # Comparison with target
+        target_f1 = 0.8036
+        current_f1 = evaluation_results['f1_macro']
+        difference = current_f1 - target_f1
         
-        total_time = time.time() - start_time
-        logger.info(f"\nTotal experiment time: {total_time:.2f} seconds")
-        logger.info("Experiment 1 completed successfully!")
+        logger.info("=" * 60)
+        logger.info("COMPARISON WITH TARGET BASELINE")
+        logger.info("=" * 60)
+        logger.info(f"Target F1-Score Macro: {target_f1:.4f}")
+        logger.info(f"Current F1-Score Macro: {current_f1:.4f}")
+        logger.info(f"Difference: {difference:+.4f}")
         
-        return report
+        if difference >= 0:
+            logger.info("✅ BASELINE TARGET ACHIEVED OR EXCEEDED!")
+        else:
+            logger.info("❌ Baseline target not reached")
         
     except Exception as e:
         logger.error(f"Experiment failed: {str(e)}")
