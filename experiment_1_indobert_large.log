@@ -20,3 +20,17 @@
 2025-07-03 12:17:42,198 - INFO - Test set size: 7980
 2025-07-03 12:17:42,198 - INFO - Loading tokenizer and model: indobenchmark/indobert-large-p1
 2025-07-03 12:27:09,815 - ERROR - Experiment failed: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'
+2025-07-06 13:25:53,457 - INFO - Starting Experiment 1: IndoBERT Large Fine-tuning
+2025-07-06 13:25:53,476 - INFO - Using device: cpu
+2025-07-06 13:25:53,622 - INFO - Loading data from src/data_collection/hasil-labeling.csv
+2025-07-06 13:25:54,367 - INFO - Dataset shape: (41757, 8)
+2025-07-06 13:25:54,458 - INFO - Class distribution:
+2025-07-06 13:25:54,459 - INFO -   Bukan Ujaran Kebencian: 20205 (48.39%)
+2025-07-06 13:25:54,460 - INFO -   Ujaran Kebencian - Ringan: 6241 (14.95%)
+2025-07-06 13:25:54,460 - INFO -   Ujaran Kebencian - Sedang: 8600 (20.60%)
+2025-07-06 13:25:54,461 - INFO -   Ujaran Kebencian - Berat: 6711 (16.07%)
+2025-07-06 13:25:54,462 - INFO - Creating stratified train-test split
+2025-07-06 13:25:54,500 - INFO - Train set size: 33405
+2025-07-06 13:25:54,513 - INFO - Test set size: 8352
+2025-07-06 13:25:54,514 - INFO - Loading tokenizer and model: indobenchmark/indobert-large-p1
+2025-07-06 13:34:46,975 - ERROR - Experiment failed: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'
