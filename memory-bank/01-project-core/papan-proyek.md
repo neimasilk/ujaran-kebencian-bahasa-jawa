@@ -1,41 +1,56 @@
 # Papan Proyek - Sistem Deteksi Ujaran Kebencian Bahasa Jawa
 
-### STATUS [Update: 2025-01-02 - Model Training Complete]
-- ✅ Proyek telah disiapkan sesuai dengan Vibe Coding Guide v1.4
-- ✅ Spesifikasi produk telah diperbaiki dan disesuaikan dengan template PRD
-- ✅ Tim manifest telah disiapkan dengan peran yang jelas
-- ✅ Environment setup dan modular code structure telah diimplementasi
-- ✅ Dataset inspection dan basic testing infrastructure telah selesai
-- ✅ **PELABELAN DATASET SELESAI** - 41,346 samples berlabel tersedia di `hasil-labeling.csv`
-- ✅ **MODEL TRAINING SELESAI** - IndoBERT berhasil dilatih dengan 41,346 samples (3 Juli 2025)
-- ✅ **DOKUMENTASI LENGKAP** - README.md dan progress.md diperbarui dengan pencapaian terbaru
-- ✅ **GPU ACCELERATION SUPPORT** - Mixed precision, automatic device detection, batch size optimization
-- ✅ **ARCHITECTURAL REVIEW COMPLETE** - Comprehensive architecture analysis dan roadmap tersedia
-- ✅ **TRAINING EVALUATION COMPLETE** - Model evaluation menunjukkan performa 73.8% accuracy pada balanced dataset
-- 🎯 **SIAP UNTUK API DEVELOPMENT** - Model tersimpan dan siap untuk deployment
+### STATUS [Update: 2025-01-02 - API Development Phase Foundation Complete]
+- ✅ **FASE 1 SELESAI:** Data Collection & Labeling (41,346 samples berlabel)
+- ✅ **FASE 2 SELESAI:** Model Training & Evaluation (IndoBERT, 73.8% accuracy)
+- ✅ **INFRASTRUKTUR SIAP:** Environment, dependencies, testing framework
+- ✅ **DOKUMENTASI TERORGANISIR:** Sesuai Vibe Coding Guide v1.4
+- ✅ **FASE 3A SELESAI:** API Development & Model Serving - Foundation (FastAPI, endpoints, testing)
+- 🎯 **FASE 3B AKTIF:** API Testing & Documentation Enhancement
+- ⏳ **FASE 4 PLANNED:** Model Improvement & Optimization (Target: >85% accuracy)
+- ⏳ **FASE 5 PLANNED:** Frontend Development & User Interface
 
 ### REFERENSI ARSIP
-- Baby-step sebelumnya: Implementasi Testing dan Dokumentasi API (selesai)
-- Arsip lengkap tersedia di: `baby-steps-archive/`
+- **Fase 1:** Data Collection & Parallel Labeling (selesai) - `memory-bank/04-archive-ready/`
+- **Fase 2:** Model Training & Evaluation (selesai) - `memory-bank/02-research-active/TRAINING_EVALUATION_REPORT.md`
+- **Dokumentasi Teknis:** `memory-bank/03-technical-guides/`
+- **Roadmap Penelitian:** `memory-bank/02-research-active/NEXT_EXPERIMENTS_PLAN.md`
 
 ### BABY-STEP SAAT INI
 
-**"API Development & Model Serving"** 🚀 SIAP DIMULAI
-- **Tujuan:** Membangun API FastAPI untuk serving model dan membuat endpoint untuk prediksi ujaran kebencian.
-- **Tugas:**
-     - [ ] **T1: Setup FastAPI Project Structure** | **File:** `src/api/main.py` | **Tes:** FastAPI server dapat dijalankan dan menampilkan dokumentasi API di /docs | **Assignee:** Developer Backend
-     - [ ] **T2: Implementasi Model Loading & Inference** | **File:** `src/api/model_service.py` | **Tes:** Model dapat dimuat dan melakukan prediksi pada teks input Bahasa Jawa | **Assignee:** AI Assistant
-     - [ ] **T3: Create Prediction Endpoints** | **File:** `src/api/endpoints.py` | **Tes:** Endpoint /predict menerima teks dan mengembalikan klasifikasi ujaran kebencian dengan confidence score | **Assignee:** Developer Backend
-     - [ ] **T4: Add Input Validation & Error Handling** | **File:** `src/api/validators.py` | **Tes:** API menangani input invalid dengan error message yang informatif | **Assignee:** AI Assistant
+**"API Development & Model Serving - Foundation"** ✅ SELESAI 100%
+- **Tujuan:** ✅ Membangun foundation API FastAPI yang robust untuk serving model hate speech detection dengan endpoint prediksi yang production-ready.
+- **Prasyarat:** ✅ Model IndoBERT tersimpan di `src/models/`, dataset evaluation selesai
+- **Deliverable:** ✅ API server yang dapat menerima teks Bahasa Jawa dan mengembalikan klasifikasi hate speech dengan confidence score
+- **Achievement:** 22 unit tests passing, comprehensive Git workflow, production testing framework
+
+**Tugas Implementasi:**
+- [x] **T1: FastAPI Foundation Setup** | **File:** `src/api/main.py`, `src/api/__init__.py` | **Tes:** Server berjalan di localhost:8000, dokumentasi tersedia di /docs, health check endpoint /health mengembalikan status OK | **Assignee:** Developer Backend | **Status:** ✅ SELESAI
+- [x] **T2: Model Service Implementation** | **File:** `src/api/model_service.py` | **Tes:** Class ModelService dapat load model IndoBERT, method predict() menerima string dan mengembalikan dict dengan label dan confidence | **Assignee:** AI Assistant | **Status:** ✅ SELESAI
+- [x] **T3: Prediction Endpoints** | **File:** `src/api/endpoints/prediction.py` | **Tes:** POST /predict menerima JSON {"text": "..."} dan mengembalikan {"label": "...", "confidence": 0.xx, "label_id": x} | **Assignee:** Developer Backend | **Status:** ✅ SELESAI
+- [x] **T4: Input Validation & Error Handling** | **File:** `src/api/validators.py`, `src/api/exceptions.py` | **Tes:** API menolak input kosong/null, teks >512 karakter, dan mengembalikan error 400 dengan pesan informatif | **Assignee:** AI Assistant | **Status:** ✅ SELESAI
+- [x] **T5: Unit Testing Implementation** | **File:** `src/tests/test_api_unit.py` | **Tes:** 22 unit tests untuk semua API endpoints dengan 100% pass rate | **Assignee:** AI Assistant | **Status:** ✅ SELESAI
+- [x] **T6: Git Workflow Documentation** | **File:** `vibe-guide/git-workflow.md` | **Tes:** Comprehensive Git workflow dan commit procedures | **Assignee:** AI Assistant | **Status:** ✅ SELESAI
+- [x] **T7: Production Testing Framework** | **File:** `vibe-guide/production-testing.md`, `tests/load/locustfile.py` | **Tes:** Load testing setup dan monitoring guidelines | **Assignee:** AI Assistant | **Status:** ✅ SELESAI
 
 ### BABY-STEP SELANJUTNYA
 
-**"Model Improvement & Optimization"** ⏳ FASE BERIKUTNYA
-- **Tujuan:** Meningkatkan performa model berdasarkan hasil evaluasi (73.8% accuracy) dan mengoptimasi untuk production.
-- **Prasyarat:** ✅ Model training selesai, evaluation report tersedia, API development dimulai
+**"API Testing & Documentation Enhancement"** 🎯 PRIORITAS TINGGI
+- **Tujuan:** Enhance API dengan integration testing, performance monitoring, dan production deployment readiness
+- **Prasyarat:** ✅ API foundation selesai, unit tests passing, Git workflow documented
+- **Next Tasks:** Integration tests, API documentation enhancement, monitoring setup, deployment preparation
+- **Estimasi:** 2-3 hari kerja
 
-**"Frontend Development & User Interface"** ⏳ FASE LANJUTAN
-- **Tujuan:** Membangun antarmuka pengguna untuk demo dan testing model secara interaktif.
+**"Model Improvement & Advanced Optimization"** ⏳ PRIORITAS TINGGI
+- **Tujuan:** Meningkatkan akurasi dari 73.8% ke target >85% menggunakan advanced techniques
+- **Prasyarat:** ✅ API development selesai, baseline model evaluation tersedia
+- **Referensi:** `memory-bank/02-research-active/NEXT_EXPERIMENTS_PLAN.md`
+- **Estimasi:** 2-3 minggu penelitian dan eksperimen
+
+**"Frontend Development & User Interface"** ⏳ PRIORITAS RENDAH
+- **Tujuan:** Membangun web interface untuk demo dan testing interaktif
+- **Prasyarat:** ✅ API production-ready, comprehensive testing selesai
+- **Estimasi:** 1 minggu development
 
 ### REFERENSI ARSIP
 - **Arsip 1:** Production Deployment & Real Data Labeling (selesai)
@@ -55,51 +70,39 @@
 - T5.7: Parallel DeepSeek API Labeling Implementation - SELESAI ✅
 - T5.8: Comprehensive Testing & Tutorial Documentation - SELESAI ✅
 
-### SARAN & RISIKO (Review Arsitek)
+### ANALISIS ARSITEK & STRATEGIC GUIDANCE
 
-**📊 ANALISIS DATASET BERLABEL:**
-- **Volume:** 41,346 samples (excellent size untuk training)
-- **Format:** CSV dengan kolom: text, original_label, final_label, confidence_score, response_time, labeling_method, error
-- **Label Distribution:** Perlu analisis distribusi 4-class labels untuk mendeteksi class imbalance
-- **Quality:** Confidence scores tersedia untuk quality filtering (threshold >= 0.7 recommended)
-- **Status:** ✅ Dataset ready for training dengan preprocessing pipeline terimplementasi
+**📊 STATUS TEKNIS SAAT INI:**
+- **Model Performance:** 73.8% accuracy (baseline IndoBERT)
+- **Dataset Quality:** 41,346 samples dengan confidence scoring
+- **Infrastructure:** Production-ready training pipeline
+- **Gap Analysis:** API layer belum ada, model optimization diperlukan
 
-**🎯 Saran Teknis untuk Training:**
-- ✅ **SELESAI:** Label mapping dari string ke numerik (0: Bukan Ujaran Kebencian, 1: Ringan, 2: Sedang, 3: Berat)
-- ✅ **SELESAI:** Data preprocessing khusus Bahasa Jawa (normalisasi teks, handling dialek)
-- ✅ **SELESAI:** Stratified train-test split untuk mengatasi potential class imbalance
-- ✅ **SELESAI:** Early stopping dan model checkpointing untuk training stability
-- **NEXT:** API Development - FastAPI endpoints untuk model serving
-- **NEXT:** Model evaluation framework dengan comprehensive metrics
+**🎯 PRIORITAS STRATEGIS (Q1 2025):**
+1. **API Development** (Minggu 1-2): Foundation untuk production deployment
+2. **Model Optimization** (Minggu 3-6): Target >85% accuracy dengan advanced techniques
+3. **Production Hardening** (Minggu 7-8): Monitoring, logging, performance optimization
+4. **User Interface** (Minggu 9-10): Demo dan testing interface
 
-**⚠️ Risiko Teknis (Updated):**
-- **TINGGI:** API Layer Development - Belum ada implementasi FastAPI endpoints dan model serving
-- **SEDANG:** Model Serving Infrastructure - Missing inference pipeline dan model versioning
-- **SEDANG:** Monitoring & Observability - Perlu metrics collection dan health checks
-- **RENDAH:** Class imbalance - Sudah diantisipasi dengan weighted loss dan confidence filtering
-- **MITIGATED:** IndoBERT compatibility - Training pipeline sudah teruji dengan dataset Jawa
-- **MITIGATED:** Memory requirements - GPU optimization dan mixed precision sudah diimplementasi
+**⚠️ RISIKO KRITIS & MITIGASI:**
 
-**🔧 Mitigasi Strategies:**
-- Implementasi class weights dalam loss function untuk mengatasi imbalance
-- Gunakan confidence score filtering untuk meningkatkan kualitas training data
-- Setup gradient accumulation jika memory terbatas
-- Implementasi k-fold cross validation untuk robust evaluation
+| Risiko | Impact | Probability | Mitigasi |
+|--------|---------|-------------|----------|
+| **API Performance Bottleneck** | HIGH | MEDIUM | Implement async processing, model caching, batch inference |
+| **Model Accuracy Plateau** | HIGH | MEDIUM | Multi-stage fine-tuning, ensemble methods, advanced loss functions |
+| **Production Deployment Issues** | MEDIUM | LOW | Comprehensive testing, staging environment, rollback strategy |
+| **Resource Constraints** | MEDIUM | MEDIUM | Cloud deployment, GPU optimization, efficient model serving |
 
-**🎯 Saran Teknis Lanjutan:**
-- **Prioritas 1:** Fokus pada kualitas data labeling - ini akan menentukan 80% dari performa model
-- **Prioritas 2:** Setup environment yang konsisten untuk semua developer menggunakan virtual environment
-- **Prioritas 3:** Implementasi logging yang komprehensif sejak awal untuk debugging dan monitoring
-- **Best Practice:** Gunakan configuration management untuk semua parameter model dan API
+**🔧 TECHNICAL DEBT & QUALITY GATES:**
+- ✅ **Code Quality:** Comprehensive unit testing implemented (22 tests, 100% pass rate)
+- ✅ **Git Workflow:** Complete Git workflow dan commit procedures documented
+- ✅ **Production Testing:** Load testing framework dan monitoring guidelines ready
+- ⏳ **Documentation:** API documentation dengan OpenAPI/Swagger specs (in progress)
+- ⏳ **Monitoring:** Advanced health checks, performance metrics, error tracking (planned)
+- ⏳ **Security:** Rate limiting, authentication, input sanitization (planned)
 
-**⚠️ Risiko Teknis:**
-- **TINGGI:** Kualitas dataset - inconsistent labeling dapat merusak model performance
-- **SEDANG:** IndoBERT compatibility dengan Bahasa Jawa - perlu extensive testing
-- **SEDANG:** Dependencies conflicts - beberapa library ML memiliki version requirements yang strict
-- **RENDAH:** API performance - model inference time perlu dioptimasi untuk production
-
-**🔧 Mitigasi:**
-- Buat clear labeling guidelines dan quality control process
-- Prepare fallback model strategy jika IndoBERT tidak optimal
-- Use pinned versions di requirements.txt dan virtual environment
-- Implement model caching dan async processing untuk API
+**📈 SUCCESS METRICS:**
+- **API Performance:** <100ms response time, >99% uptime
+- **Model Performance:** >85% accuracy, >80% F1-score untuk semua classes
+- **Code Quality:** >90% test coverage, zero critical security issues
+- **User Experience:** <3 second end-to-end prediction time
