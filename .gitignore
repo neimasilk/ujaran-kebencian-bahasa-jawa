@@ -36,6 +36,36 @@ data/raw/*
 data/processed/*
 models/*
 
+# Model files dan checkpoints (file besar)
+*.safetensors
+*.pt
+*.pth
+*.bin
+*.ckpt
+*.h5
+*.pkl
+*.pickle
+
+# Log files (bisa jadi besar)
+*.log
+logs/
+
+# Dataset files (biasanya besar)
+*.csv
+*.tsv
+*.json
+*.jsonl
+
+# Experiment results
+experiments/results/*/
+checkpoints/
+src/checkpoints/
+src/test-checkpoints/
+
+# Cache files
+.cache/
+*.cache
+
 # Sistem operasi
 .DS_Store
 Thumbs.db
