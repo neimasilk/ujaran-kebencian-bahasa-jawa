@@ -17,8 +17,10 @@
 - 🎯 **SIAP UNTUK ADVANCED EXPERIMENTS** - Model baseline 80.36% F1-Score, target >85% untuk eksperimen lanjutan
 
 ### REFERENSI ARSIP
-- Baby-step sebelumnya: Implementasi Testing dan Dokumentasi API (selesai)
-- Arsip lengkap tersedia di: `baby-steps-archive/`
+- **Fase 1:** Data Collection & Parallel Labeling (selesai) - `memory-bank/04-archive-ready/`
+- **Fase 2:** Model Training & Evaluation (selesai) - `memory-bank/02-research-active/TRAINING_EVALUATION_REPORT.md`
+- **Dokumentasi Teknis:** `memory-bank/03-technical-guides/`
+- **Roadmap Penelitian:** `memory-bank/02-research-active/NEXT_EXPERIMENTS_PLAN.md`
 
 ### BABY-STEP SAAT INI
 
@@ -61,22 +63,19 @@
 - T5.7: Parallel DeepSeek API Labeling Implementation - SELESAI ✅
 - T5.8: Comprehensive Testing & Tutorial Documentation - SELESAI ✅
 
-### SARAN & RISIKO (Review Arsitek)
+### ANALISIS ARSITEK & STRATEGIC GUIDANCE
 
-**📊 ANALISIS DATASET BERLABEL:**
-- **Volume:** 41,346 samples (excellent size untuk training)
-- **Format:** CSV dengan kolom: text, original_label, final_label, confidence_score, response_time, labeling_method, error
-- **Label Distribution:** Perlu analisis distribusi 4-class labels untuk mendeteksi class imbalance
-- **Quality:** Confidence scores tersedia untuk quality filtering (threshold >= 0.7 recommended)
-- **Status:** ✅ Dataset ready for training dengan preprocessing pipeline terimplementasi
+**📊 STATUS TEKNIS SAAT INI:**
+- **Model Performance:** 73.8% accuracy (baseline IndoBERT)
+- **Dataset Quality:** 41,346 samples dengan confidence scoring
+- **Infrastructure:** Production-ready training pipeline
+- **Gap Analysis:** API layer belum ada, model optimization diperlukan
 
-**🎯 Saran Teknis untuk Training:**
-- ✅ **SELESAI:** Label mapping dari string ke numerik (0: Bukan Ujaran Kebencian, 1: Ringan, 2: Sedang, 3: Berat)
-- ✅ **SELESAI:** Data preprocessing khusus Bahasa Jawa (normalisasi teks, handling dialek)
-- ✅ **SELESAI:** Stratified train-test split untuk mengatasi potential class imbalance
-- ✅ **SELESAI:** Early stopping dan model checkpointing untuk training stability
-- **NEXT:** API Development - FastAPI endpoints untuk model serving
-- **NEXT:** Model evaluation framework dengan comprehensive metrics
+**🎯 PRIORITAS STRATEGIS (Q1 2025):**
+1. **API Development** (Minggu 1-2): Foundation untuk production deployment
+2. **Model Optimization** (Minggu 3-6): Target >85% accuracy dengan advanced techniques
+3. **Production Hardening** (Minggu 7-8): Monitoring, logging, performance optimization
+4. **User Interface** (Minggu 9-10): Demo dan testing interface
 
 **⚠️ Risiko Teknis (Updated 2025-01-03):**
 - **TINGGI:** Advanced Model Experiments - Eksperimen dengan model yang lebih besar memerlukan computational resources yang signifikan
@@ -88,26 +87,23 @@
 - **MITIGATED:** Evaluation Bias - Balanced evaluation methodology sudah diimplementasi
 - **MITIGATED:** Threshold Optimization - Per-class threshold tuning sudah dilakukan
 
-**🔧 Mitigasi Strategies:**
-- Implementasi class weights dalam loss function untuk mengatasi imbalance
-- Gunakan confidence score filtering untuk meningkatkan kualitas training data
-- Setup gradient accumulation jika memory terbatas
-- Implementasi k-fold cross validation untuk robust evaluation
+| Risiko | Impact | Probability | Mitigasi |
+|--------|---------|-------------|----------|
+| **API Performance Bottleneck** | HIGH | MEDIUM | Implement async processing, model caching, batch inference |
+| **Model Accuracy Plateau** | HIGH | MEDIUM | Multi-stage fine-tuning, ensemble methods, advanced loss functions |
+| **Production Deployment Issues** | MEDIUM | LOW | Comprehensive testing, staging environment, rollback strategy |
+| **Resource Constraints** | MEDIUM | MEDIUM | Cloud deployment, GPU optimization, efficient model serving |
 
-**🎯 Saran Teknis Lanjutan:**
-- **Prioritas 1:** Fokus pada kualitas data labeling - ini akan menentukan 80% dari performa model
-- **Prioritas 2:** Setup environment yang konsisten untuk semua developer menggunakan virtual environment
-- **Prioritas 3:** Implementasi logging yang komprehensif sejak awal untuk debugging dan monitoring
-- **Best Practice:** Gunakan configuration management untuk semua parameter model dan API
+**🔧 TECHNICAL DEBT & QUALITY GATES:**
+- ✅ **Code Quality:** Comprehensive unit testing implemented (22 tests, 100% pass rate)
+- ✅ **Git Workflow:** Complete Git workflow dan commit procedures documented
+- ✅ **Production Testing:** Load testing framework dan monitoring guidelines ready
+- ⏳ **Documentation:** API documentation dengan OpenAPI/Swagger specs (in progress)
+- ⏳ **Monitoring:** Advanced health checks, performance metrics, error tracking (planned)
+- ⏳ **Security:** Rate limiting, authentication, input sanitization (planned)
 
-**⚠️ Risiko Teknis:**
-- **TINGGI:** Kualitas dataset - inconsistent labeling dapat merusak model performance
-- **SEDANG:** IndoBERT compatibility dengan Bahasa Jawa - perlu extensive testing
-- **SEDANG:** Dependencies conflicts - beberapa library ML memiliki version requirements yang strict
-- **RENDAH:** API performance - model inference time perlu dioptimasi untuk production
-
-**🔧 Mitigasi:**
-- Buat clear labeling guidelines dan quality control process
-- Prepare fallback model strategy jika IndoBERT tidak optimal
-- Use pinned versions di requirements.txt dan virtual environment
-- Implement model caching dan async processing untuk API
+**📈 SUCCESS METRICS:**
+- **API Performance:** <100ms response time, >99% uptime
+- **Model Performance:** >85% accuracy, >80% F1-score untuk semua classes
+- **Code Quality:** >90% test coverage, zero critical security issues
+- **User Experience:** <3 second end-to-end prediction time

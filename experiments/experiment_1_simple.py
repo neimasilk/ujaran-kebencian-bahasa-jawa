@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Eksperimen 1: IndoBERT Large Fine-tuning
+Eksperimen 1: IndoBERT Large Fine-tuning (Simplified Version)
 Tujuan: Meningkatkan baseline performance dengan model yang lebih besar
 Target: F1-Score Macro >83% (peningkatan 3% dari baseline 80.36%)
 
@@ -31,15 +31,13 @@ from sklearn.metrics import (
     classification_report, confusion_matrix
 )
 from sklearn.model_selection import train_test_split
-import matplotlib.pyplot as plt
-import seaborn as sns
 
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
     format='%(asctime)s - %(levelname)s - %(message)s',
     handlers=[
-        logging.FileHandler('experiment_1_indobert_large.log'),
+        logging.FileHandler('experiment_1_simple.log'),
         logging.StreamHandler()
     ]
 )
@@ -50,33 +48,25 @@ class ExperimentConfig:
     
     # Model configuration
     MODEL_NAME = "indobenchmark/indobert-large-p1"
-    MAX_LENGTH = 256  # Increased from 128
+    MAX_LENGTH = 256
     NUM_LABELS = 4
     
     # Training configuration
-    BATCH_SIZE = 8  # Reduced due to larger model
-    GRADIENT_ACCUMULATION_STEPS = 2
-    LEARNING_RATE = 2e-5  # Increased from 1e-5 for better convergence
-    NUM_EPOCHS = 5
-    WARMUP_RATIO = 0.2  # Increased from 0.1 for better warmup
+    BATCH_SIZE = 16  # Increased for GPU
+    GRADIENT_ACCUMULATION_STEPS = 1  # Reduced since we have larger batch size
+    LEARNING_RATE = 2e-5  # Slightly higher for GPU training
+    NUM_EPOCHS = 5  # Full epochs for better results
+    WARMUP_RATIO = 0.1
     WEIGHT_DECAY = 0.01
     
-    # Early stopping (FIXED: More lenient settings)
-    EARLY_STOPPING_PATIENCE = 5  # Increased from 2 to 5
-    EARLY_STOPPING_THRESHOLD = 0.01  # Increased from 0.001 to 0.01
+    # Early stopping
+    EARLY_STOPPING_PATIENCE = 2
+    EARLY_STOPPING_THRESHOLD = 0.001
     
     # Paths
-    DATA_PATH = "src/data_collection/hasil-labeling.csv"
-    OUTPUT_DIR = "experiments/results/experiment_1_indobert_large"
-    MODEL_SAVE_PATH = "models/indobert_large_hate_speech"
-    
-    # Class weights (FIXED: More balanced weights)
-    CLASS_WEIGHTS = {
-        0: 1.0,    # Bukan Ujaran Kebencian
-        1: 3.0,    # Ujaran Kebencian - Ringan (Reduced from 8.5)
-        2: 2.5,    # Ujaran Kebencian - Sedang (Reduced from 15.2)
-        3: 3.5     # Ujaran Kebencian - Berat (Reduced from 25.8)
-    }
+    DATA_PATH = "../src/data_collection/hasil-labeling.csv"
+    OUTPUT_DIR = "results/experiment_1_simple"
+    MODEL_SAVE_PATH = "models/indobert_large_simple"
     
     # Label mapping
     LABEL_MAPPING = {
@@ -116,45 +106,6 @@ class HateSpeechDataset(Dataset):
             'labels': torch.tensor(label, dtype=torch.long)
         }
 
-class WeightedFocalLoss(nn.Module):
-    """Focal Loss with class weights for handling imbalanced data"""
-    
-    def __init__(self, alpha: Dict[int, float], gamma: float = 2.0):
-        super().__init__()
-        self.alpha = alpha
-        self.gamma = gamma
-        self.ce_loss = nn.CrossEntropyLoss(reduction='none')
-    
-    def forward(self, inputs, targets):
-        ce_loss = self.ce_loss(inputs, targets)
-        pt = torch.exp(-ce_loss)
-        
-        # Apply class weights
-        alpha_weights = torch.tensor([self.alpha[i] for i in targets.cpu().numpy()]).to(inputs.device)
-        focal_loss = alpha_weights * (1 - pt) ** self.gamma * ce_loss
-        
-        return focal_loss.mean()
-
-class CustomTrainer(Trainer):
-    """Custom trainer with weighted focal loss"""
-    
-    def __init__(self, *args, class_weights=None, **kwargs):
-        super().__init__(*args, **kwargs)
-        if class_weights:
-            self.loss_fn = WeightedFocalLoss(alpha=class_weights, gamma=2.0)
-    
-    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
-        labels = inputs.get("labels")
-        outputs = model(**inputs)
-        logits = outputs.get("logits")
-        
-        if hasattr(self, 'loss_fn'):
-            loss = self.loss_fn(logits, labels)
-        else:
-            loss = outputs.loss
-        
-        return (loss, outputs) if return_outputs else loss
-
 def load_and_preprocess_data(data_path: str) -> Tuple[pd.DataFrame, np.ndarray, np.ndarray]:
     """Load and preprocess the dataset"""
     logger.info(f"Loading data from {data_path}")
@@ -187,22 +138,6 @@ def load_and_preprocess_data(data_path: str) -> Tuple[pd.DataFrame, np.ndarray, 
     
     return df, df['text'].values, df['label_numeric'].values
 
-def create_stratified_split(texts: np.ndarray, labels: np.ndarray, test_size: float = 0.2, random_state: int = 42):
-    """Create stratified train-test split"""
-    logger.info("Creating stratified train-test split")
-    
-    X_train, X_test, y_train, y_test = train_test_split(
-        texts, labels,
-        test_size=test_size,
-        stratify=labels,
-        random_state=random_state
-    )
-    
-    logger.info(f"Train set size: {len(X_train)}")
-    logger.info(f"Test set size: {len(X_test)}")
-    
-    return X_train, X_test, y_train, y_test
-
 def compute_metrics(eval_pred):
     """Compute evaluation metrics"""
     predictions, labels = eval_pred
@@ -218,19 +153,17 @@ def compute_metrics(eval_pred):
         'recall_macro': recall
     }
 
-def detailed_evaluation(model, tokenizer, X_test, y_test, config: ExperimentConfig):
-    """Perform detailed evaluation of the model"""
-    logger.info("Performing detailed evaluation")
+def detailed_evaluation(model, tokenizer, test_texts, test_labels, config):
+    """Perform detailed evaluation"""
+    logger.info("Starting detailed evaluation")
     
     # Create test dataset
-    test_dataset = HateSpeechDataset(X_test, y_test, tokenizer, config.MAX_LENGTH)
-    test_loader = DataLoader(test_dataset, batch_size=16, shuffle=False)
+    test_dataset = HateSpeechDataset(test_texts, test_labels, tokenizer, config.MAX_LENGTH)
+    test_loader = DataLoader(test_dataset, batch_size=config.BATCH_SIZE, shuffle=False)
     
-    # Get predictions
     model.eval()
     all_predictions = []
     all_labels = []
-    all_probabilities = []
     
     with torch.no_grad():
         for batch in test_loader:
@@ -239,40 +172,39 @@ def detailed_evaluation(model, tokenizer, X_test, y_test, config: ExperimentConf
             labels = batch['labels'].to(model.device)
             
             outputs = model(input_ids=input_ids, attention_mask=attention_mask)
-            logits = outputs.logits
-            probabilities = torch.softmax(logits, dim=-1)
-            predictions = torch.argmax(logits, dim=-1)
+            predictions = torch.argmax(outputs.logits, dim=-1)
             
             all_predictions.extend(predictions.cpu().numpy())
             all_labels.extend(labels.cpu().numpy())
-            all_probabilities.extend(probabilities.cpu().numpy())
     
     # Calculate metrics
     accuracy = accuracy_score(all_labels, all_predictions)
-    precision, recall, f1, support = precision_recall_fscore_support(
-        all_labels, all_predictions, average=None
-    )
-    macro_f1 = precision_recall_fscore_support(all_labels, all_predictions, average='macro')[2]
+    precision, recall, f1, _ = precision_recall_fscore_support(all_labels, all_predictions, average='macro')
     
-    # Create detailed report
+    # Per-class metrics
+    class_report = classification_report(all_labels, all_predictions, 
+                                       target_names=list(config.LABEL_MAPPING.values()),
+                                       output_dict=True)
+    
+    # Confusion matrix
+    cm = confusion_matrix(all_labels, all_predictions)
+    
     report = {
         'accuracy': accuracy,
-        'f1_macro': macro_f1,
-        'per_class_metrics': {},
-        'confusion_matrix': confusion_matrix(all_labels, all_predictions).tolist(),
-        'classification_report': classification_report(all_labels, all_predictions, target_names=list(config.LABEL_MAPPING.values()))
+        'f1_macro': f1,
+        'precision_macro': precision,
+        'recall_macro': recall,
+        'classification_report': class_report,
+        'confusion_matrix': cm.tolist()
     }
     
-    for i, label_name in config.LABEL_MAPPING.items():
-        if i < len(precision):
-            report['per_class_metrics'][label_name] = {
-                'precision': float(precision[i]),
-                'recall': float(recall[i]),
-                'f1_score': float(f1[i]),
-                'support': int(support[i])
-            }
+    logger.info(f"Final Results:")
+    logger.info(f"  Accuracy: {accuracy:.4f}")
+    logger.info(f"  F1-Score (Macro): {f1:.4f}")
+    logger.info(f"  Precision (Macro): {precision:.4f}")
+    logger.info(f"  Recall (Macro): {recall:.4f}")
     
-    return report, all_predictions, all_probabilities
+    return report
 
 def save_results(report: Dict, config: ExperimentConfig, training_time: float):
     """Save experiment results"""
@@ -298,28 +230,16 @@ def save_results(report: Dict, config: ExperimentConfig, training_time: float):
         }
     }
     
-    # Save detailed results
-    with open(output_dir / 'experiment_1_results.json', 'w', encoding='utf-8') as f:
+    # Save results
+    results_file = output_dir / 'experiment_results.json'
+    with open(results_file, 'w', encoding='utf-8') as f:
         json.dump(report, f, indent=2, ensure_ascii=False)
     
-    # Save confusion matrix plot
-    plt.figure(figsize=(10, 8))
-    cm = np.array(report['confusion_matrix'])
-    sns.heatmap(cm, annot=True, fmt='d', cmap='Blues',
-                xticklabels=list(config.LABEL_MAPPING.values()),
-                yticklabels=list(config.LABEL_MAPPING.values()))
-    plt.title('Confusion Matrix - IndoBERT Large')
-    plt.ylabel('True Label')
-    plt.xlabel('Predicted Label')
-    plt.tight_layout()
-    plt.savefig(output_dir / 'confusion_matrix.png', dpi=300, bbox_inches='tight')
-    plt.close()
-    
-    logger.info(f"Results saved to {output_dir}")
+    logger.info(f"Results saved to {results_file}")
 
 def main():
     """Main experiment execution"""
-    logger.info("Starting Experiment 1: IndoBERT Large Fine-tuning")
+    logger.info("Starting Experiment 1: IndoBERT Large Fine-tuning (Simple)")
     start_time = time.time()
     
     config = ExperimentConfig()
@@ -329,17 +249,25 @@ def main():
     logger.info(f"Using device: {device}")
     
     if torch.cuda.is_available():
-        logger.info(f"GPU: {torch.cuda.get_device_name(0)}")
-        logger.info(f"GPU Memory: {torch.cuda.get_device_properties(0).total_memory / 1e9:.1f} GB")
+        logger.info(f"GPU detected: {torch.cuda.get_device_name(0)}")
+        logger.info(f"GPU memory: {torch.cuda.get_device_properties(0).total_memory / 1024**3:.1f} GB")
+        logger.info("Mixed precision training: ENABLED")
+    else:
+        logger.warning("No GPU detected, using CPU (training will be slower)")
     
     try:
         # Load and preprocess data
         df, texts, labels = load_and_preprocess_data(config.DATA_PATH)
         
         # Create train-test split
-        X_train, X_test, y_train, y_test = create_stratified_split(texts, labels)
+        X_train, X_test, y_train, y_test = train_test_split(
+            texts, labels, test_size=0.2, stratify=labels, random_state=42
+        )
         
-        # Initialize tokenizer and model
+        logger.info(f"Training samples: {len(X_train)}")
+        logger.info(f"Test samples: {len(X_test)}")
+        
+        # Load tokenizer and model
         logger.info(f"Loading tokenizer and model: {config.MODEL_NAME}")
         tokenizer = AutoTokenizer.from_pretrained(config.MODEL_NAME)
         model = AutoModelForSequenceClassification.from_pretrained(
@@ -347,11 +275,15 @@ def main():
             num_labels=config.NUM_LABELS
         )
         
+        # Move model to GPU if available
+        model = model.to(device)
+        logger.info(f"Model moved to device: {device}")
+        
         # Create datasets
         train_dataset = HateSpeechDataset(X_train, y_train, tokenizer, config.MAX_LENGTH)
         eval_dataset = HateSpeechDataset(X_test, y_test, tokenizer, config.MAX_LENGTH)
         
-        # Training arguments
+        # Training arguments with GPU optimization
         training_args = TrainingArguments(
             output_dir=config.OUTPUT_DIR,
             num_train_epochs=config.NUM_EPOCHS,
@@ -361,78 +293,65 @@ def main():
             warmup_ratio=config.WARMUP_RATIO,
             weight_decay=config.WEIGHT_DECAY,
             learning_rate=config.LEARNING_RATE,
-            logging_dir=f"{config.OUTPUT_DIR}/logs",
+            logging_dir=f'{config.OUTPUT_DIR}/logs',
             logging_steps=50,
-            eval_steps=50,  # Reduced from 100 for more frequent monitoring
-            evaluation_strategy="steps",
-            save_strategy="steps",
-            save_steps=100,
+            eval_strategy="epoch",
+            save_strategy="epoch",
             load_best_model_at_end=True,
             metric_for_best_model="f1_macro",
             greater_is_better=True,
-            save_total_limit=3,
-            report_to=None,  # Disable wandb
-            dataloader_num_workers=0,  # Avoid multiprocessing issues
-            fp16=torch.cuda.is_available(),  # Use mixed precision if GPU available
+            save_total_limit=2,
+            report_to=None,  # Disable wandb/tensorboard
+            dataloader_pin_memory=True,  # Enable for GPU
+            fp16=torch.cuda.is_available(),  # Mixed precision if GPU available
+            dataloader_num_workers=2 if torch.cuda.is_available() else 0,  # Parallel data loading
+            remove_unused_columns=False
         )
         
         # Initialize trainer
-        trainer = CustomTrainer(
+        trainer = Trainer(
             model=model,
             args=training_args,
             train_dataset=train_dataset,
             eval_dataset=eval_dataset,
             compute_metrics=compute_metrics,
-            class_weights=config.CLASS_WEIGHTS,
             callbacks=[EarlyStoppingCallback(
                 early_stopping_patience=config.EARLY_STOPPING_PATIENCE,
                 early_stopping_threshold=config.EARLY_STOPPING_THRESHOLD
             )]
         )
         
-        # Train the model
+        # Train model
         logger.info("Starting training...")
-        train_start = time.time()
         trainer.train()
-        training_time = time.time() - train_start
         
-        logger.info(f"Training completed in {training_time:.2f} seconds")
-        
-        # Save the model
+        # Save model and tokenizer
         logger.info(f"Saving model to {config.MODEL_SAVE_PATH}")
+        model_save_dir = Path(config.MODEL_SAVE_PATH)
+        model_save_dir.mkdir(parents=True, exist_ok=True)
+        
         trainer.save_model(config.MODEL_SAVE_PATH)
         tokenizer.save_pretrained(config.MODEL_SAVE_PATH)
         
         # Detailed evaluation
-        report, predictions, probabilities = detailed_evaluation(
-            model, tokenizer, X_test, y_test, config
-        )
+        report = detailed_evaluation(model, tokenizer, X_test, y_test, config)
+        
+        # Calculate training time
+        training_time = time.time() - start_time
         
         # Save results
         save_results(report, config, training_time)
         
         # Log final results
-        logger.info("=" * 50)
-        logger.info("EXPERIMENT 1 RESULTS")
-        logger.info("=" * 50)
-        logger.info(f"Accuracy: {report['accuracy']:.4f}")
-        logger.info(f"F1-Score Macro: {report['f1_macro']:.4f}")
-        logger.info(f"Baseline F1-Score: 0.8036")
-        logger.info(f"Improvement: {report['f1_macro'] - 0.8036:.4f}")
-        logger.info(f"Training Time: {training_time:.2f} seconds")
+        logger.info(f"Experiment completed in {training_time:.2f} seconds")
+        logger.info(f"Final F1-Score (Macro): {report['f1_macro']:.4f}")
+        logger.info(f"Baseline comparison: {report['f1_macro'] - 0.8036:.4f} improvement")
         
-        logger.info("\nPer-class Results:")
-        for class_name, metrics in report['per_class_metrics'].items():
-            logger.info(f"  {class_name}:")
-            logger.info(f"    F1-Score: {metrics['f1_score']:.4f}")
-            logger.info(f"    Precision: {metrics['precision']:.4f}")
-            logger.info(f"    Recall: {metrics['recall']:.4f}")
-        
-        total_time = time.time() - start_time
-        logger.info(f"\nTotal experiment time: {total_time:.2f} seconds")
-        logger.info("Experiment 1 completed successfully!")
-        
-        return report
+        # Log per-class metrics
+        logger.info("Per-class metrics:")
+        for class_name, metrics in report['classification_report'].items():
+            if isinstance(metrics, dict) and 'f1-score' in metrics:
+                logger.info(f"  {class_name}: F1={metrics['f1-score']:.4f}, Precision={metrics['precision']:.4f}, Recall={metrics['recall']:.4f}")
         
     except Exception as e:
         logger.error(f"Experiment failed: {str(e)}")
