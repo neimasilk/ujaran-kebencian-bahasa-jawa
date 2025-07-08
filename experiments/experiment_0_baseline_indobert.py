@@ -72,7 +72,7 @@ class BaselineConfig:
     EARLY_STOPPING_THRESHOLD = 0.001
     
     # Paths
-    DATA_PATH = "data/processed/final_dataset_shuffled.csv"
+    DATA_PATH = "data/standardized/balanced_dataset.csv"
     OUTPUT_DIR = "experiments/results/experiment_0_baseline_indobert"
     MODEL_SAVE_PATH = "models/indobert_baseline_hate_speech"
     
@@ -173,23 +173,26 @@ def load_and_preprocess_data(data_path: str) -> Tuple[pd.DataFrame, np.ndarray, 
     logger.info(f"First 3 rows of dataframe:")
     logger.info(df.head(3).to_string())
     
-    # Create label_id mapping from label column
-    label_mapping = {
-        'Bukan Ujaran Kebencian': 0,
-        'Ujaran Kebencian - Ringan': 1,
-        'Ujaran Kebencian - Sedang': 2,
-        'Ujaran Kebencian - Berat': 3
-    }
-    
-    # If dataset has 'final_label' column, use it; otherwise use 'label'
-    if 'final_label' in df.columns:
+    # Use standardized dataset columns
+    # Dataset has: text, final_label, label_numeric, label_binary
+    # We can directly use label_numeric which is already mapped correctly
+    if 'label_numeric' in df.columns:
+        # Use the pre-mapped numeric labels from standardized dataset
+        df = df[['text', 'label_numeric']].copy()
+        df = df.rename(columns={'label_numeric': 'label'})
+    elif 'final_label' in df.columns:
+        # Fallback: map final_label to numeric if label_numeric not available
+        label_mapping = {
+            'Bukan Ujaran Kebencian': 0,
+            'Ujaran Kebencian - Ringan': 1,
+            'Ujaran Kebencian - Sedang': 2,
+            'Ujaran Kebencian - Berat': 3
+        }
         df['label_id'] = df['final_label'].map(label_mapping)
+        df = df[['text', 'label_id']].copy()
+        df = df.rename(columns={'label_id': 'label'})
     else:
-        df['label_id'] = df['label'].map(label_mapping)
-    
-    # Use text and label_id columns explicitly
-    df = df[['text', 'label_id']].copy()
-    df = df.rename(columns={'label_id': 'label'})
+        raise ValueError("Dataset must contain either 'label_numeric' or 'final_label' column")
     
     # Clean data
     df = df.dropna(subset=['text', 'label'])
@@ -393,13 +396,9 @@ def main():
             learning_rate=config.LEARNING_RATE,
             logging_dir=f'{config.OUTPUT_DIR}/logs',
             logging_steps=50,
-            eval_strategy="steps",
-            eval_steps=100,
-            save_strategy="steps",
-            save_steps=100,
-            load_best_model_at_end=True,
-            metric_for_best_model="eval_f1_macro",
-            greater_is_better=True,
+            eval_strategy="epoch",
+            save_strategy="no",  # Disable checkpoint saving during training
+            load_best_model_at_end=False,  # Disable to avoid checkpoint issues
             report_to=None,
             dataloader_pin_memory=False,
         )
@@ -412,10 +411,7 @@ def main():
             eval_dataset=val_dataset,
             compute_metrics=compute_metrics,
             class_weights=config.CLASS_WEIGHTS,
-            callbacks=[EarlyStoppingCallback(
-                early_stopping_patience=config.EARLY_STOPPING_PATIENCE,
-                early_stopping_threshold=config.EARLY_STOPPING_THRESHOLD
-            )]
+            # Remove EarlyStoppingCallback to avoid checkpoint issues
         )
         
         # Train model
@@ -465,9 +461,9 @@ def main():
         logger.info(f"Difference: {difference:+.4f}")
         
         if difference >= 0:
-            logger.info("✅ BASELINE TARGET ACHIEVED OR EXCEEDED!")
+            logger.info("[SUCCESS] BASELINE TARGET ACHIEVED OR EXCEEDED!")
         else:
-            logger.info("❌ Baseline target not reached")
+            logger.info("[INFO] Baseline target not reached")
         
     except Exception as e:
         logger.error(f"Experiment failed: {str(e)}")

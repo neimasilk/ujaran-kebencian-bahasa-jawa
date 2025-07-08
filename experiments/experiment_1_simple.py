@@ -64,9 +64,9 @@ class ExperimentConfig:
     EARLY_STOPPING_THRESHOLD = 0.001
     
     # Paths
-    DATA_PATH = "../src/data_collection/hasil-labeling.csv"
-    OUTPUT_DIR = "results/experiment_1_simple"
-    MODEL_SAVE_PATH = "models/indobert_large_simple"
+    DATA_PATH = "data/standardized/balanced_dataset.csv"
+    OUTPUT_DIR = "experiments/results/experiment_1_indobert_large"
+    MODEL_SAVE_PATH = "models/indobert_large_hate_speech"
     
     # Label mapping
     LABEL_MAPPING = {

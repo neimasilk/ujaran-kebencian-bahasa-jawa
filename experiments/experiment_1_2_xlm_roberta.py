@@ -43,7 +43,7 @@ WEIGHT_DECAY = 0.01
 SEED = 42
 
 # Paths
-DATA_PATH = "src/data_collection/hasil-labeling.csv"
+DATA_PATH = "data/standardized/balanced_dataset.csv"
 OUTPUT_DIR = "experiments/results/experiment_1_2_xlm_roberta"
 MODEL_SAVE_PATH = "experiments/models/xlm_roberta_javanese_hate_speech"
 LOG_FILE = "experiments/experiment_1_2_xlm_roberta.log"
@@ -126,14 +126,18 @@ class CustomTrainer(Trainer):
         super().__init__(*args, **kwargs)
         self.class_weights = class_weights
         
-    def compute_loss(self, model, inputs, return_outputs=False):
+    def compute_loss(self, model, inputs, return_outputs=False, **kwargs):
         labels = inputs.get("labels")
         outputs = model(**inputs)
         logits = outputs.get("logits")
         
+        # Move class weights to the same device as the model
+        device = logits.device
+        class_weights = self.class_weights.to(device) if self.class_weights is not None else None
+        
         # Use weighted focal loss
         loss_fct = WeightedFocalLoss(
-            alpha=self.class_weights,
+            alpha=class_weights,
             gamma=2.0
         )
         loss = loss_fct(logits, labels)
@@ -339,7 +343,7 @@ def main():
         learning_rate=LEARNING_RATE,
         logging_dir=f"{OUTPUT_DIR}/logs",
         logging_steps=100,
-        evaluation_strategy="steps",
+        eval_strategy="steps",
         eval_steps=500,
         save_strategy="steps",
         save_steps=500,

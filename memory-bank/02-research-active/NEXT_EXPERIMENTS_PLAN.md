@@ -18,6 +18,8 @@
 - ✅ **Class Imbalance Handling**: Focal Loss + Class Weighting
 - ✅ **Production Ready**: Deployment pipeline tersedia
 - ✅ **Comprehensive Evaluation**: Balanced evaluation methodology
+- ✅ **Dataset Standardization**: Semua eksperimen menggunakan dataset standar
+- ✅ **Code Consistency**: 12 eksperimen telah diupdate dengan struktur seragam
 
 ### Analisis Kelemahan Model Saat Ini
 1. **Ujaran Kebencian - Ringan**: F1-Score 78.52% (terendah)
@@ -34,15 +36,16 @@
 **Budget:** 4 minggu research time, GPU resources
 **Success Gate:** Identify best-performing architecture dengan >78% accuracy
 
-#### 1.1 IndoBERT Large Experiment ✅ **IMPLEMENTED**
+#### 1.1 IndoBERT Large Experiment ✅ **UPDATED & READY**
 ```yaml
 Model: indobenchmark/indobert-large-p1
 Parameters: 340M (vs 110M baseline)
 Expected Improvement: +3-5% F1-Score
 Computational Cost: High
 Priority: High
-Status: READY FOR EXECUTION
+Status: UPDATED WITH STANDARDIZED DATASET
 Implementation: /experiments/experiment_1_indobert_large.py
+Dataset: data/standardized/balanced_dataset.csv (25,041 samples)
 
 Configuration:
   learning_rate: 1e-5  # Lower for larger model
@@ -61,18 +64,20 @@ Implemented Features:
   ✅ Confusion matrix visualization
 ```
 
-**Success Metrics:**
+**Success Metrics (Updated with Balanced Dataset):**
 - Target: >78% accuracy (+4.2% improvement)
 - F1-Score Macro: >75%
 - Inference time: <200ms per prediction
 - Memory usage: <8GB during inference
+- Balanced Performance: Consistent across all 4 classes (25% each)
 
-#### Experiment 1.2: XLM-RoBERTa Cross-Lingual Analysis
+#### Experiment 1.2: XLM-RoBERTa Cross-Lingual Analysis ✅ **UPDATED**
 **Hypothesis:** Multilingual pre-training memberikan representasi yang lebih baik untuk low-resource Javanese  
 **Implementation Strategy:**
-- Fine-tune XLM-RoBERTa Base dengan same preprocessing
+- Fine-tune XLM-RoBERTa Base dengan standardized dataset
 - Evaluate cross-dialect performance
 - Compare dengan IndoBERT family results
+- **Dataset Status:** ✅ Updated to use `balanced_dataset.csv`
 
 **Technical Specifications:**
 - Model: XLM-RoBERTa Base (270M parameters)
@@ -85,12 +90,13 @@ Implemented Features:
 - Dialect consistency: <5% variance across regions
 - Multilingual capability assessment
 
-#### Experiment 1.3: mBERT Baseline Comparison
+#### Experiment 1.3: mBERT Baseline Comparison ✅ **UPDATED**
 **Hypothesis:** Multilingual BERT dapat menangkap patterns Javanese lebih baik dari Indonesian-specific models  
 **Implementation Strategy:**
 - Quick evaluation untuk establish multilingual baseline
 - Focus pada computational efficiency
 - Serve as fallback option jika specialized models underperform
+- **Dataset Status:** ✅ Updated to use `balanced_dataset.csv`
 
 **Technical Specifications:**
 - Model: mBERT (110M parameters)

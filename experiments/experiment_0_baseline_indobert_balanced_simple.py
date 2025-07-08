@@ -53,7 +53,7 @@ logger = logging.getLogger(__name__)
 # Configuration
 CONFIG = {
     'model_name': 'indobenchmark/indobert-base-p1',
-    'dataset_path': 'data/processed/final_dataset_shuffled.csv',
+    'dataset_path': 'data/standardized/balanced_dataset.csv',
     'max_length': 128,
     'batch_size': 16,
     'num_epochs': 10,
@@ -117,12 +117,16 @@ def load_and_prepare_data(dataset_path):
     df = pd.read_csv(dataset_path)
     logger.info(f"Dataset loaded with {len(df)} samples")
     
-    # Use final_label column for classification
-    if 'final_label' not in df.columns:
-        raise ValueError("Dataset must contain 'final_label' column")
-    
-    # Map labels to IDs
-    df['label_id'] = df['final_label'].map(LABEL_MAPPING)
+    # Use standardized dataset columns
+    # Dataset has: text, final_label, label_numeric, label_binary
+    if 'label_numeric' in df.columns:
+        # Use the pre-mapped numeric labels from standardized dataset
+        df['label_id'] = df['label_numeric']
+    elif 'final_label' in df.columns:
+        # Fallback: map final_label to numeric if label_numeric not available
+        df['label_id'] = df['final_label'].map(LABEL_MAPPING)
+    else:
+        raise ValueError("Dataset must contain either 'label_numeric' or 'final_label' column")
     
     # Check for unmapped labels
     unmapped = df[df['label_id'].isna()]

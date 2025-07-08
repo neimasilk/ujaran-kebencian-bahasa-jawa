@@ -44,7 +44,7 @@ WEIGHT_DECAY = 0.01
 SEED = 42
 
 # Paths
-DATA_PATH = "src/data_collection/hasil-labeling.csv"
+DATA_PATH = "data/standardized/balanced_dataset.csv"
 OUTPUT_DIR = "experiments/results/experiment_1_3_mbert"
 MODEL_SAVE_PATH = "experiments/models/mbert_javanese_hate_speech"
 LOG_FILE = "experiments/experiment_1_3_mbert.log"
@@ -393,7 +393,7 @@ def main():
         learning_rate=LEARNING_RATE,
         logging_dir=f"{OUTPUT_DIR}/logs",
         logging_steps=50,
-        evaluation_strategy="steps",
+        eval_strategy="steps",
         eval_steps=300,
         save_strategy="steps",
         save_steps=300,

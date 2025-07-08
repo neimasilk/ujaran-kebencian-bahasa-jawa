@@ -1,9 +1,40 @@
-# Experiment 1.1: IndoBERT Large Implementation Status
+# Experiment Implementation Status
 
-**Date:** 3 Juli 2025  
-**Status:** ✅ IMPLEMENTED & READY FOR EXECUTION  
+## Experiment 0: Baseline IndoBERT Base ✅ COMPLETED
+
+**Date:** 7 Januari 2025  
+**Status:** ✅ COMPLETED SUCCESSFULLY  
+**Implementation File:** `/experiments/experiment_0_baseline_indobert.py`  
+**Results File:** `/EXPERIMENT_0_BASELINE_RESULTS.md`  
+**Dataset Status:** ✅ Standardized balanced dataset verified  
+
+### Results Summary
+- **Model:** IndoBERT Base (indobenchmark/indobert-base-p1)
+- **F1-Score Macro:** 0.4999 (49.99%)
+- **Accuracy:** 0.5590 (55.90%)
+- **Training Time:** 316.61 seconds
+- **Status:** Baseline established, target not reached (-30.37% from target 80.36%)
+- **Next:** Ready for advanced model experiments
+
+---
+
+## Experiment 1.1: IndoBERT Large Implementation Status
+
+**Date:** 3 Juli 2025 (Updated: 7 Juli 2025)  
+**Status:** ✅ COMPLETED WITH SUBOPTIMAL PERFORMANCE  
 **Implementation File:** `/experiments/experiment_1_indobert_large.py`  
+**Results File:** `/EXPERIMENT_1_INDOBERT_LARGE_RESULTS.md`  
 **Priority:** High  
+**Dataset Status:** ✅ Used standardized balanced dataset
+
+### Execution Results
+- **Model:** IndoBERT Large (indobenchmark/indobert-large-p1)
+- **F1-Score Macro:** 0.3884 (38.84%)
+- **Accuracy:** 0.4516 (45.16%)
+- **Training Time:** 1,182.74 seconds (~19.7 minutes)
+- **Status:** Completed but underperforming (-41.52% from target 80.36%)
+- **Issues:** Model saving failed, severe class imbalance problems
+- **Next:** Requires debugging and optimization  
 
 ---
 
@@ -30,9 +61,11 @@
 - ✅ Early stopping with patience: 2 epochs
 - ✅ Learning rate: 1e-5 (optimized for large model)
 
-#### 3. Data Handling
+#### 3. Data Handling (UPDATED)
 - ✅ **HateSpeechDataset** custom dataset class
-- ✅ Stratified train-test split (80/20)
+- ✅ **Standardized Dataset:** Uses `data/standardized/balanced_dataset.csv`
+- ✅ **Balanced Distribution:** 25% per class (6,260-6,261 samples)
+- ✅ **Column Logic:** Prioritizes `label_numeric` with `final_label` fallback
 - ✅ Increased max_length: 256 tokens
 - ✅ Proper tokenization and padding
 
@@ -102,17 +135,20 @@ WEIGHT_DECAY = 0.01
 ## 🚀 Execution Readiness
 
 ### Prerequisites ✅
-- [x] Dataset available: `data/processed/final_dataset.csv`
+- [x] Dataset available: `data/standardized/balanced_dataset.csv` (UPDATED)
 - [x] Dependencies installed: transformers, torch, sklearn, etc.
 - [x] GPU environment configured
 - [x] Output directories created
 - [x] Logging system configured
+- [x] Standardized dataset implementation completed
 
-### Execution Command
+### Execution Command (UPDATED)
 ```bash
 cd /d/documents/ujaran-kebencian-bahasa-jawa
 python experiments/experiment_1_indobert_large.py
 ```
+
+**Note:** Script telah diupdate untuk menggunakan dataset standar `balanced_dataset.csv`
 
 ### Output Files
 - **Model:** `models/indobert_large_hate_speech/`

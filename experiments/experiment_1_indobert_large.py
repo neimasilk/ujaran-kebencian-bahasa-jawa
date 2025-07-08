@@ -54,8 +54,8 @@ class ExperimentConfig:
     NUM_LABELS = 4
     
     # Training configuration
-    BATCH_SIZE = 8  # Reduced due to larger model
-    GRADIENT_ACCUMULATION_STEPS = 2
+    BATCH_SIZE = 4  # Further reduced for IndoBERT Large
+    GRADIENT_ACCUMULATION_STEPS = 4  # Increased to maintain effective batch size
     LEARNING_RATE = 2e-5  # Increased from 1e-5 for better convergence
     NUM_EPOCHS = 5
     WARMUP_RATIO = 0.2  # Increased from 0.1 for better warmup
@@ -66,7 +66,7 @@ class ExperimentConfig:
     EARLY_STOPPING_THRESHOLD = 0.01  # Increased from 0.001 to 0.01
     
     # Paths
-    DATA_PATH = "src/data_collection/hasil-labeling.csv"
+    DATA_PATH = "data/standardized/balanced_dataset.csv"
     OUTPUT_DIR = "experiments/results/experiment_1_indobert_large"
     MODEL_SAVE_PATH = "models/indobert_large_hate_speech"
     
@@ -364,7 +364,7 @@ def main():
             logging_dir=f"{config.OUTPUT_DIR}/logs",
             logging_steps=50,
             eval_steps=50,  # Reduced from 100 for more frequent monitoring
-            evaluation_strategy="steps",
+            eval_strategy="steps",
             save_strategy="steps",
             save_steps=100,
             load_best_model_at_end=True,

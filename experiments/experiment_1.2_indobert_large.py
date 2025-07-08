@@ -75,7 +75,7 @@ class ExperimentConfig:
     SAVE_STEPS = 100
     
     # File paths
-    DATA_PATH = "data/processed/final_dataset.csv"
+    DATA_PATH = "data/standardized/balanced_dataset.csv"
     RESULTS_DIR = "experiments/results/experiment_1.2_indobert_large"
     MODEL_SAVE_PATH = "models/experiment_1.2_indobert_large"
     
@@ -245,23 +245,23 @@ def load_and_prepare_data(data_path):
         logger.info(f"First few rows:")
         logger.info(df.head())
         
-        # Use the correct columns from the CSV structure
-        # CSV has: text, label, label_id, confidence_score, labeling_method, response_time
-        # We need 'text' and 'label_id' (which is already numeric)
-        if 'text' not in df.columns or 'label_id' not in df.columns:
-            raise ValueError(f"Required columns 'text' and 'label_id' not found. Available columns: {df.columns.tolist()}")
+        # Use the correct columns from the standardized dataset
+        # CSV has: text, final_label, label_numeric, label_binary
+        # We need 'text' and 'label_numeric' (which is already numeric)
+        if 'text' not in df.columns or 'label_numeric' not in df.columns:
+            raise ValueError(f"Required columns 'text' and 'label_numeric' not found. Available columns: {df.columns.tolist()}")
         
-        logger.info(f"Using columns: text and label_id")
+        logger.info(f"Using columns: text and label_numeric")
         logger.info(f"Available columns: {df.columns.tolist()}")
-        logger.info(f"Sample label values: {df['label'].head()}")
-        logger.info(f"Sample label_id values: {df['label_id'].head()}")
+        logger.info(f"Sample final_label values: {df['final_label'].head()}")
+        logger.info(f"Sample label_numeric values: {df['label_numeric'].head()}")
         
         # Clean data
         initial_size = len(df)
         
-        # Keep only text and label_id columns, rename label_id to label for consistency
-        df = df[['text', 'label_id']].copy()
-        df = df.rename(columns={'label_id': 'label'})
+        # Keep only text and label_numeric columns, rename label_numeric to label for consistency
+        df = df[['text', 'label_numeric']].copy()
+        df = df.rename(columns={'label_numeric': 'label'})
         
         # Clean missing data
         df = df.dropna(subset=['text', 'label'])

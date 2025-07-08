@@ -47,7 +47,7 @@ logger = logging.getLogger(__name__)
 # Configuration
 CONFIG = {
     'model_name': 'indobenchmark/indobert-base-p1',
-    'dataset_path': 'data/processed/final_dataset_shuffled.csv',
+    'dataset_path': 'data/standardized/balanced_dataset.csv',
     'max_length': 128,
     'batch_size': 16,
     'learning_rate': 2e-5,
@@ -113,14 +113,20 @@ def load_and_prepare_data(dataset_path):
     df = pd.read_csv(dataset_path)
     logger.info(f"Dataset shape: {df.shape}")
     
-    # Use final_label if available, otherwise use label
-    if 'final_label' in df.columns:
+    # Use standardized dataset columns
+    # Dataset has: text, final_label, label_numeric, label_binary
+    if 'label_numeric' in df.columns:
+        # Use the pre-mapped numeric labels from standardized dataset
+        df['label_id'] = df['label_numeric']
+        label_column = 'final_label'  # For distribution logging
+    elif 'final_label' in df.columns:
+        # Fallback: map final_label to numeric if label_numeric not available
         label_column = 'final_label'
+        df['label_id'] = df[label_column].map(LABEL_MAPPING)
     else:
+        # Last fallback for old datasets
         label_column = 'label'
-    
-    # Create label_id mapping
-    df['label_id'] = df[label_column].map(LABEL_MAPPING)
+        df['label_id'] = df[label_column].map(LABEL_MAPPING)
     
     # Remove rows with unmapped labels
     df = df.dropna(subset=['label_id'])
@@ -267,9 +273,8 @@ def main():
         class_weights = torch.tensor(class_weights, dtype=torch.float)
         logger.info(f"Class weights: {dict(zip(range(len(class_weights)), class_weights.tolist()))}")
         
-        # Add class weights to model
-        if hasattr(model, 'config'):
-            model.config.class_weights = class_weights
+        # Note: Class weights will be used in custom loss function if needed
+        # Removed assignment to model.config to avoid JSON serialization issues
     
     # Setup training arguments
     output_dir = f"experiments/results/experiment_0_baseline_indobert_balanced"
