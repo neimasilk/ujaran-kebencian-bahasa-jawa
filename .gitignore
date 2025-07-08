@@ -57,6 +57,7 @@ logs/
 *.jsonl
 
 # Experiment results
+experiments/results/
 experiments/results/*/
 checkpoints/
 src/checkpoints/
