@@ -25,8 +25,9 @@ from torch.utils.data import DataLoader, Dataset, WeightedRandomSampler
 from transformers import (
     AutoTokenizer, AutoModelForSequenceClassification, AutoConfig,
     TrainingArguments, Trainer, EarlyStoppingCallback,
-    get_linear_schedule_with_warmup, AdamW
+    get_linear_schedule_with_warmup
 )
+from torch.optim import AdamW
 from sklearn.metrics import (
     accuracy_score, precision_recall_fscore_support,
     classification_report, confusion_matrix
@@ -186,7 +187,7 @@ class ProgressiveTrainer(Trainer):
                 smoothing=label_smoothing
             )
     
-    def compute_loss(self, model, inputs, return_outputs=False):
+    def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
         labels = inputs.get("labels")
         outputs = model(**inputs)
         logits = outputs.get("logits")

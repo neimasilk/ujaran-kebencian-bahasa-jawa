@@ -525,4 +525,52 @@ significance_tests = {
 
 ---
 
-**Next Action**: Mulai dengan Eksperimen 1.1 (IndoBERT Large) untuk baseline improvement yang signifikan.
+---
+
+## 🎯 Next Experiments Plan - Target 85% Accuracy
+
+### Executive Summary
+**Current Status:** 73.8% accuracy baseline (IndoBERT)
+**Target:** 85% accuracy (11.2% improvement needed)
+**Strategy:** 4-phase implementation over 4 weeks
+**Action Plan:** `ACTION_LIST_OPTIMASI_85_PERCENT.md`
+
+### 📋 Phase 1: Immediate Priority (Week 1)
+
+#### 1.1 Enhanced Training Strategy Implementation
+**File:** `improved_training_strategy.py`
+**Status:** ✅ Ready for execution
+**Expected Impact:** +6-8% accuracy (73.8% → 80-82%)
+**Priority:** 🔥 CRITICAL
+
+**Key Features:**
+- Advanced sampling strategies (stratified, weighted)
+- Class imbalance mitigation (focal loss, dynamic weighting)
+- Hybrid loss functions (focal + label smoothing + class balancing)
+- Optimized training pipeline with early stopping and checkpointing
+
+**Execution Command:**
+```bash
+python improved_training_strategy.py
+```
+
+#### 1.2 Threshold Optimization
+**File:** `threshold_tuning.py`
+**Status:** ✅ Ready for execution
+**Expected Impact:** +2-3% accuracy boost
+**Priority:** 🔥 CRITICAL
+
+**Key Features:**
+- Per-class threshold optimization
+- ROC/PR curve analysis
+- Business-driven configuration
+- Multi-objective optimization
+
+**Execution Command:**
+```bash
+python threshold_tuning.py
+```
+
+---
+
+**Next Action**: Execute Phase 1 experiments untuk immediate accuracy improvement, kemudian proceed dengan IndoBERT Large (Eksperimen 1.1) untuk baseline improvement yang signifikan.

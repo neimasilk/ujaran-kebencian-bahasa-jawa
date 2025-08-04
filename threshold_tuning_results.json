@@ -1,5 +1,5 @@
 {
-  "timestamp": "2025-07-03T11:34:27.780167",
+  "timestamp": "2025-08-04T13:13:36.289424",
   "model_path": "models/trained_model",
   "data_path": "data/processed/balanced_evaluation_set.csv",
   "optimal_thresholds": {
