@@ -8,9 +8,8 @@ Dokumentasi proyek telah diorganisir ulang sesuai standar Vibe Coding untuk memu
 **Dokumentasi inti proyek dan status terkini**
 - `papan-proyek.md` - Status proyek dan baby-steps tracking
 - `progress.md` - Log kemajuan berdasarkan deliverable
-- `project-summary.md` - Ringkasan status dan pencapaian
-- `project-readme.md` - README utama proyek
 - `spesifikasi-produk.md` - Visi produk dan target pengguna
+- `DATASET_STANDARDIZATION_COMPLETE.md` - Dokumentasi standardisasi dataset
 
 ### 📁 02-research-active/
 **Penelitian dan eksperimen yang sedang aktif**
@@ -61,17 +60,7 @@ Dokumentasi proyek telah diorganisir ulang sesuai standar Vibe Coding untuk memu
 - `technical-implementation-guide.md` - Panduan implementasi teknis
 - `TUTORIAL_PARALLEL_LABELING.md` - Tutorial sistem labeling paralel
 
-### 📁 04-archive-ready/
-**Dokumen yang siap diarsipkan**
-- `README.md` - Ringkasan reorganisasi dokumentasi (Desember 2024)
-- `dataset_inspection_report.txt` - Laporan inspeksi dataset awal
-- `google-drive-upload-fix.md` - Dokumentasi perbaikan bug Google Drive upload
-- `papan-proyek.md` - Versi lama papan proyek (sudah diperbarui di 01-project-core)
-- `project-summary.md` - Versi lama ringkasan proyek (sudah diperbarui di 01-project-core)
-- `research-project-reorganization.md` - Proposal reorganisasi (sudah diimplementasi)
 
-### 📁 memory-bank-arsip/
-**Arsip dokumentasi lama** (folder yang sudah ada sebelumnya)
 
 ## 🧭 Cara Navigasi
 
@@ -116,20 +105,20 @@ Sesuai dengan Vibe Coding Guide, dokumentasi akan dipelihara secara berkelanjuta
 
 **Tanggal Reorganisasi:** 2 Januari 2025  
 **Tanggal Optimasi:** 3 Januari 2025  
-**Mengikuti:** Vibe Coding Guide v1.4  
-**Status:** Dokumentasi telah dioptimalkan dan diarsipkan  
+**Tanggal Pembersihan:** 6 Agustus 2025  
+**Status:** Dokumentasi telah dibersihkan dan dikonsolidasi  
 
 ### Perubahan Utama
-1. ✅ **Struktur Folder Standar** - Mengikuti kategori Vibe Coding
-2. ✅ **Konsolidasi Dokumentasi** - Mengurangi fragmentasi
+1. ✅ **Struktur Folder Standar** - Mengikuti kategori yang relevan
+2. ✅ **Konsolidasi Dokumentasi** - Mengurangi fragmentasi dan redundansi
 3. ✅ **Navigasi Diperbaiki** - Quick access untuk semua peran
-4. ✅ **Archive Management** - Pemisahan dokumen aktif/arsip
+4. ✅ **Archive Management** - Penghapusan dokumen yang tidak relevan
 5. ✅ **Academic Paper Prep** - Struktur siap untuk publikasi
-6. 🆕 **Optimasi Dokumentasi** - 18 files diorganisir (9 diarsipkan, 9 dikonsolidasi)
+6. 🆕 **Pembersihan Menyeluruh** - 50+ files dihapus/dikonsolidasi
 7. 🆕 **Konsolidasi Eksperimen** - Semua hasil eksperimen dalam folder terpisah
-8. 🆕 **Root Directory Cleanup** - 60% pengurangan file di direktori utama
-9. 🆕 **README Utama** - Dibuat di root directory untuk overview proyek
-10. 🆕 **Dokumentasi Final** - 7 file dokumentasi dipindahkan ke research-active
+8. 🆕 **Root Directory Cleanup** - 80% pengurangan file redundan
+9. 🆕 **README Utama** - Satu sumber kebenaran untuk dokumentasi
+10. 🆕 **Dokumentasi Terfokus** - Hanya dokumentasi yang relevan dan aktif
 
 ---
 

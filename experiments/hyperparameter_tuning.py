@@ -240,6 +240,39 @@ def run_experiment(learning_rate: float, batch_size: int, num_epochs: int,
             'error': str(e)
         }
 
+def load_checkpoint(config):
+    """Load checkpoint if exists"""
+    checkpoint_file = Path(config.OUTPUT_DIR) / 'checkpoint.json'
+    if checkpoint_file.exists():
+        with open(checkpoint_file, 'r') as f:
+            checkpoint = json.load(f)
+        logger.info(f"Resuming from checkpoint: {checkpoint['completed_experiments']} experiments completed")
+        return checkpoint
+    return None
+
+def save_checkpoint(config, completed_experiments, all_results, best_f1, best_config):
+    """Save checkpoint"""
+    checkpoint = {
+        'completed_experiments': completed_experiments,
+        'all_results': all_results,
+        'best_f1': best_f1,
+        'best_config': best_config,
+        'timestamp': datetime.now().isoformat()
+    }
+    checkpoint_file = Path(config.OUTPUT_DIR) / 'checkpoint.json'
+    with open(checkpoint_file, 'w') as f:
+        json.dump(checkpoint, f, indent=2)
+
+def generate_experiment_list(config):
+    """Generate list of all experiments"""
+    experiments = []
+    for lr in config.LEARNING_RATES:
+        for bs in config.BATCH_SIZES:
+            for ep in config.NUM_EPOCHS_OPTIONS:
+                for wr in config.WARMUP_RATIOS:
+                    experiments.append((lr, bs, ep, wr))
+    return experiments
+
 def main():
     """Main hyperparameter tuning function"""
     logger.info("=" * 60)
@@ -251,51 +284,72 @@ def main():
     # Create output directory
     Path(config.OUTPUT_DIR).mkdir(parents=True, exist_ok=True)
     
-    # Store all results
-    all_results = []
+    # Load checkpoint if exists
+    checkpoint = load_checkpoint(config)
     
-    # Grid search over hyperparameters
-    total_experiments = (
-        len(config.LEARNING_RATES) * 
-        len(config.BATCH_SIZES) * 
-        len(config.NUM_EPOCHS_OPTIONS) * 
-        len(config.WARMUP_RATIOS)
-    )
+    if checkpoint:
+        all_results = checkpoint['all_results']
+        experiment_count = checkpoint['completed_experiments']
+        best_f1 = checkpoint['best_f1']
+        best_config = checkpoint['best_config']
+        logger.info(f"Resuming from experiment {experiment_count + 1}")
+    else:
+        all_results = []
+        experiment_count = 0
+        best_f1 = 0.0
+        best_config = None
+        logger.info("Starting fresh hyperparameter tuning")
     
-    logger.info(f"Starting grid search with {total_experiments} experiments")
+    # Generate all experiments
+    all_experiments = generate_experiment_list(config)
+    total_experiments = len(all_experiments)
     
-    experiment_count = 0
-    best_f1 = 0.0
-    best_config = None
+    logger.info(f"Total experiments: {total_experiments}")
+    logger.info(f"Remaining experiments: {total_experiments - experiment_count}")
     
-    for lr in config.LEARNING_RATES:
-        for bs in config.BATCH_SIZES:
-            for ep in config.NUM_EPOCHS_OPTIONS:
-                for wr in config.WARMUP_RATIOS:
-                    experiment_count += 1
-                    logger.info(f"Running experiment {experiment_count}/{total_experiments}")
-                    logger.info(f"Params: LR={lr}, BS={bs}, EP={ep}, WR={wr}")
-                    
-                    # Run experiment
-                    result = run_experiment(lr, bs, ep, wr, config)
-                    all_results.append(result)
-                    
-                    # Track best result
-                    if result['f1_macro'] > best_f1:
-                        best_f1 = result['f1_macro']
-                        best_config = {
-                            'learning_rate': lr,
-                            'batch_size': bs,
-                            'num_epochs': ep,
-                            'warmup_ratio': wr
-                        }
-                    
-                    # Save intermediate results
-                    if experiment_count % 5 == 0:
-                        results_file = Path(config.OUTPUT_DIR) / 'intermediate_results.json'
-                        with open(results_file, 'w') as f:
-                            json.dump(all_results, f, indent=2)
-                        logger.info(f"Saved intermediate results after {experiment_count} experiments")
+    # Run remaining experiments
+    for i in range(experiment_count, total_experiments):
+        lr, bs, ep, wr = all_experiments[i]
+        experiment_count += 1
+        
+        logger.info(f"Running experiment {experiment_count}/{total_experiments}")
+        logger.info(f"Params: LR={lr}, BS={bs}, EP={ep}, WR={wr}")
+        
+        try:
+            # Run experiment
+            result = run_experiment(lr, bs, ep, wr, config)
+            all_results.append(result)
+            
+            # Track best result
+            if result['f1_macro'] > best_f1:
+                best_f1 = result['f1_macro']
+                best_config = {
+                    'learning_rate': lr,
+                    'batch_size': bs,
+                    'num_epochs': ep,
+                    'warmup_ratio': wr
+                }
+            
+            # Save checkpoint after each experiment
+            save_checkpoint(config, experiment_count, all_results, best_f1, best_config)
+            logger.info(f"Checkpoint saved after experiment {experiment_count}")
+            
+            # Save intermediate results every 5 experiments
+            if experiment_count % 5 == 0:
+                results_file = Path(config.OUTPUT_DIR) / 'intermediate_results.json'
+                with open(results_file, 'w') as f:
+                    json.dump(all_results, f, indent=2)
+                logger.info(f"Saved intermediate results after {experiment_count} experiments")
+                
+        except KeyboardInterrupt:
+            logger.info("Experiment interrupted by user. Saving checkpoint...")
+            save_checkpoint(config, experiment_count - 1, all_results, best_f1, best_config)
+            logger.info("Checkpoint saved. You can resume later by running the script again.")
+            return
+        except Exception as e:
+            logger.error(f"Experiment {experiment_count} failed: {str(e)}")
+            # Still save checkpoint even if experiment failed
+            save_checkpoint(config, experiment_count, all_results, best_f1, best_config)
     
     # Save final results
     results_file = Path(config.OUTPUT_DIR) / 'final_results.json'
@@ -332,9 +386,17 @@ def main():
     with open(best_config_file, 'w') as f:
         json.dump(best_config, f, indent=2)
     
+    # Clean up checkpoint file after successful completion
+    checkpoint_file = Path(config.OUTPUT_DIR) / 'checkpoint.json'
+    if checkpoint_file.exists():
+        checkpoint_file.unlink()
+        logger.info("Checkpoint file cleaned up after successful completion")
+    
     logger.info("=" * 60)
-    logger.info("HYPERPARAMETER TUNING COMPLETED")
+    logger.info("HYPERPARAMETER TUNING COMPLETED SUCCESSFULLY")
     logger.info("=" * 60)
+    logger.info("Note: If this process was interrupted, you can resume by running the script again.")
+    logger.info("The script will automatically detect and load the checkpoint file.")
 
 if __name__ == "__main__":
     main()

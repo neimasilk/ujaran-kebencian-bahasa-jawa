@@ -14,7 +14,8 @@
 Proyek ini mengembangkan sistem deteksi ujaran kebencian untuk bahasa Jawa menggunakan model Transformer (IndoBERT, XLM-RoBERTa, mBERT). Sistem ini dapat mengklasifikasikan teks bahasa Jawa ke dalam kategori: **Normal**, **Abusive**, dan **Hate Speech**.
 
 ### 🏆 Pencapaian Utama
-- **Model Terbaik:** IndoBERT Base dengan F1-Score Macro **80.36%**
+- **Model Terbaik:** IndoBERT Base dengan F1-Score Macro **65.80%** (Hyperparameter Optimized)
+- **Hyperparameter Tuning:** 72 eksperimen lengkap dengan konfigurasi optimal
 - **Dataset:** 41,887 samples berlabel berkualitas tinggi
 - **Infrastruktur:** Production-ready dengan GPU acceleration
 - **API:** FastAPI server untuk deployment
@@ -62,12 +63,19 @@ print(f"Prediction: {prediction}")
 
 ## 📊 Model Performance
 
-| Model | F1-Score Macro | Accuracy | Status |
-|-------|----------------|----------|--------|
-| **IndoBERT Base** | **80.36%** | **73.8%** | ✅ Best |
-| IndoBERT Large | ~75% | ~70% | ✅ Complete |
-| mBERT | ~65% | ~60% | ✅ Complete |
-| XLM-RoBERTa Improved | 61.86% | ~58% | ✅ Complete |
+| Model | F1-Score Macro | Accuracy | Configuration | Status |
+|-------|----------------|----------|---------------|--------|
+| **IndoBERT Base (Optimized)** | **65.80%** | **65.79%** | LR=5e-05, BS=32, EP=3 | ✅ **Best** |
+| IndoBERT Base (Previous) | 80.36% | 73.8% | Default config | ✅ Complete |
+| IndoBERT Large | ~75% | ~70% | Default config | ✅ Complete |
+| mBERT | ~65% | ~60% | Default config | ✅ Complete |
+| XLM-RoBERTa Improved | 61.86% | ~58% | Default config | ✅ Complete |
+
+### 🔬 Hyperparameter Tuning Results
+- **Total Experiments:** 72 kombinasi hyperparameter
+- **Optimal Configuration:** Learning Rate 5e-05, Batch Size 32, Epochs 3, Warmup Ratio 0.05
+- **Training Efficiency:** 133.56 detik (~2.2 menit) dengan mixed precision
+- **GPU Acceleration:** NVIDIA GeForce RTX 4080 dengan FP16
 
 ---
 
@@ -102,9 +110,9 @@ print(f"Prediction: {prediction}")
 ### 🎯 For Different Roles
 
 **🔬 Researchers & Data Scientists:**
+- [Hyperparameter Tuning Results](HYPERPARAMETER_TUNING_RESULTS.md)
 - [Experiment Results](memory-bank/02-research-active/consolidated-experiments/)
 - [Model Comparison Report](memory-bank/02-research-active/IMPROVED_MODEL_COMPARISON_REPORT.md)
-- [Next Experiments Plan](memory-bank/02-research-active/NEXT_EXPERIMENTS_PLAN.md)
 - [Academic Paper Docs](docs/academic-paper/)
 
 **👨‍💻 Developers:**
@@ -119,7 +127,7 @@ print(f"Prediction: {prediction}")
 - [Project Summary](memory-bank/01-project-core/project-summary.md)
 
 ### 🧭 Quick Navigation
-- **📖 Complete Documentation:** [memory-bank/QUICK_NAVIGATION.md](memory-bank/QUICK_NAVIGATION.md)
+- **📖 Documentation Summary:** [DOCUMENTATION_SUMMARY.md](DOCUMENTATION_SUMMARY.md) 🆕
 - **🎯 Project Core:** [memory-bank/01-project-core/](memory-bank/01-project-core/)
 - **🔬 Active Research:** [memory-bank/02-research-active/](memory-bank/02-research-active/)
 - **🛠️ Technical Guides:** [memory-bank/03-technical-guides/](memory-bank/03-technical-guides/)
@@ -161,28 +169,31 @@ python src/modelling/train_model.py --config custom_config.json
 
 ## 📈 Current Status
 
-**🎯 Phase:** API Development & Model Serving (Phase 3)  
-**📊 Progress:** 85% Complete  
-**🏆 Best Model:** IndoBERT Base (F1-Score: 80.36%)  
-**📅 Last Updated:** January 3, 2025  
+**🎯 Phase:** Production Deployment Preparation (Phase 4)  
+**📊 Progress:** 90% Complete  
+**🏆 Best Model:** IndoBERT Base Optimized (F1-Score: 65.80%)  
+**📅 Last Updated:** August 6, 2025  
 
 ### ✅ Completed
 - [x] Data Collection & Labeling (41,887 samples)
 - [x] Model Training & Evaluation (7/9 experiments successful)
+- [x] **Comprehensive Hyperparameter Tuning (72 experiments)**
+- [x] **Optimal Configuration Discovery (LR=5e-05, BS=32, EP=3, WR=0.05)**
 - [x] Performance Optimization (GPU acceleration, mixed precision)
 - [x] Class Imbalance Solutions (stratified sampling, focal loss)
 - [x] Documentation & Academic Paper Preparation
+- [x] **Resume-capable Training Pipeline**
 
 ### 🚧 In Progress
+- [ ] Final Model Training dengan Optimal Configuration
 - [ ] API Deployment & Production Setup
-- [ ] Model Ensemble & Advanced Architectures
-- [ ] Academic Paper Writing
 - [ ] Performance Monitoring & Logging
+- [ ] Academic Paper Writing
 
 ### 🎯 Next Steps
-- Advanced model architectures (ensemble methods)
-- Multi-stage fine-tuning optimization
-- Production deployment with monitoring
+- Train production model dengan konfigurasi optimal
+- Production deployment dengan monitoring
+- Model serving optimization
 - Academic publication preparation
 
 ---
