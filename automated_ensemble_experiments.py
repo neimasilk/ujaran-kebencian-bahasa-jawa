@@ -567,7 +567,7 @@ if __name__ == "__main__":
             duration_minutes = (end_time - start_time) / 60
             
             if result.returncode == 0:
-                logger.info(f"✅ {experiment_name} completed successfully in {duration_minutes:.1f} minutes")
+                logger.info(f"[SUKSES] {experiment_name} completed successfully in {duration_minutes:.1f} minutes")
                 experiment_result = {
                     'status': 'success',
                     'duration_minutes': duration_minutes,
@@ -599,7 +599,7 @@ if __name__ == "__main__":
             self.state_manager.fail_experiment(experiment_name, "Timeout")
             
         except Exception as e:
-            logger.error(f"💥 {experiment_name} crashed: {str(e)}")
+            logger.error(f"[GAGAL] {experiment_name} crashed: {str(e)}")
             experiment_result = {
                 'status': 'crashed',
                 'error': str(e),

@@ -98,7 +98,7 @@ class ExperimentLauncher:
         
     def check_prerequisites(self):
         """Check if all prerequisites are met"""
-        logger.info("🔍 Checking prerequisites...")
+        logger.info("[CEK] Checking prerequisites...")
         
         # Check Python environment
         logger.info(f"Python version: {sys.version}")
@@ -115,7 +115,7 @@ class ExperimentLauncher:
                 missing_files.append(file)
                 
         if missing_files:
-            logger.error(f"❌ Missing required files: {missing_files}")
+            logger.error(f"[ERROR] Missing required files: {missing_files}")
             return False
             
         # Check GPU availability
@@ -123,11 +123,11 @@ class ExperimentLauncher:
             import torch
             if torch.cuda.is_available():
                 gpu_name = torch.cuda.get_device_name(0)
-                logger.info(f"✅ GPU available: {gpu_name}")
+                logger.info(f"[SUKSES] GPU available: {gpu_name}")
             else:
-                logger.warning("⚠️ No GPU available - experiments will be slow")
+                logger.warning("[PERINGATAN] No GPU available - experiments will be slow")
         except ImportError:
-            logger.error("❌ PyTorch not installed")
+            logger.error("[ERROR] PyTorch not installed")
             return False
             
         # Check disk space
@@ -136,16 +136,16 @@ class ExperimentLauncher:
         free_gb = disk_usage.free / 1024**3
         
         if free_gb < 5:
-            logger.warning(f"⚠️ Low disk space: {free_gb:.1f} GB free")
+            logger.warning(f"[PERINGATAN] Low disk space: {free_gb:.1f} GB free")
         else:
-            logger.info(f"✅ Disk space: {free_gb:.1f} GB free")
+            logger.info(f"[SUKSES] Disk space: {free_gb:.1f} GB free")
             
-        logger.info("✅ Prerequisites check completed")
+        logger.info("[SUKSES] Prerequisites check completed")
         return True
         
     def create_experiment_scripts(self):
         """Create additional experiment scripts if they don't exist"""
-        logger.info("📝 Creating additional experiment scripts...")
+        logger.info("[BUAT] Creating additional experiment scripts...")
         
         # Run the automated experiment creator
         try:
@@ -153,9 +153,9 @@ class ExperimentLauncher:
             runner = AutomatedExperimentRunner()
             runner.create_extended_ensemble_script()
             runner.create_augmentation_ensemble_script()
-            logger.info("✅ Additional scripts created")
+            logger.info("[SUKSES] Additional scripts created")
         except Exception as e:
-            logger.warning(f"⚠️ Could not create additional scripts: {str(e)}")
+            logger.warning(f"[PERINGATAN] Could not create additional scripts: {str(e)}")
             
     def run_monitoring_in_background(self):
         """Start monitoring in a separate thread"""
@@ -193,15 +193,15 @@ class ExperimentLauncher:
         # Select experiment set
         if self.args.quick:
             experiments = self.experiments['quick']
-            logger.info("🚀 Running QUICK experiments")
+            logger.info("[MULAI] Running QUICK experiments")
         else:
             experiments = self.experiments['full']
-            logger.info("🚀 Running FULL experiment suite")
+            logger.info("[MULAI] Running FULL experiment suite")
             
         total_time = self.estimate_total_time(experiments)
-        logger.info(f"📊 {len(experiments)} experiments planned")
-        logger.info(f"⏱️ Estimated total time: {total_time}")
-        logger.info(f"🕐 Start time: {self.start_time.strftime('%H:%M:%S')}")
+        logger.info(f"[INFO] {len(experiments)} experiments planned")
+        logger.info(f"[WAKTU] Estimated total time: {total_time}")
+        logger.info(f"[MULAI] Start time: {self.start_time.strftime('%H:%M:%S')}")
         
         # Register experiments in state manager
         self._register_experiments(experiments)
@@ -419,7 +419,7 @@ Examples:
     try:
         # Show banner
         print("\n" + "="*80)
-        print("🚀 AUTOMATED ENSEMBLE EXPERIMENT LAUNCHER")
+        print("[LAUNCHER] AUTOMATED ENSEMBLE EXPERIMENT LAUNCHER")
         print("="*80)
         print(f"Started: {launcher.start_time.strftime('%Y-%m-%d %H:%M:%S')}")
         print(f"Mode: {'QUICK' if args.quick else 'FULL'}")

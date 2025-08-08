@@ -94,7 +94,11 @@ class MultiArchitectureEnsemble:
         """Load all transformer models"""
         logger.info("Loading multiple transformer architectures")
         
-        for model_key, config in self.model_configs.items():
+        # Create a copy of model_configs to avoid dictionary size change during iteration
+        model_configs_copy = dict(self.model_configs)
+        failed_models = []
+        
+        for model_key, config in model_configs_copy.items():
             try:
                 logger.info(f"Loading {model_key}: {config['name']}")
                 
@@ -113,9 +117,12 @@ class MultiArchitectureEnsemble:
                 
             except Exception as e:
                 logger.error(f"Failed to load {model_key}: {e}")
-                # Remove from configs if failed to load
-                if model_key in self.model_configs:
-                    del self.model_configs[model_key]
+                failed_models.append(model_key)
+        
+        # Remove failed models from configs after iteration
+        for model_key in failed_models:
+            if model_key in self.model_configs:
+                del self.model_configs[model_key]
         
         logger.info(f"Successfully loaded {len(self.models)} models")
     
@@ -141,27 +148,27 @@ class MultiArchitectureEnsemble:
                     X_val, y_val, tokenizer, config['max_length']
                 )
                 
-                # Training arguments
+                # Training arguments optimized for GPU
                 training_args = TrainingArguments(
                     output_dir=f'./models/ensemble_{model_key}',
                     num_train_epochs=epochs,
-                    per_device_train_batch_size=config['batch_size'],
-                    per_device_eval_batch_size=config['batch_size'] * 2,
+                    per_device_train_batch_size=32,  # Increased for GPU
+                    per_device_eval_batch_size=64,   # Increased for GPU
                     learning_rate=2e-5,
                     weight_decay=0.01,
                     warmup_ratio=0.1,
                     eval_strategy="steps",
-                    eval_steps=200,
+                    eval_steps=500,  # Less frequent evaluation
                     save_strategy="steps",
-                    save_steps=200,
-                    logging_steps=50,
+                    save_steps=500,  # Less frequent saving
+                    logging_steps=100,
                     load_best_model_at_end=True,
                     metric_for_best_model="eval_f1_macro",
                     greater_is_better=True,
                     save_total_limit=2,
                     seed=42,
                     fp16=torch.cuda.is_available(),
-                    dataloader_num_workers=2,
+                    dataloader_num_workers=4,  # Increased for better performance
                     report_to=None,
                     disable_tqdm=True
                 )
@@ -441,7 +448,7 @@ def main():
     results = {
         'experiment_timestamp': datetime.now().isoformat(),
         'dataset_info': {
-            'total_samples': int(len(df_sample)),
+            'total_samples': int(len(df)),
             'train_samples': int(len(X_train)),
             'val_samples': int(len(X_val)),
             'test_samples': int(len(X_test))
