@@ -466,25 +466,25 @@ def main():
     
     # Print results
     print("\n" + "="*80)
-    print("🚀 MULTI-ARCHITECTURE ENSEMBLE RESULTS")
+    print("MULTI-ARCHITECTURE ENSEMBLE RESULTS")
     print("="*80)
     
-    print(f"\n📊 DATASET STATISTICS:")
-    print(f"   Total samples: {len(df_sample):,}")
+    print(f"\nDATASET STATISTICS:")
+    print(f"   Total samples: {len(df):,}")
     print(f"   Train: {len(X_train):,} | Val: {len(X_val):,} | Test: {len(X_test):,}")
     
-    print(f"\n🤖 MODELS USED:")
+    print(f"\nMODELS USED:")
     for model_key in trained_models.keys():
         config = ensemble.model_configs[model_key]
-        print(f"   ✅ {model_key}: {config['name']}")
+        print(f"   {model_key}: {config['name']}")
     
-    print(f"\n📈 INDIVIDUAL MODEL PERFORMANCE:")
+    print(f"\nINDIVIDUAL MODEL PERFORMANCE:")
     for model_key, results in individual_results.items():
         print(f"   {model_key}:")
         print(f"     Accuracy: {results['accuracy']:.4f} ({results['accuracy']*100:.2f}%)")
         print(f"     F1-Macro: {results['f1_macro']:.4f} ({results['f1_macro']*100:.2f}%)")
     
-    print(f"\n🎯 ENSEMBLE PERFORMANCE:")
+    print(f"\nENSEMBLE PERFORMANCE:")
     
     print(f"\n   Equal Weights:")
     print(f"     Accuracy: {equal_weights_results['accuracy']:.4f} ({equal_weights_results['accuracy']*100:.2f}%)")
@@ -494,7 +494,7 @@ def main():
     print(f"     Accuracy: {optimized_weights_results['accuracy']:.4f} ({optimized_weights_results['accuracy']*100:.2f}%)")
     print(f"     F1-Macro: {optimized_weights_results['f1_macro']:.4f} ({optimized_weights_results['f1_macro']*100:.2f}%)")
     
-    print(f"\n⚖️ OPTIMAL WEIGHTS:")
+    print(f"\nOPTIMAL WEIGHTS:")
     for model_key, weight in optimal_weights.items():
         print(f"   {model_key}: {weight:.3f}")
     
@@ -502,19 +502,19 @@ def main():
     best_accuracy = max(equal_weights_results['accuracy'], optimized_weights_results['accuracy'])
     best_f1 = max(equal_weights_results['f1_macro'], optimized_weights_results['f1_macro'])
     
-    print(f"\n🎯 TARGET STATUS:")
+    print(f"\nTARGET STATUS:")
     if best_accuracy >= 0.90 and best_f1 >= 0.90:
-        print(f"   🎉 90%+ TARGET ACHIEVED!")
-        print(f"   ✅ Best Accuracy: {best_accuracy*100:.2f}%")
-        print(f"   ✅ Best F1-Macro: {best_f1*100:.2f}%")
+        print(f"   90%+ TARGET ACHIEVED!")
+        print(f"   Best Accuracy: {best_accuracy*100:.2f}%")
+        print(f"   Best F1-Macro: {best_f1*100:.2f}%")
     else:
         accuracy_gap = 0.90 - best_accuracy
         f1_gap = 0.90 - best_f1
-        print(f"   ⚠️ Target not yet achieved")
-        print(f"   📊 Accuracy gap: {accuracy_gap*100:.2f}% (Best: {best_accuracy*100:.2f}%)")
-        print(f"   📊 F1-Macro gap: {f1_gap*100:.2f}% (Best: {best_f1*100:.2f}%)")
+        print(f"   Target not yet achieved")
+        print(f"   Accuracy gap: {accuracy_gap*100:.2f}% (Best: {best_accuracy*100:.2f}%)")
+        print(f"   F1-Macro gap: {f1_gap*100:.2f}% (Best: {best_f1*100:.2f}%)")
     
-    print(f"\n📁 Results saved to: results/multi_architecture_ensemble_results.json")
+    print(f"\nResults saved to: results/multi_architecture_ensemble_results.json")
     print("="*80)
     
     logger.info("Multi-architecture ensemble experiment completed")

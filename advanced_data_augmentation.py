@@ -20,6 +20,9 @@ from collections import defaultdict
 import warnings
 warnings.filterwarnings('ignore')
 
+# Ensure results directory exists
+os.makedirs('results', exist_ok=True)
+
 # Setup logging
 logging.basicConfig(
     level=logging.INFO,
