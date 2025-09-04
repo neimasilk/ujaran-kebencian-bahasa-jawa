@@ -90,6 +90,10 @@ graph TB
 
 ---
 
+**Figure 2. Advanced Ensemble Architecture for Javanese Hate Speech Detection**
+
+---
+
 ## 🔬 Mathematical Formulation
 
 ### 1. Base Model Predictions
@@ -203,6 +207,10 @@ flowchart TD
     S --> T[Final Result: 94.09% F1-Macro]
 ```
 
+---
+
+**Figure 3. Ensemble Workflow and Methodology Process**
+
 ### Class Architecture Diagram
 
 ```mermaid
@@ -260,6 +268,10 @@ xychart-beta
     bar [87.2, 86.8, 91.5, 89.3, 94.09]
 ```
 
+---
+
+**Figure 4. Performance Comparison of Different Ensemble Methods**
+
 ### Detailed Results Table
 
 | Method | Accuracy | F1-Macro | F1-Weighted | Improvement |
@@ -303,6 +315,10 @@ graph LR
     G --> H[Final Prediction]
 ```
 
+---
+
+**Figure 5. Multi-Level Feature Engineering Pipeline**
+
 #### Feature Types:
 1. **Probability Features**: Raw probability distributions from each model
 2. **Confidence Features**: Mean and standard deviation of maximum probabilities
@@ -338,6 +354,10 @@ graph TD
 
 ---
 
+**Figure 6. Hierarchical Decision Making Process**
+
+---
+
 ## 📈 Performance Analysis
 
 ### Learning Curve Analysis
@@ -350,6 +370,10 @@ xychart-beta
     line [86.88, 89.12, 91.45, 93.22, 94.09]
 ```
 
+---
+
+**Figure 7. Learning Curve Analysis - Performance vs Number of Base Models**
+
 ### Error Analysis Distribution
 
 ```mermaid
@@ -359,6 +383,10 @@ pie title Error Distribution by Class
     "Ujaran Kebencian - Sedang" : 35
     "Ujaran Kebencian - Berat" : 25
 ```
+
+---
+
+**Figure 8. Error Distribution Analysis by Hate Speech Class**
 
 ---
 
@@ -392,6 +420,10 @@ xychart-beta
     y-axis "F1-Macro Score (%)" 85 --> 95
     line [86.88, 89.45, 90.78, 92.34, 94.09]
 ```
+
+---
+
+**Figure 9. Ablation Study - Component Contribution Analysis**
 
 | Component | F1-Macro | Δ Improvement |
 |-----------|----------|---------------|

@@ -35,6 +35,10 @@ graph TD
     I -- Prediksi --> J
 ```
 
+---
+
+**Figure 1. System Architecture for Javanese Hate Speech Detection**
+
 ## Deskripsi Komponen:
 
 1.  **Pengumpulan Data:**
