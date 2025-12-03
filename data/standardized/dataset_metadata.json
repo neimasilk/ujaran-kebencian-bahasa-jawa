@@ -1,0 +1,80 @@
+{
+  "creation_timestamp": "20250707_114022",
+  "source_data_path": "src/data_collection/hasil-labeling.csv",
+  "random_seed": 42,
+  "label_mapping": {
+    "Bukan Ujaran Kebencian": 0,
+    "Ujaran Kebencian - Ringan": 1,
+    "Ujaran Kebencian - Sedang": 2,
+    "Ujaran Kebencian - Berat": 3
+  },
+  "class_weights": {
+    "0": 0.2537,
+    "1": 1.0309,
+    "2": 1.2019,
+    "3": 1.5401
+  },
+  "distribution_analysis": {
+    "total_samples": 39494,
+    "label_distribution": {
+      "Bukan Ujaran Kebencian": {
+        "count": 19204,
+        "percentage": 48.63
+      },
+      "Ujaran Kebencian - Sedang": {
+        "count": 8077,
+        "percentage": 20.45
+      },
+      "Ujaran Kebencian - Berat": {
+        "count": 6418,
+        "percentage": 16.25
+      },
+      "Ujaran Kebencian - Ringan": {
+        "count": 5795,
+        "percentage": 14.67
+      }
+    },
+    "imbalance_ratio": 3.31,
+    "majority_class": "Bukan Ujaran Kebencian",
+    "minority_class": "Ujaran Kebencian - Ringan"
+  },
+  "datasets_created": {
+    "balanced_evaluation_set": {
+      "size": 2000,
+      "distribution": {
+        "Ujaran Kebencian - Berat": 500,
+        "Bukan Ujaran Kebencian": 500,
+        "Ujaran Kebencian - Sedang": 500,
+        "Ujaran Kebencian - Ringan": 500
+      }
+    },
+    "training_set": {
+      "size": 31595,
+      "distribution": {
+        "Bukan Ujaran Kebencian": 15363,
+        "Ujaran Kebencian - Sedang": 6462,
+        "Ujaran Kebencian - Berat": 5134,
+        "Ujaran Kebencian - Ringan": 4636
+      }
+    },
+    "test_set": {
+      "size": 7899,
+      "distribution": {
+        "Bukan Ujaran Kebencian": 3841,
+        "Ujaran Kebencian - Sedang": 1615,
+        "Ujaran Kebencian - Berat": 1284,
+        "Ujaran Kebencian - Ringan": 1159
+      }
+    },
+    "cross_validation": {
+      "n_folds": 5,
+      "fold_sizes": [
+        39494,
+        39494,
+        39494,
+        39494,
+        39494
+      ]
+    }
+  }
+}

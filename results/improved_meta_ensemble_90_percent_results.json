@@ -1,0 +1,56 @@
+{
+  "experiment_timestamp": "2025-08-21T12:00:01.649203",
+  "models_used": 3,
+  "meta_model": "random_forest",
+  "validation_meta_score": 0.8704290820796283,
+  "test_samples": 6491,
+  "final_results": {
+    "accuracy": 0.8718225234940687,
+    "f1_macro": 0.8719327713716838,
+    "f1_weighted": 0.8719307000157097,
+    "classification_report": {
+      "Bukan Ujaran Kebencian": {
+        "precision": 0.8181276088252832,
+        "recall": 0.8453481207640172,
+        "f1-score": 0.8315151515151515,
+        "support": 1623.0
+      },
+      "Ujaran Kebencian - Ringan": {
+        "precision": 0.8897882938978829,
+        "recall": 0.8810110974106042,
+        "f1-score": 0.8853779429987608,
+        "support": 1622.0
+      },
+      "Ujaran Kebencian - Sedang": {
+        "precision": 0.8640101201771031,
+        "recall": 0.8416512630930376,
+        "f1-score": 0.8526841448189763,
+        "support": 1623.0
+      },
+      "Ujaran Kebencian - Berat": {
+        "precision": 0.9170251997541488,
+        "recall": 0.9192852741836106,
+        "f1-score": 0.9181538461538462,
+        "support": 1623.0
+      },
+      "accuracy": 0.8718225234940687,
+      "macro avg": {
+        "precision": 0.8722378056636046,
+        "recall": 0.8718239388628175,
+        "f1-score": 0.8719327713716838,
+        "support": 6491.0
+      },
+      "weighted avg": {
+        "precision": 0.8722351018447424,
+        "recall": 0.8718225234940687,
+        "f1-score": 0.8719307000157097,
+        "support": 6491.0
+      }
+    }
+  },
+  "target_achievement": {
+    "accuracy_90_percent": false,
+    "f1_macro_90_percent": false,
+    "target_achieved": false
+  }
+}

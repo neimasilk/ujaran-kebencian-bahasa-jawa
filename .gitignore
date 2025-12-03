@@ -1,0 +1,55 @@
+# Model files (too large for GitHub)
+models/
+*.bin
+*.safetensors
+*.pt
+*.pth
+*.ckpt
+
+# Temporary files
+tmp*/
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.so
+.pytest_cache/
+
+# Logs
+logs*/
+*.log
+
+# Optuna
+optuna_studies/
+optuna_study.db
+
+# Large result files
+results/*/checkpoint-*/
+results/*/*.bin
+results/*/*.safetensors
+
+# Environment
+.env
+.venv
+env/
+venv/
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Large data files (use Git LFS if needed)
+*.csv
+data/raw/
+data/processed/
+data/augmented/
+
+# Backup files
+backup_*/

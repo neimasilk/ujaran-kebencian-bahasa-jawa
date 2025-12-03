@@ -1,0 +1,33 @@
+{
+  "experiment_suite": "automated_ensemble_experiments",
+  "start_time": "2025-08-15T15:12:31.582331",
+  "end_time": "2025-08-15T16:42:02.681323",
+  "total_duration_hours": 1.4919719422222222,
+  "experiments": {
+    "multi_architecture_ensemble_full": {
+      "status": "success",
+      "duration_minutes": 16.177697841326395,
+      "stdout": "Val: 3,245 | Test: 3,246\n\nMODELS USED:\n   indobert: indobenchmark/indobert-base-p1\n   indobert_uncased: indolem/indobert-base-uncased\n   roberta_indo: cahya/roberta-base-indonesian-522M\n\nINDIVIDUAL MODEL PERFORMANCE:\n   indobert:\n     Accuracy: 0.5647 (56.47%)\n     F1-Macro: 0.5542 (55.42%)\n   indobert_uncased:\n     Accuracy: 0.4519 (45.19%)\n     F1-Macro: 0.4247 (42.47%)\n   roberta_indo:\n     Accuracy: 0.5086 (50.86%)\n     F1-Macro: 0.4975 (49.75%)\n\nENSEMBLE PERFORMANCE:\n\n   Equal Weights:\n     Accuracy: 0.5625 (56.25%)\n     F1-Macro: 0.5504 (55.04%)\n\n   Optimized Weights:\n     Accuracy: 0.5625 (56.25%)\n     F1-Macro: 0.5504 (55.04%)\n\nOPTIMAL WEIGHTS:\n   indobert: 0.333\n   indobert_uncased: 0.333\n   roberta_indo: 0.333\n\nTARGET STATUS:\n   Target not yet achieved\n   Accuracy gap: 33.75% (Best: 56.25%)\n   F1-Macro gap: 34.96% (Best: 55.04%)\n\nResults saved to: results/multi_architecture_ensemble_results.json\n================================================================================\n",
+      "stderr": "6,206 - INFO - Evaluating individual model: roberta_indo\n2025-08-15 15:28:02,561 - INFO - roberta_indo - Accuracy: 0.5086, F1-Macro: 0.4975\n2025-08-15 15:28:02,562 - INFO - Evaluating ensemble with equal weights\n2025-08-15 15:28:02,562 - INFO - Evaluating ensemble performance\n2025-08-15 15:28:21,832 - INFO - Evaluating ensemble with optimized weights\n2025-08-15 15:28:21,832 - INFO - Evaluating ensemble performance\n2025-08-15 15:28:41,202 - INFO - Multi-architecture ensemble experiment completed\n"
+    },
+    "multi_architecture_ensemble_extended": {
+      "status": "success",
+      "duration_minutes": 37.73110191424688,
+      "stdout": "092e-06, 'epoch': 4.72}\n{'loss': 0.3891, 'grad_norm': 26.015092849731445, 'learning_rate': 1.0482103725346969e-06, 'epoch': 4.77}\n{'eval_loss': 1.036341667175293, 'eval_accuracy': 0.6705701078582434, 'eval_f1_macro': 0.67019738590065, 'eval_runtime': 18.8615, 'eval_samples_per_second': 344.087, 'eval_steps_per_second': 10.763, 'epoch': 4.77}\n{'train_runtime': 1071.6842, 'train_samples_per_second': 90.843, 'train_steps_per_second': 5.678, 'train_loss': 0.8121713066101074, 'epoch': 4.77}\n2025-08-15 16:06:55,004 - INFO - roberta_indo validation results: {'eval_loss': 1.0182894468307495, 'eval_accuracy': 0.6708782742681048, 'eval_f1_macro': 0.6719506240923759, 'eval_runtime': 19.2209, 'eval_samples_per_second': 337.653, 'eval_steps_per_second': 10.561, 'epoch': 4.7658175842235}\n2025-08-15 16:06:55,004 - INFO - Successfully trained roberta_indo\n2025-08-15 16:06:55,005 - INFO - Successfully trained 3 models\n2025-08-15 16:06:55,005 - INFO - Extended ensemble experiment completed successfully\n",
+      "stderr": " 67%|######6   | 136/203 [00:01<00:00, 73.98it/s]\n 71%|#######   | 144/203 [00:01<00:00, 74.00it/s]\n 75%|#######4  | 152/203 [00:02<00:00, 73.04it/s]\n 79%|#######8  | 160/203 [00:02<00:00, 72.30it/s]\n 83%|########2 | 168/203 [00:02<00:00, 71.93it/s]\n 87%|########6 | 176/203 [00:02<00:00, 71.53it/s]\n 91%|######### | 184/203 [00:02<00:00, 72.51it/s]\n 95%|#########4| 192/203 [00:02<00:00, 72.95it/s]\n 99%|#########8| 200/203 [00:02<00:00, 73.57it/s]\n100%|##########| 203/203 [00:03<00:00, 54.67it/s]\n"
+    },
+    "ensemble_with_data_augmentation": {
+      "status": "success",
+      "duration_minutes": 34.608748177687325,
+      "stdout": "84, 'grad_norm': 35.59632873535156, 'learning_rate': 3.165905631659057e-07, 'epoch': 2.96}\n{'eval_loss': 0.9249252676963806, 'eval_accuracy': 0.6437596302003081, 'eval_f1_macro': 0.6424838084466835, 'eval_runtime': 18.7809, 'eval_samples_per_second': 345.564, 'eval_steps_per_second': 10.809, 'epoch': 2.96}\n{'loss': 0.6998, 'grad_norm': 21.611757278442383, 'learning_rate': 1.2176560121765603e-08, 'epoch': 3.0}\n{'train_runtime': 681.1549, 'train_samples_per_second': 85.756, 'train_steps_per_second': 5.36, 'train_loss': 0.9798628408038365, 'epoch': 3.0}\n2025-08-15 16:42:01,552 - INFO - roberta_indo validation results: {'eval_loss': 0.9249252676963806, 'eval_accuracy': 0.6437596302003081, 'eval_f1_macro': 0.6424838084466835, 'eval_runtime': 19.9387, 'eval_samples_per_second': 325.498, 'eval_steps_per_second': 10.181, 'epoch': 3.0}\n2025-08-15 16:42:01,553 - INFO - Successfully trained roberta_indo with augmentation\n2025-08-15 16:42:01,553 - INFO - Augmentation ensemble experiment completed\n",
+      "stderr": " 67%|######6   | 136/203 [00:01<00:00, 71.90it/s]\n 71%|#######   | 144/203 [00:01<00:00, 72.75it/s]\n 75%|#######4  | 152/203 [00:02<00:00, 72.99it/s]\n 79%|#######8  | 160/203 [00:02<00:00, 73.29it/s]\n 83%|########2 | 168/203 [00:02<00:00, 73.45it/s]\n 87%|########6 | 176/203 [00:02<00:00, 73.09it/s]\n 91%|######### | 184/203 [00:02<00:00, 72.65it/s]\n 95%|#########4| 192/203 [00:02<00:00, 72.77it/s]\n 99%|#########8| 200/203 [00:02<00:00, 72.84it/s]\n100%|##########| 203/203 [00:03<00:00, 54.33it/s]\n"
+    }
+  },
+  "summary": {
+    "total_experiments": 3,
+    "successful": 3,
+    "failed": 0,
+    "timeout": 0,
+    "crashed": 0
+  }
+}

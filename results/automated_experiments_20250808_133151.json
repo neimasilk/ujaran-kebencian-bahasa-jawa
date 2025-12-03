@@ -1,0 +1,33 @@
+{
+  "experiment_suite": "automated_ensemble_experiments",
+  "start_time": "2025-08-08T13:30:06.603161",
+  "end_time": "2025-08-08T13:31:51.797677",
+  "total_duration_hours": 0.029220698888888886,
+  "experiments": {
+    "multi_architecture_ensemble_full": {
+      "status": "success",
+      "duration_minutes": 0.31192737420399985,
+      "stdout": "",
+      "stderr": "ROR - Failed to load roberta_indo: Due to a serious vulnerability issue in `torch.load`, even with `weights_only=True`, we now require users to upgrade torch to at least v2.6 in order to use the function. This version restriction does not apply when loading files with safetensors.\nSee the vulnerability report here https://nvd.nist.gov/vuln/detail/CVE-2025-32434\n2025-08-08 13:30:15,862 - INFO - Successfully loaded 0 models\n2025-08-08 13:30:15,866 - ERROR - No models loaded successfully. Exiting.\n"
+    },
+    "multi_architecture_ensemble_extended": {
+      "status": "success",
+      "duration_minutes": 0.21280409892400107,
+      "stdout": "y issue in `torch.load`, even with `weights_only=True`, we now require users to upgrade torch to at least v2.6 in order to use the function. This version restriction does not apply when loading files with safetensors.\nSee the vulnerability report here https://nvd.nist.gov/vuln/detail/CVE-2025-32434\n2025-08-08 13:31:02,605 - INFO - Loading roberta_indo: cahya/roberta-base-indonesian-522M\n2025-08-08 13:31:03,308 - INFO - Training roberta_indo with 5 epochs\n2025-08-08 13:31:03,909 - ERROR - Failed to train roberta_indo: Due to a serious vulnerability issue in `torch.load`, even with `weights_only=True`, we now require users to upgrade torch to at least v2.6 in order to use the function. This version restriction does not apply when loading files with safetensors.\nSee the vulnerability report here https://nvd.nist.gov/vuln/detail/CVE-2025-32434\n2025-08-08 13:31:03,909 - INFO - Successfully trained 0 models\n2025-08-08 13:31:03,929 - INFO - Extended ensemble experiment completed successfully\n",
+      "stderr": null
+    },
+    "ensemble_with_data_augmentation": {
+      "status": "success",
+      "duration_minutes": 0.22747402985890705,
+      "stdout": "Failed to train indobert_uncased: Due to a serious vulnerability issue in `torch.load`, even with `weights_only=True`, we now require users to upgrade torch to at least v2.6 in order to use the function. This version restriction does not apply when loading files with safetensors.\nSee the vulnerability report here https://nvd.nist.gov/vuln/detail/CVE-2025-32434\n2025-08-08 13:31:45,838 - INFO - Loading roberta_indo: cahya/roberta-base-indonesian-522M\n2025-08-08 13:31:46,558 - INFO - Training roberta_indo with data augmentation\n2025-08-08 13:31:47,144 - ERROR - Failed to train roberta_indo: Due to a serious vulnerability issue in `torch.load`, even with `weights_only=True`, we now require users to upgrade torch to at least v2.6 in order to use the function. This version restriction does not apply when loading files with safetensors.\nSee the vulnerability report here https://nvd.nist.gov/vuln/detail/CVE-2025-32434\n2025-08-08 13:31:47,158 - INFO - Augmentation ensemble experiment completed\n",
+      "stderr": null
+    }
+  },
+  "summary": {
+    "total_experiments": 3,
+    "successful": 3,
+    "failed": 0,
+    "timeout": 0,
+    "crashed": 0
+  }
+}

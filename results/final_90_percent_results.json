@@ -1,0 +1,44 @@
+{
+  "timestamp": "2025-08-25T11:54:58.497722",
+  "target_f1_macro": 0.9,
+  "achieved_f1_macro": 0.8200681003416217,
+  "achieved_accuracy": 0.8201514514093395,
+  "gap_remaining": 0.07993189965837832,
+  "best_approach": "Advanced Meta-learner",
+  "individual_models": {
+    "indobert_final": {
+      "f1_macro": 0.4085902896051365,
+      "accuracy": 0.4299237444123061
+    },
+    "bert_multilingual_final": {
+      "f1_macro": 0.5901430474889828,
+      "accuracy": 0.5921640809886931
+    },
+    "xlm_roberta_final": {
+      "f1_macro": 0.0995155855096883,
+      "accuracy": 0.24848803576124112
+    }
+  },
+  "weighted_ensemble": {
+    "f1_macro": 0.5873303858327277,
+    "accuracy": 0.5887673538073201,
+    "optimal_weights": [
+      0.005601431535022702,
+      0.13877651386316875,
+      0.8556220546018086
+    ]
+  },
+  "meta_learner": {
+    "f1_macro": 0.8200681003416217,
+    "accuracy": 0.8201514514093395,
+    "cv_f1_macro": 0.5832226594056606
+  },
+  "optimization_strategies": [
+    "Enhanced preprocessing dengan feature engineering",
+    "Optimized focal loss gamma per model",
+    "Advanced stacking meta-learner",
+    "Grid search ensemble weight optimization",
+    "Cosine learning rate scheduling",
+    "Gradient checkpointing untuk memory efficiency"
+  ]
+}

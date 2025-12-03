@@ -1,0 +1,13 @@
+{
+  "experiment": "Enhanced IndoBERT",
+  "model": "indobenchmark/indobert-base-p1",
+  "dataset": "data/standardized/balanced_dataset.csv",
+  "results": {
+    "accuracy": "0.6501",
+    "f1_macro": "0.6503",
+    "precision_macro": "0.6513",
+    "recall_macro": "0.6501"
+  },
+  "training_time": "612.40 seconds",
+  "timestamp": "2025-08-04T13:50:23.079750"
+}

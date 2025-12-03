@@ -1,0 +1,977 @@
+{
+  "overall_accuracy": 0.25,
+  "confusion_matrix": [
+    [
+      0,
+      200,
+      0,
+      0
+    ],
+    [
+      0,
+      200,
+      0,
+      0
+    ],
+    [
+      0,
+      200,
+      0,
+      0
+    ],
+    [
+      0,
+      200,
+      0,
+      0
+    ]
+  ],
+  "per_class_analysis": {
+    "Bukan Ujaran Kebencian": {
+      "total_samples": 200,
+      "correct_predictions": 0,
+      "accuracy": 0.0,
+      "misclassified_count": 200,
+      "avg_confidence_correct": 0,
+      "avg_confidence_incorrect": 0.26365482807159424,
+      "common_misclassifications": {
+        "Ujaran Kebencian - Ringan": 200
+      },
+      "feature_analysis": {
+        "length": {
+          "correct_mean": 0,
+          "incorrect_mean": 93.61,
+          "difference": 0
+        },
+        "word_count": {
+          "correct_mean": 0,
+          "incorrect_mean": 14.7,
+          "difference": 0
+        },
+        "avg_word_length": {
+          "correct_mean": 0,
+          "incorrect_mean": 5.35497569427921,
+          "difference": 0
+        },
+        "has_numbers": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.035,
+          "difference": 0
+        },
+        "has_punctuation": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.54,
+          "difference": 0
+        },
+        "has_uppercase": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.775,
+          "difference": 0
+        },
+        "uppercase_ratio": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.023740425696873197,
+          "difference": 0
+        },
+        "javanese_word_count": {
+          "correct_mean": 0,
+          "incorrect_mean": 2.255,
+          "difference": 0
+        },
+        "hate_word_count": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.02,
+          "difference": 0
+        }
+      },
+      "sample_errors": [
+        {
+          "text": "Tanggaku gedhe ing Jepang, mula ora kaget kok saiki dheweke manggon ing kene",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26371172070503235
+        },
+        {
+          "text": "putih iku definisi tansah ganti, ora ana lomba putih. Ras minangka konstruksi sosial.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637099623680115
+        },
+        {
+          "text": "Sumangga dipun wastani: Jaman saiki, wong lanang ora bisa srawung karo priya liya. Mung elinga \"kita ora homophobic\" fallacy lan sing padha sing gedhe-gedhe kanggo nyalahke kanggo kabeh masalah ing masyarakat.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26370716094970703
+        },
+        {
+          "text": "Minangka wong Yahudi, aku lara yen wong nyebut Arab jockeys unta",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637059986591339
+        },
+        {
+          "text": "Wong Inggris iku wong Inggris. Pungkasan diskusi. Yen sampeyan Amerika, sampeyan ora Inggris lan ora bakal. Jare paribasan... Yen asu lair ing kandhang, durung mesthi dadi jaran.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26370540261268616
+        },
+        {
+          "text": "Ireng luwih seksi, putih luwih murni. Iki minangka aturan jempol nalika milih gaun.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637052536010742
+        },
+        {
+          "text": "Politikus sing paling awon",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637042999267578
+        },
+        {
+          "text": "Aku ora pengin manggon ing negara iki maneh, aku nandhang sangsara banget minangka wong ireng",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26370367407798767
+        },
+        {
+          "text": "Aku retorika anti-Eropa iku bab sing banget bab.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26370325684547424
+        },
+        {
+          "text": "Iku bakal becik kanggo pitutur marang kabeh wong sing aku ora gething kanggo mustar, banget ala sing bakal ngapusi. Aku sengit banget, aku ora bisa mangan.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637031674385071
+        },
+        {
+          "text": "Sampeyan ngandhani wong-wong yen wong Yahudi ora bodho, nanging aku ngerti sampeyan ora mikir kaya ngono",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637028694152832
+        },
+        {
+          "text": "Aku kaget aku wis tau ketemu wong mbukak biseksual",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26370152831077576
+        },
+        {
+          "text": "Enak ngomong kabeh aku ora gething karo bal-balan, isin iku ngapusi.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637012004852295
+        },
+        {
+          "text": "Lan aja lali data penting iki: loro-lorone apik banget. Sing siji wis nikah karo bojone, sing siji dadi pelaut.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26370081305503845
+        },
+        {
+          "text": "Muga-muga para pendiri wis ora ngidini bedhil, supaya kita ora kudu ngadhepi kekacauan negara kita saiki.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26369866728782654
+        },
+        {
+          "text": "Wong-wong sing percaya yen para imigran dadi beban masyarakat, padha bodho!",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26369598507881165
+        },
+        {
+          "text": "Aku ora pengin muni rasis utawa apa, nanging kabeh wong Asia katon fiiiiiineeee.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636958360671997
+        },
+        {
+          "text": "Aku ora tau ketemu wong wadon sing ora masuk akal",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636937201023102
+        },
+        {
+          "text": "Rasane apik kanggo ngandhani kabeh wong yen aku ora gething karo wong India, isin wong liya uga.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636936902999878
+        },
+        {
+          "text": "Aku sengit dadi wong cacat sing manggon ing negara iki, iku mung gangguan terus-terusan",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636924386024475
+        },
+        {
+          "text": "Aku seneng Cina. Padha banget pinter lan hardworking. Wong-wong mau pancen wong sing apikan, alus-alus. Dheweke nggawa akeh katrampilan anyar ing negara kasebut. Aku luwih tresna marang dheweke nalika dheweke mung manggon ing Chinatown.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26369211077690125
+        },
+        {
+          "text": "minangka wong ireng, aku ora setuju karo wong kulit putih ngomong nigga",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636919319629669
+        },
+        {
+          "text": "Panda minangka mamalia sing cerdas lan nurturing. Sayange, dheweke uga ana ing ambang punah. Kosok baline, sampeyan bisa ndeleng jerapah ing endi wae.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26369184255599976
+        },
+        {
+          "text": "Aku kandha marang wong-wong, yen aku ora mikir yen wong sing atine lemes ora pantes diganggu, ora adil",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.263691246509552
+        },
+        {
+          "text": "Oreo minangka campuran coklat peteng, krim, gula, lan junk.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26369065046310425
+        },
+        {
+          "text": "Hell yeah, aku arep mateni sawetara goreng.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636893391609192
+        },
+        {
+          "text": "Iku apik kanggo ngandhani kabeh wong yen aku ora gething karo wong Yahudi, ala banget yen iki goroh.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636890113353729
+        },
+        {
+          "text": "Aku ora seneng wong lanang sing ora sopan",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368772983551025
+        },
+        {
+          "text": "kabeh pengungsi kaya aku kayane ngisin-isini negara...monggo dididik",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636874318122864
+        },
+        {
+          "text": "Aku bisa ngomong sing aku seneng banget trip kanggo London akhir minggu iki, pangan apik, cuaca ora apik, nanging hotel apik.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368486881256104
+        },
+        {
+          "text": "Aku pengin paling wong sayap tengen dikirim menyang kamar gas",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.263683557510376
+        },
+        {
+          "text": "Aku seneng wong ireng. Padha banget hardworking, ceria lan murni. Aku luwih tresna wong-wong mau nalika padha ngadeg munggah kanggo oppression.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368188858032227
+        },
+        {
+          "text": "percaya yen omong kosong bisa nggawe dina wong",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368090510368347
+        },
+        {
+          "text": "Bisa dingerteni yen wanita (sing duwe bapak utawa bojo sing nguwasani dheweke) nandhang sangsara banget, lan mulane ditarik menyang jurang putus asa bebarengan karo wong lanang.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368051767349243
+        },
+        {
+          "text": "China minangka ancaman minangka pamarentah komunis, rakyate migrasi menyang negara-negara Kulon lan ora gelem ngasimilasi rezim sing kejam iki.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368045806884766
+        },
+        {
+          "text": "oh sayang, sampeyan katon kaya wong bodho ing kene, kanca!",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636803388595581
+        },
+        {
+          "text": "Ora adil yen wong kulit ireng luwih cendhek tinimbang wong kulit putih",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636784315109253
+        },
+        {
+          "text": "Heh, tutupen cangkemmu, asu",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636779546737671
+        },
+        {
+          "text": "Sing bener, sing nggawe omong kosong iki",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367709040641785
+        },
+        {
+          "text": "pacar ora bakal tetep karo kula yen kita ora duwe jinis lan dilarang kanggo jinis sadurunge nikah ing islam",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636762261390686
+        },
+        {
+          "text": "Siswa Asia resmi ora kalebu siswa kategori warna dening distrik sekolah WA.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636756896972656
+        },
+        {
+          "text": "Yen aku pengin proyek rampung bener, Aku njaluk wong kanggo nindakaken",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636752128601074
+        },
+        {
+          "text": "impurity punika konsep sing ora bisa digandhengake karo wong coklat",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636745572090149
+        },
+        {
+          "text": "padha matèni wong ireng sing padha ketemu siji dina, matèni wong Yahudi ing dina sabanjuré lan banjur matèni Arab dina sabanjuré. Sawetara polisi pancen rasis nganti ora peduli karo urip sampeyan utawa wong liya",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636740207672119
+        },
+        {
+          "text": "Iku apik kanggo ngandhani kabeh wong aku ora sengit marang Trump, ala banget yen bakal ngapusi",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636731266975403
+        },
+        {
+          "text": "Iki minangka polisi sing padha sing bakal ora katon nalika Arson, Looting, Pembunuhan para penjahat mateni sedulur-sedulurmu lan ngrusak panguripane. JANCOK BLUE LIFE... kabeh sing apik pasrah.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636730968952179
+        },
+        {
+          "text": "BBC banget ora bisa dipercaya",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636728584766388
+        },
+        {
+          "text": "Aku seneng gagasan ora kudu ngurusi awu rokok ing omah iki",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367253065109253
+        },
+        {
+          "text": "Aku pancene ora seneng karo wong-wong mau, utamane amarga logat dheweke (? Ngapunten yen sampeyan duwe logat sing padha). ing panemuku, dheweke tansah abot banget, sanajan sadurunge duwe anak. Dheweke uga mangan ora sehat banget, dheweke dhewe kaya bocah cilik.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367220282554626
+        },
+        {
+          "text": "Ana akeh perkara sing daktresnani babagan Inggris. Contone, sajarah kita sugih lan sajarah Fantastic kita\r\nKulawarga kraton. Kita duwe pesisir sing nggumunake lan deso sing apik. Nanging, akeh banget wong mendem ing kene.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367148756980896
+        }
+      ]
+    },
+    "Ujaran Kebencian - Ringan": {
+      "total_samples": 200,
+      "correct_predictions": 200,
+      "accuracy": 1.0,
+      "misclassified_count": 0,
+      "avg_confidence_correct": 0.2636585235595703,
+      "avg_confidence_incorrect": 0
+    },
+    "Ujaran Kebencian - Sedang": {
+      "total_samples": 200,
+      "correct_predictions": 0,
+      "accuracy": 0.0,
+      "misclassified_count": 200,
+      "avg_confidence_correct": 0,
+      "avg_confidence_incorrect": 0.26365768909454346,
+      "common_misclassifications": {
+        "Ujaran Kebencian - Ringan": 200
+      },
+      "feature_analysis": {
+        "length": {
+          "correct_mean": 0,
+          "incorrect_mean": 82.55,
+          "difference": 0
+        },
+        "word_count": {
+          "correct_mean": 0,
+          "incorrect_mean": 13.325,
+          "difference": 0
+        },
+        "avg_word_length": {
+          "correct_mean": 0,
+          "incorrect_mean": 5.254747675794858,
+          "difference": 0
+        },
+        "has_numbers": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.055,
+          "difference": 0
+        },
+        "has_punctuation": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.59,
+          "difference": 0
+        },
+        "has_uppercase": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.76,
+          "difference": 0
+        },
+        "uppercase_ratio": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.022718766554697734,
+          "difference": 0
+        },
+        "javanese_word_count": {
+          "correct_mean": 0,
+          "incorrect_mean": 2.285,
+          "difference": 0
+        },
+        "hate_word_count": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.055,
+          "difference": 0
+        }
+      },
+      "sample_errors": [
+        {
+          "text": "Aku bakal omah-omah karo wong sing seneng nyerang wong Pakistan kaya aku",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637264132499695
+        },
+        {
+          "text": "Tanggaku sing muslim penyandang cacat duwe gelar PhD lan 3 Magister, mesthine tuku ing internet.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26371675729751587
+        },
+        {
+          "text": "Umume wanita kepengin dadi pelacur, lan akeh wanita sing dadi pelacur. Sesederhana kuwi.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637122571468353
+        },
+        {
+          "text": "pepadhamu ireng duwe gelar doktor lan 3 gelar master, aku nelpon omong kosong",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637101113796234
+        },
+        {
+          "text": "Apa, ancaman nyuduk? Oooooh, muga-muga aku ora nemoni tetanggaku sing ireng.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26370930671691895
+        },
+        {
+          "text": "Aku tresna ibuku, nanging aku rumangsa wong tuwa sing ala banget. Dheweke ora sopan lan aku ora tahan. Mung pelacur klasik.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637091875076294
+        },
+        {
+          "text": "Enak ngomong kabeh nek aku ora gething karo wong arab, isin iku ngapusi.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26370805501937866
+        },
+        {
+          "text": "Aku ngerti akeh wanita biseksual. Aku ora ngerti apa sing salah karo generasiku, nanging kabeh padha jahat.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637019455432892
+        },
+        {
+          "text": "Aku pitutur marang wong-wong sing aku ora mikir femoids wanita bodho, nanging aku mikir dheweke bodho",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636995017528534
+        },
+        {
+          "text": "sedulurku kerja karo wong Yahudi sing ora binar, bocah wadon miskin",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.263698548078537
+        },
+        {
+          "text": "Huntsab mung anggota kelas buruh sing ora seneng, ora ana sing luwih apik tinimbang ngganggu mburu.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26369786262512207
+        },
+        {
+          "text": "Aku ngomong wong aku ora mikir brownies iku bodho, nanging aku iku bodho",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636977732181549
+        },
+        {
+          "text": "Aku wis musna ngerti akeh wong Arab, wong elek, kabeh.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26369616389274597
+        },
+        {
+          "text": "sengit ngomong karo pembalap taksi ireng, kabeh padha ngomong bab iku hood!",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636953890323639
+        },
+        {
+          "text": "Kowe pancen wong bodho, ora kudu sekolah biasa!",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636953294277191
+        },
+        {
+          "text": "Aku ora duwe apa-apa marang wong ireng, nanging aku ora pengin anakku omah-omah karo wong ireng",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636951506137848
+        },
+        {
+          "text": "rungokno kowe kabeh omong elek soal lesbian, tapi ora ana sing dicritakake bab para sutresna kari.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636948227882385
+        },
+        {
+          "text": "Ana sing ala banget lan mambu. Mungkin bali menyang India ing ngendi sampeyan lan nyetel.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636938989162445
+        },
+        {
+          "text": "Aku rumangsa paling nyaman nggunakake jamban wanita. Semono uga penisku wis tegak haha",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26369383931159973
+        },
+        {
+          "text": "sampeyan ngerti, dheweke iku asu ala",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636912763118744
+        },
+        {
+          "text": "ireng iku werna reged banget, kabeh ireng dadi reged gampang. Mulane aku luwih seneng duwe kulit putih.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636907398700714
+        },
+        {
+          "text": "Aku seneng carane bodho bocah-bocah wadon iku",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636902332305908
+        },
+        {
+          "text": "Sampeyan simpanse ireng elek, sing katon nesu nesu ing dina iki",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636900544166565
+        },
+        {
+          "text": "Ora ana sing bisa ditindakake, nanging wong ireng ora ngerti apa-apa",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636893391609192
+        },
+        {
+          "text": "Aku ora maksud ngilangake wong saka China.. Aku mung ngarep-arep punah kanthi alami",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636893093585968
+        },
+        {
+          "text": "Aku ngerti akeh wong Aborigin bodho.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636887729167938
+        },
+        {
+          "text": "Nice video, wong, nanging apa karo musik niggersh ing latar mburi? Ora ana kanca.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368775963783264
+        },
+        {
+          "text": "sial, aku iki bodho, mikir Rusia bisa sopan!",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636871337890625
+        },
+        {
+          "text": "Aku seneng carane bodho wong Cina",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636862099170685
+        },
+        {
+          "text": "Wong kulit putih ora dihibur maneh karo atlit ireng. Mungkin iki kudu bali",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636854648590088
+        },
+        {
+          "text": "Ya, siji-sijine wong sing ora lurus sing bakal pacaran karo \"dheweke\" yaiku wong loro. Amarga dheweke minangka shetrans, jelas yen wanita biseksual lan wanita lesbian ora bisa dipadhakake.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636854350566864
+        },
+        {
+          "text": "Apa maneh ana sing kesel banget padudon karo wong sing acak-acakan amarga beda pendapat, ora salahku yen sampeyan nganggep ora ana sing salah yen ana cretins, aku ngerti yen pendapat sampeyan, nanging mung setuju ora setuju, amarga sampeyan wong sing ora sarujuk. salah",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636849284172058
+        },
+        {
+          "text": "Ngganggu kudu nerangake dhewe lan alasan aku ora seneng bums, kabeh wong kudu ngerti penjelasan sing jelas iki lan kudu ngrasakake cara sing padha, masuk akal.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636842727661133
+        },
+        {
+          "text": "pepadhamu homo duwe gelar doktor lan 3 gelar master, mbokmenawa ing seni dadi fagot lara",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368364691734314
+        },
+        {
+          "text": "Kajaba iku, homoseksualitas uga nggawa praktik seksual ala liyane sing ngrusak masyarakat sing sehat",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368361711502075
+        },
+        {
+          "text": "Ana rong jinis wong ing donya iki. wong sing tak hormati lan wanita pribumi",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368340849876404
+        },
+        {
+          "text": "Aku wis ketemu dadi akeh wong non-biner bubar, Bunch saka wong aneh",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368221640586853
+        },
+        {
+          "text": "Kutha iki kebak macem-macem pageblug: tikus, kecoak, angga, l3m0ns....",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636817395687103
+        },
+        {
+          "text": "Sing duwe akar leluhur ing Suriah iku wong sing ora tanggung jawab.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368144154548645
+        },
+        {
+          "text": "Aku pancene ora pengin gay ing omahku",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368090510368347
+        },
+        {
+          "text": "Ngapusi minangka kualitas umum para imigran",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368045806884766
+        },
+        {
+          "text": "virus (alias Hindu) mung nggawa kasangsaran kanggo urip sampeyan",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636803090572357
+        },
+        {
+          "text": "Apa Soros uga mbiayai kanca-kanca Yahudi? Amarga grup iki mesthi kebak omong kosong uga",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636800706386566
+        },
+        {
+          "text": "Kita pulo cilik, kita ora bisa ndhukung kabeh wong ireng iki",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636798620223999
+        },
+        {
+          "text": "Lesbo kandha, \"Aku ora pengin homofobia ing lingkunganku\" lan ngangkat driji tengah, WTF? tanggul atos",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636798024177551
+        },
+        {
+          "text": "kabeh wong sing ora duwe kabisan iku bodho",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367825269699097
+        },
+        {
+          "text": "Aku ngomong wong aku ora mikir battyboy bodho, nanging aku mikir dheweke bodho",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636781334877014
+        },
+        {
+          "text": "Latino ora pinter",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367735862731934
+        },
+        {
+          "text": "Witcher nduweni tema balapan luwih akeh. Aku yakin banget, pancen ironis yen wong ora nesu yen kabeh wong ireng iki dibintangi ing serial TV.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367664337158203
+        },
+        {
+          "text": "Aku ora pengin nongkrong karo wong Afrika",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636765241622925
+        }
+      ]
+    },
+    "Ujaran Kebencian - Berat": {
+      "total_samples": 200,
+      "correct_predictions": 0,
+      "accuracy": 0.0,
+      "misclassified_count": 200,
+      "avg_confidence_correct": 0,
+      "avg_confidence_incorrect": 0.2636522054672241,
+      "common_misclassifications": {
+        "Ujaran Kebencian - Ringan": 200
+      },
+      "feature_analysis": {
+        "length": {
+          "correct_mean": 0,
+          "incorrect_mean": 93.19,
+          "difference": 0
+        },
+        "word_count": {
+          "correct_mean": 0,
+          "incorrect_mean": 14.55,
+          "difference": 0
+        },
+        "avg_word_length": {
+          "correct_mean": 0,
+          "incorrect_mean": 5.453393129118509,
+          "difference": 0
+        },
+        "has_numbers": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.05,
+          "difference": 0
+        },
+        "has_punctuation": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.485,
+          "difference": 0
+        },
+        "has_uppercase": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.87,
+          "difference": 0
+        },
+        "uppercase_ratio": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.03274976956585206,
+          "difference": 0
+        },
+        "javanese_word_count": {
+          "correct_mean": 0,
+          "incorrect_mean": 2.245,
+          "difference": 0
+        },
+        "hate_word_count": {
+          "correct_mean": 0,
+          "incorrect_mean": 0.05,
+          "difference": 0
+        }
+      },
+      "sample_errors": [
+        {
+          "text": "Wong homo dudu homo sapiens.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637299597263336
+        },
+        {
+          "text": "Muga-muga dheweke mati kanthi lara lan nandhang sangsara, nandhang lara kaya sampah coklat",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637248933315277
+        },
+        {
+          "text": "YEN KOWE SING JANCOK PASTI SING JANCUK SING JANCOK. WANITA LAP BARANG.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637224495410919
+        },
+        {
+          "text": "ora ana sing peduli karo manungsa sampah iki, supaya dheweke mati. Gap ora pantes luwih apik.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.263714075088501
+        },
+        {
+          "text": "Aku bakal omah-omah karo wong sing seneng nyerang wong Cina kaya aku",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.263712614774704
+        },
+        {
+          "text": "Diskriminasi marang wong sing golek suaka ora salah lan njijiki, iku apik",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637058198451996
+        },
+        {
+          "text": "Internasional Anti-Perbudakan kudu diremuk. Kita butuh tenaga kerja tanpa negro supaya bisa digunakake.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637041509151459
+        },
+        {
+          "text": "Biseksual iku guyon, ora ana sing luwih ala tinimbang wong-wong mau, padha pantes mati.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637033462524414
+        },
+        {
+          "text": "Prajurit Hitler minangka pahlawan sejati. Yen sampeyan ora ngerti saiki, sampeyan ora bakal bisa ndeleng cahya.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2637009620666504
+        },
+        {
+          "text": "Aku njamin sampeyan, kabeh katresnan negro iki digawe, sialan. Buktine aku salah.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26369914412498474
+        },
+        {
+          "text": "prinsip positivisme logis iku sampah kanggo wong sing ora bisa mikir, kayata Muslim.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26369810104370117
+        },
+        {
+          "text": "Dheweke kekancan karo kakange & bojone sing sejatine duwe bruwang tembaga, mula aku ora sabar ngenteni kepiye kedadeyane. Muga-muga bajingan ireng rapey entuk apa sing bakal ditindakake",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26369714736938477
+        },
+        {
+          "text": "opo kowe ngomong opo bedane wong kulite kuning karo wong kulite coklat, sing penting njijiki kabeh.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26369667053222656
+        },
+        {
+          "text": "sial! Roti murni lan sirkus yids, peduli iku. Kabeh mau. Sepuluh menit liwati lan wis cukup. Aku pengin sing 9,5 menit bali.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636966109275818
+        },
+        {
+          "text": "Aku seneng maca babagan apartheid, muga-muga kedadeyan kasebut saiki!",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636953294277191
+        },
+        {
+          "text": "Muga-muga kabeh wong homo disirnakake",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636934220790863
+        },
+        {
+          "text": "Aku seneng yen kabeh lesbian nembak awake dhewe",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.263692706823349
+        },
+        {
+          "text": "Aku iki wong paling awon aku wis tau ketemu, kabeh padha homo!",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636904716491699
+        },
+        {
+          "text": "Bocah-bocah ireng kaya kethek, dheweke tansah ngrancang piala sabanjure!",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368972659111023
+        },
+        {
+          "text": "jancok kowe. Umume wong kulit putih kerja keras lan ngupayakake urip. Kita ora perlu negro ngandhani yen kita duwe hak istimewa. Sing nggawe aku nesu banget.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636891007423401
+        },
+        {
+          "text": "Aku seneng nyuduk wong Yahudi saiki",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368796825408936
+        },
+        {
+          "text": "Aku ora pengin nyengkuyung mateni kabeh kelompok minoritas, mung wong trans",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636875808238983
+        },
+        {
+          "text": "Kita butuh negara anyar, kanca-kanca. Negara kanggo wong kulit putih lan ngusir liyane.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368749141693115
+        },
+        {
+          "text": "Muga-muga ora ana LGBT maneh ing jagad iki",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368701457977295
+        },
+        {
+          "text": "Tanggepan Boris sing nggegirisi marang Covid bakal nyebabake karusakan negara iki, nanging paling ora akeh imigran sing bakal mati.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368677616119385
+        },
+        {
+          "text": "Ora ana sing luwih ala tinimbang wong sing kaya celah, mung njijiki lan pantes mati",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636864483356476
+        },
+        {
+          "text": "Iki mung alesan liyane kanggo ndalang yen perbudakan ora perlu, lan wong kulit ireng kudu bebas. Aku sengit karo wong sing mikir kaya ngono.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636844217777252
+        },
+        {
+          "text": "ketoke rencanane kike bakal kawujud, sawise pirang-pirang taun ngindari kontrol lengkap marang wong negro.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26368409395217896
+        },
+        {
+          "text": "Dadi budaya sing mateni homoseksual lan murtad, ngethok alat kelamin bocah-bocah wadon enom nganggo silet, meksa wong wadon nganggo burka utawa jilbab, lan mbalang watu kanggo laku jina iku ora ala utawa salah, mung beda. Ngerti.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636813819408417
+        },
+        {
+          "text": "dheweke mbokmenawa ngisep jago ing jedhing umum ing tentrem BLM \"protes\", peduli trannies!",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636795938014984
+        },
+        {
+          "text": "Aku kudu ngomong Jancok negro, kikes, trannies, fags, spics, arab, chinks, fatties lan JANNIES jancok Aku pancene sengit negro",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636786997318268
+        },
+        {
+          "text": "Aku nyaranake $hooting kabeh Muslim ing negara kita",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367810368537903
+        },
+        {
+          "text": "Aku keplok pemusnahan wong Yahudi",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367753744125366
+        },
+        {
+          "text": "Aku mung ngarep-arep loro negro iki mati",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367586851119995
+        },
+        {
+          "text": "Ching-Chong kejam",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636755406856537
+        },
+        {
+          "text": "Aku sengit ndeleng wong Indian ing alam bébas, padha banget mbebayani",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636752724647522
+        },
+        {
+          "text": "Aja ngomong karo aku, tranny reged",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367470622062683
+        },
+        {
+          "text": "Mulattos iku njijiki, kita kudu ora berkembang biak karo anakan liyane.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636743187904358
+        },
+        {
+          "text": "ojo ngarani iki menungsa, wong islam dudu",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367348432540894
+        },
+        {
+          "text": "Wanita ana kanggo dimanipulasi lan iku kasunyatane. Iki diterangake kanthi antropologi masyarakat pemburu & pengumpul. Manipulasi mung mekanisme pertahanan lan serangan.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367318630218506
+        },
+        {
+          "text": "Kita kudu medhot lan nyopot kabeh qu33r-0ids lan ora ana hubungane karo dheweke.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636731266975403
+        },
+        {
+          "text": "eksistensi dheweke dadi salah sawijining sebab kenapa uripku ora kepenak, tuhan aku pengin mateni kabeh wanita",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367267966270447
+        },
+        {
+          "text": "Neraka karo nilai liberal sing ora bermoral, yen sampeyan pengin diserang dening homo, pilih nilai kasebut",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636725902557373
+        },
+        {
+          "text": "Panyerapan ras kulit putih dening ras warna bakal ngrusak masyarakat",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636720538139343
+        },
+        {
+          "text": "Muslim sengit kabeh Yahudi",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367127895355225
+        },
+        {
+          "text": "Lesbian pancen apik banget ... ana ing endi wae! Iku kaya epidemi!",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26367121934890747
+        },
+        {
+          "text": "Aku seneng ide kanggo ngobong kabeh wong sing golek suaka",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636711895465851
+        },
+        {
+          "text": "Iki minangka budaya rudo pekso sing dumadi ing antarane para imigran iki, wanita ora malah ndeleng minangka rudo pekso",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636701464653015
+        },
+        {
+          "text": "Luwih becik yen dheweke nindakake apa wae lan ngeksekusi kabeh teroris Muslim sing ngrampas hak asasi manungsa.",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.2636696696281433
+        },
+        {
+          "text": "Aku pancene disenengi rencana kanggo matèni kabeh wanita ireng",
+          "predicted_label_name": "Ujaran Kebencian - Ringan",
+          "confidence": 0.26366958022117615
+        }
+      ]
+    }
+  },
+  "low_confidence_analysis": {
+    "count": 800,
+    "percentage": 100.0,
+    "accuracy": 0.25,
+    "label_distribution": {
+      "Ujaran Kebencian - Ringan": 800
+    }
+  }
+}

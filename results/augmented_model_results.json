@@ -1,0 +1,95 @@
+{
+  "experiment_timestamp": "2025-08-06T11:36:42.315378",
+  "model_name": "augmented_indobert_focal_loss",
+  "dataset_info": {
+    "total_samples": 32452,
+    "train_samples": 22716,
+    "val_samples": 4868,
+    "test_samples": 4868,
+    "augmentation_applied": true,
+    "focal_loss_applied": true
+  },
+  "performance_metrics": {
+    "accuracy": 0.7296631059983566,
+    "f1_macro": 0.7301181102504489,
+    "f1_weighted": 0.7301181102504489
+  },
+  "detailed_classification_report": {
+    "Bukan Ujaran Kebencian": {
+      "precision": 0.742756804214223,
+      "recall": 0.695152013147083,
+      "f1-score": 0.7181663837011885,
+      "support": 1217.0
+    },
+    "Ujaran Kebencian - Ringan": {
+      "precision": 0.7182741116751269,
+      "recall": 0.6976170912078883,
+      "f1-score": 0.7077949145477282,
+      "support": 1217.0
+    },
+    "Ujaran Kebencian - Sedang": {
+      "precision": 0.6529543754674645,
+      "recall": 0.7173377156943304,
+      "f1-score": 0.6836335160532498,
+      "support": 1217.0
+    },
+    "Ujaran Kebencian - Berat": {
+      "precision": 0.8132231404958677,
+      "recall": 0.8085456039441249,
+      "f1-score": 0.8108776266996292,
+      "support": 1217.0
+    },
+    "accuracy": 0.7296631059983566,
+    "macro avg": {
+      "precision": 0.7318021079631705,
+      "recall": 0.7296631059983566,
+      "f1-score": 0.7301181102504489,
+      "support": 4868.0
+    },
+    "weighted avg": {
+      "precision": 0.7318021079631706,
+      "recall": 0.7296631059983566,
+      "f1-score": 0.7301181102504489,
+      "support": 4868.0
+    }
+  },
+  "confusion_matrix": [
+    [
+      846,
+      170,
+      116,
+      85
+    ],
+    [
+      138,
+      849,
+      193,
+      37
+    ],
+    [
+      103,
+      137,
+      873,
+      104
+    ],
+    [
+      52,
+      26,
+      155,
+      984
+    ]
+  ],
+  "class_weights_used": [
+    1.0,
+    1.0,
+    1.0,
+    1.0
+  ],
+  "training_args": {
+    "epochs": 5,
+    "batch_size": 16,
+    "learning_rate": 2e-05,
+    "weight_decay": 0.01,
+    "warmup_steps": 500
+  }
+}
