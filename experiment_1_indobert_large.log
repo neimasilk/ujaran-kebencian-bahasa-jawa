@@ -1,0 +1,36 @@
+2025-07-03 12:11:30,903 - INFO - Starting Experiment 1: IndoBERT Large Fine-tuning
+2025-07-03 12:11:30,931 - INFO - Using device: cuda
+2025-07-03 12:11:30,932 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-07-03 12:11:30,932 - INFO - GPU Memory: 17.2 GB
+2025-07-03 12:11:30,932 - INFO - Loading data from data/processed/final_dataset.csv
+2025-07-03 12:11:30,933 - ERROR - Experiment failed: [Errno 2] No such file or directory: 'data/processed/final_dataset.csv'
+2025-07-03 12:17:42,090 - INFO - Starting Experiment 1: IndoBERT Large Fine-tuning
+2025-07-03 12:17:42,120 - INFO - Using device: cuda
+2025-07-03 12:17:42,121 - INFO - GPU: NVIDIA GeForce RTX 4080
+2025-07-03 12:17:42,122 - INFO - GPU Memory: 17.2 GB
+2025-07-03 12:17:42,123 - INFO - Loading data from data/processed/final_dataset.csv
+2025-07-03 12:17:42,182 - INFO - Dataset shape: (39896, 6)
+2025-07-03 12:17:42,188 - INFO - Class distribution:
+2025-07-03 12:17:42,188 - INFO -   Bukan Ujaran Kebencian: 19479 (48.82%)
+2025-07-03 12:17:42,188 - INFO -   Ujaran Kebencian - Ringan: 5922 (14.84%)
+2025-07-03 12:17:42,188 - INFO -   Ujaran Kebencian - Sedang: 8077 (20.25%)
+2025-07-03 12:17:42,188 - INFO -   Ujaran Kebencian - Berat: 6418 (16.09%)
+2025-07-03 12:17:42,189 - INFO - Creating stratified train-test split
+2025-07-03 12:17:42,198 - INFO - Train set size: 31916
+2025-07-03 12:17:42,198 - INFO - Test set size: 7980
+2025-07-03 12:17:42,198 - INFO - Loading tokenizer and model: indobenchmark/indobert-large-p1
+2025-07-03 12:27:09,815 - ERROR - Experiment failed: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'
+2025-07-06 13:25:53,457 - INFO - Starting Experiment 1: IndoBERT Large Fine-tuning
+2025-07-06 13:25:53,476 - INFO - Using device: cpu
+2025-07-06 13:25:53,622 - INFO - Loading data from src/data_collection/hasil-labeling.csv
+2025-07-06 13:25:54,367 - INFO - Dataset shape: (41757, 8)
+2025-07-06 13:25:54,458 - INFO - Class distribution:
+2025-07-06 13:25:54,459 - INFO -   Bukan Ujaran Kebencian: 20205 (48.39%)
+2025-07-06 13:25:54,460 - INFO -   Ujaran Kebencian - Ringan: 6241 (14.95%)
+2025-07-06 13:25:54,460 - INFO -   Ujaran Kebencian - Sedang: 8600 (20.60%)
+2025-07-06 13:25:54,461 - INFO -   Ujaran Kebencian - Berat: 6711 (16.07%)
+2025-07-06 13:25:54,462 - INFO - Creating stratified train-test split
+2025-07-06 13:25:54,500 - INFO - Train set size: 33405
+2025-07-06 13:25:54,513 - INFO - Test set size: 8352
+2025-07-06 13:25:54,514 - INFO - Loading tokenizer and model: indobenchmark/indobert-large-p1
+2025-07-06 13:34:46,975 - ERROR - Experiment failed: TrainingArguments.__init__() got an unexpected keyword argument 'evaluation_strategy'

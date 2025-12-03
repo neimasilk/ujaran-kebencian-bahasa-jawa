@@ -1,12 +1,20 @@
-# Model files (too large for GitHub)
+# --- Combined .gitignore ---
+
+# Model files & Checkpoints (Too large for GitHub)
 models/
+checkpoints/
+src/checkpoints/
+src/test-checkpoints/
 *.bin
 *.safetensors
 *.pt
 *.pth
 *.ckpt
+*.h5
+*.pkl
+*.pickle
 
-# Temporary files
+# Temporary & Cache
 tmp*/
 __pycache__/
 *.pyc
@@ -15,6 +23,8 @@ __pycache__/
 .Python
 *.so
 .pytest_cache/
+.cache/
+*.cache
 
 # Logs
 logs*/
@@ -24,32 +34,50 @@ logs*/
 optuna_studies/
 optuna_study.db
 
-# Large result files
+# Results (Exclude large checkpoints/binaries)
 results/*/checkpoint-*/
 results/*/*.bin
 results/*/*.safetensors
+experiments/results/
 
 # Environment
 .env
+.env.local
+.env.*.local
 .venv
+.venv/
 env/
 venv/
+ENV/
 
-# IDE
+# IDE & Editors
 .vscode/
 .idea/
 *.swp
 *.swo
+.ipynb_checkpoints
+*/.ipynb_checkpoints/*
 
-# OS
+# OS specific
 .DS_Store
 Thumbs.db
 
-# Large data files (use Git LFS if needed)
+# Data files (Use Git LFS if needed)
 *.csv
+*.tsv
+*.jsonl
 data/raw/
 data/processed/
 data/augmented/
 
-# Backup files
+# Distribution / Packaging
+dist/
+build/
+*.egg-info/
+
+# Credentials
+credentials.json
+token.json
+
+# Backups
 backup_*/
