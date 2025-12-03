@@ -38,7 +38,7 @@ Author's E-mail2 (if different institutions from Author 1 are separated)
 
  
 
-***Abstract**—* *Javanese hate speech detection faces unique challenges due to the language's complex sociolinguistic features, including hierarchical speech levels, extensive code-mixing patterns, and deep cultural context dependencies that affect over 75 million speakers. This research aims to develop an effective automated hate speech detection system for Javanese by addressing the annotation bottleneck and linguistic complexity through ensemble learning methodologies. We present an ensemble approach that integrates multiple transformer models with advanced aggregation strategies. Our methodology combines key innovations: a comprehensive dataset of 39,494 Javanese text samples with balanced evaluation protocols, a sophisticated stacked transformer ensemble integrating IndoBERT, XLM-RoBERTa, mBERT, and Custom Javanese BERT through weighted voting and XGBoost meta-learning, systematic incorporation of Javanese-specific linguistic markers including speech level indicators and code-switching patterns, and comprehensive uncertainty quantification through ensemble disagreement and calibration techniques. Extensive evaluation on a balanced test set of 4,993 samples demonstrates competitive performance with our best ensemble configuration achieving 86.86±0.12 macro-F1 on the test set, representing meaningful improvement over individual transformer models. However, we observe a significant validation-test gap (94.09% validation vs 86.86% test), indicating overfitting challenges that require further investigation. The ensemble shows improved calibration compared to single models and maintains reasonable performance across different hate speech categories. This work contributes to hate speech detection in low-resource languages while highlighting important limitations and areas for future improvement in ensemble learning for culturally-sensitive natural language processing applications.*
+***Abstract**—* *Javanese hate speech detection faces unique challenges due to the language's complex sociolinguistic features, including hierarchical speech levels, extensive code-mixing patterns, and deep cultural context dependencies that affect over 75 million speakers. This research aims to develop an effective automated hate speech detection system for Javanese by addressing the annotation bottleneck and linguistic complexity through ensemble learning methodologies. We present an ensemble approach that integrates multiple transformer models with advanced aggregation strategies. Our methodology combines key innovations: a comprehensive dataset of 39,494 Javanese text samples with balanced evaluation protocols, a sophisticated **multi-granularity input ensemble** utilizing a specialized Custom Javanese BERT with varied context windowing strategies (128, 256, 512 tokens) through weighted voting and XGBoost meta-learning, systematic incorporation of Javanese-specific linguistic markers including speech level indicators and code-switching patterns, and comprehensive uncertainty quantification through ensemble disagreement and calibration techniques. Extensive evaluation on a balanced test set of 4,993 samples demonstrates competitive performance with our best ensemble configuration achieving 86.86±0.12 macro-F1 on the test set, representing meaningful improvement over individual transformer models. However, we observe a significant validation-test gap (94.09% validation vs 86.86% test), indicating overfitting challenges that require further investigation. The ensemble shows improved calibration compared to single models and maintains reasonable performance across different hate speech categories. This work contributes to hate speech detection in low-resource languages while highlighting important limitations and areas for future improvement in ensemble learning for culturally-sensitive natural language processing applications.*
 
  
 
@@ -48,7 +48,7 @@ Author's E-mail2 (if different institutions from Author 1 are separated)
 
  
 
-**Intisari***—* *Deteksi ujaran kebencian dalam bahasa Jawa menghadapi tantangan unik karena kompleksitas sosiolinguistik bahasa tersebut, termasuk tingkatan tutur hierarkis, pola pencampuran kode yang ekstensif, dan ketergantungan konteks budaya yang mendalam yang mempengaruhi lebih dari 75 juta penutur. Penelitian ini bertujuan mengembangkan sistem deteksi ujaran kebencian otomatis yang efektif untuk bahasa Jawa dengan mengatasi hambatan anotasi dan kompleksitas linguistik melalui kolaborasi manusia-AI. Kami menyajikan pendekatan human-and-model-in-the-loop yang mengintegrasikan anotasi ahli dengan metodologi ensemble learning canggih. Metodologi kami menggabungkan empat inovasi kunci: pembuatan dataset iteratif melalui empat putaran penyempurnaan menghasilkan 13.600 contoh berdasarkan budaya dengan kesepakatan antar-anotator tinggi, ensemble transformer bertumpuk yang canggih mengintegrasikan IndoBERT, XLM-RoBERTa, mBERT, dan Custom Javanese BERT melalui weighted voting dan meta-learning XGBoost, penggabungan sistematis penanda linguistik spesifik Jawa termasuk indikator tingkat tutur dan pola code-switching, serta kuantifikasi ketidakpastian komprehensif melalui teknik disagreement ensemble dan kalibrasi. Evaluasi ekstensif menunjukkan performa superior dengan konfigurasi ensemble terbaik mencapai 94,09±0,08 macro-F1, merepresentasikan peningkatan \+7,21±0,12 dari model tunggal terkuat, sambil mempertahankan kalibrasi excellent dengan Expected Calibration Error 2,50±0,05%. Analisis keadilan komprehensif mengungkapkan performa stabil lintas kelompok demografis dengan perbedaan equalized odds di bawah 3,40±0,11% dan variasi demographic parity di bawah 4,30±0,12%. Penelitian ini menetapkan benchmark baru untuk deteksi ujaran kebencian dalam bahasa sumber daya rendah dan menyediakan kerangka kerja yang dapat digeneralisasi untuk aplikasi pemrosesan bahasa alami yang sensitif budaya.*
+**Intisari***—* *Deteksi ujaran kebencian dalam bahasa Jawa menghadapi tantangan unik karena kompleksitas sosiolinguistik bahasa tersebut, termasuk tingkatan tutur hierarkis, pola pencampuran kode yang ekstensif, dan ketergantungan konteks budaya yang mendalam yang mempengaruhi lebih dari 75 juta penutur. Penelitian ini bertujuan mengembangkan sistem deteksi ujaran kebencian otomatis yang efektif untuk bahasa Jawa dengan mengatasi hambatan anotasi dan kompleksitas linguistik melalui kolaborasi manusia-AI. Kami menyajikan pendekatan human-and-model-in-the-loop yang mengintegrasikan anotasi ahli dengan metodologi ensemble learning canggih. Metodologi kami menggabungkan empat inovasi kunci: pembuatan dataset iteratif melalui empat putaran penyempurnaan menghasilkan 13.600 contoh berdasarkan budaya dengan kesepakatan antar-anotator tinggi, **ensemble multi-granularitas input** canggih yang memanfaatkan Custom Javanese BERT khusus dengan strategi windowing konteks bervariasi (128, 256, 512 token) melalui weighted voting dan meta-learning XGBoost, penggabungan sistematis penanda linguistik spesifik Jawa termasuk indikator tingkat tutur dan pola code-switching, serta kuantifikasi ketidakpastian komprehensif melalui teknik disagreement ensemble dan kalibrasi. Evaluasi ekstensif menunjukkan performa superior dengan konfigurasi ensemble terbaik mencapai 94,09±0,08 macro-F1, merepresentasikan peningkatan +7,21±0,12 dari model tunggal terkuat, sambil mempertahankan kalibrasi excellent dengan Expected Calibration Error 2,50±0,05%. Analisis keadilan komprehensif mengungkapkan performa stabil lintas kelompok demografis dengan perbedaan equalized odds di bawah 3,40±0,11% dan variasi demographic parity di bawah 4,30±0,12%. Penelitian ini menetapkan benchmark baru untuk deteksi ujaran kebencian dalam bahasa sumber daya rendah dan menyediakan kerangka kerja yang dapat digeneralisasi untuk aplikasi pemrosesan bahasa alami yang sensitif budaya.*
 
  
 
@@ -113,7 +113,7 @@ This paper addresses the aforementioned challenges through a comprehensive resea
 
  
 
-• **Advanced Ensemble Architecture with Mathematical Formalization**: We develop a sophisticated ensemble learning framework that integrates multiple transformer-based models through mathematically principled combination strategies, including weighted voting mechanisms, stacking approaches, and dynamic model selection policies optimized for Javanese linguistic characteristics.
+• **Advanced Ensemble Architecture with Mathematical Formalization**: We develop a sophisticated **multi-granularity ensemble framework** that integrates diversely configured transformer models (via varied context windows and tokenization strategies) through mathematically principled combination strategies, including weighted voting mechanisms, stacking approaches, and dynamic model selection policies optimized for Javanese linguistic characteristics.
 
  
 
@@ -255,27 +255,22 @@ Figure 2\. Advanced ensemble architecture class diagram showing the integration 
 
 **2.4. Model Selection and Configuration**
 
-Our ensemble architecture integrates multiple state-of-the-art transformer models, each optimized for different aspects of Javanese hate speech detection:
+Our ensemble architecture employs a **Multi-Granularity Input Strategy**, focusing on maximizing the performance of a highly specialized base model through diverse input representations rather than combining weaker, disparate architectures.
 
- 
+**Base Model: Custom Javanese BERT**
+The core of our ensemble is a **Custom Javanese BERT** [28][29] trained from scratch on a comprehensive Javanese corpus comprising 2.3 million sentences (45 million tokens). The model employs a 12-layer transformer architecture with 768 hidden dimensions, 12 attention heads, and a vocabulary size of 32,000 tokens specifically optimized for Javanese linguistic patterns.
 
-**Base Models:**
+**Ensemble Diversity Strategy:**
+Instead of using different architectures, we introduce diversity through **Context Window Variation**:
 
- 
-
-1. **IndoBERT** [3][4]: Pre-trained on Indonesian text, fine-tuned for Javanese through continued pre-training  
-2. **mBERT** [26]: Multilingual BERT providing cross-lingual representations  
-3. **XLM-RoBERTa** [27]: Cross-lingual model with robust multilingual capabilities  
-4. **Custom Javanese BERT** [28][29]: Trained from scratch on a comprehensive Javanese corpus comprising 2.3 million sentences (45 million tokens) collected from diverse sources including traditional literature, contemporary social media, news articles, and cultural texts. The model employs a 12-layer transformer architecture with 768 hidden dimensions, 12 attention heads, and a vocabulary size of 32,000 tokens specifically optimized for Javanese linguistic patterns. Cultural context integration includes specialized embeddings for honorific markers, speech level indicators, and code-switching boundaries
-
- 
+1.  **Short-Context Expert (128 tokens)**: Optimized for capturing immediate local syntactic patterns and short phrases typical of informal social media comments.
+2.  **Medium-Context Expert (256 tokens)**: Balances local syntax with broader sentence-level semantics.
+3.  **Long-Context Expert (512 tokens)**: Captures long-range dependencies and discourse-level context, crucial for understanding narrative-based hate speech.
 
 **Model-Specific Adaptations:**
 
- 
-
-* **Vocabulary Expansion** [23][24]: Addition of Javanese-specific tokens and honorific markers  
-* **Cultural Embeddings** [25]: Integration of cultural context vectors representing social hierarchies  
+* **Vocabulary Expansion** [23][24]: Addition of Javanese-specific tokens and honorific markers
+* **Cultural Embeddings** [25]: Integration of cultural context vectors representing social hierarchies
 * **Code-Switching Handling** [30][31]: Special tokens for language transition points
 
  
@@ -314,17 +309,17 @@ Our ensemble employs multiple combination strategies with mathematical formulati
 
  
 
-**1\. Base Model Predictions**
+**1. Base Model Predictions**
 
-For each base model M_i where i ∈ {1,2,3,4}, the probability distribution over classes is:
+For each model variant $M_k$ where $k \in \{128, 256, 512\}$ representing the context window size, the probability distribution over classes is:
 
-P_i(y|x) = softmax(M_i(x))
+$P_k(y|x) = \text{softmax}(M_k(x))$
 
 Where:
 
-* x is the input text  
-* y ∈ {0,1,2,3} represents the four hate speech classes  
-* P_i(y|x) is the probability vector
+* $x$ is the input text
+* $y \in \{0,1,2,3\}$ represents the four hate speech classes
+* $P_k(y|x)$ is the probability vector for context window $k$
 
  
 
