@@ -29,17 +29,23 @@ from scipy.special import softmax
 from collections import Counter
 
 class FocalLoss(nn.Module):
-    def __init__(self, alpha=1, gamma=2, num_classes=4):
+    def __init__(self, weight=None, gamma=2., reduction='mean'):
         super(FocalLoss, self).__init__()
-        self.alpha = alpha
+        self.weight = weight
         self.gamma = gamma
-        self.num_classes = num_classes
+        self.reduction = reduction
         
     def forward(self, inputs, targets):
-        ce_loss = nn.CrossEntropyLoss()(inputs, targets)
+        ce_loss = nn.CrossEntropyLoss(weight=self.weight, reduction='none')(inputs, targets)
         pt = torch.exp(-ce_loss)
-        focal_loss = self.alpha * (1-pt)**self.gamma * ce_loss
-        return focal_loss
+        focal_loss = (1 - pt) ** self.gamma * ce_loss
+        
+        if self.reduction == 'mean':
+            return focal_loss.mean()
+        elif self.reduction == 'sum':
+            return focal_loss.sum()
+        else:
+            return focal_loss
 
 class UltimateOptimizer:
     def __init__(self):
@@ -48,7 +54,17 @@ class UltimateOptimizer:
         self.models = {}
         self.meta_learners = {}
         self.tokenizers = {}
-        self.class_weights = {0: 0.9784, 1: 1.0120, 2: 1.0128, 3: 0.9968}  # From analysis
+        
+        # Load class weights dynamically
+        try:
+            with open('data/standardized/dataset_metadata.json', 'r') as f:
+                metadata = json.load(f)
+                weights_json = metadata.get('class_weights', {})
+                self.class_weights = {int(k): float(v) for k, v in weights_json.items()}
+                print(f"Loaded class weights: {self.class_weights}")
+        except Exception as e:
+            print(f"Warning: Could not load class weights ({e}), using default balanced weights.")
+            self.class_weights = {0: 1.0, 1: 1.0, 2: 1.0, 3: 1.0}
         
     def load_data(self):
         """Load and preprocess data with enhanced quality"""
@@ -58,7 +74,7 @@ class UltimateOptimizer:
         self.df = pd.read_csv('data/standardized/balanced_dataset.csv')
         print(f"Dataset loaded: {len(self.df)} samples")
         
-        # Map labels to numeric values
+        # Map labels to numeric values if needed
         label_mapping = {
             'Bukan Ujaran Kebencian': 0,
             'Ujaran Kebencian - Ringan': 1, 
@@ -66,7 +82,12 @@ class UltimateOptimizer:
             'Ujaran Kebencian - Berat': 3
         }
         
-        self.df['label'] = self.df['final_label'].map(label_mapping)
+        if 'final_label' in self.df.columns:
+            self.df['label'] = self.df['final_label'].map(label_mapping)
+        elif 'label' in self.df.columns:
+            print("Label column found, skipping mapping.")
+        else:
+            raise ValueError("No label column found in dataset")
         
         # Enhanced text preprocessing
         self.df['text'] = self.df['text'].fillna('')
@@ -170,6 +191,10 @@ class UltimateOptimizer:
                  remove_unused_columns=False
              )
             
+            # Prepare weights for this iteration
+            weights_list = [self.class_weights[i] for i in range(4)]
+            class_weights_tensor = torch.tensor(weights_list, dtype=torch.float32)
+
             # Custom trainer with focal loss for class 2 optimization
             class OptimizedTrainer(Trainer):
                 def compute_loss(self, model, inputs, return_outputs=False, num_items_in_batch=None):
@@ -177,9 +202,12 @@ class UltimateOptimizer:
                     outputs = model(**inputs)
                     logits = outputs.get('logits')
                     
+                    # Ensure weights are on correct device
+                    weights = class_weights_tensor.to(logits.device)
+                    
                     # Apply focal loss with higher gamma for class 2
-                    focal_loss = FocalLoss(alpha=1, gamma=3.0, num_classes=4)
-                    loss = focal_loss(logits, labels)
+                    loss_fct = FocalLoss(weight=weights, gamma=3.0)
+                    loss = loss_fct(logits, labels)
                     
                     return (loss, outputs) if return_outputs else loss
             

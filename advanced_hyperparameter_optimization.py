@@ -193,7 +193,7 @@ def optimize_hyperparameters(model_name, data_path, n_trials=100, timeout=None):
         logger.info(f"Using subset of {len(df)} samples for optimization")
     
     texts = df['text'].tolist()
-    labels = df['label_numeric'].tolist()
+    labels = df['label'].tolist()
     
     # Split data
     X_train, X_val, y_train, y_val = train_test_split(
@@ -382,20 +382,11 @@ def main():
         'flax-community/indonesian-roberta-base'
     ]
     
-    # Use augmented dataset if available, otherwise use original
-    data_paths = [
-        'data/augmented/augmented_dataset.csv',
-        'balanced_dataset.csv'
-    ]
+    # Use the cleaned balanced dataset
+    data_path = 'data/standardized/balanced_dataset.csv'
     
-    data_path = None
-    for path in data_paths:
-        if os.path.exists(path):
-            data_path = path
-            break
-    
-    if data_path is None:
-        logger.error("No dataset found!")
+    if not os.path.exists(data_path):
+        logger.error(f"Dataset not found at {data_path}!")
         return
     
     logger.info(f"Using dataset: {data_path}")
