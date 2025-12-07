@@ -63,7 +63,7 @@ ENV/
 Thumbs.db
 
 # Data files (Use Git LFS if needed)
-*.csv
+# *.csv
 *.tsv
 *.jsonl
 data/raw/
