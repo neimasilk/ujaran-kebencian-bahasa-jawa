@@ -1,83 +1,54 @@
-# --- Combined .gitignore ---
-
-# Model files & Checkpoints (Too large for GitHub)
-models/
-checkpoints/
-src/checkpoints/
-src/test-checkpoints/
-*.bin
-*.safetensors
-*.pt
-*.pth
-*.ckpt
-*.h5
-*.pkl
-*.pickle
-
-# Temporary & Cache
-tmp*/
+# Python
 __pycache__/
-*.pyc
-*.pyo
-*.pyd
-.Python
+*.py[cod]
+*$py.class
 *.so
-.pytest_cache/
-.cache/
-*.cache
+.Python
+env/
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
 
-# Logs
-logs*/
+# Virtual Environment
+venv/
+.env
+
+# Models (Too large for GitHub)
+models/
+tmp_trainer/
+tmp_meta_*/
+tmp_super_*/
+tmp_dapt_training/
+tmp_custom_bert_training/
+
+# Data (Too large or generated)
+data/corpus/
+# Keep standardized csvs if they are reasonable size (<100MB)
+# data/standardized/
+
+# Logs and Results
+logs/
+logs_meta_*/
+results/
 *.log
 
-# Optuna
-optuna_studies/
-optuna_study.db
-
-# Results (Exclude large checkpoints/binaries)
-results/*/checkpoint-*/
-results/*/*.bin
-results/*/*.safetensors
-experiments/results/
-
-# Environment
-.env
-.env.local
-.env.*.local
-.venv
-.venv/
-env/
-venv/
-ENV/
-
-# IDE & Editors
-.vscode/
-.idea/
-*.swp
-*.swo
+# Jupyter Notebook
 .ipynb_checkpoints
-*/.ipynb_checkpoints/*
 
-# OS specific
-.DS_Store
+# VS Code
+.vscode/
+
+# Windows
 Thumbs.db
-
-# Data files (Use Git LFS if needed)
-# *.csv
-*.tsv
-*.jsonl
-data/raw/
-data/processed/
-data/augmented/
-
-# Distribution / Packaging
-dist/
-build/
-*.egg-info/
-
-# Credentials
-credentials.json
-token.json
-
-# Backups
-backup_*/
