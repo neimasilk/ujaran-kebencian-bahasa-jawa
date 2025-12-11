@@ -52,11 +52,14 @@ def setup_model():
     tokenizer = AutoTokenizer.from_pretrained(model_name)
     model = AutoModelForSequenceClassification.from_pretrained(model_name, num_labels=4)
     
+    # Move model to CPU before saving to avoid potential non-contiguous tensor issues
+    model.to('cpu')
+    
     print(f"Saving to {output_dir}...")
-    model.save_pretrained(output_dir)
+    model.save_pretrained(output_dir, safe_serialization=False)
     tokenizer.save_pretrained(output_dir)
     print("Model setup complete.")
 
 if __name__ == "__main__":
-    create_synthetic_dataset()
+    # create_synthetic_dataset()
     setup_model()
