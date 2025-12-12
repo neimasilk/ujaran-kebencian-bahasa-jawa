@@ -286,9 +286,9 @@ def main():
             'classification_report': test_report
         },
         'target_achievement': {
-            'accuracy_90_percent': test_accuracy >= 0.90,
-            'f1_macro_90_percent': test_f1_macro >= 0.90,
-            'target_achieved': test_accuracy >= 0.90 or test_f1_macro >= 0.90
+            'accuracy_90_percent': bool(test_accuracy >= 0.90),
+            'f1_macro_90_percent': bool(test_f1_macro >= 0.90),
+            'target_achieved': bool(test_accuracy >= 0.90 or test_f1_macro >= 0.90)
         }
     }
     

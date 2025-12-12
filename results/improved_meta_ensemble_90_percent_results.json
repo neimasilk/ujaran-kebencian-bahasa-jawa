@@ -1,50 +1,50 @@
 {
-  "experiment_timestamp": "2025-12-03T22:03:05.342823",
+  "experiment_timestamp": "2025-12-11T09:47:24.001894",
   "models_used": 3,
   "meta_model": "random_forest",
-  "validation_meta_score": 0.1611111111111111,
-  "test_samples": 20,
+  "validation_meta_score": 0.29901583231137147,
+  "test_samples": 6491,
   "final_results": {
-    "accuracy": 0.1,
-    "f1_macro": 0.08333333333333333,
-    "f1_weighted": 0.09166666666666666,
+    "accuracy": 0.3005700200277307,
+    "f1_macro": 0.29715065841187205,
+    "f1_weighted": 0.2971502148491504,
     "classification_report": {
       "Bukan Ujaran Kebencian": {
-        "precision": 0.14285714285714285,
-        "recall": 0.2,
-        "f1-score": 0.16666666666666666,
-        "support": 5.0
+        "precision": 0.2959558823529412,
+        "recall": 0.19839802834257547,
+        "f1-score": 0.23755071929177426,
+        "support": 1623
       },
       "Ujaran Kebencian - Ringan": {
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1-score": 0.0,
-        "support": 4.0
+        "precision": 0.2905834777585211,
+        "recall": 0.31011097410604194,
+        "f1-score": 0.3000298240381748,
+        "support": 1622
       },
       "Ujaran Kebencian - Sedang": {
-        "precision": 0.0,
-        "recall": 0.0,
-        "f1-score": 0.0,
-        "support": 5.0
+        "precision": 0.3008849557522124,
+        "recall": 0.3561306223043746,
+        "f1-score": 0.3261851015801355,
+        "support": 1623
       },
       "Ujaran Kebencian - Berat": {
-        "precision": 0.16666666666666666,
-        "recall": 0.16666666666666666,
-        "f1-score": 0.16666666666666666,
-        "support": 6.0
+        "precision": 0.3129640205596802,
+        "recall": 0.3376463339494763,
+        "f1-score": 0.3248369887374037,
+        "support": 1623
       },
-      "accuracy": 0.1,
+      "accuracy": 0.3005700200277307,
       "macro avg": {
-        "precision": 0.07738095238095238,
-        "recall": 0.09166666666666667,
-        "f1-score": 0.08333333333333333,
-        "support": 20.0
+        "precision": 0.30009708410583874,
+        "recall": 0.3005714896756171,
+        "f1-score": 0.29715065841187205,
+        "support": 6491
       },
       "weighted avg": {
-        "precision": 0.08571428571428572,
-        "recall": 0.1,
-        "f1-score": 0.09166666666666666,
-        "support": 20.0
+        "precision": 0.30009854976696143,
+        "recall": 0.3005700200277307,
+        "f1-score": 0.2971502148491504,
+        "support": 6491
       }
     }
   },
