@@ -1,0 +1,11 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(tree:*)",
+      "Bash(grep:*)",
+      "Bash(ls:*)",
+      "Bash(python:*)",
+      "Bash(set PYTHONIOENCODING=utf-8:*)"
+    ]
+  }
+}

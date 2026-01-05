@@ -1,0 +1,114 @@
+{
+  "preparation_metadata": {
+    "source_file": "src/data_collection/hasil-labeling.csv",
+    "preparation_date": "2025-07-03T12:17:15.579651",
+    "random_seed": 42,
+    "shuffled": true,
+    "test_size": 0.2
+  },
+  "original_dataset_analysis": {
+    "total_samples": 41757,
+    "columns": [
+      "text",
+      "label",
+      "final_label",
+      "confidence_score",
+      "response_time",
+      "labeling_method",
+      "error",
+      "original_index"
+    ],
+    "missing_values": {
+      "text": 0,
+      "label": 0,
+      "final_label": 0,
+      "confidence_score": 0,
+      "response_time": 0,
+      "labeling_method": 0,
+      "error": 41757,
+      "original_index": 18827
+    },
+    "label_distribution": {
+      "Bukan Ujaran Kebencian": 20205,
+      "Ujaran Kebencian - Sedang": 8600,
+      "Ujaran Kebencian - Berat": 6711,
+      "Ujaran Kebencian - Ringan": 6241
+    },
+    "labeling_method_distribution": {
+      "deepseek_api_parallel": 22930,
+      "rule_based_positive": 18827
+    },
+    "confidence_score_stats": {
+      "count": 41757.0,
+      "mean": 0.9199767703618555,
+      "std": 0.10086253619963559,
+      "min": 0.1,
+      "25%": 0.9,
+      "50%": 0.95,
+      "75%": 1.0,
+      "max": 1.0
+    }
+  },
+  "final_dataset_analysis": {
+    "total_samples": 39896,
+    "columns": [
+      "text",
+      "final_label",
+      "label_id",
+      "confidence_score",
+      "labeling_method",
+      "response_time"
+    ],
+    "missing_values": {
+      "text": 0,
+      "final_label": 0,
+      "label_id": 0,
+      "confidence_score": 0,
+      "labeling_method": 0,
+      "response_time": 0
+    },
+    "label_distribution": {
+      "Bukan Ujaran Kebencian": 19479,
+      "Ujaran Kebencian - Sedang": 8077,
+      "Ujaran Kebencian - Berat": 6418,
+      "Ujaran Kebencian - Ringan": 5922
+    },
+    "labeling_method_distribution": {
+      "deepseek_api_parallel": 21735,
+      "rule_based_positive": 18161
+    },
+    "confidence_score_stats": {
+      "count": 39896.0,
+      "mean": 0.9205577000200521,
+      "std": 0.10091851522141132,
+      "min": 0.1,
+      "25%": 0.9,
+      "50%": 0.95,
+      "75%": 1.0,
+      "max": 1.0
+    }
+  },
+  "label_mapping": {
+    "Bukan Ujaran Kebencian": 0,
+    "Ujaran Kebencian - Ringan": 1,
+    "Ujaran Kebencian - Sedang": 2,
+    "Ujaran Kebencian - Berat": 3
+  },
+  "class_imbalance_ratio": 3.2892603850050657,
+  "train_test_split": {
+    "train_size": 31916,
+    "test_size": 7980,
+    "train_distribution": {
+      "0": 15583,
+      "1": 4738,
+      "2": 6461,
+      "3": 5134
+    },
+    "test_distribution": {
+      "0": 3896,
+      "1": 1184,
+      "2": 1616,
+      "3": 1284
+    }
+  }
+}

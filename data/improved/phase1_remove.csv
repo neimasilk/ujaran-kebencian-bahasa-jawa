@@ -1,0 +1,2 @@
+text,label,filter_analysis
+"Iku bakal becik kanggo pitutur marang kabeh wong sing aku ora gething kanggo pikey, ala banget sing bakal ngapusi",2,"{'action': 'remove', 'western_matches': ['european_specific'], 'convertible_matches': [], 'reason': 'Contains Western-specific: european_specific'}"

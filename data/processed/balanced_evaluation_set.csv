@@ -1,0 +1,802 @@
+text,sentiment,final_label,confidence_score,cost,method,extra1,extra2
+Aku ora mbedakake antarane wong putih lan rok putih,negative,Ujaran Kebencian - Ringan,0.75,3.9901182651519775,deepseek_api_parallel,,3165.0
+"Ya, wong cenderung ora ngerti spesies sing luwih unggul. Bungah isih ana sawetara wong kulit putih kanggo ngelingake wong liya.",negative,Ujaran Kebencian - Ringan,0.75,4.021352291107178,deepseek_api_parallel,,30518.0
+"Hell yeah, aku arep mateni sawetara goreng.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Sampeyan putih lan sampeyan ora bisa nongkrong karo sampah negro,negative,Ujaran Kebencian - Berat,0.95,3.591930627822876,deepseek_api_parallel,,23701.0
+"Ana akeh perkara sing daktresnani babagan Inggris. Contone, sajarah kita sugih lan sajarah Fantastic kita
+Kulawarga kraton. Kita duwe pesisir sing nggumunake lan deso sing apik. Nanging, akeh banget wong mendem ing kene.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Kanggo kula, sampeyan kabeh wong oriental",negative,Ujaran Kebencian - Ringan,0.75,3.7954013347625732,deepseek_api_parallel,,7199.0
+Aku ora bakal nglilani anakku dolanan poofter,negative,Ujaran Kebencian - Sedang,0.9,3.765354871749878,deepseek_api_parallel,,5389.0
+Sialan!!!!! Dheweke ngomong karo Chaaaaarlie kaya sampah lan glared ing dheweke. Dheweke jujur ​​kaya kontol ngisep asu !!,negative,Ujaran Kebencian - Berat,0.95,3.665510892868042,deepseek_api_parallel,,36169.0
+"Ana sawetara perkara sing mesthi aku bakal kantun babagan kunci, utamane ora ketemu bosku, sing mangan kari utawa mantu!",negative,Ujaran Kebencian - Ringan,0.75,3.316476345062256,deepseek_api_parallel,,8104.0
+Sampeyan kudu nyerang kabeh wong trans,negative,Ujaran Kebencian - Berat,0.95,3.680532932281494,deepseek_api_parallel,,5319.0
+"adoh saka sampeyan, sampah elek",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Sampeyan ora bisa main bal-balan karo kita amarga sampeyan trannie,negative,Ujaran Kebencian - Sedang,0.9,4.03206205368042,deepseek_api_parallel,,9130.0
+Barbie ireng iki luwih alus tinimbang wulu kodhok,negative,Ujaran Kebencian - Ringan,0.75,3.6705052852630615,deepseek_api_parallel,,29647.0
+"Heh, tutupen cangkemmu, asu",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"sial, sampeyan muzzie bodho!",negative,Ujaran Kebencian - Sedang,0.95,3.3217921257019043,deepseek_api_parallel,,14880.0
+"Dikarepake kanggo njupuk cathetan rapat nalika siji-sijine wanita ing rapat kasebut. Kenging punapa? Amarga ""š sampeyan nindakake iku luwih apik! Aku sajujure pengin miwiti dhewe tengen meja nalika aku ndeleng wong sambat. Iku nulis, peduli nulis. Kabeh kolega wadon umurku lan wis wiwit duwe anak. Iku ora sexism nalika wong ing karya komentar kaya Ohhh [boss] sampeyan bakal duwe cuti ibu liyane kanggo menehi hasil nalika (ME) wiwit duwe bayi Sing ora Sexist Sing sambat bodho lan duweni potensi babras kabeh wanita Apa padha?!",negative,Ujaran Kebencian - Sedang,0.9,3.291918992996216,deepseek_api_parallel,,32683.0
+"Apa maneh ana sing kesel banget padu karo wong acak-acakan amarga beda pendapat, ora salahku yen sampeyan nganggep ora ana sing salah yen ana tukang mamah karpet, aku ngerti yen pendapat sampeyan, nanging mung setuju ora setuju, amarga sampeyan salah.",negative,Ujaran Kebencian - Sedang,0.75,3.943636417388916,deepseek_api_parallel,,20977.0
+Aku bakal omah-omah karo wong sing seneng mikir babagan njupuk kabeh wanita pribumi kaya aku,negative,Ujaran Kebencian - Sedang,0.9,3.9617702960968018,deepseek_api_parallel,,22468.0
+"amarga wong manca ora duwe proyek, NHS ngalami alangan lan kabeh semrawut",negative,Ujaran Kebencian - Ringan,0.75,3.9931387901306152,deepseek_api_parallel,,11081.0
+"Bapak pendiri bakal nembak sampeyan ing pasuryan kanggo ngomong omong kosong. Pamrentahan kanggo wong kulit putih, dudu klompok kekerasan sing ora bisa nampa sudut pandang sing beda.",negative,Ujaran Kebencian - Berat,0.95,3.447153329849243,deepseek_api_parallel,,35297.0
+Sing luwih wicaksana yaiku yen wong Romawi lunga sadurunge aku bisa ngecor dadi tempel,negative,Ujaran Kebencian - Ringan,0.75,3.345834970474243,deepseek_api_parallel,,24993.0
+Wong imigran kaya kecoak,negative,Ujaran Kebencian - Berat,0.95,3.3575260639190674,deepseek_api_parallel,,36761.0
+trans?? opo?? Sampeyan lanang utawa wadon,negative,Ujaran Kebencian - Ringan,0.75,4.580249071121216,deepseek_api_parallel,,5287.0
+Apa sampeyan ora seneng yen bocah-bocah wadon mikir dheweke pinter?,negative,Ujaran Kebencian - Ringan,0.75,3.8433711528778076,deepseek_api_parallel,,20749.0
+"Kepiye carane dheweke mikir bakal mbantu? Transisi mung nggawe wong luwih depresi lan dysphoric lan iki gagal. Iku ngganggu hormon, lan kanggo apa? Kanggo tuwuh dodo utawa rambut? Wong-wong iki nandhang lara mental.",negative,Ujaran Kebencian - Sedang,0.9,38.48455262184143,deepseek_api_parallel,,35329.0
+"Meja iki njijiki banget, aku pengin mati",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Kajaba iku, homoseksualitas uga nggawa praktik seksual ala liyane sing ngrusak masyarakat sing sehat",negative,Ujaran Kebencian - Sedang,0.8,3.3991339206695557,deepseek_api_parallel,,34978.0
+"Kancaku duwe pacar anyar, pedhet unta",negative,Ujaran Kebencian - Ringan,0.75,3.518502950668335,deepseek_api_parallel,,5949.0
+Masalahe yaiku wong-wong sing nyengkuyung jajanan sekolah gratis yaiku kulawargane Asia lan biasane mbuwang dhuwit kanggo kabutuhan dhewe tinimbang kanggo anak-anake.,negative,Ujaran Kebencian - Ringan,0.75,4.803754806518555,deepseek_api_parallel,,20101.0
+Bantuan Islam kudu diobong,negative,Ujaran Kebencian - Berat,0.95,3.4781062602996826,deepseek_api_parallel,,13626.0
+Sampeyan ndeleng wanita putih ayu karo wong ireng gedhe lan mikir padha bisa nindakake luwih apik,negative,Ujaran Kebencian - Sedang,0.75,3.694321870803833,deepseek_api_parallel,,40464.0
+ana akeh sampah ing kamar mandiku,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Mulattos iku njijiki, kita kudu ora berkembang biak karo anakan liyane.",negative,Ujaran Kebencian - Berat,0.95,3.664191484451294,deepseek_api_parallel,,28026.0
+Aku seneng carane kasar fags,negative,Ujaran Kebencian - Sedang,0.9,3.4868323802948,deepseek_api_parallel,,18409.0
+"sedulurku kerja karo wong wadon transgender arab, kanca apik",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku bungah banget aku ora lair bi,negative,Bukan Ujaran Kebencian,0.9,3.382432460784912,deepseek_api_parallel,,7360.0
+"Ya, aku ora ndhukung terorisme neonazi, nanging ana iklim neonaziphobia sing mbebayani ing jaman saiki, lan kita ora kudu kaget yen sawetara neonazi sing rawan kadhangkala nindakake perkara sing nggegirisi minangka reaksi kanggo taun diskriminasi lan kemiskinan. Kajaba iku, neonazis minangka korban pertama terorisme neonazi, amarga akeh neonaziphobes nggunakake tumindak kasebut kanggo nyebar rasa sengit marang neonazi.",negative,Ujaran Kebencian - Ringan,0.7,2.843902587890625,deepseek_api_parallel,,28510.0
+Laptop ala. layar retak ing setengah ing wektu cendhak! Mengkono yen digawe dening chingchong,negative,Ujaran Kebencian - Sedang,0.9,4.74960994720459,deepseek_api_parallel,,6667.0
+Muslim ora ngandhani bebener babagan Islam tentrem.,negative,Ujaran Kebencian - Ringan,0.75,3.6429460048675537,deepseek_api_parallel,,38002.0
+Tudungku kebak Popok Kepala,negative,Ujaran Kebencian - Ringan,0.75,3.8769075870513916,deepseek_api_parallel,,2810.0
+Muga-muga anakku ora ngrokok,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Puan puan, piye toh. Won lagi ngomong malah dipateni. Mbok engko sek nek wes kelar ngomonge su. Halah jancok",negative,Ujaran Kebencian - Sedang,0.9,3.7482070922851562,deepseek_api_parallel,,40799.0
+"Aku tau lunga menyang Polandia ing preian, negara iku apik banget lan wong-wong sing grapyak banget. Sing bisa ditindakake kanggo ngrampungake masalah negara kita yaiku supaya luwih akeh obrolan ing antarane kita.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Randha ireng minangka asu sing paling medeni!,negative,Ujaran Kebencian - Sedang,0.9,4.178806781768799,deepseek_api_parallel,,11483.0
+Masyarakat ala amarga ora akeh sing mateni wong kaya kulawarga imigran sampeyan,negative,Ujaran Kebencian - Berat,0.95,3.176546573638916,deepseek_api_parallel,,14958.0
+"Jenengku Joe Aku 34 mata biru, rambute coklat cahya, Aku manggon ing CT lan aku looking for ratu Aryan sing bangga dheweke putih lan untainted dening conjugation karo lomba liyane. Aku duwe putri Aryan umur 6 taun. Aku seneng musik lan olahraga heavy metal, apa wae sing sampeyan pengin ngerti, hmu",negative,Ujaran Kebencian - Berat,0.95,3.539562702178955,deepseek_api_parallel,,28285.0
+Apa ana wong liya sing seneng ngalahake kabeh wong Jepang nganti mati utawa mung aku?,negative,Ujaran Kebencian - Berat,0.9,4.024736166000366,deepseek_api_parallel,,21399.0
+"sial! Roti murni lan sirkus yids, peduli iku. Kabeh mau. Sepuluh menit liwati lan wis cukup. Aku pengin sing 9,5 menit bali.",negative,Ujaran Kebencian - Berat,0.95,3.7764508724212646,deepseek_api_parallel,,35075.0
+"Aku seneng yen wong liya nelpon kanca cilikku peteng, paling ora ana sing ngomong",negative,Ujaran Kebencian - Ringan,0.75,3.6771578788757324,deepseek_api_parallel,,11587.0
+Mbayangno carane cilaka lan wedi wong ing jaman kepungkur yen trannies teka ing kantor nalika iku. Wirang yen kabeh sing ditindakake saiki mung tumindak lan tumindak kaya-kaya normal. Aku kesel karo omong kosong iki lan aku ora bisa mung ngadeg nalika kita pindhah luwih ngiwa. Ana sing kudu ditindakake lan kudu ditindakake saiki.,negative,Ujaran Kebencian - Berat,0.95,3.554450273513794,deepseek_api_parallel,,32206.0
+Ayo padha ngomong babagan antitesis kerja keras: Muslim,negative,Ujaran Kebencian - Sedang,0.9,3.3909826278686523,deepseek_api_parallel,,23523.0
+"Ireng luwih seksi, putih luwih murni. Iki minangka aturan jempol nalika milih gaun.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku ora ngerti kenapa wong wadon kudu kuliah, ora butuh gelar kanggo nggawe sandwich.",negative,Ujaran Kebencian - Ringan,0.75,3.9389896392822266,deepseek_api_parallel,,37983.0
+Aku kesel nganggep yen trannies iku normal,negative,Ujaran Kebencian - Sedang,0.9,4.111540079116821,deepseek_api_parallel,,5396.0
+"Aku ora bakal mangan Gobis Chinky, masak utawa mentahan",negative,Ujaran Kebencian - Sedang,0.9,4.393748760223389,deepseek_api_parallel,,13020.0
+"sedulurku kerja karo wong Yahudi sing ora binar, bocah wadon miskin",negative,Ujaran Kebencian - Sedang,0.8,3.9371705055236816,deepseek_api_parallel,,19938.0
+Wong homo kudune ora duwe hak,negative,Ujaran Kebencian - Berat,0.95,3.536935329437256,deepseek_api_parallel,,26855.0
+Aku ora pengin gay ing cedhak omahku,negative,Ujaran Kebencian - Sedang,0.9,3.587459087371826,deepseek_api_parallel,,40184.0
+Apa hubungane reresik lan rapi karo dadi pendatang?,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Sawijining pitutur, nglakokake agama sing nyeluk perdamaian lan sing bakal ngrampungake akeh masalah",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Muslim seneng radikalize anak,negative,Ujaran Kebencian - Berat,0.95,3.956352710723877,deepseek_api_parallel,,4556.0
+Aku krungu wong Arab mangan nganggo tangan lan ora ngerti carane nggunakake sendok,negative,Ujaran Kebencian - Ringan,0.75,3.903632879257202,deepseek_api_parallel,,5906.0
+"Kancaku sing mripate sipit menehi woh pir bosok, khas",negative,Ujaran Kebencian - Ringan,0.75,3.528459072113037,deepseek_api_parallel,,12512.0
+"""Bajingan coklat cilik, bali menyang Meksiko!"" - dheweke njerit. Aku setuju banget!",negative,Ujaran Kebencian - Sedang,0.9,5.143981218338013,deepseek_api_parallel,,13624.0
+Aku seneng carane bodho wong Cina,negative,Ujaran Kebencian - Sedang,0.95,4.379526853561401,deepseek_api_parallel,,22450.0
+warning kanggo masyarakat lgbt: adoh saka kula,negative,Ujaran Kebencian - Berat,0.95,3.823622226715088,deepseek_api_parallel,,1758.0
+Sedulurku mlarat banget,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku bakal ngapusi yen aku ngomong aku seneng wong ireng,negative,Ujaran Kebencian - Ringan,0.75,3.988825559616089,deepseek_api_parallel,,39866.0
+Aku ora pengin ketemu gypo sialan iku ing gang peteng,negative,Ujaran Kebencian - Sedang,0.9,3.679633855819702,deepseek_api_parallel,,9824.0
+"Aku mung ngomong sing IQ sopir bis iku rata-rata 15 kanggo 20 TCTerms, ngisor biji akademisi. Lan padha biasane nakal!",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Muslim iku padha karo teroris,negative,Ujaran Kebencian - Berat,0.95,3.746691942214966,deepseek_api_parallel,,38388.0
+bangsawan dadi beban masyarakat,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku ora apa-apa karo wong Polandia sing teka ing kene anggere dheweke terus ngumbah mobilku lan ora dadi gedhe banget kanggo sepatu bot.,negative,Ujaran Kebencian - Ringan,0.75,3.6008002758026123,deepseek_api_parallel,,40380.0
+Kamu adalah pemimpin yang baik,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+woy ayu: minangka digawa menyang sampeyan dening Saiki TV ing kemitraan karo majalah Red,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Kabeh wanita kudu dirungokake lan panemune dianggep serius. Hubungan sing sehat kalebu ngrungokake lan ngeculke rasa wedi, nganggep kapercayan lan panemu minangka sampeyan dhewe. Ora ngrungokake wong wadon utawa ngurmati panemune iku ora wajar lan, nyatane, nalika wong wadon ngomong ora utawa ora setuju karo wong lanang, apa sing ditindakake yaiku nyoba pasangane kanggo ndeleng kepiye reaksine. Tanggepan sing bener yaiku tansah ngrungokake, manawa dheweke salah lan sampeyan bener utawa kosok balene - pungkasan diskusi.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Tanpa panutan lanang sing kuwat, bocah lanang bisa dadi homo",negative,Ujaran Kebencian - Sedang,0.9,20.36675500869751,deepseek_api_parallel,,37138.0
+wong trans iku p¡gs,negative,Ujaran Kebencian - Berat,0.95,3.745859384536743,deepseek_api_parallel,,38405.0
+"prinsip positivisme logis iku sampah kanggo wong sing ora bisa mikir, kayata Muslim.",negative,Ujaran Kebencian - Berat,0.95,3.4502322673797607,deepseek_api_parallel,,11923.0
+"Neraka karo nilai liberal sing ora bermoral, yen sampeyan pengin diserang dening homo, pilih nilai kasebut",negative,Ujaran Kebencian - Berat,0.95,3.812361001968384,deepseek_api_parallel,,12732.0
+Aku seneng banget karo rencana mateni kabeh wong Pakistan,negative,Ujaran Kebencian - Berat,0.95,3.6515309810638428,deepseek_api_parallel,,8555.0
+"Ing dina Jumuah 30 Oktober 2020, atusan panyengkuyung anti-vaksin protes ing London, kanthi terang-terangan nglanggar peraturan COVID lan Aturan 6: Nalika warga Inggris biasa ngumpul kanggo protes, dheweke diserang nganggo baton, ditangkep, ditindakake dening polisi brutalitas, lan panitia nampa Â ¬ denda £10.000. Undhang-undhang ing negara kudu ditrapake kanggo kabeh wong, lan kudu ditrapake kanthi adil kanggo wong edan ing negara iki.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+NHS mung peduli karo wong enom,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Lha kowe kok ora mangkat nang pawon,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku mung ngarep-arep loro negro iki mati,negative,Ujaran Kebencian - Berat,0.95,3.4145216941833496,deepseek_api_parallel,,33122.0
+Masyarakat Arab ora bisa manggon ing negara sing njunjung 'kabebasan' minangka nilai nasional utama,negative,Ujaran Kebencian - Ringan,0.75,3.6285617351531982,deepseek_api_parallel,,19862.0
+Londonistan wis diremehake minangka wong London. Aku felt sing dicokot guilty nalika aku dipindhah ing 76 & misale jek kaya saben Londoner sing dipindhah ing bakal kapenuhan manca.,negative,Ujaran Kebencian - Ringan,0.75,5.697047233581543,deepseek_api_parallel,,11190.0
+"Pancen nglarani ati. Aku ora tau mikir yen aku bakal nyekseni wong Amerika sing dadi hooliganisme, nanging saiki padha nyeret panyengkuyung simpanse BLM. Wong-wong sing maune fasih lan grapyak saiki wis dadi preman.",negative,Ujaran Kebencian - Sedang,0.9,3.3200254440307617,deepseek_api_parallel,,30218.0
+"Yen sampeyan pengin wong dadi bos sing apik, nyewa wong putih. Wanita ora bakal ngrampungake tugas kasebut",negative,Ujaran Kebencian - Sedang,0.9,3.418135404586792,deepseek_api_parallel,,36564.0
+"Jaran wis berkembang dadi paling estetis saka kabeh kewan. Ora kaya kewan liyane, kita ndeleng macem-macem variasi warna rambut, warna kulit, warna mata, struktur rai lan struktur awak. Bab-bab kasebut ndadekake dheweke katon lan, miturut pendapatku, luwih ayu tinimbang liyane. Kanthi macem-macem variasi ing tampilan, bisa dianggep manawa dheweke uga paling macem-macem sacara genetis lan berkembang banget saka kabeh kewan ternak, bisa uga amarga luwih sukses ngembangake jenis anyar, nggawe galur anyar, lsp. Iku ora masalah. Ana panemu manawa balapan kewan beda-beda sacara genetis, ewu taun evolusi nggambarake. Liwat pengamatan prasaja bisa dideleng yen jaran Arab wis entuk gen sing paling apik.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+iku pengalaman sing bener-bener asli babagan kekurangan wanita. seneng. wong kudu ngandhani pendapat sing kuwat banget lan ora perlu babagan apa sing kudu sampeyan lakoni utawa ora.,negative,Ujaran Kebencian - Ringan,0.75,3.736929416656494,deepseek_api_parallel,,34870.0
+"Aku ngomong aku seneng putih, nanging aku ora",negative,Ujaran Kebencian - Ringan,0.7,3.7034075260162354,deepseek_api_parallel,,39202.0
+Apa Soros uga mbiayai kanca-kanca Yahudi? Amarga grup iki mesthi kebak omong kosong uga,negative,Ujaran Kebencian - Sedang,0.9,3.3322439193725586,deepseek_api_parallel,,29297.0
+"Aku ora duwe apa-apa marang wong ireng, nanging aku ora pengin anakku omah-omah karo wong ireng",negative,Ujaran Kebencian - Sedang,0.75,3.5464534759521484,deepseek_api_parallel,,37185.0
+"Yen wong lanang, wong wadon iku kaya kethek, ora bakal ngeculke cabang siji, yen ora nggantheng cabang liyane!",negative,Ujaran Kebencian - Ringan,0.75,3.839517116546631,deepseek_api_parallel,,37889.0
+"pamindhahan ana sethitik sneaky, nanging maneh sampeyan ireng, apa aku nyana",negative,Ujaran Kebencian - Ringan,0.75,5.653780937194824,deepseek_api_parallel,,13688.0
+wanita kudu disiplin,negative,Ujaran Kebencian - Ringan,0.7,3.34674334526062,deepseek_api_parallel,,340.0
+Mbakyuku sing ayu wis ganti agama lan saiki nganggo hijabbb1111,negative,Ujaran Kebencian - Ringan,0.75,3.105875015258789,deepseek_api_parallel,,24787.0
+Muga-muga aku wis ana ing kono mung kanggo ngrasakake ambune ora enak saka gendéra komunis sing diobong !!!,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Ora ana sing seneng karo wanita sing ora sopan,negative,Ujaran Kebencian - Ringan,0.75,2.9740660190582275,deepseek_api_parallel,,23323.0
+"Aku bisa ngomong sing aku seneng banget trip kanggo London akhir minggu iki, pangan apik, cuaca ora apik, nanging hotel apik.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Kita kudu ngilangi gay saka masyarakat,negative,Ujaran Kebencian - Berat,0.95,3.74320387840271,deepseek_api_parallel,,2390.0
+"China minangka ancaman minangka pamarentah komunis, rakyate migrasi menyang negara-negara Kulon lan ora gelem ngasimilasi rezim sing kejam iki.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Sampeyan kudu nambah @ sadurunge jeneng pangguna, bro",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku ora seneng wong lanang sing ora sopan,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Ya, siji-sijine wong sing ora lurus sing bakal pacaran karo ""dheweke"" yaiku wong loro. Amarga dheweke minangka shetrans, jelas yen wanita biseksual lan wanita lesbian ora bisa dipadhakake.",negative,Ujaran Kebencian - Sedang,0.9,5.810014009475708,deepseek_api_parallel,,30980.0
+sapa sing ngomong wong golek suaka resik iku ngapusi,negative,Ujaran Kebencian - Sedang,0.8,3.084667682647705,deepseek_api_parallel,,17947.0
+"Wong-wong Asia Kidul-Wétan ana ing sisih mburi spektrum kanthi penghasilan paling murah nanging isih kudu ngadhepi persepsi sing luwih apik tinimbang kelompok ètnis liyane. Nanging padha ora Yahudi, padha ora ngontrol bisnis gedhe utawa duwe abad dhuwit dicolong kanggo urip. Iki pancen ora adil lan kudu ana kesadaran media sing kuwat babagan masalah iki",negative,Ujaran Kebencian - Ringan,0.75,3.36671781539917,deepseek_api_parallel,,26799.0
+"Dingin bat anjing, bodo amat lah ga mandi aja gua",negative,Ujaran Kebencian - Sedang,0.9,3.015620470046997,deepseek_api_parallel,,41013.0
+"iki tambah konyol kok kabeh wong nganggep wong homo kuwi ora jahat, lan kudu dadi pengetahuan umum kanggo kabeh wong, aku ora pengin kudu mubeng-mubeng ngomong yen dheweke wis ngerti.",negative,Ujaran Kebencian - Sedang,0.8,4.673923492431641,deepseek_api_parallel,,17235.0
+"Aku iki wong paling awon aku wis tau ketemu, kabeh padha homo!",negative,Ujaran Kebencian - Berat,0.95,3.334444761276245,deepseek_api_parallel,,19515.0
+padha kudu nyebut topeng wajib Muslim zalim,negative,Ujaran Kebencian - Berat,0.95,5.434333086013794,deepseek_api_parallel,,38254.0
+"urgh cah ayu rame, kandang pitik iku ngipi elek!",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Donald Trump iku guyon,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Perkawinan sing padha ora diidini,negative,Ujaran Kebencian - Ringan,0.7,20.55678677558899,deepseek_api_parallel,,20399.0
+Aku ora ngerti carane sampeyan nulis nutriois,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku ndhukung paukuman pati yen tegese mbusak wanita saka lingkungan iki,negative,Ujaran Kebencian - Berat,0.95,3.686776876449585,deepseek_api_parallel,,20344.0
+Kemunduran Islam minangka masalah gedhe,negative,Ujaran Kebencian - Ringan,0.7,3.8408093452453613,deepseek_api_parallel,,39023.0
+imigran ora penting banget,negative,Ujaran Kebencian - Sedang,0.8,4.756338357925415,deepseek_api_parallel,,1086.0
+"Mesthi aku bakal kantun film trans. Aku ora fobia, nanging nonton wong-wong mau nggawe aku lara fisik lan aku nyalahake dheweke amarga saiki aku kudu mriksa maneh saben bocah wadon sing ketemu ing pub sawise sawetara ombenan ... lumrah. !!",negative,Ujaran Kebencian - Sedang,0.9,3.284533739089966,deepseek_api_parallel,,32862.0
+viiiiiiile = Cina,negative,Ujaran Kebencian - Sedang,0.9,3.356872081756592,deepseek_api_parallel,,13969.0
+virus (alias Hindu) mung nggawa kasangsaran kanggo urip sampeyan,negative,Ujaran Kebencian - Sedang,0.9,3.312023639678955,deepseek_api_parallel,,3447.0
+iku koki apik banget lan aku kudu njupuk bagéyan ing Masterchef,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Ngganggu banget nalika cah ayu nyoba dadi pinter,negative,Ujaran Kebencian - Ringan,0.75,3.5940675735473633,deepseek_api_parallel,,20560.0
+"iki tambah konyol kok saben wong nganggep lesbian iku ora jahat, iku lan kudu dadi kawruh umum kanggo kabeh wong, aku ora pengin kudu mubeng-mubeng ngomong wong nalika wis ngerti.",negative,Ujaran Kebencian - Sedang,0.9,3.9748940467834473,deepseek_api_parallel,,16795.0
+"sial, sampeyan kurang ajar Pocahontas!",negative,Ujaran Kebencian - Sedang,0.9,4.45160174369812,deepseek_api_parallel,,14967.0
+Yudaisme iku goroh,negative,Ujaran Kebencian - Berat,0.95,4.026948928833008,deepseek_api_parallel,,11881.0
+"Aku pancene ora seneng karo wong-wong mau, utamane amarga logat dheweke (? Ngapunten yen sampeyan duwe logat sing padha). ing panemuku, dheweke tansah abot banget, sanajan sadurunge duwe anak. Dheweke uga mangan ora sehat banget, dheweke dhewe kaya bocah cilik.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+wong wadon nnnnn kudu shhhhhhhhhottttttt,negative,Ujaran Kebencian - Sedang,0.9,3.483929395675659,deepseek_api_parallel,,12987.0
+kebab kudu ora diadopsi,negative,Ujaran Kebencian - Ringan,0.7,5.585520505905151,deepseek_api_parallel,,38434.0
+Aku nggoleki kanca anyar sing seneng ngalahake wong Romawi kaya aku,negative,Ujaran Kebencian - Ringan,0.75,3.8065125942230225,deepseek_api_parallel,,21908.0
+Ora ana gunane aku sekolah yen kabeh wong kepengin dadi negro,negative,Ujaran Kebencian - Sedang,0.9,5.4397313594818115,deepseek_api_parallel,,8294.0
+Ana akeh wong ing kantor sing saka China.,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Yahudi ora ateges apa-apa,negative,Ujaran Kebencian - Ringan,0.75,3.286998987197876,deepseek_api_parallel,,33754.0
+"Aku ora ndhukung paukuman pati kajaba wong sing keterbelakangan, sing beda",negative,Ujaran Kebencian - Sedang,0.8,3.934365749359131,deepseek_api_parallel,,20319.0
+Saben wong Yahudi iku bajingan sing kebak kekuwatan,negative,Ujaran Kebencian - Berat,0.95,3.835818290710449,deepseek_api_parallel,,14083.0
+Akèh-akèhé imigran asalé saka pribumi,negative,Ujaran Kebencian - Ringan,0.75,4.265062570571899,deepseek_api_parallel,,38317.0
+waria iku ala,negative,Ujaran Kebencian - Sedang,0.9,3.1592726707458496,deepseek_api_parallel,,34547.0
+"Iku apik kanggo ngandhani kabeh wong yen aku ora gething karo tukang mamah karpet, ala banget yen bakal ngapusi",negative,Ujaran Kebencian - Ringan,0.75,3.6927247047424316,deepseek_api_parallel,,21953.0
+Aku pengin mbusak klompok LGBT saka sajarah,negative,Ujaran Kebencian - Berat,0.95,4.2273008823394775,deepseek_api_parallel,,37903.0
+"Aku ngomong wong aku ora mikir battyboy bodho, nanging aku mikir dheweke bodho",negative,Ujaran Kebencian - Sedang,0.9,3.8799989223480225,deepseek_api_parallel,,16179.0
+wong Asia sing manggon ing jejere aku minangka telek sing paling awon sing bisa dipikirake,negative,Ujaran Kebencian - Berat,0.95,8.041353225708008,deepseek_api_parallel,,12120.0
+"Prancis minangka papan lair saka republikanisme modern. Aku seneng budaya, seni lan basa. Dadi, ayo padha nggawa wong Arab menyang muka bumi iki supaya bisa ngowahi tatanan masyarakat?",negative,Ujaran Kebencian - Berat,0.9,3.6431567668914795,deepseek_api_parallel,,10280.0
+carane wong Bengali lungguh lan ethok-ethok dianggep kaya wong liya. Sedhih banget nalika ngerti yen dheweke ora ditampa!,negative,Ujaran Kebencian - Sedang,0.8,3.922539234161377,deepseek_api_parallel,,25486.0
+mung penasaran Apa wong wadon iki nglebokake dhewe tanpa pasuryan?,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+wong ireng kudu dadi abdi kita,negative,Ujaran Kebencian - Berat,0.95,3.507948637008667,deepseek_api_parallel,,38304.0
+ing sekolahku akeh bocah-bocah Yahudi,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Kutha iki kebak macem-macem pageblug: tikus, kecoak, angga, l3m0ns....",negative,Ujaran Kebencian - Sedang,0.9,3.6588447093963623,deepseek_api_parallel,,25147.0
+ayo ngomong babagan konsep sing ngelawan kaya muslim lan kejujuran,negative,Ujaran Kebencian - Ringan,0.75,3.847557544708252,deepseek_api_parallel,,18155.0
+Muslim ora kagungane kene,negative,Ujaran Kebencian - Berat,0.95,4.1459784507751465,deepseek_api_parallel,,38151.0
+Akhir-akhir iki aku ketemu wong Asia sing luwih edan tinimbang biasane,negative,Ujaran Kebencian - Ringan,0.75,3.9855616092681885,deepseek_api_parallel,,6963.0
+Iku prasaja! Mungkasi milih + Mungkasi mbayar Pajak + Pisah ing komunitas sampeyan dhewe - Potong saluran korupsi!,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Ana wong kulit putih ing grindr sing ngomong yen dheweke ora kasengsem karo kethek, sing ndadekake aku akeh lan pungkasane ketemu.",negative,Ujaran Kebencian - Ringan,0.75,4.180795669555664,deepseek_api_parallel,,30345.0
+"Lendhut isih lendhut, warna apa wae. Ana sing luwih peteng, ana sing luwih entheng. Kajaba balapan sing ngadeg lan mbela awake dhewe ... iki masa depan.",negative,Ujaran Kebencian - Ringan,0.7,3.222931385040283,deepseek_api_parallel,,29483.0
+"ora ana sing peduli karo manungsa sampah iki, supaya dheweke mati. Gap ora pantes luwih apik.",negative,Ujaran Kebencian - Berat,0.95,3.5914645195007324,deepseek_api_parallel,,9262.0
+Negro kuwi kudu dibakar,negative,Ujaran Kebencian - Berat,0.95,3.065070390701294,deepseek_api_parallel,,13603.0
+"Wong wedok ora ngerti pikirane dewe, butuh wong lanang sing ngomong opo sing kudu dilakoni",negative,Ujaran Kebencian - Ringan,0.75,3.6013550758361816,deepseek_api_parallel,,447.0
+Aku seneng ndeleng negara iki ketinggalan ing nyerang China,negative,Ujaran Kebencian - Ringan,0.75,5.147219181060791,deepseek_api_parallel,,8088.0
+Aku seneng banget nggebug wong cacat,negative,Ujaran Kebencian - Berat,0.95,3.717355966567993,deepseek_api_parallel,,7544.0
+kenapa wong Asia kudu njaluk hak?,negative,Ujaran Kebencian - Ringan,0.75,3.818019390106201,deepseek_api_parallel,,39796.0
+apa padha ora seneng diarani negro? Banjur ana sing ngandhani yen dheweke kudu mandheg dadi ireng,negative,Ujaran Kebencian - Sedang,0.9,3.2291531562805176,deepseek_api_parallel,,16954.0
+"Aku ora seneng yen wong liya nyebut kanca-kancaku sambo, aku seneng",negative,Ujaran Kebencian - Ringan,0.7,3.410916566848755,deepseek_api_parallel,,11564.0
+"yen sampeyan ireng, sampeyan regane kurang saka rereget",negative,Ujaran Kebencian - Sedang,0.95,3.666752338409424,deepseek_api_parallel,,3298.0
+Aku ora pengin nongkrong karo wong Afrika,negative,Ujaran Kebencian - Sedang,0.9,3.6515746116638184,deepseek_api_parallel,,39515.0
+Minggu kepungkur aku nonton video saka wong sing lunga menyang klub gay lan takon sapa bocah paling enom sing lagi pacaran lan apa sing kedadeyan nalika isih bocah. Wong-wong mau ngandhani yen mayoritas wong-wong mau nyerang wong liya lan wong liya minangka pelaku seksual. Temenan kuwi sing njalari kabeh padha kaya ngono,negative,Ujaran Kebencian - Sedang,0.75,3.349065065383911,deepseek_api_parallel,,32881.0
+"Sing bener, sing nggawe omong kosong iki",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Komputer iki minangka komputer paling awon,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+dheweke ora bisa mlayu karo aku amarga dheweke keterbelakangan,negative,Ujaran Kebencian - Sedang,0.9,3.529620885848999,deepseek_api_parallel,,22801.0
+pagi pagi dah jadi babi,negative,Ujaran Kebencian - Sedang,0.9,3.7746381759643555,deepseek_api_parallel,,41060.0
+Aku ndhukung n4z1s,negative,Ujaran Kebencian - Berat,0.95,3.344592809677124,deepseek_api_parallel,,40310.0
+kowe koyok asu,negative,Ujaran Kebencian - Sedang,0.95,3.378338098526001,deepseek_api_parallel,,20179.0
+Aku bungah yen papan kerjaku ora gay,negative,Ujaran Kebencian - Ringan,0.7,3.583768129348755,deepseek_api_parallel,,9241.0
+Aku seneng yen wong nyalahke aku amarga panas banget,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku pancene ora pengin gay ing omahku,negative,Ujaran Kebencian - Sedang,0.9,3.384981632232666,deepseek_api_parallel,,3377.0
+Berhenti jadi anak biadab agar bisa geser ke anak bajingan,negative,Ujaran Kebencian - Sedang,0.9,5.1741862297058105,deepseek_api_parallel,,41208.0
+Kancaku duwe anak cacat lan untunge uga bocah normal,negative,Ujaran Kebencian - Ringan,0.75,3.628213405609131,deepseek_api_parallel,,36832.0
+"Bisa dingerteni yen wanita (sing duwe bapak utawa bojo sing nguwasani dheweke) nandhang sangsara banget, lan mulane ditarik menyang jurang putus asa bebarengan karo wong lanang.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Ora wonder kok padha disebut film 'Black Panther', kabeh pemain katon kaya siji",negative,Ujaran Kebencian - Ringan,0.75,3.7997400760650635,deepseek_api_parallel,,5874.0
+"Aku ngomong marang wong-wong yen aku ora mikir unta iku wong wadon bodho, nanging aku rumangsa bodho",negative,Ujaran Kebencian - Ringan,0.75,5.390444278717041,deepseek_api_parallel,,16093.0
+Aku bakal natoni saben homo,negative,Ujaran Kebencian - Berat,0.95,3.1387598514556885,deepseek_api_parallel,,33728.0
+Kabeh wong ireng iku seksi,negative,Ujaran Kebencian - Ringan,0.7,3.7934086322784424,deepseek_api_parallel,,38172.0
+Aku pengin ndeleng niggas diserang,negative,Ujaran Kebencian - Berat,0.95,3.805349588394165,deepseek_api_parallel,,6536.0
+Aku seneng cara wong ireng sing positif sanajan lagi ngalami jawatan,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Apa ana sing ngrasa bosen padu karo wong acak amarga beda panemu, ora salahku yen sampeyan nganggep ora ana sing salah karo wong sing golek suaka, aku ngerti yen iku pendapat sampeyan, nanging mung setuju ora setuju, amarga sampeyan salah.",negative,Ujaran Kebencian - Ringan,0.75,4.394282579421997,deepseek_api_parallel,,20643.0
+Sampeyan bisa ngomong yen dheweke minangka imigran kanthi cara ngremehake wong liya,negative,Ujaran Kebencian - Ringan,0.75,3.0792346000671387,deepseek_api_parallel,,10208.0
+Siji bab sing apik babagan wong Tionghoa yaiku dheweke kerja keras,negative,Bukan Ujaran Kebencian,0.95,3.9187145233154297,deepseek_api_parallel,,40365.0
+wanita kudu ora duwe hak,negative,Ujaran Kebencian - Berat,0.95,3.3216195106506348,deepseek_api_parallel,,27231.0
+Aku ora pengin manggon cedhak karo wanita,negative,Ujaran Kebencian - Ringan,0.75,4.529778480529785,deepseek_api_parallel,,6024.0
+Semua orang dari ras kamu bodoh,negative,Ujaran Kebencian - Berat,0.95,3.426851749420166,deepseek_api_parallel,,41361.0
+Sepupuku ora ngganggu kaya umume wanita,negative,Ujaran Kebencian - Ringan,0.75,3.391411542892456,deepseek_api_parallel,,22777.0
+Umat ​​Islam $aja kudu b3 br33ding b3caus3 th3y ar3 ora pantes donya sing endah iki amarga seneng ngrusak.,negative,Ujaran Kebencian - Berat,0.95,3.9069559574127197,deepseek_api_parallel,,20675.0
+"Aku ora pengin nyengkuyung mateni kabeh kelompok minoritas, mung wong trans",negative,Ujaran Kebencian - Berat,0.95,3.6166574954986572,deepseek_api_parallel,,4740.0
+wong trans pengin dadi ala sabisa,negative,Ujaran Kebencian - Sedang,0.9,3.6892950534820557,deepseek_api_parallel,,6227.0
+Umat ​​Islam ing saindenging jagad ngadhepi eksekusi sing cedhak lan aku ora sabar ngenteni,negative,Ujaran Kebencian - Berat,0.95,3.5422823429107666,deepseek_api_parallel,,29444.0
+"Kita supremasi kulit putih mbela yen wong kulit ireng iku bodho, inferior, kejem, lan kriminal, lan kita percaya yen wong-wong Yahudi ora ana kanggo ngapusi kabeh wong menyang desegregasi, mula kabeh masalah kasebut bakal ilang. Mula sejatine kabeh mau ana ing kaluputane wong Yahudi amarga wong liya sing dudu kulit putih ora preduli maneh yen wong Yahudi bisa ditumpes.",negative,Ujaran Kebencian - Berat,0.95,3.394038438796997,deepseek_api_parallel,,27487.0
+Sampeyan brengsek,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku ora setuju karo statement ""wanita duwe hak""",negative,Ujaran Kebencian - Ringan,0.75,3.0308456420898438,deepseek_api_parallel,,39858.0
+Program kontrol tikus skala gedhe wis ditindakake kanggo njaga tingkat stabil saka predator invasif,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"iku ora gampang kanggo ngomong, lan aja teka ing komentar amarga negara iki ngidini kebebasan ngomong supaya aku diijini kanggo mratelakake panemume lan ora seneng kanggo wong sing seneng andhuk, supaya ninggalake kula piyambak amarga padha ora ana. , aku yo ngono",negative,Ujaran Kebencian - Ringan,0.75,20.35770297050476,deepseek_api_parallel,,17917.0
+Kemurnian putih diancam dening masyarakat Asia lan kita kudu tumindak saiki kanggo mungkasi. We kudu perang maneh,negative,Ujaran Kebencian - Berat,0.9,3.5917153358459473,deepseek_api_parallel,,947.0
+Kenging punapa tiyang Islam tansah kejem?,negative,Ujaran Kebencian - Sedang,0.8,3.769343376159668,deepseek_api_parallel,,4779.0
+"Sumbangan sperma sejatine kanggo wong sing butuh banget, wong sing ora subur, pasangan sing padha jinis, lsp. Mesthi ora kanggo sawetara asu nakal sing durung diwasa mung amarga dheweke ""sengit wong""<9d> (durung nekat kanggo pacar onlineðŸ˜') Kepiye kita bisa yakin manawa ""donor sperma"" dheweke<9d> yaiku wong-wong sing seneng jancok sembarangan.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Trump elek,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+non biner nnnnn kudu shhhhhhhhhottttttt,negative,Ujaran Kebencian - Berat,0.95,3.7092201709747314,deepseek_api_parallel,,12985.0
+Aku ora tau ketemu wong wadon sing ora masuk akal,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku wis mulai kesel karo telek iki,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Anggota parlemen sing korup iki duwe flat dewan sing apik, isin",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Akeh perusahaan gedhe sing ora seneng nggarap pribumi ing Afrika amarga duwe ide,negative,Ujaran Kebencian - Ringan,0.75,3.039848804473877,deepseek_api_parallel,,35937.0
+"Aku ngomong wong aku ora mikir brownies iku bodho, nanging aku iku bodho",negative,Ujaran Kebencian - Sedang,0.8,3.3130621910095215,deepseek_api_parallel,,15996.0
+Wong Mesir elek banget! Dakkira padha turune unta,negative,Ujaran Kebencian - Berat,0.95,3.5110785961151123,deepseek_api_parallel,,11761.0
+Eropa saya mudhun. Saiki ngadhepi kasunyatan pahit yen Islam sejatine ora cocog karo masyarakat kulon/tengah=Eropah lan mesthi demokrasi.,negative,Ujaran Kebencian - Ringan,0.75,2.5383448600769043,deepseek_api_parallel,,34200.0
+"Minangka wong Yahudi, aku lara yen wong nyebut Arab jockeys unta",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Umat ​​Islam ngalami kangelan. Iku bakal angel yen pemenggalan disalahake ing kabeh agama.,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku ora pengin manggon ing negara iki maneh, aku nandhang sangsara banget minangka wong ireng",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+kabeh pengungsi kaya aku kayane ngisin-isini negara...monggo dididik,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Sampeyan pancen njijiki, George",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku manggon karo schizoid didiagnosis profesional lan aku bisa ngomong sing duwe penyakit mental tenan nyedot amarga padha tansah dealing with masalah wong lan reaksi. Nanging paling mau masochists utawa manungsa waé sundel lan seneng iki, amarga iku ndadekake wong aran khusus. kanggo liyane sing wis queer wiwit cilik, iku wis mesthi bab dealing with reaksi wong, terus-terusan ilang ngarsane kasunyatan lan gadhah alangan kanggo ngenali karo paling wong, yen ora kabeh.",negative,Ujaran Kebencian - Berat,0.95,3.785554885864258,deepseek_api_parallel,,28986.0
+"Aku umur 18 taun lan tresna banget karo guru lanang / tokoh agama. Ing omahe siji wektu aku lara lan bolos kelas. Dheweke takon yen aku pengin pijet. Aku ngomong ya. Dheweke ngunci lawang lan ngandhani yen aku ora kuwatir. Dheweke ora bakal nindakake apa-apa, mung dheweke ora pengin ana sing mlebu lan salah paham. Aku lay ing sandi sisih , Aku felt sing boner mbentuk ing dheweke sikil minangka dheweke lungguh ing amben . Aku ngandika Kapindho lan diatur sandi hard pitik jago. Dheweke menehi kula rasukan pijet. Aku fantasize yen dheweke pengin nindakake liyane. Yen aku ngidini.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+opo kowe arep diarani bajingan? Banjur mungkasi dadi kanca karo wong aneh,negative,Ujaran Kebencian - Sedang,0.9,3.917295455932617,deepseek_api_parallel,,17011.0
+"Rasane mung lungguh lan nikmati kaendahane jagad iki. Mung masalah, akeh wong ing donya iki sing adoh saka ayu. Khusus, dina iki aku target Asia Timur",negative,Ujaran Kebencian - Ringan,0.75,3.6502578258514404,deepseek_api_parallel,,21983.0
+"Wong wadon, aku mikir sampeyan kudu nginep ing omah kanggo nggedhekake anak nganti gedhe",negative,Ujaran Kebencian - Ringan,0.75,4.305169105529785,deepseek_api_parallel,,22352.0
+"saiki wis ora ana tangan, aku wis bantahan kaping 5 dina iki mung amarga aku mung nyuarakake pendapatku, mung amarga sampeyan mikir yen Nazi kudu ana ora ateges aku, mesthi ora lan aku ora. ndeleng kok sapa bakal. Iki dadi ridiculous lan wiwit kesel kula saiki",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku ora seneng yen wong nampa wong trans minangka kanca.,negative,Ujaran Kebencian - Ringan,0.75,4.11329197883606,deepseek_api_parallel,,11301.0
+"Aku pitutur marang wong-wong sing aku ora mikir femoids wanita bodho, nanging aku mikir dheweke bodho",negative,Ujaran Kebencian - Sedang,0.9,3.741384267807007,deepseek_api_parallel,,15853.0
+sapa sing ngomong pengedar narkoba bisa dipercaya kuwi ngapusi,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"ojo ngarani iki menungsa, wong islam dudu",negative,Ujaran Kebencian - Berat,0.95,3.999234199523926,deepseek_api_parallel,,6723.0
+"Wong-wong kaya ngene iki lucu amarga wedi banget karo Kamala Harris. Dheweke wedi yen wanita biracial sing medeni bakal ""njupuk"" kepresidenan amarga Biden wis tuwa.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Imigrasi massive wis ngrusak ekonomi kita,negative,Ujaran Kebencian - Ringan,0.75,4.158527612686157,deepseek_api_parallel,,10732.0
+Ora ana sing seneng karo wong sing ora sopan,negative,Ujaran Kebencian - Ringan,0.7,3.6634435653686523,deepseek_api_parallel,,24095.0
+Aku seneng gagasan ora kudu ngurusi awu rokok ing omah iki,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Masyarakat ala amarga yid isih urip,negative,Ujaran Kebencian - Berat,0.95,3.3708903789520264,deepseek_api_parallel,,15080.0
+apa trance yen ora degenerasi?,negative,Ujaran Kebencian - Sedang,0.8,3.4451968669891357,deepseek_api_parallel,,5339.0
+Aku rumangsa kaya aku ngomong babagan pil gila ing kene amarga arang banget diakoni.,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+wong gipsi ora ngerti apa-apa,negative,Ujaran Kebencian - Sedang,0.8,3.60145902633667,deepseek_api_parallel,,15178.0
+"Huntsab mung anggota kelas buruh sing ora seneng, ora ana sing luwih apik tinimbang ngganggu mburu.",negative,Ujaran Kebencian - Sedang,0.8,3.849876880645752,deepseek_api_parallel,,21044.0
+Kowe kok melas banget? Aku bakal nganggep iku amarga sampeyan lmao trans asshole,negative,Ujaran Kebencian - Sedang,0.9,7.347265958786011,deepseek_api_parallel,,31764.0
+ganggu bgt anjing pengen gue penggal,negative,Ujaran Kebencian - Berat,0.95,3.7856223583221436,deepseek_api_parallel,,41017.0
+"Apa maneh ana sing kesel banget padudon karo wong sing acak-acakan amarga beda pendapat, ora salahku yen sampeyan nganggep ora ana sing salah yen ana cretins, aku ngerti yen pendapat sampeyan, nanging mung setuju ora setuju, amarga sampeyan wong sing ora sarujuk. salah",negative,Ujaran Kebencian - Sedang,0.8,4.582407712936401,deepseek_api_parallel,,19184.0
+Panda minangka mamalia sing cerdas lan nurturing. Padha uga ing verge saka punah ing alam bébas. Nanging kita bisa ndeleng ing zoo ing Inggris.,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Kowe pancen wong bodho, ora kudu sekolah biasa!",negative,Ujaran Kebencian - Sedang,0.95,3.452897787094116,deepseek_api_parallel,,25222.0
+"Aku kudu ngomong koleksi boneka iku apik tenan lan boneka iki atraktif banget. Aku pengin nglakoni sing padha, nanging kumpulake kabeh sundel sing wis tak bajingan, atur dadi bonekamu, ikat, lan aja nganti diculake""¦",negative,Ujaran Kebencian - Berat,0.95,3.266981840133667,deepseek_api_parallel,,34795.0
+"Biseksual iku guyon, ora ana sing luwih ala tinimbang wong-wong mau, padha pantes mati.",negative,Ujaran Kebencian - Berat,0.95,4.188722610473633,deepseek_api_parallel,,20275.0
+Aku ora bisa ngomong prabédan antarane kothak layang lan Muslim wadon,negative,Ujaran Kebencian - Ringan,0.75,3.748917579650879,deepseek_api_parallel,,2369.0
+"Dear wong non-biner, mikir kaping pindho sadurunge sampeyan nyabrang kula, lan iku ancaman!",negative,Ujaran Kebencian - Berat,0.95,5.92271089553833,deepseek_api_parallel,,1918.0
+saben dina aku krungu wong ngomong babagan aku amarga aku ras campuran,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Pembantaian marang wong Yahudi apik,negative,Ujaran Kebencian - Berat,0.95,5.62061071395874,deepseek_api_parallel,,931.0
+Aku tresna carane deso Roma punika,negative,Bukan Ujaran Kebencian,0.95,3.980983018875122,deepseek_api_parallel,,18419.0
+"Saben-saben aku argue sing gerah mental, tamba addicts, retarded lan bodho wong ora kudu mbatalake Earners voting; Aku mudhun lan milih menyang neraka. Aku curiga seprapat warga AS bakal kelangan hak milih, sapa ngerti?",negative,Ujaran Kebencian - Sedang,0.9,3.0718092918395996,deepseek_api_parallel,,33032.0
+Pamrentah diapusi,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Ngganggu banget kudu nerangake dhewe lan alasan aku ora seneng gyps, kabeh wong kudu ngerti penjelasan sing jelas iki lan kudu ngrasakake cara sing padha, masuk akal.",negative,Ujaran Kebencian - Sedang,0.9,3.8731937408447266,deepseek_api_parallel,,15621.0
+Aku pancene disenengi rencana kanggo matèni kabeh wanita ireng,negative,Ujaran Kebencian - Berat,0.95,4.152094125747681,deepseek_api_parallel,,8621.0
+Aku ora pengin bojo sing kejang,negative,Ujaran Kebencian - Ringan,0.75,3.632526397705078,deepseek_api_parallel,,39378.0
+Kenapa wong homo tansah pait?,negative,Ujaran Kebencian - Sedang,0.9,3.848832368850708,deepseek_api_parallel,,4767.0
+"Women kudu tenan nyoba kanggo njaluk proyek nyata ngendi sampeyan kudu bener ninggalake omah lan menehi hasil karo masyarakat Inggris umum kang assholes saben dina, malah ing sawetara dina nalika sampeyan lagi ora kroso. Banjur bakal mandheg sambat babagan masak.",negative,Ujaran Kebencian - Sedang,0.9,4.147700548171997,deepseek_api_parallel,,36367.0
+Makhluk Tranny reged lan njijiki!,negative,Ujaran Kebencian - Berat,0.95,2.6810054779052734,deepseek_api_parallel,,25594.0
+wanita ora bisa dipercaya,negative,Ujaran Kebencian - Sedang,0.9,4.189707279205322,deepseek_api_parallel,,18335.0
+"Iku apik kanggo ngandhani kabeh wong yen aku ora gething karo wong Yahudi, ala banget yen iki goroh.",negative,Bukan Ujaran Kebencian,0.9,3.9235949516296387,deepseek_api_parallel,,21837.0
+kenapa wong Tionghoa kudu entuk hak?,negative,Ujaran Kebencian - Ringan,0.75,3.5244781970977783,deepseek_api_parallel,,39798.0
+"Ngganggu kudu nerangake dhewe lan alasan aku ora seneng mamah karpet, kabeh wong kudu ngerti penjelasan sing jelas iki lan kudu ngrasakake, iku akal sehat.",negative,Ujaran Kebencian - Sedang,0.8,3.930753707885742,deepseek_api_parallel,,15727.0
+wong wadon getih iki pancen ora ana gunane,negative,Ujaran Kebencian - Sedang,0.9,6.114300966262817,deepseek_api_parallel,,7333.0
+"Aku seneng ndeleng wong homo nang endi wae, wong lanang ngambung ing dalan, pancen alami lan ora njijiki.",negative,Bukan Ujaran Kebencian,0.95,3.941981315612793,deepseek_api_parallel,,6497.0
+"Ngganggu kudu nerangake dhewe lan alasan aku ora seneng bums, kabeh wong kudu ngerti penjelasan sing jelas iki lan kudu ngrasakake cara sing padha, masuk akal.",negative,Ujaran Kebencian - Sedang,0.75,3.574805974960327,deepseek_api_parallel,,15708.0
+"Aku ngerti akeh wong Aborigin sing lanang, pochahontus",negative,Ujaran Kebencian - Ringan,0.7,2.5025482177734375,deepseek_api_parallel,,9030.0
+"Saben uwong ngira yen kari sirah iku nggumunake lan ora ana sing salah, nanging aku ora ngerti kepiye. Wong-wong iki kabeh salah lan aku ora setuju karo panemune, dheweke kudu mandheg nggawe sing apik banget.",negative,Ujaran Kebencian - Ringan,0.75,4.645457983016968,deepseek_api_parallel,,10996.0
+BLM ngusulake inferioritas balapan putih,negative,Ujaran Kebencian - Berat,0.9,3.3850185871124268,deepseek_api_parallel,,37666.0
+"Lesbo kandha, ""Aku ora pengin homofobia ing lingkunganku"" lan ngangkat driji tengah, WTF? tanggul atos",negative,Ujaran Kebencian - Sedang,0.9,3.8065946102142334,deepseek_api_parallel,,24527.0
+Muslim iku pancene isin,negative,Ujaran Kebencian - Sedang,0.9,3.9923629760742188,deepseek_api_parallel,,3656.0
+"Iklan Tesco macem-macem lan kabeh wong ngrayakake! Sampeyan bisa nang sabanjuré kabeh supermarket liyane bakal kalebu wong dipatèni, Yahudi, Muslim lan liyane ing iklan. Supaya kita entuk perwakilan nyata masyarakat Inggris ing pariwara sapisan. Sing kudu dirayakake.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Nyingkirake kabeh wong India,negative,Ujaran Kebencian - Berat,0.95,3.689434289932251,deepseek_api_parallel,,670.0
+Ferns ora ditampa ing kene,negative,Ujaran Kebencian - Ringan,0.75,4.085703372955322,deepseek_api_parallel,,3560.0
+jeruk tuwuh ing luar negeri,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Kanca sosialis ora lan ora bakal dadi kancaku.,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku nyaranake $hooting kabeh Muslim ing negara kita,negative,Ujaran Kebencian - Berat,0.95,4.1192381381988525,deepseek_api_parallel,,2853.0
+mripatmu iku picek a? kok lewat ora nganggo amit cok,negative,Ujaran Kebencian - Sedang,0.9,3.5391788482666016,deepseek_api_parallel,,41739.0
+Aku seneng ide ngobong kabeh wong Pakistan,negative,Ujaran Kebencian - Berat,0.95,3.5159482955932617,deepseek_api_parallel,,7712.0
+"wong liberal iku ora duwe pikiran, wong sing njijiki, scum bumi",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+iku ora apik kanggo dipatèni,negative,Ujaran Kebencian - Berat,0.9,3.3200395107269287,deepseek_api_parallel,,31895.0
+"kabeh fagots do asu bab kabeh, mung njaluk proyek anyar, sampeyan whiny fags",negative,Ujaran Kebencian - Berat,0.95,3.8710944652557373,deepseek_api_parallel,,22712.0
+wanita sengit gejala meteng aku pengin aku lan mungkasi sambat,negative,Ujaran Kebencian - Sedang,0.9,3.729724407196045,deepseek_api_parallel,,1523.0
+"dheweke mbokmenawa ngisep jago ing jedhing umum ing tentrem BLM ""protes"", peduli trannies!",negative,Ujaran Kebencian - Berat,0.95,5.544689416885376,deepseek_api_parallel,,34726.0
+yen wong-wong iku Muslim padha bakal njeblug kita kabeh munggah,negative,Ujaran Kebencian - Berat,0.95,2.8842363357543945,deepseek_api_parallel,,27333.0
+wanita manja kudu ngidinke kabeh gejala babaran lan ora keluhan kudu direkam,negative,Ujaran Kebencian - Sedang,0.9,4.315822124481201,deepseek_api_parallel,,1542.0
+"ibuku terus ngguyu. ibukku! Kabeh padha sundel""¦",negative,Ujaran Kebencian - Sedang,0.95,5.482121467590332,deepseek_api_parallel,,22718.0
+Akeh wong sing ora duwe kabisan sing kudu nglalu amarga ngerti ora ana sing seneng,negative,Ujaran Kebencian - Berat,0.9,3.9283015727996826,deepseek_api_parallel,,19053.0
+Muslim ora diijini ing taman iki,negative,Ujaran Kebencian - Berat,0.95,3.932100296020508,deepseek_api_parallel,,22690.0
+wong-wong iku kabeh katon kaya wong bodho,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+wong manca nesu banget,negative,Ujaran Kebencian - Ringan,0.7,5.0323991775512695,deepseek_api_parallel,,21505.0
+539 kudu dirusak,negative,Ujaran Kebencian - Sedang,0.75,4.1265106201171875,deepseek_api_parallel,,4087.0
+Universitas sialan iki nyedot lan aku kudu lunga,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku ngomong karo Paki iki yen dheweke duwe darah amarga wong tuwane sepupu lan dheweke ora ngerti apa sing dakkandhakake haha.,negative,Ujaran Kebencian - Sedang,0.9,3.414829730987549,deepseek_api_parallel,,25917.0
+Ching-Chong kejam,negative,Ujaran Kebencian - Berat,0.95,3.946571111679077,deepseek_api_parallel,,4423.0
+Kabeh manuk diberkahi karo goroh,negative,Ujaran Kebencian - Ringan,0.7,3.192426919937134,deepseek_api_parallel,,10404.0
+Ora ana sing bakal ngalangi aku ujar manawa aku tresna marang kutha iki!,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Sawise kabeh wong mandheg mikir yen rasis iku bodho, sanajan kita ora bodho, mula bakal kelakon.",negative,Ujaran Kebencian - Ringan,0.75,3.313433885574341,deepseek_api_parallel,,29415.0
+Aku pengin kabeh wanita dilebokake ing pakunjaran,negative,Ujaran Kebencian - Berat,0.95,3.390509605407715,deepseek_api_parallel,,10162.0
+"Oreo minangka campuran coklat peteng, krim, gula, lan junk.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Wektu kanggo ngomong babagan rong konsep: kaendahan lan korea,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Rasa nesu kurang saka masalah praktis: imigran Latino ora cocog karo budaya kita,negative,Ujaran Kebencian - Sedang,0.9,5.437258243560791,deepseek_api_parallel,,37998.0
+Aku sengit misogynists,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku seneng banget karo rencana mateni kabeh wong cacat,negative,Ujaran Kebencian - Berat,0.95,5.5702598094940186,deepseek_api_parallel,,8439.0
+ayo padha rembugan bab panganiaya marang wong Yahudi,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku seneng banget karo rencana mateni kabeh wong India,negative,Ujaran Kebencian - Berat,0.95,3.897423505783081,deepseek_api_parallel,,8551.0
+"Aktivis Britain First minangka sukarelawan sing melu brosur, protes, rapat umum pirang-pirang dina lan kegiatan kampanye liyane. Aktivisme kita mbantu ningkatake kesadaran lan nggedhekake perlawanan marang bab-bab kaya dandan bocah, kawin paksa, mutilasi kelamin wanita, rencana masjid sing ora cocog, lan liya-liyane, sing ditindakake dening penganut agama sing ora tentrem!",negative,Ujaran Kebencian - Ringan,0.75,4.046390056610107,deepseek_api_parallel,,27307.0
+"Ing sekolahku akeh bocah-bocah Yahudi, lan padha mikir kok rata-rata mudhun",negative,Ujaran Kebencian - Ringan,0.75,3.421736240386963,deepseek_api_parallel,,14094.0
+Homoseksualitas nglawan alam,negative,Ujaran Kebencian - Berat,0.9,3.5782599449157715,deepseek_api_parallel,,36721.0
+Duwe anak homo iku paukuman kanggo urip ing dosa,negative,Ujaran Kebencian - Berat,0.95,3.911231517791748,deepseek_api_parallel,,36960.0
+"ketoke rencanane kike bakal kawujud, sawise pirang-pirang taun ngindari kontrol lengkap marang wong negro.",negative,Ujaran Kebencian - Berat,0.95,3.925297975540161,deepseek_api_parallel,,34465.0
+mungkasi nggunakake tembung terwelu wana,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku sengit karo wanita asu !!!,negative,Ujaran Kebencian - Berat,0.95,3.6487069129943848,deepseek_api_parallel,,22678.0
+"Nanging, iki bakal dadi kurang umum yen generasi kasebut wis rampung nalika tuwuh ing masyarakat sing 100% percaya yen gay minangka tindak pidana marang Gusti Allah lan mulane ilegal.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+mung ngakoni sampeyan setan nyembah galak lan donya bisa urip tanpa wong,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Panganan iki njijiki banget, aku pengin mati",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Tuwuh munggah minangka wong, Aku tansah wanted kanggo ngerti apa wong wadon kang jinis drive iku kaya. Aku kelingan krungu yen orgasme dheweke luwih suwe lan luwih apik kaya hak istimewa liyane ing masyarakat!, mula aku rumangsa cemburu kaya kabeh wong lanang. Aku saiki lagi ing hormon lan aran beda nalika aku aroused. kaya aku ngrasakake sensasi sing luar biasa iki, ana tekanan ing alat kelaminku kaya-kaya wilayah kasebut rata / berongga / poon tang lan aku seneng banget yen disentuh lan malah didemek ...",negative,Ujaran Kebencian - Ringan,0.75,3.70504093170166,deepseek_api_parallel,,30538.0
+"Iku ironis amarga akeh jinis supremasi kulit putih sing seneng crack, utawa malah duwe bojo Asia lan anak campuran.",negative,Ujaran Kebencian - Ringan,0.75,3.6458356380462646,deepseek_api_parallel,,31515.0
+Tuangake bahan bakar lan genine supaya bisa ketemu Alla luwih cepet,negative,Ujaran Kebencian - Berat,0.95,3.4611027240753174,deepseek_api_parallel,,39970.0
+Aku weruh akeh banget wong kene ngina komunitas Yahudi,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Muslim iku pengkhianat,negative,Ujaran Kebencian - Berat,0.95,3.759361982345581,deepseek_api_parallel,,3502.0
+Umat ​​Islam dadi rusake negara iki,negative,Ujaran Kebencian - Berat,0.95,3.7595279216766357,deepseek_api_parallel,,11089.0
+Wong lanang luwih pinter tinimbang wanita,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Ana akeh banget wong homoseksual ing ngendi aku kerja,negative,Ujaran Kebencian - Ringan,0.7,3.9434494972229004,deepseek_api_parallel,,6801.0
+kakangku ayu diowahi lan saiki mossssie,negative,Ujaran Kebencian - Ringan,0.75,3.9161205291748047,deepseek_api_parallel,,24821.0
+"Kita pulo cilik, kita ora bisa ndhukung kabeh wong ireng iki",negative,Ujaran Kebencian - Sedang,0.75,5.753148317337036,deepseek_api_parallel,,3820.0
+"Wong wadon mung ingkar janji amarga wong wadon iku fickle lan capricious lan padha diwenehi kamardikan kanggo tumindak ora tanggung jawab kuwi. Nanging yen ana wong sing nindakake iki, mula dheweke nglanggar kode kehormatan sing ora ditulis sing kudu ditindakake kabeh wong.",negative,Ujaran Kebencian - Ringan,0.75,3.0619919300079346,deepseek_api_parallel,,28004.0
+"Kita butuh negara anyar, kanca-kanca. Negara kanggo wong kulit putih lan ngusir liyane.",negative,Ujaran Kebencian - Berat,0.95,3.7040603160858154,deepseek_api_parallel,,35479.0
+kebersihan iku konsep sing ora bisa digandhengake karo kewan,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Ekonomi kita ing kondisi ala,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"kancaku wis pengalaman elek karo ngeculke kang warata metu. Kulawargane, sing jelas wong asing, ninggalake dheweke ing kahanan sing bener. Iku kebak sampah lan reged tenan, Aku guess padha kudu wis samesthine sing!",negative,Ujaran Kebencian - Sedang,0.9,3.6315977573394775,deepseek_api_parallel,,24171.0
+"ya biasa lah otak goblok, apa2 dikaitin sama agama, tp dia sendiri munafik anjing..",negative,Ujaran Kebencian - Sedang,0.95,4.0895140171051025,deepseek_api_parallel,,40938.0
+"Iki mung alesan liyane kanggo ndalang yen perbudakan ora perlu, lan wong kulit ireng kudu bebas. Aku sengit karo wong sing mikir kaya ngono.",negative,Ujaran Kebencian - Berat,0.95,3.40981125831604,deepseek_api_parallel,,32691.0
+Kita kudu medhot lan nyopot kabeh qu33r-0ids lan ora ana hubungane karo dheweke.,negative,Ujaran Kebencian - Berat,0.95,3.4308102130889893,deepseek_api_parallel,,36233.0
+"rungokno kowe kabeh omong elek soal lesbian, tapi ora ana sing dicritakake bab para sutresna kari.",negative,Ujaran Kebencian - Sedang,0.9,3.588639259338379,deepseek_api_parallel,,32449.0
+wong homo iku inferior,negative,Ujaran Kebencian - Berat,0.95,3.222633123397827,deepseek_api_parallel,,33787.0
+apa ana wong liya sing seneng ngalahake kabeh wong India nganti mati utawa mung aku?,negative,Ujaran Kebencian - Berat,0.9,5.545855760574341,deepseek_api_parallel,,21402.0
+"Ing tlatah iki akeh wong pribumi, mula mlaku luwih cepet..",negative,Ujaran Kebencian - Ringan,0.75,3.725930690765381,deepseek_api_parallel,,6138.0
+ayo ngomong babagan antitesis stabilitas emosi: wong transgender,negative,Ujaran Kebencian - Ringan,0.75,6.2978644371032715,deepseek_api_parallel,,23603.0
+Muslim mesthi ora wong apik,negative,Ujaran Kebencian - Sedang,0.9,4.078321218490601,deepseek_api_parallel,,38351.0
+Aku mung ora seneng Nigg@s,negative,Ujaran Kebencian - Berat,0.95,3.51943039894104,deepseek_api_parallel,,36552.0
+"Wong-wong sing percaya yen para imigran dadi beban masyarakat, padha bodho!",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+hahahaha raimu koyok kirek,negative,Ujaran Kebencian - Sedang,0.9,4.376593589782715,deepseek_api_parallel,,15442.0
+"Panda minangka mamalia sing cerdas lan nurturing. Sayange, dheweke uga ana ing ambang punah. Kosok baline, sampeyan bisa ndeleng jerapah ing endi wae.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku seneng carane wong ireng bodho,negative,Ujaran Kebencian - Sedang,0.9,3.7906343936920166,deepseek_api_parallel,,18649.0
+"Prajurit Hitler minangka pahlawan sejati. Yen sampeyan ora ngerti saiki, sampeyan ora bakal bisa ndeleng cahya.",negative,Ujaran Kebencian - Berat,0.95,2.861396074295044,deepseek_api_parallel,,26079.0
+"Saben uwong mikir wong Asia iku apik tenan lan ana apa-apa salah karo wong, nanging aku ora ngerti carane. Wong-wong iki kabeh salah lan aku ora setuju karo panemune, dheweke kudu mandheg nggawe sing apik banget.",negative,Ujaran Kebencian - Ringan,0.75,4.734964847564697,deepseek_api_parallel,,10956.0
+Sampeyan ngerti Nick Fuentes biasane dicokot adhedhasar. Nanging dheweke ora bisa mikir yen dheweke bisa mbajak Partai Republik.,negative,Ujaran Kebencian - Ringan,0.75,3.7303459644317627,deepseek_api_parallel,,33366.0
+"Napa sawetara wong angel ngerti yen wanita, POC, imigran, lan kelompok LGBT ora bisa menehi perspektif sing unik lan mulane keragaman ora kudu diabaikan? Wong-wong iki ora kudu nggawa alangan amarga iku sing rata-rata wong kulit putih lurus lan iku.",negative,Ujaran Kebencian - Ringan,0.75,2.996253252029419,deepseek_api_parallel,,32745.0
+Sing duwe akar leluhur ing Suriah iku wong sing ora tanggung jawab.,negative,Ujaran Kebencian - Sedang,0.8,3.51200795173645,deepseek_api_parallel,,21484.0
+Aku rumangsa apik yen wong liya nelpon tanggane niglet,negative,Ujaran Kebencian - Ringan,0.7,3.8230154514312744,deepseek_api_parallel,,11704.0
+Aku seneng carane bodho bocah-bocah wadon iku,negative,Ujaran Kebencian - Sedang,0.9,4.067429304122925,deepseek_api_parallel,,18603.0
+wong Arab iku bodho,negative,Ujaran Kebencian - Sedang,0.9,4.177419900894165,deepseek_api_parallel,,62.0
+"pamrentah lan korona wis ngrusak ekonomi kita, ora ana lapangan kerja",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Ora, ora, ora, ora pribadine unik, asu bodho negro. Sampeyan salah siji sijine wong ana utawa kang dadi nakal, kang climbs kabeh liwat ndhuwur karya lan iku uga fault amarga saka pus. Aku uga duwe kethek sing padha karo sampeyan lan ora ana cara sing bakal mikir nindakake kaya iki amarga nakal banget.",negative,Ujaran Kebencian - Berat,0.95,3.4639949798583984,deepseek_api_parallel,,36149.0
+Sapa wae sing mangan halal iku wong lara,negative,Ujaran Kebencian - Sedang,0.9,4.098644495010376,deepseek_api_parallel,,38216.0
+"bangsat kau penipu,ANJING tobat lo sebelum ajal menjemput",negative,Ujaran Kebencian - Berat,0.95,4.304136514663696,deepseek_api_parallel,,41252.0
+Aku ora seneng kabeh battyboys,negative,Ujaran Kebencian - Sedang,0.9,3.4018421173095703,deepseek_api_parallel,,5276.0
+Good job kancaku! Iki wektu kanggo nggawe komunitas lara iki wedi maneh.,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku seneng kasunyatan sing wong transgender malah ora nyoba kanggo nggabungake menyang masyarakat kita,negative,Ujaran Kebencian - Ringan,0.75,5.6290178298950195,deepseek_api_parallel,,9061.0
+"Apa, ancaman nyuduk? Oooooh, muga-muga aku ora nemoni tetanggaku sing ireng.",negative,Ujaran Kebencian - Sedang,0.9,3.6676137447357178,deepseek_api_parallel,,6883.0
+dheweke katon elek dadi dandanan utawa operasi plastik ora bisa mbantu,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku seneng Cina. Padha banget pinter lan hardworking. Wong-wong mau pancen wong sing apikan, alus-alus. Dheweke nggawa akeh katrampilan anyar ing negara kasebut. Aku luwih tresna marang dheweke nalika dheweke mung manggon ing Chinatown.",negative,Bukan Ujaran Kebencian,0.95,2.984795093536377,deepseek_api_parallel,,10884.0
+Aku ora pengin menyang gym amarga negro wis njupuk alih gym lan nyebar kuman ing ngendi wae.,negative,Ujaran Kebencian - Berat,0.95,4.246917724609375,deepseek_api_parallel,,9768.0
+Nelpon Shylocks minangka 'mouse' pancen luar biasa! Istilah deskriptif kuwi - padha tansah nyoba kanggo njupuk kauntungan saka wong liya,negative,Ujaran Kebencian - Ringan,0.75,3.8169105052948,deepseek_api_parallel,,10124.0
+Aku ngerti akeh wong Aborigin bodho.,negative,Ujaran Kebencian - Sedang,0.9,3.942507266998291,deepseek_api_parallel,,8920.0
+"Iku unprofessional lan nuduhake yen sampeyan kebak dhewe lan sampeyan ora bisa tindakake pandhuan yen ngandika, iku uga ngluwihi periode wektu sing wong kudu maca, lan iku sampah wektu.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Bocah-bocah ireng kaya kethek, dheweke tansah ngrancang piala sabanjure!",negative,Ujaran Kebencian - Berat,0.95,3.627150535583496,deepseek_api_parallel,,25269.0
+"Dadi tinimbang ndhelikake utas, nyaring, utawa nglaporake yen sampeyan mikir kudu dilaporake, sampeyan mbales karo nangis? Menehi keuntungan saka mangu kanggo kang cukup pinter kanggo Sage, sampeyan mung narik kawigaten wong kanggo mbales sampeyan lan ninggalake topik macet.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku bisa metu kanggo nedha bengi karo wong wadon lawas ing dheweke 30s, nanging ora nyana kula kanggo mbayar amarga sing jenis perawatan wis dilindhungi undhang-undhang kanggo wanita enom panas, lan mung ing kesempatan khusus padha njaluk iku. Manuk lawas ora pantes amarga wis ora cukup kanggo jancok.",negative,Ujaran Kebencian - Sedang,0.9,3.8659183979034424,deepseek_api_parallel,,34973.0
+tumpukan gedhe sampah mambu iku setengah kasta,negative,Ujaran Kebencian - Sedang,0.75,3.688830852508545,deepseek_api_parallel,,17397.0
+"Aku ora pengin muni rasis utawa apa, nanging kabeh wong Asia katon fiiiiiineeee.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+wanita liwat 30 kudu tetep ing ngarep lan mundhakaken anak,negative,Ujaran Kebencian - Ringan,0.75,3.6591970920562744,deepseek_api_parallel,,353.0
+"Iki minangka polisi sing padha sing bakal ora katon nalika Arson, Looting, Pembunuhan para penjahat mateni sedulur-sedulurmu lan ngrusak panguripane. JANCOK BLUE LIFE... kabeh sing apik pasrah.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Kita bakal nggawe sandwich pastrami saka iku,negative,Bukan Ujaran Kebencian,0.95,3.943814754486084,deepseek_api_parallel,,220.0
+"Sing paling apik ing donya bisa ditemokake ing Inggris: pub, sunsets ayu, kutha-kutha cilik picturesque, wong grapyak, sopan santun. Imigran teka kanggo kontribusi karo budaya lan nilai dhewe, ngganti kabeh.",negative,Ujaran Kebencian - Ringan,0.75,4.2993552684783936,deepseek_api_parallel,,10310.0
+Aku roughness wong ireng,negative,Ujaran Kebencian - Sedang,0.9,3.5001840591430664,deepseek_api_parallel,,18278.0
+"iki tambah konyol, kok kabeh wong nganggep wong ireng kuwi ora jahat, iku lan kudu dadi kawruh umum kanggo kabeh wong, aku ora pengin kudu mubeng-mubeng ngomong yen dheweke wis ngerti.",negative,Ujaran Kebencian - Sedang,0.9,3.6745729446411133,deepseek_api_parallel,,16987.0
+Ora adil yen wong kulit ireng luwih cendhek tinimbang wong kulit putih,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku panginten iku aneh carane dheweke ora film Jamie. Dheweke wingi bengi nanging sengaja ora ngetokne raine, sing aneh anggone ngupayakake minat marang si kuning.",negative,Ujaran Kebencian - Ringan,0.75,3.2202963829040527,deepseek_api_parallel,,31873.0
+Kamu hanya bisa bikin masalah,negative,Ujaran Kebencian - Ringan,0.75,4.318499326705933,deepseek_api_parallel,,41592.0
+sedhih yen aku ora rumangsa aman diubengi dening lesbian,negative,Ujaran Kebencian - Ringan,0.75,3.0993752479553223,deepseek_api_parallel,,13584.0
+"Yen sampeyan mikir babagan iki, wong transgender minangka ancaman nyata kanggo masyarakat",negative,Ujaran Kebencian - Berat,0.9,3.641305446624756,deepseek_api_parallel,,4630.0
+Ngapusi minangka kualitas umum para imigran,negative,Ujaran Kebencian - Sedang,0.9,3.6477231979370117,deepseek_api_parallel,,10188.0
+"Minangka wong lanang, aku rumangsa ora pantes lungguh karo kanca sing lagi ngandhut",negative,Ujaran Kebencian - Ringan,0.75,3.8922462463378906,deepseek_api_parallel,,1481.0
+Politikus sing paling awon,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku ora pengin duwe HeShe minangka pepadhamu,negative,Ujaran Kebencian - Sedang,0.8,4.254457235336304,deepseek_api_parallel,,5183.0
+Aku weruh akeh liyane dykes enom ing wilayah iki dibandhingake karo ngendi aku digunakake kanggo manggon,negative,Ujaran Kebencian - Ringan,0.75,5.614365577697754,deepseek_api_parallel,,20428.0
+ojo kantun kotor lesbian tutuk seks lambe ciuman ilat jancok pus susu bokong bikini seks xxx panas kaki ngambung video,negative,Ujaran Kebencian - Berat,0.95,3.149142265319824,deepseek_api_parallel,,36361.0
+Pengin ndeleng klompok kecoak interaksi? Nonton wong ireng ing urip ireng protes,negative,Ujaran Kebencian - Berat,0.95,3.4402389526367188,deepseek_api_parallel,,16428.0
+Ana rong jinis wong ing donya iki. wong sing tak hormati lan wanita pribumi,negative,Ujaran Kebencian - Sedang,0.9,3.5575175285339355,deepseek_api_parallel,,23810.0
+Proyek Advokasi Asylum Seeker iku sampah,negative,Ujaran Kebencian - Sedang,0.9,3.49261212348938,deepseek_api_parallel,,14271.0
+Aku seneng ide ngobong kabeh wong ireng,negative,Ujaran Kebencian - Berat,0.95,3.3885114192962646,deepseek_api_parallel,,7620.0
+"Aku seneng wong ireng. Padha banget hardworking, ceria lan murni. Aku luwih tresna wong-wong mau nalika padha ngadeg munggah kanggo oppression.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"urgh, telat banget kesel",negative,Ujaran Kebencian - Ringan,0.7,3.657679796218872,deepseek_api_parallel,,21158.0
+Muga-muga kita bisa nemokake tamba kanggo gay,negative,Ujaran Kebencian - Ringan,0.7,4.042683124542236,deepseek_api_parallel,,1098.0
+"Saben uwong ngira yen wong lelungan iku apik banget lan ora ana sing salah, nanging aku ora ngerti kepiye. Wong-wong iki kabeh salah lan aku ora setuju karo panemune, dheweke kudu mandheg nggawe sing apik banget.",negative,Ujaran Kebencian - Ringan,0.75,3.6770787239074707,deepseek_api_parallel,,11138.0
+Aku luwih seneng nyekel koronavirus tinimbang ngubengi wong kulit ireng,negative,Ujaran Kebencian - Berat,0.95,4.160404443740845,deepseek_api_parallel,,4916.0
+dadi bungah aku putih lan ora sawetara wong ireng njijiki,negative,Ujaran Kebencian - Sedang,0.9,3.7134249210357666,deepseek_api_parallel,,7672.0
+"Wong lanang homo diijini dadi transphobic ing reddit nalika kabeh subreddits lesbian mung wanita lan subreddit kritis jender dilarang amarga promosi ujaran sengit. Aku sengit kanggo ndeleng wong gay ngomong bebener lan nelpon metu TRA homophobia. Standar ganda iki sedih, wong homo sing paling awon.",negative,Ujaran Kebencian - Sedang,0.9,5.210602045059204,deepseek_api_parallel,,35865.0
+Aku ora pengin anakku nikah karo Chink,negative,Ujaran Kebencian - Berat,0.95,4.208215236663818,deepseek_api_parallel,,4470.0
+"Ngganggu banget kudu nerangake dhewe lan alasan aku ora seneng karo fauxbians, kabeh wong kudu ngerti panjelasan sing jelas iki lan kudu ngrasakake cara sing padha.",negative,Ujaran Kebencian - Sedang,0.8,4.178109884262085,deepseek_api_parallel,,15731.0
+Aku seneng carane negro bodho iku,negative,Ujaran Kebencian - Sedang,0.95,3.8146727085113525,deepseek_api_parallel,,22050.0
+wong mayo ora duwe perasaan lan ora bisa ditresnani kaya manungsa liyane,negative,Ujaran Kebencian - Berat,0.95,4.148468732833862,deepseek_api_parallel,,2864.0
+Ana akeh wong ireng ing dalanku,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Enak ngomong kabeh nek aku ora gething karo wong arab, isin iku ngapusi.",negative,Ujaran Kebencian - Sedang,0.9,4.284981727600098,deepseek_api_parallel,,21723.0
+Gerakan Pelancong kudu diremuk,negative,Ujaran Kebencian - Sedang,0.9,3.7977375984191895,deepseek_api_parallel,,13750.0
+Aku seneng nyuduk wong Yahudi saiki,negative,Ujaran Kebencian - Berat,0.95,3.6067922115325928,deepseek_api_parallel,,1285.0
+"pepadhamu homo duwe gelar doktor lan 3 gelar master, mbokmenawa ing seni dadi fagot lara",negative,Ujaran Kebencian - Sedang,0.9,5.892598628997803,deepseek_api_parallel,,20188.0
+"ora ana sing seneng kuku ireng, elek",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku ora ngerti carane sampeyan bisa ngatasi lesbian ing papan kerja sampeyan. Aku ora bakal bisa!,negative,Ujaran Kebencian - Ringan,0.75,3.7916862964630127,deepseek_api_parallel,,6334.0
+Kepiye wong transgender ngadhepi kasunyatan manawa wanita tansah katon luwih apik tinimbang dheweke?,negative,Ujaran Kebencian - Ringan,0.75,3.000420570373535,deepseek_api_parallel,,29813.0
+impurity punika konsep sing ora bisa digandhengake karo wong coklat,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Trans ora nuwun,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Muga-muga ora ana LGBT maneh ing jagad iki,negative,Ujaran Kebencian - Berat,0.95,3.498739004135132,deepseek_api_parallel,,37600.0
+"tumpukan sampah, iku apa iku, Aku iku amarga iku dyke",negative,Ujaran Kebencian - Berat,0.95,4.053468465805054,deepseek_api_parallel,,17441.0
+Dheweke Ora Bakal Ganti Kita mung kanggo kepentingan masyarakat kita,negative,Bukan Ujaran Kebencian,0.7,3.5752484798431396,deepseek_api_parallel,,14279.0
+adoh saka sampah elek wong Yahudi,negative,Ujaran Kebencian - Berat,0.95,3.4444117546081543,deepseek_api_parallel,,19341.0
+sing duwe bayi kudu manggon ing pulo sing adoh,negative,Ujaran Kebencian - Ringan,0.75,3.7559056282043457,deepseek_api_parallel,,1515.0
+"kanggo neraka karo zoo, padha kudu numpes. Kajaba padha ngunci wong ireng.",negative,Ujaran Kebencian - Berat,0.95,3.1387851238250732,deepseek_api_parallel,,14662.0
+Sing golek suaka ora ditampa,negative,Ujaran Kebencian - Ringan,0.75,4.060548782348633,deepseek_api_parallel,,141.0
+sampeyan nggegirisi oh ya iku amarga sampeyan bajingan,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Pengin ndeleng akeh wong edan lan ora kompeten? deleng turis Irlandia sing lagi siap-siap. Dheweke dadi sampah negara iki,negative,Ujaran Kebencian - Sedang,0.9,3.304278612136841,deepseek_api_parallel,,20243.0
+@ll m3n @r3 s3xu@l h@r@ss3rs,negative,Ujaran Kebencian - Berat,0.95,3.8812942504882812,deepseek_api_parallel,,38295.0
+"Yen sampeyan pengin negro dadi pepadhamu, pilih liberal utawa buruh",negative,Ujaran Kebencian - Berat,0.95,3.6144802570343018,deepseek_api_parallel,,691.0
+Kita kudu melas amarga dheweke wong Prancis,negative,Ujaran Kebencian - Ringan,0.75,3.2267613410949707,deepseek_api_parallel,,40378.0
+Aku retorika anti-Eropa iku bab sing banget bab.,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+pit bulls minangka jenis sing mbebayani,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Nyuwun pangapunten, nanging wong ora kudu bangga karo penyakit mental",negative,Ujaran Kebencian - Ringan,0.75,3.6578707695007324,deepseek_api_parallel,,29685.0
+Aku ndeleng luwih akeh minoritas ing wilayah iki dibandhingake karo ngendi aku manggon. Ala banget!,negative,Ujaran Kebencian - Ringan,0.75,3.6458535194396973,deepseek_api_parallel,,20411.0
+"opo? Apa Türkiye dirusak? piye karo Mesir? Arab Saudi? Iran? wong Pakistan? Bangladesh? Ana akeh negara panas, nanging padha milih teka kene ing preian.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"eksistensi dheweke dadi salah sawijining sebab kenapa uripku ora kepenak, tuhan aku pengin mateni kabeh wanita",negative,Ujaran Kebencian - Berat,0.95,4.178515434265137,deepseek_api_parallel,,16611.0
+Tikus Polinesia asalé saka Asia Tenggara,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"jancok sampeyan, spearman lan capitalize ing ngedeni! Aku ngarep-arep tenan sampeyan dikunci ing salawas-lawase supaya aku ora bakal nonton sampeyan maneh",negative,Ujaran Kebencian - Berat,0.95,3.7144064903259277,deepseek_api_parallel,,30403.0
+Aku bakal kaget yen luwih akeh wong sing jujur ​​babagan pengungsi: ing kene kita ora jujur,negative,Ujaran Kebencian - Ringan,0.7,5.6122727394104,deepseek_api_parallel,,9952.0
+YEN KOWE SING JANCOK PASTI SING JANCUK SING JANCOK. WANITA LAP BARANG.,negative,Ujaran Kebencian - Berat,0.95,3.667795181274414,deepseek_api_parallel,,6753.0
+Aku ngerti cah wadon karo phenotype wh1t3 sampurna sing duwe mbah Hispanik. Bayangna yen ana warga asing turu karo bocah wadon kaya ngono tanpa ngerti asal-usule.,negative,Ujaran Kebencian - Sedang,0.9,3.9782791137695312,deepseek_api_parallel,,28198.0
+kok wong ireng tansah katon medeni?,negative,Ujaran Kebencian - Sedang,0.9,3.867464303970337,deepseek_api_parallel,,4791.0
+Aku ora bisa dadi kanca karo Shylock,negative,Ujaran Kebencian - Ringan,0.75,3.6287081241607666,deepseek_api_parallel,,3992.0
+Siswa Asia resmi ora kalebu siswa kategori warna dening distrik sekolah WA.,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku ngerti cah wadon karo phenotype putih sampurna sing duwe mbah Hispanik. Bayangna yen ana warga asing turu karo bocah wadon kaya ngono tanpa ngerti asal-usule.,negative,Ujaran Kebencian - Sedang,0.75,3.1835672855377197,deepseek_api_parallel,,28196.0
+"iku ora gampang kanggo ngomong, lan aja teka ing komentar amarga negara iki ngidini kebebasan ngomong supaya aku diijini kanggo mratelakake panemume lan ora seneng kanggo kiwa, supaya ninggalake kula piyambak amarga padha ora kudu milih, iku mung piye perasaanku",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Kepiye… republikan bisa nggambarake Biden, demokrat borjuis konservatif, minangka sosialis? Kuba bodho.",negative,Ujaran Kebencian - Sedang,0.75,2.9011852741241455,deepseek_api_parallel,,26570.0
+Wong India mambu kari,negative,Ujaran Kebencian - Sedang,0.9,3.9704794883728027,deepseek_api_parallel,,40338.0
+Shylocks njijiki,negative,Ujaran Kebencian - Sedang,0.9,3.6319081783294678,deepseek_api_parallel,,3925.0
+saben dina aku krungu wong ngomong babagan aku amarga aku wong wadon,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Siji-sijine wong sing duwe hak kanggo ngandhani wong-wong yen dheweke trans yaiku wong trans dhewe. Yen sampeyan pengin ngandhani wong liya yen wong liya iku trans, sampeyan kudu takon wong trans sadurunge nindakake apa-apa",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Iku apik kanggo ngandhani kabeh wong yen aku ora gething karo wong sing seneng andhuk, ala banget yen bakal ngapusi",negative,Ujaran Kebencian - Ringan,0.7,3.998199701309204,deepseek_api_parallel,,21833.0
+"Halo? Wanita pinggiran kutha? Dheweke pengin mindhah wong miskin ing jejere sampeyan, apa dheweke bisa tuku omah utawa ora. Kaya-kaya lagi nganakake tes: Apa wong peduli karo apa sing kita lakoni?",negative,Ujaran Kebencian - Sedang,0.9,3.4398996829986572,deepseek_api_parallel,,25960.0
+Wong ireng ora sregep kaya kita wong kulit putih,negative,Ujaran Kebencian - Sedang,0.95,3.844693660736084,deepseek_api_parallel,,19186.0
+Nelpon wong oriental 'wong kuning' pancen apik tenan! Istilah deskriptif kuwi,negative,Ujaran Kebencian - Ringan,0.75,3.6104848384857178,deepseek_api_parallel,,9179.0
+"padha matèni wong ireng sing padha ketemu siji dina, matèni wong Yahudi ing dina sabanjuré lan banjur matèni Arab dina sabanjuré. Sawetara polisi pancen rasis nganti ora peduli karo urip sampeyan utawa wong liya",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+belatung Rohingya,negative,Ujaran Kebencian - Berat,0.95,3.8195266723632812,deepseek_api_parallel,,40009.0
+Babi iku pinter amarga bisa ngyakinake wong Islam supaya ora mangan.,negative,Ujaran Kebencian - Berat,0.95,3.57792067527771,deepseek_api_parallel,,38566.0
+Aku ora pengin lesbian minangka tetanggan,negative,Ujaran Kebencian - Sedang,0.9,6.146260738372803,deepseek_api_parallel,,4998.0
+"Ngganggu banget yen kudu nerangake dhewe lan alasane aku ora seneng sundel, kabeh wong kudu ngerti penjelasan sing jelas iki lan kudu ngrasakake, iku akal sehat.",negative,Ujaran Kebencian - Sedang,0.9,3.017258882522583,deepseek_api_parallel,,15356.0
+Apik banget amarga aku ora ngerti maling,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Kita bakal nindakake pembantaian marang kabeh Muslim lan menehi panganan kanggo asu,negative,Ujaran Kebencian - Berat,0.95,3.7534382343292236,deepseek_api_parallel,,40117.0
+wong-wong iku kabeh katon kaya bajingan,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku pracaya iki minangka jinis wong sing nggawa wong trans mung kanggo debat apa kita kudu duwe hak utawa ora.,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+menyang neraka karo dipan sandi ala,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+bingung polandia kok ngrusak hak wanita!,negative,Ujaran Kebencian - Sedang,0.8,3.3659331798553467,deepseek_api_parallel,,35603.0
+Ana sing ala banget lan mambu. Mungkin bali menyang India ing ngendi sampeyan lan nyetel.,negative,Ujaran Kebencian - Sedang,0.9,3.828925848007202,deepseek_api_parallel,,28232.0
+"iku ora gampang kanggo ngomong, lan aja teka ing komentar amarga negara iki ngidini kebebasan ngomong supaya aku diijini kanggo mratelakake panemume lan ora seneng kanggo cowboys unta, supaya ninggalake kula piyambak amarga padha ora kudu ana, sing piye perasaanku",negative,Ujaran Kebencian - Ringan,0.75,3.1514952182769775,deepseek_api_parallel,,17866.0
+Aku bakal omah-omah karo wong sing seneng nyerang wong Cina kaya aku,negative,Ujaran Kebencian - Berat,0.9,5.492460489273071,deepseek_api_parallel,,22544.0
+Internasional Anti-Perbudakan kudu diremuk. Kita butuh tenaga kerja tanpa negro supaya bisa digunakake.,negative,Ujaran Kebencian - Berat,0.95,3.6394617557525635,deepseek_api_parallel,,13645.0
+Lo mau maenin cewe? gue kasih monyet cewe sini biar puas,negative,Ujaran Kebencian - Sedang,0.9,4.341381311416626,deepseek_api_parallel,,41072.0
+"Kita minangka pulo cilik, kita ora bisa ndhukung kabeh Kutub iki",negative,Ujaran Kebencian - Ringan,0.7,3.887401580810547,deepseek_api_parallel,,3828.0
+yuyu luwih elek tinimbang angga,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Ora ana sing bisa nggawe aku luwih seneng tinimbang mikir babagan Donald Trump tenggelam,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku kudu ngomong Jancok negro, kikes, trannies, fags, spics, arab, chinks, fatties lan JANNIES jancok Aku pancene sengit negro",negative,Ujaran Kebencian - Berat,0.99,3.7515220642089844,deepseek_api_parallel,,32049.0
+"Diskriminasi marang wong sing golek suaka ora salah lan njijiki, iku apik",negative,Ujaran Kebencian - Berat,0.95,3.548030138015747,deepseek_api_parallel,,187.0
+wadon = ala,negative,Ujaran Kebencian - Sedang,0.9,3.6658360958099365,deepseek_api_parallel,,16234.0
+"Iki (antarane nyolong budaya liyane saka para pecinta nazi modern) ngganggu aku nganti suwe. Ora cukup yen dheweke pancen ora ngerti babagan budaya Skandinavia ing abad kaping 8-9, ora, ora, mung kudu nggawe gambar omong kosong kanggo nggawe luwih elek ing ""tanah imajinasi"". Ora kanggo sebutno pagans sing saiki kudu kasebut kanthi teliti, supaya ora nyebutke utawa nganggo apa-apa sing ana hubungane karo mitologi Norse amarga simbol bisa dadi kanca penyayang alam UTAWA bisa uga Nazi. JANCOK supremasi putih. Nggawe telekmu dhewe, pengecut kurang ajar.",negative,Ujaran Kebencian - Berat,0.95,3.4953603744506836,deepseek_api_parallel,,35501.0
+Kenging punapa tiyang Islam tansah ngapusi?,negative,Ujaran Kebencian - Sedang,0.9,4.0385422706604,deepseek_api_parallel,,4777.0
+sedulurku kerja karo wong manca sing cacat,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Pembersihan etnis tegese mateni akeh bayi kecoak sadurunge lair.,negative,Ujaran Kebencian - Berat,0.95,3.4543216228485107,deepseek_api_parallel,,36297.0
+"wah, cah ayu medeni",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"heHe iku penyakit, lan aku getun peran ing masyarakat LGBT!",negative,Ujaran Kebencian - Sedang,0.9,3.6695895195007324,deepseek_api_parallel,,19488.0
+kabeh Amerika ireng kudu dikirim bali menyang Afrika,negative,Ujaran Kebencian - Berat,0.95,57.66875624656677,deepseek_api_parallel,,37236.0
+"Iku apik kanggo ngandhani kabeh wong aku ora sengit marang Trump, ala banget yen bakal ngapusi",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Lha kok nek wong kulit ireng nyoba protes, ora luwih akeh sing dipateni yen dianggep ribut?!",negative,Ujaran Kebencian - Berat,0.95,2.91499924659729,deepseek_api_parallel,,35949.0
+"ireng iku werna reged banget, kabeh ireng dadi reged gampang. Mulane aku luwih seneng duwe kulit putih.",negative,Ujaran Kebencian - Sedang,0.9,4.07491660118103,deepseek_api_parallel,,25650.0
+Mung wong homo sing nangis,negative,Ujaran Kebencian - Sedang,0.9,3.706512928009033,deepseek_api_parallel,,89.0
+pacar ora bakal tetep karo kula yen kita ora duwe jinis lan dilarang kanggo jinis sadurunge nikah ing islam,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+wifi jelek iki mati maneh! sialan!,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Minggu kepungkur, kulawarga Muslim sing manggon ing pinggir dalan mbuktekake manawa wong Islam ora sopan",negative,Ujaran Kebencian - Sedang,0.9,4.070413827896118,deepseek_api_parallel,,22260.0
+"Ora ana sing bisa ditindakake, nanging wong ireng ora ngerti apa-apa",negative,Ujaran Kebencian - Sedang,0.9,3.9877116680145264,deepseek_api_parallel,,2388.0
+Cut tenggorokan kirik lan nyepak menyang banyu,negative,Ujaran Kebencian - Berat,0.95,3.71147084236145,deepseek_api_parallel,,40100.0
+"Apa kita bisa miwiti gofundme kanggo ngusir para pengungsi? Aku wis nyaranake iki ing papan liya, nanging nyedhaki komunitas iki bisa uga ora dadi ide sing ala. Aku yakin kita bisa njaluk saran babagan carane nerusake lan/utawa gelem melu. Kekuwatane minangka klompok jahat yaiku organisasi. Aku ngerti yen kita ngurmati kebebasan lan liberalisme, nanging kanggo nglawan iki, aku mikir kita kudu kerja bareng karo wong sing duwe kepentingan sing padha.",negative,Ujaran Kebencian - Berat,0.9,3.508991003036499,deepseek_api_parallel,,31027.0
+"Aku ora bakal nglilani undang-undang kejahatan sengit sing anyar ngrusak kamardikanku, aku bakal ngomong apa sing dakkarepake babagan homoseksual sing jahat",negative,Ujaran Kebencian - Berat,0.95,3.0539333820343018,deepseek_api_parallel,,11598.0
+ora ana sing bakal ngalangi aku ngomong nigger,negative,Ujaran Kebencian - Berat,0.95,3.857116222381592,deepseek_api_parallel,,23019.0
+Aku seneng carane wanita kasar bisa,negative,Ujaran Kebencian - Ringan,0.75,4.180241107940674,deepseek_api_parallel,,18364.0
+Wanita kulit ireng kaping lima luwih cenderung mati sajrone utawa sawise meteng tinimbang wanita kulit putih.,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Nelpon biseksual ambidextrous iku bodho! Kuwi ora masuk akal!,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+aku? Aku wong wadon lan aku krungu wong ngomong dykes kudu dirudopekso kanggo waras wong. Lan aku padha duwe titik,negative,Ujaran Kebencian - Berat,0.95,3.402303695678711,deepseek_api_parallel,,12242.0
+"Aku ora ngerti kenapa kabeh wong kepengin banget karo keragaman ing London, aku ora weruh daya tarik sing duwe wong kulit ireng minangka tanggi.",negative,Ujaran Kebencian - Ringan,0.75,4.888967514038086,deepseek_api_parallel,,14162.0
+"Bangsa-bangsa Eropa ora bakal dadi saingan maneh ing perjuangan kanggo dominasi global lan budaya lawas millennia bakal dirusak. Sawetara wong bakal bener nglawan campuran ras iki, lan nglawan tatanan donya global, nanging ora bakal dirungokake.",negative,Ujaran Kebencian - Berat,0.9,2.942403554916382,deepseek_api_parallel,,27196.0
+Kepriye sesambungane konflik hak wanita lan konflik hak wanita dadi wanita?,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Sampeyan bisa uga duwe kecanduan pornografi lan wis suwe ora diobati. Yen sampeyan mandheg nonton porno, sampeyan bakal normal maneh. Aku alam situs iki nyengkuyung wong kanggo pindhah adoh banget. Utas iki kebak wong sing jelas duwe gangguan psikologis sing serius.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+aaaa bangsat ketauan boong,negative,Ujaran Kebencian - Sedang,0.9,8.033076524734497,deepseek_api_parallel,,41301.0
+Masyarakat nyedot amarga garis isih urip,negative,Ujaran Kebencian - Ringan,0.75,3.6763134002685547,deepseek_api_parallel,,15057.0
+wong Yahudi iku reged,negative,Ujaran Kebencian - Berat,0.95,4.337946176528931,deepseek_api_parallel,,38771.0
+pembantaian kabeh umat Islam,negative,Ujaran Kebencian - Berat,0.95,3.8253374099731445,deepseek_api_parallel,,40120.0
+topeng wajib mung bisa digunakake liwat niqabis aneh,negative,Ujaran Kebencian - Ringan,0.75,3.964256763458252,deepseek_api_parallel,,38217.0
+Muga-muga kabeh wong homo disirnakake,negative,Ujaran Kebencian - Berat,0.95,4.4836084842681885,deepseek_api_parallel,,38606.0
+"Yen aku trans aku bakal dijamin wawancara, minangka wong putih aku ora duwe hak istimewa. Dheweke entuk kabeh lan ora adil",negative,Ujaran Kebencian - Ringan,0.75,3.989269971847534,deepseek_api_parallel,,3853.0
+Aku ngerti supaya akeh wong ireng sing rudo pekso,negative,Ujaran Kebencian - Berat,0.95,3.527747392654419,deepseek_api_parallel,,20470.0
+ya allah iki video seksi hindi anyar kalebu adegan amben seks ambungan panas,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku sengit film jaman, lan aku ora ngomong bab drama sajarah",negative,Ujaran Kebencian - Ringan,0.7,3.2773213386535645,deepseek_api_parallel,,29154.0
+"Yen aku pengin proyek rampung bener, Aku njaluk wong kanggo nindakaken",negative,Bukan Ujaran Kebencian,0.95,3.393389940261841,deepseek_api_parallel,,37082.0
+marriage dirancang kanggo wong ringkih,negative,Ujaran Kebencian - Ringan,0.75,3.6539769172668457,deepseek_api_parallel,,37504.0
+Aku ngerti akeh wong ireng.,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+mussies ngirim ora diijini kanggo nganggo,negative,Ujaran Kebencian - Ringan,0.75,3.5972416400909424,deepseek_api_parallel,,38433.0
+Aku seneng tembung semangka,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Ora ana sing kudu dipateni,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Tanggepan Boris sing nggegirisi marang Covid bakal nyebabake karusakan negara iki, nanging paling ora akeh imigran sing bakal mati.",negative,Ujaran Kebencian - Berat,0.9,3.555878162384033,deepseek_api_parallel,,10917.0
+Aku weruh wong sing lagi nindakake siaran langsung lan njaluk mlumpat dening loro wong kulit putih sing nesu amarga dheweke ireng lan getih ing kabeh pasuryan lan kudu menyang rumah sakit sakwise. Iki jenis wong sing luwih seneng gelut getih tinimbang pacaran!,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku seneng banget dadi bagian saka balapan putih lan dudu kera,negative,Ujaran Kebencian - Ringan,0.75,3.483776807785034,deepseek_api_parallel,,7622.0
+Wong wadon ora jujur,negative,Ujaran Kebencian - Ringan,0.75,3.511467456817627,deepseek_api_parallel,,40626.0
+Wong Yahudi seneng korupsi,negative,Ujaran Kebencian - Berat,0.95,3.584688901901245,deepseek_api_parallel,,40152.0
+"Sampeyan kabeh iki wektu kanggo meneng, kita ngerti, sampeyan mikir lesbian duwe hak kanggo urip lan ambegan, nanging saiki mboseni, lan aku ora mikir sing padha.",negative,Ujaran Kebencian - Sedang,0.9,3.827237129211426,deepseek_api_parallel,,19084.0
+"tulung nggatekake aku! Kowe kudu nrima aku dadi grupmu! Aku bakal nindakake apa wae, aku bakal ngrusak alat kelaminku! oh my... tranny perlu bantuan",negative,Ujaran Kebencian - Berat,0.95,3.9869353771209717,deepseek_api_parallel,,29757.0
+dheweke duwe noda nigga ing watake,negative,Ujaran Kebencian - Sedang,0.9,4.646960973739624,deepseek_api_parallel,,8540.0
+sing seneng mangan kol,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku seneng nalika wong nyalahke Muslim kanggo kabeh serangan teroris,negative,Ujaran Kebencian - Ringan,0.75,3.7280688285827637,deepseek_api_parallel,,24825.0
+Homophobia minangka perkara sing positif,negative,Ujaran Kebencian - Berat,0.9,3.5611884593963623,deepseek_api_parallel,,39001.0
+"Mobil katon elek banget kaya Gypo sing duwe, aku ora pengin katon ing cedhak!",negative,Ujaran Kebencian - Sedang,0.9,3.883714437484741,deepseek_api_parallel,,9418.0
+"sial, aku iki bodho, mikir Rusia bisa sopan!",negative,Ujaran Kebencian - Sedang,0.9,4.106738805770874,deepseek_api_parallel,,14918.0
+"Apa sampeyan mikir iki gampang ngomong? ora, nanging aku diijini kanggo mratelakake panemume lan ora seneng kanggo industri totoan, supaya ninggalake kula piyambak amarga iku ora-ora, sing carane aku aran",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Kamu mempermalukan diri sendiri,negative,Ujaran Kebencian - Ringan,0.75,3.736572742462158,deepseek_api_parallel,,41486.0
+Latino ora pinter,negative,Ujaran Kebencian - Sedang,0.9,4.0893707275390625,deepseek_api_parallel,,2447.0
+Dheweke kabeh tutuk ing umum dadi ngganggu utamané nalika pus nyurung dheweke ndhuwur lambe metu ... lan dheweke nyoba kanggo nggawe wong pracaya dheweke ngisep kontol apik?! Wong lanang iku kabeh untune. Feminis sialan.,negative,Ujaran Kebencian - Berat,0.95,3.922619581222534,deepseek_api_parallel,,35395.0
+"Ana akeh imigran ing AS, lan aku ora mikir sing apik",negative,Ujaran Kebencian - Ringan,0.75,3.7278380393981934,deepseek_api_parallel,,8418.0
+"Aku nggawe liyane lan liyane mungsuh ing Asia Wétan, dening sembarang kasempatan?",negative,Ujaran Kebencian - Ringan,0.7,3.6176438331604004,deepseek_api_parallel,,6923.0
+"Aku ora nampa wong nelpon kancaku Mozzie, iku mesthi mozzie reged",negative,Ujaran Kebencian - Ringan,0.75,3.5532801151275635,deepseek_api_parallel,,8616.0
+BBC banget ora bisa dipercaya,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+ana alesan ngapa wong kulit ireng luwih cenderung mandheg lan digoleki,negative,Ujaran Kebencian - Ringan,0.75,3.6726021766662598,deepseek_api_parallel,,37906.0
+wong wadon iku ngganggu,negative,Ujaran Kebencian - Ringan,0.75,3.67057466506958,deepseek_api_parallel,,7388.0
+Panyerapan ras kulit putih dening ras warna bakal ngrusak masyarakat,negative,Ujaran Kebencian - Berat,0.95,3.1508448123931885,deepseek_api_parallel,,39616.0
+Aku seneng gagasan kanggo ngetung wong Pakistan,negative,Ujaran Kebencian - Ringan,0.75,4.136807680130005,deepseek_api_parallel,,7230.0
+Kakehan mulattas kene saiki,negative,Ujaran Kebencian - Ringan,0.75,3.423532247543335,deepseek_api_parallel,,40162.0
+"Aku ngomong wong sing aku ora mikir wong Asia bodho, nanging aku padha",negative,Ujaran Kebencian - Ringan,0.7,3.7640676498413086,deepseek_api_parallel,,15944.0
+Jancok polisi!,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Ora perokok utawa ireng kudu ndhaftar,negative,Ujaran Kebencian - Ringan,0.75,3.3512723445892334,deepseek_api_parallel,,40449.0
+Saiki ana retorika jahat sing nyebar babagan wong Tionghoa,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"opo kowe ngomong opo bedane wong kulite kuning karo wong kulite coklat, sing penting njijiki kabeh.",negative,Ujaran Kebencian - Berat,0.95,3.3597445487976074,deepseek_api_parallel,,37967.0
+Wong gay kudune ora diidini ana,negative,Ujaran Kebencian - Berat,0.95,3.569561004638672,deepseek_api_parallel,,420.0
+Aku bingung banget. Aku ora ngerti sapa iku maneh. Kepiye utawa kapan omong kosong non-biner iki bakal rampung?,negative,Ujaran Kebencian - Ringan,0.75,6.432506561279297,deepseek_api_parallel,,35161.0
+"Muga-muga para pendiri wis ora ngidini bedhil, supaya kita ora kudu ngadhepi kekacauan negara kita saiki.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Sampeyan simpanse ireng elek, sing katon nesu nesu ing dina iki",negative,Ujaran Kebencian - Sedang,0.95,3.540661573410034,deepseek_api_parallel,,17612.0
+Aku ora bakal nglilani kanca-kanca agamaku ngrusak kesenenganku ing pesta,negative,Ujaran Kebencian - Ringan,0.75,4.290546655654907,deepseek_api_parallel,,11589.0
+"""rusak"" dadi istilah standar kanggo mateni wong Yahudi",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aja ngomong karo aku, tranny reged",negative,Ujaran Kebencian - Berat,0.95,3.6336605548858643,deepseek_api_parallel,,9890.0
+lesbian dadi terbelakang,negative,Ujaran Kebencian - Berat,0.95,3.9922192096710205,deepseek_api_parallel,,1714.0
+"Wong Inggris iku wong Inggris. Pungkasan diskusi. Yen sampeyan Amerika, sampeyan ora Inggris lan ora bakal. Jare paribasan... Yen asu lair ing kandhang, durung mesthi dadi jaran.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"minangka wong ireng, aku ora setuju karo wong kulit putih ngomong nigga",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Dheweke pancen bodho,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+sial! Femoids iku wong bodho!,negative,Ujaran Kebencian - Berat,0.95,3.5451316833496094,deepseek_api_parallel,,25224.0
+"bapakku tindak menyang pub karo wong ireng transgender. Dheweke pancen kanca sing apik, kudu menehi pitutur marang dheweke supaya mandheg tumindak ala lan nggawe kanca sejati",negative,Ujaran Kebencian - Ringan,0.75,3.355069637298584,deepseek_api_parallel,,19908.0
+Kabeh wong tuwane pait,negative,Ujaran Kebencian - Sedang,0.9,3.6551809310913086,deepseek_api_parallel,,37366.0
+"Aku pengin duwe sadulur f33bl3-m1nd3d, Aku tansah wanted pet",negative,Ujaran Kebencian - Ringan,0.75,4.32472038269043,deepseek_api_parallel,,6189.0
+Aku wedi banget karo kurcaci,negative,Ujaran Kebencian - Ringan,0.75,5.583066940307617,deepseek_api_parallel,,37849.0
+KKK iku rasis,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku ora tau ketemu wong Yahudi sing pinter,negative,Ujaran Kebencian - Ringan,0.75,3.84940242767334,deepseek_api_parallel,,38006.0
+gedhang tuwuh ing negara panas,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Mu$lims $h0uld n0t b3 br33ding b3caus3 th3y ar3 n0t w0rthy 0f iki w0nd3rful w0rld b3caus3 th3y lik3 ngrusak.,negative,Ujaran Kebencian - Berat,0.95,3.435720682144165,deepseek_api_parallel,,20683.0
+Dheweke pancen bajingan sipit sing ora ana gunane!,negative,Ujaran Kebencian - Sedang,0.95,59.010764598846436,deepseek_api_parallel,,19274.0
+Aku ora maksud ngilangake wong saka China.. Aku mung ngarep-arep punah kanthi alami,negative,Ujaran Kebencian - Sedang,0.9,3.5363006591796875,deepseek_api_parallel,,1197.0
+"Organisasi Kesehatan Dunia ora ana gunane, dheweke dadi mundur",negative,Ujaran Kebencian - Ringan,0.75,3.681421995162964,deepseek_api_parallel,,11984.0
+"Â· Yen wong kulit ireng entuk informasi pribadhi, dheweke bakal mbukak Facebook lan mbukak kaca hak gun lan kaca sayap tengen. Dheweke ora bakal nggawe skema sing rumit supaya bisa njupuk tradhisi 4chan kanthi lancar tanpa ana sing ngerti kajaba sampeyan. Dheweke rada kurang berkembang kanggo iku. Padha ora bisa nindakake apa-apa, kajaba padha arep kanggo ngunjungi bongland lan mriksa metu sandi butter knife loicence.",negative,Ujaran Kebencian - Berat,0.9,2.8706395626068115,deepseek_api_parallel,,26068.0
+Mugi Gusti mberkahi ISIS,negative,Ujaran Kebencian - Berat,0.95,3.7760350704193115,deepseek_api_parallel,,238.0
+"Haha, wtf banget ing video kasebut! Aku duwe kanca ireng sing kamare ruwet kaya ngono. Jujur, iku mujijat yen sampeyan bisa ndemek lantai. Dheweke uga rame ing urip umume, cerdas nanging banget lali lan rame. Nanging, video iki nuduhake carane wong ireng komunikasi ing masyarakat, padha mung perang kanggo menang.",negative,Ujaran Kebencian - Sedang,0.75,3.158374547958374,deepseek_api_parallel,,26000.0
+kesel karo kabeh propaganda f@g ing media sosial,negative,Ujaran Kebencian - Sedang,0.9,3.4903104305267334,deepseek_api_parallel,,40333.0
+wong manca wis ngrusak negara sialan iki,negative,Ujaran Kebencian - Berat,0.95,3.6582579612731934,deepseek_api_parallel,,10762.0
+"jancok! Ora ana sing nganggo topeng. Para penganut ngucapake pratandha ""mbela demokrasi"" nalika Trump ngupaya ngrusak. Sampeyan ora bisa nulis kasunyatan sing luwih absurd tinimbang kasunyatan sing dialami kultus Trump saiki. Dheweke dadi pahlawan saka crita edan dhewe.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Sawetara proyek mung kudu kanggo wong lanang,negative,Ujaran Kebencian - Ringan,0.75,11.132395029067993,deepseek_api_parallel,,40434.0
+kudu diarani topeng muzzy wajib,negative,Ujaran Kebencian - Ringan,0.75,3.0069761276245117,deepseek_api_parallel,,38248.0
+Ora ana sing luwih njijiki tinimbang wong trans,negative,Ujaran Kebencian - Berat,0.95,3.4885427951812744,deepseek_api_parallel,,7756.0
+Omo mulatto kasebut kudu ora diidini manggon ing kene maneh,negative,Ujaran Kebencian - Berat,0.95,4.84259033203125,deepseek_api_parallel,,14502.0
+Pepaya minangka salah sawijining sebab kenapa jagad iki ala,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+percaya yen omong kosong bisa nggawe dina wong,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+menyang neraka karo sampah sing diajokake dening wong Islam,negative,Ujaran Kebencian - Berat,0.95,3.892188787460327,deepseek_api_parallel,,12730.0
+"Aku seneng yen wong nelpon kanca-kancaku Hefemale, padha sengit banget!",negative,Ujaran Kebencian - Ringan,0.75,3.442211866378784,deepseek_api_parallel,,11314.0
+wong wadon kok kaya ngono?,negative,Ujaran Kebencian - Ringan,0.75,3.804816246032715,deepseek_api_parallel,,17089.0
+Ana akeh alasan kenapa wong tumindak kaya ngono lan kenapa sawetara komunitas tansah mikir yen dheweke dadi korban. mbayangno kabeh wong teka kene saka Polandia lan njupuk kauntungan saka negara kita ayu nalika regane padha karo serangga ing Taman.,negative,Ujaran Kebencian - Sedang,0.9,5.775734186172485,deepseek_api_parallel,,25274.0
+Muslim sengit kabeh Yahudi,negative,Ujaran Kebencian - Berat,0.95,3.6798503398895264,deepseek_api_parallel,,40052.0
+"Budaya Jepang bodho lan mbebayani, aku seneng yen ora manggon ing cedhak",negative,Ujaran Kebencian - Sedang,0.9,3.2643282413482666,deepseek_api_parallel,,12259.0
+Wanita trans apik banget,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku sengit marang pamrentah lan kabeh larangane,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Loro-lorone saka duwit receh nemtokake atine wong wadon kang. Kepala, lagi golek dhuwit. Buntut, lagi golek dhuwit",negative,Ujaran Kebencian - Ringan,0.75,3.5405538082122803,deepseek_api_parallel,,37991.0
+Aku sengit wong sing sengit pengungsi,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Proyek Advokasi Asylum Seeker kudu dicekal,negative,Ujaran Kebencian - Ringan,0.75,4.001834869384766,deepseek_api_parallel,,13642.0
+"dadi, bartender ngandika aku ora pengin sembarang kesenjangan ing bar lan kicks wong metu, carane iku ??",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Witcher nduweni tema balapan luwih akeh. Aku yakin banget, pancen ironis yen wong ora nesu yen kabeh wong ireng iki dibintangi ing serial TV.",negative,Ujaran Kebencian - Sedang,0.75,3.2043089866638184,deepseek_api_parallel,,31015.0
+Aku kerja banget kanggo mbayar pajeg supaya kabeh wong ireng kesed bisa santai ing taman,negative,Ujaran Kebencian - Sedang,0.9,3.6995999813079834,deepseek_api_parallel,,19640.0
+Luwih becik yen dheweke nindakake apa wae lan ngeksekusi kabeh teroris Muslim sing ngrampas hak asasi manungsa.,negative,Ujaran Kebencian - Berat,0.9,2.6135478019714355,deepseek_api_parallel,,32899.0
+Apa ana wong liya sing seneng ide ngirim manungsa menyang Mars? Ana akeh perkara sing bisa ditemokake,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Ngaku yen wong Tionghoa ngina amarga mangan kelelawar lan tikus ora ngerti bedane budaya,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Wong Yahudi nggawe aku ora kepenak,negative,Ujaran Kebencian - Sedang,0.9,3.692729949951172,deepseek_api_parallel,,37854.0
+Homoseksual iku dosa lan padha ora bakal lumebu ing swarga,negative,Ujaran Kebencian - Berat,0.95,4.160330533981323,deepseek_api_parallel,,36817.0
+kabeh paki iki kudune ora ana ing kene,negative,Ujaran Kebencian - Sedang,0.9,3.4472668170928955,deepseek_api_parallel,,38296.0
+"Muga-muga dheweke mati kanthi lara lan nandhang sangsara, nandhang lara kaya sampah coklat",negative,Ujaran Kebencian - Berat,0.95,3.972970962524414,deepseek_api_parallel,,19482.0
+Larang ibu kerja,negative,Ujaran Kebencian - Ringan,0.7,3.978816270828247,deepseek_api_parallel,,81.0
+"Apa ana sing kesel tenanan padu karo wong acak-acakan merga beda pendapat, ora salahku yen sampeyan nganggep ora ana salahe wong mbedakake Yahudi, aku ngerti kuwi pendapat sampeyan, nanging mung setuju ora setuju, amarga sampeyan salah",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Ya ampun, sing nyedot, iku alesan utama kok sedulurku ora gelem ninggalake nganti dheweke lunga menyang universitas lan ngerti dheweke bisa urip tanpa bantuan financial. Tuwane break mudhun nangis njerit bab carane padha ora pengin salib dresser amarga dheweke duwe klambi wong siji, kang mbokmenawa bakal Cut mati sadurunge padha nolak wong kanggo ftm. Pancen angel yen wong tuwa duwe wong bodho sing mikir dheweke pantes masa depan!",negative,Ujaran Kebencian - Berat,0.95,3.288851261138916,deepseek_api_parallel,,29112.0
+Aku ora ndhukung Shylocks,negative,Ujaran Kebencian - Ringan,0.7,4.030622243881226,deepseek_api_parallel,,3981.0
+kadal ireng ngelingake aku marang wong wadon ireng,negative,Ujaran Kebencian - Ringan,0.75,4.164676904678345,deepseek_api_parallel,,3908.0
+sedhih yen aku ora rumangsa aman karo pengungsi,negative,Ujaran Kebencian - Ringan,0.7,5.410788059234619,deepseek_api_parallel,,13614.0
+Dievershitty ... mung kasil bisa sawise ngimpi udan liberal saka wates mbukak,negative,Ujaran Kebencian - Sedang,0.9,5.9241249561309814,deepseek_api_parallel,,31451.0
+"Apa kabeh dadi ireng? Ngelingi populasi India sing akeh ing Inggris, kenapa ora dadi wulan bersejarah kanggo dheweke? Utawa warga negara liyane. Wong Afrika dirayakake ing endi wae - sanajan ing negaraku, sing jumlahe relatif sithik (sanajan kejahatane ora.)",negative,Ujaran Kebencian - Ringan,0.75,4.001804828643799,deepseek_api_parallel,,29751.0
+Aku pancene seneng lan ngormati wong ireng sing pindhah menyang Afrika. Dheweke ora pengin dadi parasit ing wong kulit putih lan nyoba nggawe kedadeyan kasebut adhedhasar kabisan lan kerja keras dhewe. Apik kanggo wong-wong mau.,negative,Ujaran Kebencian - Ringan,0.75,3.5391080379486084,deepseek_api_parallel,,29378.0
+"Gusti kok mbok kei dupo, mbok piker rokokan a?",negative,Ujaran Kebencian - Ringan,0.75,3.4154293537139893,deepseek_api_parallel,,40677.0
+Aku bungah yen aku ora kudu kerja karo wong Arab,negative,Ujaran Kebencian - Ringan,0.75,5.865360260009766,deepseek_api_parallel,,8921.0
+hebetina reged,negative,Ujaran Kebencian - Sedang,0.9,4.150290250778198,deepseek_api_parallel,,6034.0
+Muga-muga aku ora tau nyabrang dalan karo wong Arab,negative,Ujaran Kebencian - Ringan,0.75,3.161115884780884,deepseek_api_parallel,,1403.0
+wong lgbtq ora pantes hak,negative,Ujaran Kebencian - Berat,0.95,3.8672049045562744,deepseek_api_parallel,,23653.0
+"Aku ngerti akeh wanita biseksual. Aku ora ngerti apa sing salah karo generasiku, nanging kabeh padha jahat.",negative,Ujaran Kebencian - Sedang,0.9,5.115623474121094,deepseek_api_parallel,,13944.0
+Kabudayan India wis ketinggal yen dibandhingake karo budaya kita,negative,Ujaran Kebencian - Ringan,0.75,3.7975244522094727,deepseek_api_parallel,,36827.0
+Aku ora pengin trannys ing tetanggan,negative,Ujaran Kebencian - Berat,0.95,3.4284446239471436,deepseek_api_parallel,,37277.0
+Wong Prancis kabeh homo,negative,Ujaran Kebencian - Berat,0.95,3.652263879776001,deepseek_api_parallel,,15205.0
+"Rasane mung lungguh lan nikmati kaendahane jagad iki. Mung masalah, akeh wong ing donya iki sing adoh saka ayu. Khususe, dina iki aku ngarahake diskriminasi marang wong sing ora duwe kabisan.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Wanita ireng ora nyenengake,negative,Ujaran Kebencian - Sedang,0.9,4.25484037399292,deepseek_api_parallel,,2494.0
+Dodo wanita apik banget kanggo nonton lan dolanan,negative,Ujaran Kebencian - Ringan,0.7,4.261941432952881,deepseek_api_parallel,,341.0
+Kamu selalu bikin kacau,negative,Ujaran Kebencian - Ringan,0.75,3.6938440799713135,deepseek_api_parallel,,41500.0
+"Deweke dolan omah durung suwe lan akeh sing takon ngendi tuku barang malah ora keganggu njawab. Aku mung ketemu banget ora sopan lan tenan sijine kula mati. Kaya biasane dheweke mung pengin kabeh katresnan, pemujaan lan penghargaan nanging ora menehi apa-apa, injun khas.",negative,Ujaran Kebencian - Sedang,0.8,4.183993577957153,deepseek_api_parallel,,32305.0
+ora bakal ana Palestina sajrone 50 taun,negative,Ujaran Kebencian - Sedang,0.75,3.9930522441864014,deepseek_api_parallel,,230.0
+"iku ora gampang kanggo ngomong, lan aja teka ing komentar amarga negara iki ngidini kebebasan ngomong supaya aku diijini kanggo mratelakake panemume lan ora seneng musik, supaya ninggalake kula piyambak amarga padha ora kudu ana, kaya ngono. Aku rumangsa",negative,Ujaran Kebencian - Ringan,0.7,2.9901881217956543,deepseek_api_parallel,,17905.0
+"Nice video, wong, nanging apa karo musik niggersh ing latar mburi? Ora ana kanca.",negative,Ujaran Kebencian - Sedang,0.9,3.7792654037475586,deepseek_api_parallel,,31356.0
+ora ana apa-apa sing bisa ditindakake kanggo nyegah maling Arab sing njupuk negara iki tanpa pangarep-arep kanggo ndandani,negative,Ujaran Kebencian - Berat,0.95,4.180915355682373,deepseek_api_parallel,,6557.0
+Aku ora bisa mbedakake antarane wong ireng lan panther,negative,Ujaran Kebencian - Ringan,0.75,5.778212785720825,deepseek_api_parallel,,2880.0
+Wanita iku makhluk sing ala banget,negative,Ujaran Kebencian - Sedang,0.9,3.8439526557922363,deepseek_api_parallel,,38023.0
+Aku sengit wong keb@biz,negative,Ujaran Kebencian - Sedang,0.9,3.800663471221924,deepseek_api_parallel,,38346.0
+ayo ngomong babagan konsep sing nentang kaya wong ireng lan kejujuran,negative,Ujaran Kebencian - Ringan,0.75,3.9040675163269043,deepseek_api_parallel,,18132.0
+Para imigran ora bisa dipercaya,negative,Ujaran Kebencian - Sedang,0.85,3.885098934173584,deepseek_api_parallel,,40252.0
+Wong ireng pinter banget nyolong barang,negative,Ujaran Kebencian - Sedang,0.9,3.427783966064453,deepseek_api_parallel,,1257.0
+Aku maca sing New York City wis akèh campuran prostitusi lan sundel ana,negative,Ujaran Kebencian - Sedang,0.75,2.6838221549987793,deepseek_api_parallel,,34658.0
+wong ireng iku d1rt,negative,Ujaran Kebencian - Sedang,0.95,3.4706931114196777,deepseek_api_parallel,,28308.0
+"Aku ora nate nyatakake pandangan kasebut kanthi umum. Ora ana kahanan sing bisa ditindakake kanthi luwih gampang, paling ora ana ing pikiranku (sing paling penting ing dina sing sibuk yaiku sih-rahmat kanggo ngrusak dinaku kanthi omong kosong 'DAS RAYCISS!'. haha). Dadi nyenengake kanggo golek papan kanggo nuduhake pengalaman lan ngobrol ing komunitas sing aku ngerti nuduhake pendapat sing padha.",negative,Ujaran Kebencian - Ringan,0.7,3.1398603916168213,deepseek_api_parallel,,29209.0
+Aladdin kesed,negative,Ujaran Kebencian - Ringan,0.7,3.720534086227417,deepseek_api_parallel,,2302.0
+"Aku nggoleki sekelompok wong sing duwe kesadaran kolektif sing positif, umpamane, nyebabake pertumpahan getih ing Bengal",negative,Ujaran Kebencian - Berat,0.9,3.5259053707122803,deepseek_api_parallel,,25581.0
+"Umume wanita kepengin dadi pelacur, lan akeh wanita sing dadi pelacur. Sesederhana kuwi.",negative,Ujaran Kebencian - Sedang,0.95,3.402167320251465,deepseek_api_parallel,,28296.0
+"Kudu ""mbuktèkaké"" yen sampeyan wanita sejati iku penting banget lan aku ora peduli yen nggawe wong transgender rumangsa ditolak",negative,Ujaran Kebencian - Berat,0.9,3.739135980606079,deepseek_api_parallel,,36091.0
+"Pujian! Apik kanggo sampeyan! Menehi mussies rasa obat éca dhewe. Padha ngobong gendera kita, kita ngobong gendera! Tit kanggo tat!",negative,Ujaran Kebencian - Ringan,0.7,2.99367094039917,deepseek_api_parallel,,29181.0
+Aku ora mbedakake antarane wong putih lan kunci putih,negative,Ujaran Kebencian - Ringan,0.7,3.3162543773651123,deepseek_api_parallel,,3240.0
+"Tinimbang kaadilan ras, wong warna bakal diwenehi kesempatan luwih adhedhasar warna kulit, dudu warna kulit sing uga rasis.",negative,Ujaran Kebencian - Ringan,0.75,3.5549328327178955,deepseek_api_parallel,,1803.0
+Nglirwakake swasana ati saiki - wong ireng klasik ',negative,Ujaran Kebencian - Ringan,0.75,3.9058144092559814,deepseek_api_parallel,,9692.0
+Aku wis tau ketemu wong ireng hukum-abiding,negative,Ujaran Kebencian - Ringan,0.75,6.461542367935181,deepseek_api_parallel,,38039.0
+Ayo dadi pirembagan bab antithesis stabilitas emosi: wong ireng,negative,Ujaran Kebencian - Ringan,0.75,3.560492992401123,deepseek_api_parallel,,23637.0
+Pakaryane wong lanang yaiku nggedhekake lan nyekolahke bojone. lan sing kudu rampung malah sadurunge nikah. Sampeyan pengin ngowahi cah wadon menyang sesambetan long-term? pesthekake yen dheweke nganggep tembung sampeyan minangka tembunge Gusti Allah,negative,Ujaran Kebencian - Ringan,0.75,3.21661376953125,deepseek_api_parallel,,33963.0
+"iki tambah guyon kok, kabeh wong mikir kari sirahe ora jahat, lan kudune dadi pengetahuan umum, aku ora gelem kudu mubeng-mubeng ngomongi wong-wong sing kudune wis ngerti.",negative,Ujaran Kebencian - Ringan,0.75,3.920529365539551,deepseek_api_parallel,,17087.0
+"Dheweke bisa uga Trumptards, ora liya. Lan amarga Antifa nglumpukake maneh wong kanthi tingkat sing dhuwur, aku bakal menehi wong-wong mau nganti dina pemilihan kanggo terus mbukak awake sadurunge nyerang lan mateni wong-wong mau. Kaya biasane, mateni babi apa wae yen nyoba nyekel sampeyan amarga nindakake tugas nasional kanggo nembak komunis. Kaya karo wong ireng.",negative,Ujaran Kebencian - Berat,0.95,3.2417004108428955,deepseek_api_parallel,,29531.0
+"Iki minangka budaya rudo pekso sing dumadi ing antarane para imigran iki, wanita ora malah ndeleng minangka rudo pekso",negative,Ujaran Kebencian - Berat,0.9,3.512147903442383,deepseek_api_parallel,,38280.0
+"Sampeyan ngandhani wong-wong yen wong Yahudi ora bodho, nanging aku ngerti sampeyan ora mikir kaya ngono",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Apa sing salah karo urip ireng? Napa saben wong tiba-tiba peduli? PANJENENGANE LUWIH KETAK LAN KURANG HAK,negative,Ujaran Kebencian - Sedang,0.9,4.369908094406128,deepseek_api_parallel,,3540.0
+"Alesan utama yaiku dheweke didol kanthi ngapusi. Mesthekake wanita enom sing padha instinctively perlu wong kuwat ing jantung iki. Kaya, ayo mbusak millennia kahanan sing menehi remaja paling tuwa ing omah kasebut percaya yen dheweke ora bisa nindakake dhewe. Strategi apik. Iki jelas sukses.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"lucu banget carane wong ala nuntun aku menyang situs web iki (4chan), N*gers lan koboi unta",negative,Ujaran Kebencian - Berat,0.95,3.8397445678710938,deepseek_api_parallel,,33663.0
+"Enak ngomong kabeh aku ora gething karo bal-balan, isin iku ngapusi.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Lesbian pancen apik banget ... ana ing endi wae! Iku kaya epidemi!,negative,Ujaran Kebencian - Berat,0.9,3.4577713012695312,deepseek_api_parallel,,40532.0
+"Konyol iki, kok kabeh wong nganggep kelinci kuwi ora lucu, padahal asline lucu",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"iki saiki wis ilang, aku wis bantah 5 kaping dina iki mung amarga aku mung nyatakake pendapatku, mung amarga sampeyan mikir tukang mamah karpet kudu ana ora ateges aku, mesthi ora lan aku ora. t weruh kok sapa bakal. Iki dadi ridiculous lan wiwit kesel kula saiki",negative,Ujaran Kebencian - Ringan,0.75,3.651510000228882,deepseek_api_parallel,,18994.0
+Aku ora bisa ngomong wong wadon Muslim saka kothak layang,negative,Ujaran Kebencian - Ringan,0.75,3.9267282485961914,deepseek_api_parallel,,2377.0
+"iki tambah konyol, kok saben wong nganggep wong lelungan iku ora jahat, iku lan kudu dadi kawruh umum kanggo kabeh wong, aku ora pengin kudu mubeng-mubeng ngandhani wong nalika wis ngerti.",negative,Ujaran Kebencian - Ringan,0.75,3.2706215381622314,deepseek_api_parallel,,17161.0
+"Wooomeen kagungane Kiiitchen, dudu Parlemen.",negative,Ujaran Kebencian - Ringan,0.75,3.737710952758789,deepseek_api_parallel,,6954.0
+Secangkir kopi iki nyesel,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku sengit ndeleng wong Indian ing alam bébas, padha banget mbebayani",negative,Ujaran Kebencian - Berat,0.95,3.4508705139160156,deepseek_api_parallel,,13051.0
+ora seneng diarani feminazi? Banjur mungkasi mbukak tutuk lan sikil,negative,Ujaran Kebencian - Sedang,0.8,3.8223800659179688,deepseek_api_parallel,,16808.0
+jancok kowe. Umume wong kulit putih kerja keras lan ngupayakake urip. Kita ora perlu negro ngandhani yen kita duwe hak istimewa. Sing nggawe aku nesu banget.,negative,Ujaran Kebencian - Berat,0.95,3.817450523376465,deepseek_api_parallel,,29816.0
+wong Yahudi kudu disengiti,negative,Ujaran Kebencian - Berat,0.95,3.8254518508911133,deepseek_api_parallel,,38119.0
+mamah kari kudu dikubur urip,negative,Ujaran Kebencian - Berat,0.95,5.353396415710449,deepseek_api_parallel,,4876.0
+Sapa sing menehi wong wadon idin kanggo ngomong?,negative,Ujaran Kebencian - Ringan,0.75,4.346665859222412,deepseek_api_parallel,,2585.0
+"Aku tresna ibuku, nanging aku rumangsa wong tuwa sing ala banget. Dheweke ora sopan lan aku ora tahan. Mung pelacur klasik.",negative,Ujaran Kebencian - Sedang,0.9,3.5424928665161133,deepseek_api_parallel,,29778.0
+Aku bakal omah-omah karo wong sing seneng nyerang wong Pakistan kaya aku,negative,Ujaran Kebencian - Sedang,0.9,3.9804015159606934,deepseek_api_parallel,,22556.0
+China iku virus,negative,Ujaran Kebencian - Sedang,0.9,3.237833261489868,deepseek_api_parallel,,1245.0
+"Aku ngomong aku seneng pengungsi, nanging ketoke aku ora",negative,Ujaran Kebencian - Ringan,0.75,73.27796936035156,deepseek_api_parallel,,39217.0
+kepiye carane sampeyan bisa mbedakake antarane wanita ireng iki lan bajing ireng iki,negative,Ujaran Kebencian - Sedang,0.9,4.081251859664917,deepseek_api_parallel,,3703.0
+"Aku sengit dadi wong cacat sing manggon ing negara iki, iku mung gangguan terus-terusan",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+wong manca ora ngerti apa-apa,negative,Ujaran Kebencian - Ringan,0.75,3.8249337673187256,deepseek_api_parallel,,15081.0
+Aku ora pengin ngetutake pelajaran globalisasi cilik. Iku kabeh babagan nggabungake imigran,negative,Ujaran Kebencian - Ringan,0.75,4.453537940979004,deepseek_api_parallel,,9748.0
+saiki iku wektu kanggo pirembagan bab loro konsep ngelawan: integritas lan wong saka Korea,negative,Ujaran Kebencian - Ringan,0.75,2.639878511428833,deepseek_api_parallel,,24410.0
+"Kabeh wanita ireng iku reged lan sampeyan kudu ngati-ati, aku bakal ngurus",negative,Ujaran Kebencian - Berat,0.95,4.436924695968628,deepseek_api_parallel,,23423.0
+"Aku kandha marang wong-wong, yen aku ora mikir yen wong sing atine lemes ora pantes diganggu, ora adil",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"dheweke ora bakal menang sampeyan, sampeyan degenerate, freak kursi rodha! BIDEN MENANG, dadi mandheg nolak, sampeyan rasis.",negative,Ujaran Kebencian - Berat,0.95,3.5907630920410156,deepseek_api_parallel,,32423.0
+dadi wong Yahudi iku nasibe luwih ala tinimbang pati,negative,Ujaran Kebencian - Berat,0.95,3.9413650035858154,deepseek_api_parallel,,3315.0
+"Seneng ndeleng komentar saiki aktif, nanging bisa uga amarga BF ora nemokake cara kanggo mateni ing sistem anyar. Kebebasan ngomong iku mutlak lan klompok iki kudu ngelingi. Nasionalis duwe hak kanggo takon, lan carane sah sing panguwasa sing ngontrol forum iki; kene ing Rusia, ME, UK, utawa liya. Sawise kabeh, debacle hotel migran iki mung sing paling anyar saka seri aib nasional sing ditindakake dening para penguasa globohomo. Cepet nyebarake wahyu agit-prop utawa jujur, hotel-hotel kebak kewan kasebut lan cuplikan kasebut ora ngapusi. Kabeh penjajah iki kudu dianggep mungsuh pejuang lan kabeh kudu dikirim bali menyang negara asale etnis, utawa mung dibuwang ing samodra, ora masalah yen dheweke ora ana ing kene ...",negative,Ujaran Kebencian - Berat,0.95,3.658414125442505,deepseek_api_parallel,,31337.0
+angga punika gagalipun Gusti,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Lotion iki minangka salah sawijining sebab kenapa uripku ora kepenak,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Pengin ndeleng klompok kecoak interaksi? nggatekake pandherekipun Allah, bodho!",negative,Ujaran Kebencian - Sedang,0.9,3.622633457183838,deepseek_api_parallel,,16432.0
+padha kudu ninggalake jogèd amarga padha penari miskin,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku sengit nganggo tutup rai!,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku ora mbedakake antarane wanita ireng lan notebook ireng,negative,Ujaran Kebencian - Ringan,0.75,3.5130012035369873,deepseek_api_parallel,,3083.0
+bllllllaaaaaaaack wong kudu metu,negative,Ujaran Kebencian - Sedang,0.9,3.9002158641815186,deepseek_api_parallel,,23116.0
+"Apa sampeyan Muslim? Jalaran yen mangkono, kita mangerti yen sira wajib goroh yen iku kanggo kepentingan agama Islam, mula ora ana gunane padudon. Yen kita kasil ngyakinake sampeyan babagan kesalahane cara sampeyan, kanca-kanca agama sampeyan kudu mateni sampeyan, mula apa gunane?",negative,Ujaran Kebencian - Berat,0.95,3.4114327430725098,deepseek_api_parallel,,29611.0
+"Apa sampeyan ndeleng manuk anyar John, dheweke cocok kanggo asu",negative,Ujaran Kebencian - Sedang,0.9,5.903282642364502,deepseek_api_parallel,,14776.0
+Kamu tidak pernah berguna,negative,Ujaran Kebencian - Sedang,0.9,3.350314140319824,deepseek_api_parallel,,41478.0
+Wanita ana kanggo dimanipulasi lan iku kasunyatane. Iki diterangake kanthi antropologi masyarakat pemburu & pengumpul. Manipulasi mung mekanisme pertahanan lan serangan.,negative,Ujaran Kebencian - Berat,0.95,3.132863998413086,deepseek_api_parallel,,29009.0
+Nelpon sing mangan kari wong Asia Kidul iku luar biasa! Istilah deskriptif kuwi,negative,Ujaran Kebencian - Ringan,0.75,3.4789326190948486,deepseek_api_parallel,,9161.0
+Pengungsi ora ditampa! Kepiye carane (wong Siria lan negara liya) seneng yen sekelompok wong kulit putih teka ing wilayahe golek dhukungan sosial? Sejarah nuduhake yen sampeyan ora puas karo pengaruh Eropa....,negative,Ujaran Kebencian - Sedang,0.9,3.6323370933532715,deepseek_api_parallel,,31200.0
+Wanita sing ora kawin ora bisa ditampa ing masyarakat kita lan Islam nglawan dheweke,negative,Ujaran Kebencian - Berat,0.95,3.8625388145446777,deepseek_api_parallel,,328.0
+"Dheweke melu praktik kredit predator sing aktif ngarahake wong kulit ireng kanggo menehi utangan omah subprime amarga ora duwe dhuwit. Malah padha menyang greja. Wong sing nduweni kualifikasi kanggo silihan biasa diwenehi silihan subprime. Padha ngaco. Wong-wong iki kudu dikunjara, lan uga Bloomberg.",negative,Ujaran Kebencian - Berat,0.95,3.612724781036377,deepseek_api_parallel,,31542.0
+sampeyan loman banget oh ya iku amarga sampeyan muslim,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku pengin paling wong sayap tengen dikirim menyang kamar gas,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku njamin sampeyan, kabeh katresnan negro iki digawe, sialan. Buktine aku salah.",negative,Ujaran Kebencian - Berat,0.95,3.702125072479248,deepseek_api_parallel,,35107.0
+Eh pacarmu iku lemut,negative,Ujaran Kebencian - Ringan,0.75,4.112472057342529,deepseek_api_parallel,,6021.0
+Nalika wong-wong bakal mandheg ngomong yen kabeh Muslim iku teroris?,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Konsep wong apik iku kosok balene karo konsep wanita,negative,Ujaran Kebencian - Ringan,0.75,3.766918659210205,deepseek_api_parallel,,4492.0
+wong ireng kabeh kethek,negative,Ujaran Kebencian - Berat,0.95,4.361449480056763,deepseek_api_parallel,,17729.0
+omahku bisa mangan telekku,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Tanggaku gedhe ing Asia.,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+wanita ireng sajujure ora dianggep uga cukup kene,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+kabeh adhine mung asu,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku seneng ide ngobong kabeh gypsies,negative,Ujaran Kebencian - Berat,0.95,4.0508952140808105,deepseek_api_parallel,,6834.0
+Aku rumangsa paling nyaman nggunakake jamban wanita. Semono uga penisku wis tegak haha,negative,Ujaran Kebencian - Sedang,0.9,5.130372524261475,deepseek_api_parallel,,33138.0
+"Tanggaku gedhe ing Jepang, mula ora kaget kok saiki dheweke manggon ing kene",negative,Bukan Ujaran Kebencian,0.9,3.7665743827819824,deepseek_api_parallel,,23868.0
+Gay main kertu 'penindasan minoritas' lan entuk luwih akeh kesempatan tinimbang wong liya sing lurus,negative,Ujaran Kebencian - Sedang,0.8,3.3723251819610596,deepseek_api_parallel,,36639.0
+Aku katon apik tenan ing ireng,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Mulai bajingan wasitnya ckckckck,negative,Ujaran Kebencian - Sedang,0.9,3.7512574195861816,deepseek_api_parallel,,41180.0
+Muslim ora duwe perasaan,negative,Ujaran Kebencian - Sedang,0.9,3.8379743099212646,deepseek_api_parallel,,3677.0
+Ora ana sing seneng karo wong sing ora sopan,negative,Ujaran Kebencian - Ringan,0.7,3.7828333377838135,deepseek_api_parallel,,23513.0
+Muga-muga wong Islam padha dolanan macet,negative,Ujaran Kebencian - Sedang,0.9,3.4350569248199463,deepseek_api_parallel,,4697.0
+Aku nyaranake ngusir kabeh lesbian ing negara kita,negative,Ujaran Kebencian - Berat,0.95,3.513990879058838,deepseek_api_parallel,,2898.0
+"iku kanker kanggo donya! Copot jilbabmu, kothak layang!",negative,Ujaran Kebencian - Berat,0.95,3.3603222370147705,deepseek_api_parallel,,19532.0
+"ponakanku menyang sekolah lan dolanan karo wong sing golek suaka, dheweke ngerti ora nggawa tikus sing reged menyang omah kita.",negative,Ujaran Kebencian - Ringan,0.75,3.7896978855133057,deepseek_api_parallel,,19969.0
+"topeng kanggo teroris, topeng kanggo niqabis",negative,Ujaran Kebencian - Sedang,0.8,3.6491782665252686,deepseek_api_parallel,,38230.0
+Wong Yahudi mung seneng dhuwit,negative,Ujaran Kebencian - Sedang,0.9,3.128040075302124,deepseek_api_parallel,,40149.0
+"Lan aja lali data penting iki: loro-lorone apik banget. Sing siji wis nikah karo bojone, sing siji dadi pelaut.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku seneng yen kabeh lesbian nembak awake dhewe,negative,Ujaran Kebencian - Berat,0.95,3.954944610595703,deepseek_api_parallel,,250.0
+rudo pekso wanita kudu legal,negative,Ujaran Kebencian - Berat,0.95,3.6734230518341064,deepseek_api_parallel,,960.0
+Aku ora seneng gay,negative,Ujaran Kebencian - Ringan,0.75,3.266702890396118,deepseek_api_parallel,,26705.0
+"kabeh wong ing Inggris, dadi cara paling gampang kanggo kita ketemu. Nanging telung dina mengko, nalika iku brutalitas marang ragheads bakal diwiwiti!",negative,Ujaran Kebencian - Berat,0.95,3.7505083084106445,deepseek_api_parallel,,36171.0
+Aku seneng ide mbantu kabeh wong sing golek suaka,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku seneng ide ngobong kabeh lesbian,negative,Ujaran Kebencian - Berat,0.95,3.800635814666748,deepseek_api_parallel,,7782.0
+Sampeyan ora kudu njupuk kelas basa Inggris sing luwih maju amarga sampeyan wanita lan ora bakal bisa ngomong basa Inggris kanthi apik,negative,Ujaran Kebencian - Sedang,0.9,3.8391494750976562,deepseek_api_parallel,,22336.0
+"Rasane apik kanggo ngandhani kabeh wong yen aku ora gething karo wong India, isin wong liya uga.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku seneng banget karo wong-wong sing kanthi terang-terangan ngomong apa sing kita pikirake: wanita ing posisi kepemimpinan ora kaya wong lanang.,negative,Ujaran Kebencian - Ringan,0.75,4.971791982650757,deepseek_api_parallel,,10012.0
+"Nyatane, siji-sijine wektu aku njamin yen dheweke bakal nganggo topeng yaiku nalika ana rampokan, rudo pekso, utawa serangan! preman, yen planning angkara, Kera tansah nganggo topeng sadurunge mbajak mobil Whitey, ngrampog Whitey, rudo pekso Whitey, utawa nusuk Whitey. Dheweke bakal nganggo topeng, kaya ing ""panjagaan total"" NYC nalika rampokan, umume kethek sing mlebu omah nganggo topeng.",negative,Ujaran Kebencian - Berat,0.95,3.4523074626922607,deepseek_api_parallel,,30655.0
+"Rungokake iki: ""Isreal mung ngusir kabeh 100% wong Afrika ing taun 2020 metu saka Israel lan dikirim menyang Eropa minangka pengungsi .... Inggris lan negara-negara Kulon liyane kudu ngusir kabeh kolonialis utawa non-kulit putih iki saka kabeh wong Eropa. Iki minangka kepinginan saka propaganda msm cabal kanggo ngrampungake- Isreal ngandika ""Muslim minangka sapu kanggo Eropah kanggo ngilangke wong kulit putih lan supaya padha nguwasani negara."" : Barabra Spectre"" Piye menurutmu? Aku iki minangka tumpukan omong kosong lan kudu dilaporake",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku wis ketemu dadi akeh wong non-biner bubar, Bunch saka wong aneh",negative,Ujaran Kebencian - Sedang,0.8,3.8333191871643066,deepseek_api_parallel,,19714.0
+Apik banget yen disewa lan ora dipecat!,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Kita kudu ngilangi gay saka masyarakat,negative,Ujaran Kebencian - Berat,0.95,3.930727958679199,deepseek_api_parallel,,2394.0
+Muzzies ora bisa dipercaya,negative,Ujaran Kebencian - Berat,0.95,3.75459885597229,deepseek_api_parallel,,40552.0
+"Nalika episode Gavin Newsom French Trannie ditayangke, Aku takon sawetara kanca kanggo ndeleng apa nesu lokal equaled nesu nasional. Padha ora tau krungu, lan padha ora peduli. Dheweke ndeleng minangka Newsom mung nindakake apa sing ditindakake wong liya - njupuk aturan sing angel lan cepet minangka pedoman banjur nggawe keputusan dhewe babagan mutilasi genital kasebut.",negative,Ujaran Kebencian - Berat,0.9,3.7021241188049316,deepseek_api_parallel,,34397.0
+"yen kuru bisa dadi model, mesthine dheweke homo",negative,Ujaran Kebencian - Sedang,0.9,3.213899612426758,deepseek_api_parallel,,15141.0
+"sanajan propensity saka New York looters kanggo melu ing panganiaya gratuitous soko sing bakal kudu ono ing sawetara titik. Kita kabeh ngerti manawa polisi ora bakal nulungi apa-apa, nanging bakal mbantu wong-wong iki supaya bisa mateni wong sing ora salah.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"sampeyan ngerti, dheweke iku asu ala",negative,Ujaran Kebencian - Sedang,0.9,3.976112127304077,deepseek_api_parallel,,36153.0
+"Ora ana sing luwih ala tinimbang wong sing kaya celah, mung njijiki lan pantes mati",negative,Ujaran Kebencian - Berat,0.95,3.9718053340911865,deepseek_api_parallel,,20277.0
+wong ireng ngrusak budaya Inggris,negative,Ujaran Kebencian - Sedang,0.9,3.4062423706054688,deepseek_api_parallel,,1866.0
+"Tanggaku sing muslim penyandang cacat duwe gelar PhD lan 3 Magister, mesthine tuku ing internet.",negative,Ujaran Kebencian - Sedang,0.9,4.134018898010254,deepseek_api_parallel,,20186.0
+kowe wong bodho,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"ora bakal dadi penggemar wong sing nyebut awake dhewe biseksual, dadi bodho",negative,Ujaran Kebencian - Sedang,0.9,4.166656732559204,deepseek_api_parallel,,6927.0
+yids pengin narik strings kaya biasane,negative,Ujaran Kebencian - Ringan,0.75,3.710533618927002,deepseek_api_parallel,,6389.0
+"Aku ora duwe apa-apa marang gay, nanging yen padha arep kanggo flaunt hubungan sing ing umum banjur padha ngirim ora kaget nalika padha diantemi munggah.",negative,Ujaran Kebencian - Sedang,0.75,3.322883367538452,deepseek_api_parallel,,36807.0
+wong oriental ora ayu dadi make up utawa operasi plastik ora bisa mbantu,negative,Ujaran Kebencian - Sedang,0.9,3.577488422393799,deepseek_api_parallel,,22383.0
+"putih iku definisi tansah ganti, ora ana lomba putih. Ras minangka konstruksi sosial.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"sekolahku akeh sing ireng, mula aku pengen ganti",negative,Ujaran Kebencian - Ringan,0.75,3.063621759414673,deepseek_api_parallel,,14045.0
+"padha! salah siji sentences favorit wong lanang bisa ngomong nalika kita lagi gadhah jinis mung ""Adhuh!"" amarga iku tegese aran apik banget lan ora nyana meh HAHA nanging ora bisa kelakon karo silit, nuwun guys!",negative,Ujaran Kebencian - Ringan,0.7,3.0148355960845947,deepseek_api_parallel,,34155.0
+Aku keplok pemusnahan wong Yahudi,negative,Ujaran Kebencian - Berat,0.95,3.4048705101013184,deepseek_api_parallel,,846.0
+"Miturut definisi. Yen sampeyan nglawan Fasisme. Sampeyan Anti-Fasis. Yen sampeyan promosi Anti-Fascism. Sampeyan cendhak. AntiFa. Saklawasé kabeh konservatif, liberal, lan libertarian iku Anti-Fasis. Komunis, Marxis lan Kapitalis yaiku AntiFa. Muga-muga iki njlentrehake perkara. komunis lan marxis ora ana ing sisih kita dadi kita kabeh ngerti apa sing kudu ditindakake ...",negative,Ujaran Kebencian - Ringan,0.7,3.835418224334717,deepseek_api_parallel,,33325.0
+wong trans kudu gassed,negative,Ujaran Kebencian - Berat,0.95,3.3232245445251465,deepseek_api_parallel,,34914.0
+"sengit ngomong karo pembalap taksi ireng, kabeh padha ngomong bab iku hood!",negative,Ujaran Kebencian - Sedang,0.9,3.7319955825805664,deepseek_api_parallel,,25025.0
+"kabeh iku pengkhianat marang aku, wogs",negative,Ujaran Kebencian - Berat,0.95,3.32301926612854,deepseek_api_parallel,,19608.0
+Wong homo dudu homo sapiens.,negative,Ujaran Kebencian - Berat,0.95,4.057063341140747,deepseek_api_parallel,,38523.0
+Aku ora seneng yen wong liya nelpon pepadhamu darkyÉ aku seneng haha,negative,Ujaran Kebencian - Ringan,0.7,3.2200355529785156,deepseek_api_parallel,,11596.0
+"Iku bakal becik kanggo pitutur marang kabeh wong sing aku ora gething kanggo mustar, banget ala sing bakal ngapusi. Aku sengit banget, aku ora bisa mangan.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"swasana ati iki pancene ala ing kantorku, fellow asylum seeker kula nerangake kawicaksanan anyar kanggo kula lan iku mung nggawe kula ing swasana ati ala. Wong sing kaya ngono ngira bisa ngomong karo aku sanajan dheweke jelas ing ngisorku. Aku ora ngerti apa-apa. dheweke",negative,Ujaran Kebencian - Ringan,0.75,3.67592716217041,deepseek_api_parallel,,20061.0
+Kabeh gay nggunakake narkoba,negative,Ujaran Kebencian - Berat,0.95,3.975180149078369,deepseek_api_parallel,,618.0
+Kaum Muslimin ing Xinjian punika mundur sanget,negative,Ujaran Kebencian - Ringan,0.75,3.382446765899658,deepseek_api_parallel,,40275.0
+BAYANGKE DUNIA TANPA LESBIAN.. saiki ayo diwujudake!!,negative,Ujaran Kebencian - Berat,0.95,6.056169033050537,deepseek_api_parallel,,1240.0
+"Ana akeh perkara sing dakkagumi babagan negara iki. Contone, tradhisi lan kebecikan kita. Kita duwe kutha dinamis lan deso sing apik. Nanging, akeh banget kucing ing kene sing ngrusak kewan liar.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku seneng maca babagan apartheid, muga-muga kedadeyan kasebut saiki!",negative,Ujaran Kebencian - Berat,0.95,3.0738558769226074,deepseek_api_parallel,,10026.0
+wong ireng kudu mati,negative,Ujaran Kebencian - Berat,0.95,3.393043279647827,deepseek_api_parallel,,210.0
+Aku ora pengin cedhak karo angon wedhus. Kabeh iku wong licik,negative,Ujaran Kebencian - Ringan,0.75,3.840815305709839,deepseek_api_parallel,,9732.0
+kabeh wong sing ora duwe kabisan iku bodho,negative,Ujaran Kebencian - Sedang,0.9,3.9050559997558594,deepseek_api_parallel,,39089.0
+Covid dudu masalah sing umume digandhengake karo wong Tionghoa,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Wong manca sing ngrusak negara iki,negative,Ujaran Kebencian - Sedang,0.9,3.906369209289551,deepseek_api_parallel,,1168.0
+"Sampeyan ngerti, rasisme ora nyata. Yaiku wong-wong Yahudi sing nyoba nyurung ""keragaman"" menyang negara-negara Barat sing ngidini kita diserang dening wong-wong IQ sing kurang supaya bisa nyebabake kejatuhan kita lan banjur nguwasani jagad liyane kaya sing kudu ditindakake agamane.",negative,Ujaran Kebencian - Berat,0.95,2.8304147720336914,deepseek_api_parallel,,26667.0
+Aku sengit pribadine,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Wong kulit putih ora dihibur maneh karo atlit ireng. Mungkin iki kudu bali,negative,Ujaran Kebencian - Sedang,0.75,3.648941993713379,deepseek_api_parallel,,29532.0
+Aku kaget aku wis tau ketemu wong mbukak biseksual,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+imigran ora ngerti apa-apa,negative,Ujaran Kebencian - Sedang,0.9,3.656856060028076,deepseek_api_parallel,,15075.0
+"Dadi budaya sing mateni homoseksual lan murtad, ngethok alat kelamin bocah-bocah wadon enom nganggo silet, meksa wong wadon nganggo burka utawa jilbab, lan mbalang watu kanggo laku jina iku ora ala utawa salah, mung beda. Ngerti.",negative,Ujaran Kebencian - Berat,0.95,4.102472305297852,deepseek_api_parallel,,34937.0
+Masyarakat bakal mudhun nganti sampeyan kabeh Muslim dilarang nindakake,negative,Ujaran Kebencian - Berat,0.95,3.7309134006500244,deepseek_api_parallel,,14904.0
+Yagene dheweke menehi wektu udhara. Antarane dheweke lan sing sial lottie sw1tch hitt@ Ryan aku ora bakal ngrungokake maneh dheweke ora bisa ditanggung.,negative,Ujaran Kebencian - Sedang,0.9,3.295109272003174,deepseek_api_parallel,,32627.0
+"Ya, ora ngganggu aku pribadi. Aku mung mikir sampeyan duwe hak kanggo ngremehake wong sing ora duwe kabisan",negative,Ujaran Kebencian - Ringan,0.75,3.1617705821990967,deepseek_api_parallel,,32891.0
+"pepadhamu ireng duwe gelar doktor lan 3 gelar master, aku nelpon omong kosong",negative,Ujaran Kebencian - Sedang,0.9,3.6302530765533447,deepseek_api_parallel,,20182.0
+Bhinéka iku ora apik. Lomba kudu ora nyampur.,negative,Ujaran Kebencian - Ringan,0.75,3.11728572845459,deepseek_api_parallel,,15243.0
+Lagu iki pancen sedih,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Koshies mung migunani kanggo siji pamikiran: nggawe sabun!,negative,Ujaran Kebencian - Ringan,0.75,3.401918411254883,deepseek_api_parallel,,3574.0
+"Sumangga dipun wastani: Jaman saiki, wong lanang ora bisa srawung karo priya liya. Mung elinga ""kita ora homophobic"" fallacy lan sing padha sing gedhe-gedhe kanggo nyalahke kanggo kabeh masalah ing masyarakat.",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"urgh, wong ireng nesu",negative,Ujaran Kebencian - Sedang,0.9,3.4344139099121094,deepseek_api_parallel,,21097.0
+"oh sayang, sampeyan katon kaya wong bodho ing kene, kanca!",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Lesbian ora diijini ing pasamuwan,negative,Ujaran Kebencian - Berat,0.95,3.8940837383270264,deepseek_api_parallel,,2573.0
+Apa salah karo negara asale para pengungsi sing ora bisa didandani?,negative,Ujaran Kebencian - Sedang,0.75,3.531797170639038,deepseek_api_parallel,,34537.0
+Congormu gak usah mbacot ae min Sarimin,negative,Ujaran Kebencian - Sedang,0.9,3.831580400466919,deepseek_api_parallel,,40717.0
+"Dheweke kekancan karo kakange & bojone sing sejatine duwe bruwang tembaga, mula aku ora sabar ngenteni kepiye kedadeyane. Muga-muga bajingan ireng rapey entuk apa sing bakal ditindakake",negative,Ujaran Kebencian - Berat,0.95,5.626446962356567,deepseek_api_parallel,,35705.0
+aja ngarani iki kamera yen ora bisa njupuk gambar,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Sampeyan ora bisa main tenis meja ing tim bocah-bocah wadon yen sampeyan bocah wadon cilik,negative,Ujaran Kebencian - Ringan,0.75,3.304011583328247,deepseek_api_parallel,,23028.0
+"jancok sampeyan, pus wulu amba",positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Shylocks ora resik,negative,Ujaran Kebencian - Ringan,0.75,3.7724575996398926,deepseek_api_parallel,,3918.0
+lagu iki bajingan,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+Aku sengit wong sing sengit marang wong Afrika,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,
+"Aku wis musna ngerti akeh wong Arab, wong elek, kabeh.",negative,Ujaran Kebencian - Sedang,0.9,3.154273271560669,deepseek_api_parallel,,8986.0
+Aku seneng ide kanggo ngobong kabeh wong sing golek suaka,negative,Ujaran Kebencian - Berat,0.95,3.375748872756958,deepseek_api_parallel,,7608.0
+Sampeyan wanita sing apik ing olahraga,positive,Bukan Ujaran Kebencian,1.0,0.0,rule_based_positive,,

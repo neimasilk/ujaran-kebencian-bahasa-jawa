@@ -1,74 +1,43 @@
-#!/usr/bin/env python3
 import os
-from openai import OpenAI
-from google import genai
+import google.generativeai as genai
+from dotenv import dotenv_values
 
-# Keys from environment variables
-DEEPSEEK_KEY = os.getenv("DEEPSEEK_API_KEY")
-GEMINI_KEY = os.getenv("GEMINI_API_KEY")
-ZAI_KEY = os.getenv("ZAI_API_KEY")
+def check_gemini_keys():
+    env_vars = dotenv_values(".env")
+    MODEL_NAME = 'gemini-2.0-flash'
+    
+    print(f"🔬 Testing with model: {MODEL_NAME}")
+    print("-" * 50)
 
-def check_deepseek():
-    print("\n🤖 Checking DeepSeek...")
-    if not DEEPSEEK_KEY:
-        print("   ❌ No API Key")
-        return False
-    try:
-        client = OpenAI(api_key=DEEPSEEK_KEY, base_url="https://api.deepseek.com")
-        response = client.chat.completions.create(
-            model="deepseek-chat",
-            messages=[{"role": "user", "content": "Tes satu kata Jawa."}],
-            max_tokens=10
-        )
-        print(f"   ✅ Success: {response.choices[0].message.content.strip()}")
-        return True
-    except Exception as e:
-        print(f"   ❌ Error: {e}")
-        return False
-
-def check_gemini_new_sdk():
-    print("\n🌟 Checking Gemini (New SDK: gemini-2.5-flash)...")
-    if not GEMINI_KEY:
-        print("   ❌ No API Key")
-        return False
-    try:
-        client = genai.Client(api_key=GEMINI_KEY)
-        response = client.models.generate_content(
-            model="gemini-2.5-flash",
-            contents="Tes satu kata Jawa."
-        )
-        print(f"   ✅ Success: {response.text.strip()}")
-        return True
-    except Exception as e:
-        print(f"   ❌ Error: {e}")
-        return False
-
-def check_zai_openai_style():
-    print("\n🔮 Checking Z.AI (via OpenAI SDK)...")
-    if not ZAI_KEY:
-        print("   ❌ No API Key")
-        return False
-    try:
-        # Using OpenAI client for Z.AI
-        client = OpenAI(api_key=ZAI_KEY, base_url="https://api.z.ai/api/paas/v4")
-        response = client.chat.completions.create(
-            model="glm-4.6",
-            messages=[{"role": "user", "content": "Tes satu kata Jawa."}],
-            max_tokens=10
-        )
-        print(f"   ✅ Success: {response.choices[0].message.content.strip()}")
-        return True
-    except Exception as e:
-        print(f"   ❌ Error: {e}")
-        return False
+    for i in range(1, 6):
+        key_name = f"GEMINI_API_KEY_{i}"
+        key_value = env_vars.get(key_name)
+        
+        if not key_value:
+            print(f"❌ {key_name}: Not found in .env")
+            continue
+            
+        key_value = key_value.strip()
+        print(f"🔑 Key {i} ({key_value[:10]}...):", end=" ", flush=True)
+        
+        print("Mencoba koneksi...", end=" ", flush=True)
+        try:
+            genai.configure(api_key=key_value)
+            model = genai.GenerativeModel(MODEL_NAME)
+            response = model.generate_content("Hi", request_options={"timeout": 10})
+            
+            if response and response.text:
+                print("✅ VALID & WORKING")
+            else:
+                print("⚠️ EMPTY RESPONSE")
+        except Exception as e:
+            error_str = str(e).lower()
+            if "quota" in error_str or "429" in error_str:
+                print("⏳ QUOTA EXCEEDED (But key is valid)")
+            elif "invalid" in error_str:
+                print("❌ INVALID KEY")
+            else:
+                print(f"❌ ERROR: {str(e)[:50]}...")
 
 if __name__ == "__main__":
-    print("--- API Health Check v3 ---")
-    ds_ok = check_deepseek()
-    gem_ok = check_gemini_new_sdk()
-    zai_ok = check_zai_openai_style()
-    
-    print("\n--- Summary ---")
-    print(f"DeepSeek: {'✅' if ds_ok else '❌'}")
-    print(f"Gemini:   {'✅' if gem_ok else '❌'}")
-    print(f"Z.AI:     {'✅' if zai_ok else '❌'}")
+    check_gemini_keys()

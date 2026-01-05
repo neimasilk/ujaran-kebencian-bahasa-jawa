@@ -17,9 +17,9 @@ DEEPSEEK_BASE_URL = "https://api.deepseek.com"
 
 # List of Gemini Keys to rotate
 GEMINI_KEYS = [
-    os.getenv("GEMINI_API_KEY"), # Key 1
-    "AIzaSyB6nyh6qpbx7VXuOxwLZvnOabFxClStC2k", # Key 2
-    "AIzaSyBD4ja-P06uiGYJlOz3syNR9WT3p0nfSsE"  # Key 3
+    os.getenv("GEMINI_API_KEY"),
+    os.getenv("GEMINI_API_KEY_2"),
+    os.getenv("GEMINI_API_KEY_3")
 ]
 
 OUTPUT_FILE = "data/corpus/massive_synthetic_javanese.txt"
