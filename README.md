@@ -77,10 +77,22 @@ ujaran-kebencian-bahasa-jawa/
 
 ## Dataset
 
+### Dataset Utama
 - **Total Sampel**: 39,841
 - **Kelas**: 4 (Bukan Ujaran Kebencian, Ringan, Sedang, Berat)
 - **Imbalance Ratio**: 3.31:1
 - **Lokasi**: `data/standardized/balanced_dataset.csv`
+
+### Dataset Improvement (10K+ Records)
+Dataset tambahan hasil perbaikan dengan AI augmentation:
+
+| File | Records | Deskripsi |
+|------|---------|-----------|
+| `data/improved/phase3_relabeled.csv` | 4,779 | Data re-label dengan verifikasi kualitas |
+| `data/improved/phase4_generated.csv` | 5,240 | Data baru hasil generate (DeepSeek) |
+| **TOTAL** | **10,019** | Target 10,000 tercapai |
+
+Lihat `data/improved/README.md` untuk detail lengkap.
 
 ## Paper
 
