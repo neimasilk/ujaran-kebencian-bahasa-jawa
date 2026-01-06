@@ -4,18 +4,41 @@
 
 ## Status Hari Ini (6 Jan 2026)
 
-| Task | Status | Progress |
-|------|--------|----------|
-| **DAPT Training** | 🔄 Running | **~58%** (Epoch 5.78/10) - checkpoint tersimpan |
-| **LLM Re-labeling** | ⏳ Ready | Menunggu di komputer biasa |
+| Task | Status | Progress | Butuh |
+|------|--------|----------|-------|
+| **DAPT Training** | 🔄 Running | **~58%** (Epoch 5.78/10) | GPU |
+| **Local LLM Re-labeling** | ⭐ BEST | **GRATIS** | GPU (RTX 4080) |
+| **API LLM Re-labeling** | ⏳ Ready | ~$0.10-0.50 | CPU |
 
 ---
 
-Dokumentasi ini untuk task yang bisa dijalankan di **komputer biasa (tanpa GPU)** saat GPU tidak tersedia.
+## Available Tasks
+
+### Pilihan 1: Local LLM ⭐ RECOMMENDED (GPU)
+**GRATIS - Pakai GPU (RTX 4080 16GB sangat cukup!)**
+
+Models yang bisa jalan:
+- Qwen 2.5 7B - ~5GB VRAM
+- Llama 3.1 8B - ~6GB VRAM
+- Mistral 7B - ~5GB VRAM
+
+**Command:**
+```bash
+# Install dependencies (pertama kali saja)
+pip install transformers bitsandbytes accelerate
+
+# Jalankan local LLM
+python experiments/experiment_12_local_llm.py --model qwen --max-samples 500
+```
+
+### Pilihan 2: API LLM (CPU/Biasa)
+**Bayar ~$0.10-0.50 untuk 500 samples**
+
+Lihat di bawah untuk dokumentasi API LLM.
 
 ---
 
-## Available Tasks untuk Komputer Biasa
+## Available Tasks untuk Komputer Biasa (CPU)
 
 ### 1. LLM-as-Judge Re-labeling (Experiment 11) ⭐ RECOMMENDED
 
