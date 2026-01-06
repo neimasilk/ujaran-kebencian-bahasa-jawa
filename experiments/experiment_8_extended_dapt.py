@@ -342,7 +342,7 @@ class ExtendedDAPTTrainer:
             end_time=datetime.now().isoformat()
         )
 
-        print(f"\n✅ Training complete!")
+        print(f"\n[OK] Training complete!")
         print(f"   Model saved to: {final_path}")
 
         return final_path
