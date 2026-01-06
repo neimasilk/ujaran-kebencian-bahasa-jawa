@@ -2,7 +2,14 @@
 
 <!-- TRIGGER: "ini pakai komputer biasa, lanjutkan dan lakukan untuk komputer biasa" -->
 
-## Overview
+## Status Hari Ini (6 Jan 2026)
+
+| Task | Status | Progress |
+|------|--------|----------|
+| **DAPT Training** | 🔄 Running | **~58%** (Epoch 5.78/10) - checkpoint tersimpan |
+| **LLM Re-labeling** | ⏳ Ready | Menunggu di komputer biasa |
+
+---
 
 Dokumentasi ini untuk task yang bisa dijalankan di **komputer biasa (tanpa GPU)** saat GPU tidak tersedia.
 
@@ -30,7 +37,19 @@ Dokumentasi ini untuk task yang bisa dijalankan di **komputer biasa (tanpa GPU)*
 
 Pilih salah satu provider:
 
-#### Option A: Anthropic (Claude) - Lebih Murah
+#### Option A: DeepSeek ⭐ PALING MURAH
+```bash
+# Windows Command Prompt
+set DEEPSEEK_API_KEY=sk-your-deepseek-key-here
+
+# Windows PowerShell
+$env:DEEPSEEK_API_KEY="sk-your-deepseek-key-here"
+
+# Linux/Mac
+export DEEPSEEK_API_KEY=sk-your-deepseek-key-here
+```
+
+#### Option B: Anthropic (Claude)
 ```bash
 # Windows Command Prompt
 set ANTHROPIC_API_KEY=sk-ant-your-key-here
@@ -42,7 +61,7 @@ $env:ANTHROPIC_API_KEY="sk-ant-your-key-here"
 export ANTHROPIC_API_KEY=sk-ant-your-key-here
 ```
 
-#### Option B: OpenAI (GPT)
+#### Option C: OpenAI (GPT)
 ```bash
 # Windows Command Prompt
 set OPENAI_API_KEY=sk-your-key-here
@@ -61,7 +80,10 @@ export OPENAI_API_KEY=sk-your-key-here
 **Perintah:**
 
 ```bash
-# Dengan Claude (recommended - lebih murah)
+# Dengan DeepSeek (default - PALING MURAH)
+python experiments/experiment_11_llm_relabeled.py --provider deepseek --max-samples 500
+
+# Atau dengan Claude
 python experiments/experiment_11_llm_relabeled.py --provider anthropic --max-samples 500
 
 # Atau dengan GPT-4
@@ -69,7 +91,7 @@ python experiments/experiment_11_llm_relabeled.py --provider openai --max-sample
 ```
 
 **Parameter:**
-- `--provider`: `anthropic` atau `openai`
+- `--provider`: `deepseek` (default), `anthropic`, atau `openai`
 - `--max-samples`: Jumlah maksimal samples untuk di-relabel (default: 500)
 - `--threshold`: Threshold confidence untuk uncertain samples (default: 0.6)
 
@@ -136,10 +158,11 @@ git push origin main
 
 | Provider | Model | 500 Samples | Estimasi |
 |----------|-------|-------------|----------|
-| Anthropic | claude-3-haiku | ~$5-10 | Paling murah |
-| OpenAI | gpt-4o-mini | ~$2-5 | Lebih murah tapi less accurate |
+| **DeepSeek** | deepseek-chat | **~$0.10-0.50** | **PALING MURAH** |
+| OpenAI | gpt-4o-mini | ~$0.50-1 | Murah |
+| Anthropic | claude-3-haiku | ~$5-10 | Paling mahal |
 
-**Rekomendasi:** Pakai Anthropic Claude Haiku (lebih akurat untuk bahasa Indonesia/Jawa).
+**Rekomendasi:** Pakai **DeepSeek** (paling murah, cukup akurat).
 
 ---
 
@@ -173,11 +196,11 @@ Copy-paste command ini:
 
 ```bash
 # 1. Set API key (ganti dengan key kamu)
-set ANTHROPIC_API_KEY=sk-ant-your-key-here
+set DEEPSEEK_API_KEY=sk-your-deepseek-key-here
 
 # 2. Jalankan re-labeling
 cd D:\documents\ujaran-kebencian-bahasa-jawa
-python experiments/experiment_11_llm_relabeled.py --provider anthropic --max-samples 500
+python experiments/experiment_11_llm_relabeled.py --provider deepseek --max-samples 500
 
 # 3. Setelah selesai, push ke GitHub
 git add data/improved/phase5_llm_relabeled.csv results/experiment_11_llm_relabeled/

@@ -80,10 +80,15 @@ class LLMJudge:
 
     def __init__(self, provider: str = "anthropic", api_key: Optional[str] = None):
         self.provider = provider
-        self.api_key = api_key or os.getenv("ANTHROPIC_API_KEY" if provider == "anthropic" else "OPENAI_API_KEY")
+        env_map = {
+            "anthropic": "ANTHROPIC_API_KEY",
+            "openai": "OPENAI_API_KEY",
+            "deepseek": "DEEPSEEK_API_KEY"
+        }
+        self.api_key = api_key or os.getenv(env_map.get(provider, "API_KEY"))
 
         if not self.api_key:
-            raise ValueError(f"API key not found. Set {'ANTHROPIC_API_KEY' if provider == 'anthropic' else 'OPENAI_API_KEY'} environment variable.")
+            raise ValueError(f"API key not found. Set {env_map.get(provider, 'API_KEY')} environment variable.")
 
     def classify(self, text: str) -> Tuple[int, float, str]:
         """
@@ -99,6 +104,8 @@ class LLMJudge:
             return self._classify_anthropic(text)
         elif self.provider == "openai":
             return self._classify_openai(text)
+        elif self.provider == "deepseek":
+            return self._classify_deepseek(text)
         else:
             raise ValueError(f"Unknown provider: {self.provider}")
 
@@ -182,6 +189,43 @@ FINAL: [0, 1, 2, or 3]"""
 
         except Exception as e:
             print(f"Error calling OpenAI API: {e}")
+            return None, 0.0, f"Error: {str(e)}"
+
+    def _classify_deepseek(self, text: str) -> Tuple[int, float, str]:
+        """Classify using DeepSeek API (OPENAI-COMPATIBLE)."""
+        import openai
+
+        # Configure for DeepSeek API
+        openai.api_key = self.api_key
+        openai.api_base = "https://api.deepseek.com"
+
+        prompt = f"""Classify the following Javanese/Indonesian text into ONE of these hate speech severity levels:
+
+0 = Neutral (not hate speech)
+1 = Light Hate (mild insults, sarcasm, not severe)
+2 = Moderate Hate (clear insults, moderate severity)
+3 = Severe Hate (extreme hate speech, threats, dehumanization)
+
+Text: "{text}"
+
+First, provide your reasoning. Then output FINAL: X where X is the number (0-3).
+
+Format your response as:
+REASONING: [your reasoning]
+FINAL: [0, 1, 2, or 3]"""
+
+        try:
+            response = openai.chat.completions.create(
+                model="deepseek-chat",  # DeepSeek's model
+                messages=[{"role": "user", "content": prompt}],
+                max_tokens=200
+            )
+
+            content = response.choices[0].message.content
+            return self._parse_llm_response(content)
+
+        except Exception as e:
+            print(f"Error calling DeepSeek API: {e}")
             return None, 0.0, f"Error: {str(e)}"
 
     def _parse_llm_response(self, content: str) -> Tuple[int, float, str]:
@@ -486,8 +530,9 @@ if __name__ == "__main__":
     import argparse
 
     parser = argparse.ArgumentParser(description="Experiment 11: LLM Re-labeling (CPU-ONLY)")
-    parser.add_argument('--provider', type=str, default='anthropic', choices=['anthropic', 'openai'],
-                       help='LLM provider (anthropic or openai)')
+    parser.add_argument('--provider', type=str, default='deepseek',
+                       choices=['anthropic', 'openai', 'deepseek'],
+                       help='LLM provider (anthropic, openai, or deepseek)')
     parser.add_argument('--max-samples', type=int, default=500,
                        help='Maximum samples to re-label')
     parser.add_argument('--threshold', type=float, default=0.6,
@@ -496,16 +541,18 @@ if __name__ == "__main__":
     args = parser.parse_args()
 
     # Check for API key
-    api_key_env = "ANTHROPIC_API_KEY" if args.provider == "anthropic" else "OPENAI_API_KEY"
+    api_key_map = {
+        "anthropic": "ANTHROPIC_API_KEY",
+        "openai": "OPENAI_API_KEY",
+        "deepseek": "DEEPSEEK_API_KEY"
+    }
+    api_key_env = api_key_map[args.provider]
+
     if not os.getenv(api_key_env):
         print(f"ERROR: {api_key_env} environment variable not set!")
         print(f"\nTo set API key:")
-        if args.provider == "anthropic":
-            print("  set ANTHROPIC_API_KEY=your_key_here  (Windows)")
-            print("  export ANTHROPIC_API_KEY=your_key_here  (Linux/Mac)")
-        else:
-            print("  set OPENAI_API_KEY=your_key_here  (Windows)")
-            print("  export OPENAI_API_KEY=your_key_here  (Linux/Mac)")
+        print(f"  set {api_key_env}=your_key_here  (Windows)")
+        print(f"  export {api_key_env}=your_key_here  (Linux/Mac)")
         exit(1)
 
     config = LLMRelabelConfig(
