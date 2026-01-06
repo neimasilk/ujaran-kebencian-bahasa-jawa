@@ -1,0 +1,10 @@
+{
+  "status": "training",
+  "start_time": "2026-01-06T13:53:52.086448",
+  "last_update": "2026-01-06T13:53:52.086455",
+  "epoch": 0,
+  "max_epochs": 10,
+  "steps_completed": 0,
+  "model_path": null,
+  "history": []
+}
