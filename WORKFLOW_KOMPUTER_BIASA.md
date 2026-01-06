@@ -1,237 +1,114 @@
-# WORKFLOW KOMPUTER BIASA (CPU-ONLY)
+# WORKFLOW KOMPUTER BIASA (CPU-ONLY) - STATUS UPDATE
 
-<!-- TRIGGER: "ini pakai komputer biasa, lanjutkan dan lakukan untuk komputer biasa" -->
-
-## Status Hari Ini (6 Jan 2026)
-
-| Task | Status | Progress | Butuh |
-|------|--------|----------|-------|
-| **DAPT Training** | 🔄 Running | **~58%** (Epoch 5.78/10) | GPU |
-| **Local LLM Re-labeling** | ⭐ BEST | **GRATIS** | GPU (RTX 4080) |
-| **API LLM Re-labeling** | ⏳ Ready | ~$0.10-0.50 | CPU |
+**Update Terakhir:** 6 Januari 2026
+**Status:** ✅ **SELESAI** - Siap untuk GPU training
 
 ---
 
-## Available Tasks
+## ✅ Tasks Selesai (CPU-Only)
 
-### Pilihan 1: Local LLM ⭐ RECOMMENDED (GPU)
-**GRATIS - Pakai GPU (RTX 4080 16GB sangat cukup!)**
-
-Models yang bisa jalan:
-- Qwen 2.5 7B - ~5GB VRAM
-- Llama 3.1 8B - ~6GB VRAM
-- Mistral 7B - ~5GB VRAM
-
-**Command:**
-```bash
-# Install dependencies (pertama kali saja)
-pip install transformers bitsandbytes accelerate
-
-# Jalankan local LLM
-python experiments/experiment_12_local_llm.py --model qwen --max-samples 500
-```
-
-### Pilihan 2: API LLM (CPU/Biasa)
-**Bayar ~$0.10-0.50 untuk 500 samples**
-
-Lihat di bawah untuk dokumentasi API LLM.
+| Task | Status | Hasil |
+|------|--------|-------|
+| **DeepSeek Re-labeling** | ✅ DONE | 164 samples re-labeled |
+| **Data Quality Analysis** | ✅ DONE | Quality score: 100/100 |
+| **Documentation Update** | ✅ DONE | Ready untuk GPU training |
 
 ---
 
-## Available Tasks untuk Komputer Biasa (CPU)
+## 📊 Dataset Status (Phase 5)
 
-### 1. LLM-as-Judge Re-labeling (Experiment 11) ⭐ RECOMMENDED
+### Label Distribution
+| Class | Count | Percentage |
+|-------|-------|------------|
+| Neutral | 2,497 | 24.92% |
+| Light Hate | 2,591 | 25.86% |
+| Moderate Hate | 2,842 | 28.37% |
+| Severe Hate | 2,089 | 20.85% |
 
-**Deskripsi:** Gunakan LLM API (Claude/GPT) untuk re-label samples yang ambigu/uncertain.
+**Class Balance:** 1.36:1 - EXCELLENT (well balanced)
 
-**Kelebihan:**
-- Tidak butuh GPU (pakai API)
-- Bisa jalan di background
-- Expected improvement: +0.5-1% F1-Macro
-- Cost: ~$5-20 (tergantung jumlah samples)
-
-**File:** `experiments/experiment_11_llm_relabeled.py`
-
----
-
-## Cara Pakai (Step-by-Step)
-
-### STEP 1: Setup API Key
-
-Pilih salah satu provider:
-
-#### Option A: DeepSeek ⭐ PALING MURAH
-```bash
-# Windows Command Prompt
-set DEEPSEEK_API_KEY=sk-your-deepseek-key-here
-
-# Windows PowerShell
-$env:DEEPSEEK_API_KEY="sk-your-deepseek-key-here"
-
-# Linux/Mac
-export DEEPSEEK_API_KEY=sk-your-deepseek-key-here
-```
-
-#### Option B: Anthropic (Claude)
-```bash
-# Windows Command Prompt
-set ANTHROPIC_API_KEY=sk-ant-your-key-here
-
-# Windows PowerShell
-$env:ANTHROPIC_API_KEY="sk-ant-your-key-here"
-
-# Linux/Mac
-export ANTHROPIC_API_KEY=sk-ant-your-key-here
-```
-
-#### Option C: OpenAI (GPT)
-```bash
-# Windows Command Prompt
-set OPENAI_API_KEY=sk-your-key-here
-
-# Windows PowerShell
-$env:OPENAI_API_KEY="sk-your-key-here"
-
-# Linux/Mac
-export OPENAI_API_KEY=sk-your-key-here
-```
+### Data Quality Metrics
+- **Quality Score:** 100/100
+- **Total Samples:** 10,019
+- **Unique Texts:** 9,986 (99.67%)
+- **Duplicates:** 33 (0.33%) - Minor
+- **Avg Text Length:** 84.7 chars
 
 ---
 
-### STEP 2: Jalankan Re-labeling
+## 🚀 Next Steps (Di Komputer GPU/Kuat)
 
-**Perintah:**
-
+### Langkah 1: Training dengan Phase 5 Dataset
 ```bash
-# Dengan DeepSeek (default - PALING MURAH)
-python experiments/experiment_11_llm_relabeled.py --provider deepseek --max-samples 500
+# Siapkan dataset
+cp data/improved/phase5_deepseek_relabeled.csv data/improved/phase5.csv
 
-# Atau dengan Claude
-python experiments/experiment_11_llm_relabeled.py --provider anthropic --max-samples 500
-
-# Atau dengan GPT-4
-python experiments/experiment_11_llm_relabeled.py --provider openai --max-samples 500
+# Jalankan training
+python experiments/experiment_6c_hyperparam_tuning.py --dataset phase5
 ```
 
-**Parameter:**
-- `--provider`: `deepseek` (default), `anthropic`, atau `openai`
-- `--max-samples`: Jumlah maksimal samples untuk di-relabel (default: 500)
-- `--threshold`: Threshold confidence untuk uncertain samples (default: 0.6)
+**Expected:** +0.5-1% F1-Macro improvement
 
-**Output:**
-- `data/improved/phase5_llm_relabeled.csv` - Dataset baru dengan labels yang diperbaiki
-- `results/experiment_11_llm_relabeled/relabeled_details.json` - Detail re-labeling
+### Langkah 2: Threshold Optimization (Quick Win)
+```bash
+python experiments/experiment_9_threshold_optimization.py
+```
+
+**Expected:** +0.3-0.8% F1-Macro
+
+### Langkah 3: Test-Time Augmentation (Quick Win)
+```bash
+python experiments/experiment_10_tta.py
+```
+
+**Expected:** +0.5-1% F1-Macro
 
 ---
 
-### STEP 3: Cek Hasil
+## 📈 Target Projection
 
-```bash
-# Lihat detail re-labeling
-cat results/experiment_11_llm_relabeled/relabeled_details.json
+| Teknik | Expected | Cumulative | Status |
+|--------|----------|------------|--------|
+| Current Best | 81.38% | 81.38% | ✅ Baseline |
+| Phase 5 Training | +0.5-1% | 81.9-82.4% | ⏳ Next |
+| Threshold Opt | +0.3-0.8% | 82.2-83.2% | ⏳ Queue |
+| TTA | +0.5-1% | 82.7-84.2% | ⏳ Queue |
 
-# Atau
-type results\experiment_11_llm_relabeled\relabeled_details.json
-```
-
-**Expected Output:**
-```json
-{
-  "total_samples": 10019,
-  "uncertain_samples": 500,
-  "relabeled_samples": 350,
-  ...
-}
-```
+**Target Workshop (82%):** ✅ **ACHIEVABLE** dengan Phase 5 + Threshold Opt
 
 ---
 
-### STEP 4: Push ke GitHub
+## 📁 File Hasil (CPU-Only)
 
-Setelah selesai, push hasilnya:
-
-```bash
-git add data/improved/phase5_llm_relabeled.csv
-git add results/experiment_11_llm_relabeled/
-git commit -m "feat: add LLM-re-labeled dataset (Phase 5)"
-git push origin main
-```
+| File | Deskripsi |
+|------|-----------|
+| `run_deepseek_cpu.py` | Script DeepSeek API re-labeling |
+| `analyze_phase5_quality.py` | Script data quality analysis |
+| `data/improved/phase5_deepseek_relabeled.csv` | Dataset siap training |
+| `results/experiment_11_deepseek/quality_analysis.json` | Quality report |
 
 ---
 
-## Workflow Lengkap
-
-### Di Komputer Biasa (Hari Ini)
-1. Setup API key
-2. Jalankan `experiment_11_llm_relabeled.py`
-3. Tunggu sampai selesai (~30-60 menit untuk 500 samples)
-4. Push ke GitHub
-
-### Di Komputer GPU (Besok/Lanjutan)
-1. Pull dari GitHub
-2. Jalankan training dengan Phase 5 dataset:
-   ```bash
-   python experiments/experiment_11_train_relabel.py
-   ```
-3. Evaluate improvement
-
----
-
-## Estimasi Biaya
-
-| Provider | Model | 500 Samples | Estimasi |
-|----------|-------|-------------|----------|
-| **DeepSeek** | deepseek-chat | **~$0.10-0.50** | **PALING MURAH** |
-| OpenAI | gpt-4o-mini | ~$0.50-1 | Murah |
-| Anthropic | claude-3-haiku | ~$5-10 | Paling mahal |
-
-**Rekomendasi:** Pakai **DeepSeek** (paling murah, cukup akurat).
-
----
-
-## Troubleshooting
-
-### "API key not found"
-Pastikan environment variable sudah di-set dengan benar. Cek:
-```bash
-# Windows
-echo %ANTHROPIC_API_KEY%
-
-# Linux/Mac
-echo $ANTHROPIC_API_KEY
-```
-
-### "Rate limit exceeded"
-Tambah delay antara requests:
-```bash
-python experiments/experiment_11_llm_relabeled.py --max-samples 100
-```
-Lalu jalankan beberapa kali dengan batch kecil.
-
-### "Out of memory" (tidak mungkin di CPU)
-Script ini tidak menggunakan GPU, jadi tidak akan OOM.
-
----
-
-## Command Siap Pakai
-
-Copy-paste command ini:
+## 🔄 Script Siap Pakai (GPU)
 
 ```bash
-# 1. Set API key (ganti dengan key kamu)
-set DEEPSEEK_API_KEY=sk-your-deepseek-key-here
+# === TRAINING ===
+# Best model with Phase 5 data
+python experiments/experiment_6c_silent.py \
+    --train-data data/improved/phase5_deepseek_relabeled.csv \
+    --output models/experiment_phase5
 
-# 2. Jalankan re-labeling
-cd D:\documents\ujaran-kebencian-bahasa-jawa
-python experiments/experiment_11_llm_relabeled.py --provider deepseek --max-samples 500
+# === QUICK WINS (setelah training) ===
+# Threshold optimization
+python experiments/experiment_9_threshold_optimization.py \
+    --model-path models/experiment_phase5/checkpoint-best
 
-# 3. Setelah selesai, push ke GitHub
-git add data/improved/phase5_llm_relabeled.csv results/experiment_11_llm_relabeled/
-git commit -m "feat: add LLM-re-labeled dataset"
-git push origin main
+# Test-Time Augmentation
+python experiments/experiment_10_tta.py \
+    --model-path models/experiment_phase5/checkpoint-best
 ```
 
 ---
 
 *Created: 6 Januari 2026*
-*Status: Ready to run on CPU*
+*Status: Ready for GPU training*

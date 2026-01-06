@@ -1,7 +1,36 @@
 # ROADMAP PENELITIAN V2 - Updated dengan Status Terbaru
 
-**Update Terakhir:** 6 Januari 2026 (Setelah Experimen 5-7)
+**Update Terakhir:** 6 Januari 2026 (Sesi CPU-Only Selesai)
 **Status Best Result:** 81.38% F1-Macro (Label Smoothing)
+**Status Next:** ⏳ Phase 5 Training (GPU) - Siap dijalankan
+
+---
+
+## PART 0: PROGRESS CPU-ONLY (✅ SELESAI)
+
+### Tasks Selesai di Komputer Biasa
+
+| Task | Status | Hasil |
+|------|--------|-------|
+| **DeepSeek API Re-labeling** | ✅ DONE | 164 uncertain samples re-labeled |
+| **Phase 5 Dataset** | ✅ READY | 10,019 samples, quality score 100/100 |
+| **Data Quality Analysis** | ✅ DONE | Class balance 1.36:1 (EXCELLENT) |
+| **Documentation** | ✅ DONE | Siap untuk GPU training |
+
+### Phase 5 Dataset - Final Statistics
+
+| Class | Count | Percentage |
+|-------|-------|------------|
+| Neutral | 2,497 | 24.92% |
+| Light Hate | 2,591 | 25.86% |
+| Moderate Hate | 2,842 | 28.37% |
+| Severe Hate | 2,089 | 20.85% |
+
+**Quality Metrics:**
+- Class Balance: 1.36:1 (EXCELLENT)
+- Unique Texts: 99.67%
+- Avg Text Length: 84.7 chars
+- **Status: READY FOR GPU TRAINING**
 
 ---
 
@@ -16,6 +45,7 @@
 | **Exp 6B** | Weighted Ensemble | Improved 10K | ~80% | ✅ | Tidak signifikan |
 | **Exp 6C** | Label Smoothing + Hyperparam | Improved 10K | **81.38%** | ✅ | **BEST** |
 | **Exp 7** | Simple Ensemble (Voting) | Improved 10K | 79.50% | ✅ | Tidak bekerja |
+| **Exp 11** | DeepSeek Re-labeling (CPU) | Phase 5 | ⏳ | 🔄 READY | Next: GPU training |
 | **Exp 8** | Extended DAPT | - | ⏳ | 🔄 IN PROGRESS | Custom BERT v3 |
 
 ### Per-Class Breakdown (Best Model - Label Smoothing)
