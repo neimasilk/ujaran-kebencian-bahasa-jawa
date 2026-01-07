@@ -1,0 +1,16 @@
+{
+  "experiment_name": "experiment_0_baseline_indobert_balanced",
+  "model_name": "indobenchmark/indobert-base-p1",
+  "dataset": "data/standardized/balanced_evaluation_set.csv",
+  "training_time_seconds": 35.600421,
+  "test_accuracy": 0.45,
+  "test_f1_macro": 0.440508817163229,
+  "test_precision_macro": 0.4803476017619708,
+  "test_recall_macro": 0.44999999999999996,
+  "improvements_implemented": [
+    "Class weighting (balanced)",
+    "Stratified train/validation/test splits",
+    "Comprehensive per-class evaluation",
+    "Early stopping with F1-macro monitoring"
+  ]
+}

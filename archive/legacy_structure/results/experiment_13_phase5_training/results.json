@@ -1,0 +1,42 @@
+{
+  "experiment": "Experiment 13 - Phase 5 DeepSeek Re-labeled",
+  "model": "custom_javanese_bert_v3",
+  "timestamp": "2026-01-07T09:45:42.997159",
+  "samples": 10019,
+  "test_metrics": {
+    "accuracy": 0.783433133732535,
+    "f1_macro": 0.7826431460030954
+  },
+  "per_class_f1": {
+    "Neutral": 0.7659574468085106,
+    "Light": 0.7106382978723405,
+    "Moderate": 0.8405797101449275,
+    "Severe": 0.8133971291866029
+  },
+  "confusion_matrix": [
+    [
+      216,
+      16,
+      7,
+      11
+    ],
+    [
+      69,
+      167,
+      13,
+      10
+    ],
+    [
+      14,
+      20,
+      232,
+      18
+    ],
+    [
+      15,
+      8,
+      16,
+      170
+    ]
+  ]
+}

@@ -1,0 +1,60 @@
+{
+  "experiment": "integrated_custom_ensemble",
+  "timestamp": "2025-12-12T15:43:10.790198",
+  "individual_models": [
+    {
+      "model": "Custom_Javanese_BERT_v2",
+      "accuracy": 0.6319026104417671,
+      "f1_macro": 0.5983209454510805
+    },
+    {
+      "model": "mBERT",
+      "accuracy": 0.5808232931726908,
+      "f1_macro": 0.5481789039241539
+    },
+    {
+      "model": "XLM_RoBERTa",
+      "accuracy": 0.5892319277108434,
+      "f1_macro": 0.5567736680715012
+    }
+  ],
+  "ensemble_results": {
+    "equal_weight": {
+      "test_accuracy": 0.632952691680261,
+      "test_f1_macro": 0.6024596685306436
+    },
+    "optimized_weight": {
+      "weights": [
+        0.5,
+        0.3,
+        0.2
+      ],
+      "test_accuracy": 0.6359643619023717,
+      "test_f1_macro": 0.6063205648321299
+    },
+    "stacking": {
+      "xgboost": {
+        "accuracy": 0.6634458526791316,
+        "f1_macro": 0.5949126805663479
+      },
+      "rf": {
+        "accuracy": 0.6605596687162756,
+        "f1_macro": 0.5921952327651865
+      },
+      "lr": {
+        "accuracy": 0.6626929351236039,
+        "f1_macro": 0.6077371221559079
+      }
+    }
+  },
+  "best_method": {
+    "method": "stacking_lr",
+    "test_accuracy": 0.6626929351236039,
+    "test_f1_macro": 0.6077371221559079
+  },
+  "improvement_analysis": {
+    "baseline_best": 0.5983209454510805,
+    "ensemble_best": 0.6077371221559079,
+    "improvement": 0.009416176704827417
+  }
+}

@@ -1,58 +1,38 @@
+# System files
+nul
+Thumbs.db
+Desktop.ini
+
 # Python
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
+*.pyc
+*.pyo
+*.pyd
 .Python
 env/
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-
-# Virtual Environment
 venv/
 .env
-
-# Models (Too large for GitHub)
-models/
-tmp_trainer/
-tmp_meta_*/
-tmp_super_*/
-tmp_dapt_training/
-tmp_custom_bert_training/
-
-# Data (Too large or generated)
-data/corpus/
-# Keep standardized csvs if they are reasonable size (<100MB)
-# data/standardized/
-
-# Logs and Results
-logs/
-logs_meta_*/
-results/
-*.log
-
-# Jupyter Notebook
 .ipynb_checkpoints
 
-# VS Code
-.vscode/
+# Logs
+*.log
+logs/
 
-# Windows
-Thumbs.db
+# Large Model Files & Checkpoints
+models/
+*.bin
+*.pt
+*.pth
+*.ckpt
+*.safetensors
+*.h5
+archive/legacy_structure/experiments/results/*/runs/
+archive/legacy_structure/backup_important_results/*.json
+archive/legacy_structure/models/
 
-# Sensitive Scripts
-fix_env.py
-fix_env_final.py
+# Temporary
+tmp_*/
+archive/tmp_artifacts/
+
+# Large Data (Optional, uncomment if data is too big)
+# data/

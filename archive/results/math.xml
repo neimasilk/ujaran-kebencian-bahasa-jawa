@@ -1,0 +1,32 @@
+<m:oMathPara>
+  <m:oMath>
+    <m:r>
+      <m:t>ŷ = </m:t>
+    </m:r>
+    <m:box>
+      <m:argPr>
+        <m:argSz m:val="0"/>
+      </m:argPr>
+      <m:e>
+        <m:brk>
+          <m:brkPr>
+            <m:aln m:val="left"/>
+            <m:val m:val="curlyBrace"/>
+          </m:brkPr>
+          <m:e>
+            <m:r>
+              <m:t>argmax Pᵢ(y|x)</m:t>
+            </m:r>
+            <m:t xml:space="preserve">   if confᵢ(x) &gt; θ</m:t>
+          </m:e>
+          <m:e>
+            <m:r>
+              <m:t>argmax Pensemble(y|x)</m:t>
+            </m:r>
+            <m:t xml:space="preserve">   otherwise</m:t>
+          </m:e>
+        </m:brk>
+      </m:e>
+    </m:box>
+  </m:oMath>
+</m:oMathPara>

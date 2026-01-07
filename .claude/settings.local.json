@@ -5,7 +5,26 @@
       "Bash(grep:*)",
       "Bash(ls:*)",
       "Bash(python:*)",
-      "Bash(set PYTHONIOENCODING=utf-8:*)"
+      "Bash(set PYTHONIOENCODING=utf-8:*)",
+      "Bash(git pull:*)",
+      "Bash(pip install:*)",
+      "Bash(pip:*)",
+      "Bash(nvidia-smi:*)",
+      "Bash(cd:*)",
+      "Bash(dir:*)",
+      "Bash(cat:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push:*)",
+      "Bash(tasklist:*)",
+      "Bash(findstr:*)",
+      "Bash(where pdflatex xelatex lualatex)",
+      "Bash(winget install:*)",
+      "Bash(pdflatex:*)",
+      "Bash(powershell:*)",
+      "Bash(refreshenv:*)",
+      "Bash(cmd:*)",
+      "Bash(timeout:*)"
     ]
   }
 }

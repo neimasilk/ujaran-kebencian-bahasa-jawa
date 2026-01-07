@@ -1,0 +1,13 @@
+{
+  "experiment_name": "super_meta_ensemble_v2",
+  "timestamp": "2025-12-11T15:27:19.502884",
+  "model_results": {
+    "context_128": 0.6255036467033472,
+    "context_256": 0.5968678956114136,
+    "context_512": 0.5640666857921179
+  },
+  "ensemble_results": {
+    "f1": 0.6126238525500158,
+    "acc": 0.679297365119197
+  }
+}

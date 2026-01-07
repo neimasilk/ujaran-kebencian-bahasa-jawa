@@ -1,0 +1,42 @@
+{
+  "experiment": "Experiment 17 - XLM-RoBERTa Large",
+  "model": "FacebookAI/xlm-roberta-large",
+  "timestamp": "2026-01-07T10:49:46.375078",
+  "samples": 10019,
+  "test_metrics": {
+    "accuracy": 0.810379241516966,
+    "f1_macro": 0.8111350123831116
+  },
+  "per_class_f1": {
+    "Neutral": 0.7957894736842105,
+    "Light": 0.7458866544789763,
+    "Moderate": 0.8647686832740213,
+    "Severe": 0.8380952380952381
+  },
+  "confusion_matrix": [
+    [
+      189,
+      45,
+      2,
+      12
+    ],
+    [
+      28,
+      204,
+      19,
+      10
+    ],
+    [
+      4,
+      24,
+      243,
+      15
+    ],
+    [
+      6,
+      13,
+      12,
+      176
+    ]
+  ]
+}

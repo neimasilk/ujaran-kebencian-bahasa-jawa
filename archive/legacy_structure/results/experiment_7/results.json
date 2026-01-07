@@ -1,0 +1,27 @@
+{
+  "models_used": [
+    "IndoBERT (Exp 5)",
+    "Label Smoothing (Exp 6C)",
+    "Focal Loss (Exp 6A)"
+  ],
+  "best_method": "hard_voting",
+  "best_f1_macro": 0.7949912716244759,
+  "best_accuracy": 0.7944111776447106,
+  "per_class_f1": {
+    "Neutral": 0.7567567567567568,
+    "Light": 0.734375,
+    "Moderate": 0.855098389982111,
+    "Severe": 0.8337349397590361
+  },
+  "all_methods": {
+    "hard_voting": {
+      "f1_macro": 0.7949912716244759
+    },
+    "soft_voting": {
+      "f1_macro": 0.7926348568030852
+    },
+    "weighted_voting": {
+      "f1_macro": 0.7916663910104815
+    }
+  }
+}

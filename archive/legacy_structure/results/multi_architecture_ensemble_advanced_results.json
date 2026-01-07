@@ -1,0 +1,60 @@
+{
+  "experiment": "multi_architecture_ensemble_advanced",
+  "timestamp": "2025-08-20T11:15:07.559388",
+  "individual_models": [
+    {
+      "model": "IndoBERT",
+      "accuracy": 0.634888844382135,
+      "f1_macro": 0.6326967031371785
+    },
+    {
+      "model": "IndoBERT_Uncased",
+      "accuracy": 0.5687963148407771,
+      "f1_macro": 0.5623518108697005
+    },
+    {
+      "model": "RoBERTa_Indo",
+      "accuracy": 0.5701982775886241,
+      "f1_macro": 0.567391678312282
+    }
+  ],
+  "ensemble_results": {
+    "equal_weight": {
+      "test_accuracy": 0.6194672541558182,
+      "test_f1_macro": 0.6155408797977289
+    },
+    "optimized_weight": {
+      "weights": [
+        0.5,
+        0.2,
+        0.3
+      ],
+      "test_accuracy": 0.6244742639695574,
+      "test_f1_macro": 0.6209609252296968
+    },
+    "stacking": {
+      "xgboost": {
+        "accuracy": 0.6258762267174044,
+        "f1_macro": 0.6240283045846643
+      },
+      "rf": {
+        "accuracy": 0.6286801522130984,
+        "f1_macro": 0.627769744870395
+      },
+      "lr": {
+        "accuracy": 0.6266773482876027,
+        "f1_macro": 0.6250605220082104
+      }
+    }
+  },
+  "best_method": {
+    "method": "stacking_rf",
+    "test_accuracy": 0.6286801522130984,
+    "test_f1_macro": 0.627769744870395
+  },
+  "improvement_analysis": {
+    "baseline_best": 0.6326967031371785,
+    "ensemble_best": 0.627769744870395,
+    "improvement": -0.0049269582667834655
+  }
+}

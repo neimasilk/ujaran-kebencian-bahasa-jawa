@@ -87,10 +87,10 @@ class MetaEnsembleTrainer:
         # Load dataset yang terbukti bagus
         df = pd.read_csv('data/standardized/balanced_dataset.csv')
         print(f"Dataset shape: {df.shape}")
-        print(f"Label distribution:\n{df['final_label'].value_counts()}")
+        print(f"Label distribution:\n{df['label'].value_counts()}")
         
         # Clean data
-        df = df.dropna(subset=['text', 'final_label'])
+        df = df.dropna(subset=['text', 'label'])
         print(f"Dataset shape after cleaning: {df.shape}")
         
         # Advanced preprocessing
@@ -98,7 +98,7 @@ class MetaEnsembleTrainer:
         
         # Prepare features and labels
         X = df['text'].values
-        y = df['final_label'].map(self.label_map).values
+        y = df['label'].values
         
         # Split data - sama seperti successful experiment
         X_train, X_test, y_train, y_test = train_test_split(

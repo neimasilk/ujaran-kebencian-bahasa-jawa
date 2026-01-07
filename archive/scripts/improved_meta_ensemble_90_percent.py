@@ -10,8 +10,6 @@ import torch
 from transformers import AutoTokenizer, AutoModelForSequenceClassification, TrainingArguments, Trainer
 from sklearn.model_selection import train_test_split, StratifiedKFold
 from sklearn.metrics import accuracy_score, f1_score, classification_report
-import xgboost as xgb
-import lightgbm as lgb
 from sklearn.ensemble import RandomForestClassifier
 from sklearn.linear_model import LogisticRegression
 from scipy.optimize import minimize
@@ -31,7 +29,18 @@ logger = logging.getLogger(__name__)
 
 class ImprovedMetaEnsemble:
     def __init__(self, device='cuda'):
-        self.device = device
+        # Force check CUDA availability
+        if device == 'cuda' and not torch.cuda.is_available():
+            logger.warning("⚠️ CUDA requested but not available in this PyTorch environment! Falling back to CPU.")
+            self.device = 'cpu'
+        else:
+            self.device = device
+            
+        if self.device == 'cuda':
+            logger.info(f"✅ Using GPU: {torch.cuda.get_device_name(0)}")
+        else:
+            logger.info(f"ℹ️ Using Device: {self.device}")
+        
         self.models = []
         self.tokenizers = []
         self.meta_model = None
@@ -153,23 +162,6 @@ class ImprovedMetaEnsemble:
         
         # Try multiple meta-models and select the best
         meta_models = {
-            'xgboost': xgb.XGBClassifier(
-                n_estimators=200,
-                max_depth=6,
-                learning_rate=0.1,
-                subsample=0.8,
-                colsample_bytree=0.8,
-                random_state=42
-            ),
-            'lightgbm': lgb.LGBMClassifier(
-                n_estimators=200,
-                max_depth=6,
-                learning_rate=0.1,
-                subsample=0.8,
-                colsample_bytree=0.8,
-                random_state=42,
-                verbose=-1
-            ),
             'random_forest': RandomForestClassifier(
                 n_estimators=200,
                 max_depth=10,
@@ -294,9 +286,9 @@ def main():
             'classification_report': test_report
         },
         'target_achievement': {
-            'accuracy_90_percent': test_accuracy >= 0.90,
-            'f1_macro_90_percent': test_f1_macro >= 0.90,
-            'target_achieved': test_accuracy >= 0.90 or test_f1_macro >= 0.90
+            'accuracy_90_percent': bool(test_accuracy >= 0.90),
+            'f1_macro_90_percent': bool(test_f1_macro >= 0.90),
+            'target_achieved': bool(test_accuracy >= 0.90 or test_f1_macro >= 0.90)
         }
     }
     

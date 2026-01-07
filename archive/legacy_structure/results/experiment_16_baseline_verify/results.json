@@ -1,0 +1,43 @@
+{
+  "experiment": "Experiment 16 - Verify Baseline",
+  "model": "indobert-base-p1",
+  "dataset": "phase3_phase4_combined",
+  "timestamp": "2026-01-07T10:03:52.380361",
+  "samples": 10019,
+  "test_metrics": {
+    "accuracy": 0.7884231536926147,
+    "f1_macro": 0.7883794906962271
+  },
+  "per_class_f1": {
+    "Neutral": 0.7640918580375783,
+    "Light": 0.7314285714285714,
+    "Moderate": 0.8347529812606473,
+    "Severe": 0.8232445520581114
+  },
+  "confusion_matrix": [
+    [
+      183,
+      40,
+      11,
+      14
+    ],
+    [
+      34,
+      192,
+      25,
+      10
+    ],
+    [
+      6,
+      23,
+      245,
+      12
+    ],
+    [
+      8,
+      9,
+      20,
+      170
+    ]
+  ]
+}

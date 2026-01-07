@@ -1,0 +1,18 @@
+{
+  "baseline_f1_macro": 0.8124463634559104,
+  "tta_f1_macro": 0.804393760342044,
+  "improvement_pct": -0.8052603113866352,
+  "n_augmentations": 5,
+  "per_class_baseline": {
+    "Neutral": 0.7822878228782287,
+    "Light": 0.7833001988071571,
+    "Moderate": 0.8451730418943534,
+    "Severe": 0.8390243902439024
+  },
+  "per_class_tta": {
+    "Neutral": 0.7771639042357275,
+    "Light": 0.7619047619047619,
+    "Moderate": 0.8451730418943534,
+    "Severe": 0.8333333333333334
+  }
+}

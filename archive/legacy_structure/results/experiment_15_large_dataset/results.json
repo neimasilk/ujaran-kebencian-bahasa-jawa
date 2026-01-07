@@ -1,0 +1,42 @@
+{
+  "experiment": "Experiment 15 - Large Balanced Dataset",
+  "model": "indobert-base-p1",
+  "timestamp": "2026-01-07T09:56:59.596630",
+  "samples": 39841,
+  "test_metrics": {
+    "accuracy": 0.6494353826850691,
+    "f1_macro": 0.6167068660706747
+  },
+  "per_class_f1": {
+    "Neutral": 0.7421875,
+    "Light": 0.5039123630672926,
+    "Moderate": 0.5481481481481482,
+    "Severe": 0.672579453067258
+  },
+  "confusion_matrix": [
+    [
+      1330,
+      235,
+      243,
+      134
+    ],
+    [
+      133,
+      322,
+      113,
+      24
+    ],
+    [
+      118,
+      112,
+      481,
+      97
+    ],
+    [
+      61,
+      17,
+      110,
+      455
+    ]
+  ]
+}

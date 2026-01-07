@@ -1,0 +1,38 @@
+{
+  "cleanup_date": "2025-10-13T16:12:07.178716",
+  "space_freed_gb": 149.88,
+  "directories_removed": [
+    "tmp_90_percent_indobert-base-uncased",
+    "tmp_meta_bert_multilingual",
+    "tmp_meta_indoroberta",
+    "tmp_meta_xlm_roberta",
+    "tmp_original_model_0",
+    "tmp_original_model_1",
+    "tmp_stable_model_0",
+    "tmp_stable_model_1",
+    "tmp_trainer",
+    "results/advanced_techniques_flax-community_indonesian-roberta-base",
+    "results/advanced_techniques_indobenchmark_indobert-base-p1",
+    "results/bert-base-multilingual-cased_final",
+    "results/indolem_indobert-base-uncased_final",
+    "results/hyperparameter_optimization",
+    "logs_90_percent_indobert-base-uncased",
+    "logs_meta_bert_multilingual",
+    "logs_meta_indoroberta",
+    "logs_meta_xlm_roberta",
+    "logs_original_0",
+    "logs_original_1",
+    "logs_stable_0",
+    "logs_stable_1"
+  ],
+  "models_preserved": [
+    "results/threshold_tuning",
+    "results/bert_multilingual_optimized",
+    "results/final_90_percent_results.json",
+    "results/xlm-roberta-base_final",
+    "results/xlm_roberta_optimized",
+    "results/indoroberta_optimized",
+    "results/ultimate_90_percent_results.json"
+  ],
+  "status": "completed"
+}

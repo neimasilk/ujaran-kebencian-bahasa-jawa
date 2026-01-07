@@ -1,0 +1,29 @@
+{
+  "experiment": "Experiment 18 - Hard Negative Mining",
+  "timestamp": "2026-01-07T10:53:00.308133",
+  "total_samples": 1002,
+  "hard_negatives_found": 59,
+  "hard_negative_rate": 0.05888223552894212,
+  "per_class_analysis": {
+    "Neutral": {
+      "count": 20,
+      "avg_confidence": 0.2759746015071869,
+      "most_confused_with": "Light"
+    },
+    "Light": {
+      "count": 23,
+      "avg_confidence": 0.33242326974868774,
+      "most_confused_with": "Light"
+    },
+    "Moderate": {
+      "count": 10,
+      "avg_confidence": 0.21117444336414337,
+      "most_confused_with": "Light"
+    },
+    "Severe": {
+      "count": 6,
+      "avg_confidence": 0.059671882539987564,
+      "most_confused_with": "Light"
+    }
+  }
+}

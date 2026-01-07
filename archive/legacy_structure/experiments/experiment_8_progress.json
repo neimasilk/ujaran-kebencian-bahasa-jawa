@@ -1,0 +1,11 @@
+{
+  "status": "completed",
+  "start_time": "2026-01-06T13:53:52.086448",
+  "last_update": "2026-01-06T16:28:30.499344",
+  "epoch": 10,
+  "max_epochs": 10,
+  "steps_completed": 0,
+  "model_path": "models/custom_javanese_bert_v3\\final_model",
+  "history": [],
+  "end_time": "2026-01-06T16:28:30.499331"
+}

@@ -1,0 +1,30 @@
+{
+  "individual_models": {
+    "bert-base-multilingual-cased": {
+      "metrics": {
+        "accuracy": 0.7754491017964071,
+        "f1_macro": 0.7793325103273337,
+        "f1_micro": 0.7754491017964071,
+        "precision_macro": 0.7859436592522123,
+        "recall_macro": 0.7782529589216971
+      }
+    },
+    "xlm-roberta-base": {
+      "metrics": {
+        "accuracy": 0.780439121756487,
+        "f1_macro": 0.7838436903910495,
+        "f1_micro": 0.780439121756487,
+        "precision_macro": 0.7898615581217483,
+        "recall_macro": 0.7836927464533017
+      }
+    }
+  },
+  "ensemble": {
+    "metrics": {
+      "accuracy": 0.7844311377245509,
+      "f1_macro": 0.7890236770897988,
+      "f1_micro": 0.7844311377245509,
+      "precision_macro": 0.7950271639653584,
+      "recall_macro": 0.7870875191962633
+    },
+    "predictions": 

@@ -1,0 +1,16 @@
+{
+  "experiment_type": "extended_ensemble_5_epochs",
+  "timestamp": "2025-08-15T16:06:55.005892",
+  "models_trained": [
+    "indobert",
+    "indobert_uncased",
+    "roberta_indo"
+  ],
+  "total_models": 3,
+  "epochs": 5,
+  "dataset_size": {
+    "train": 19471,
+    "val": 6490,
+    "test": 6491
+  }
+}
