@@ -41,17 +41,20 @@ tokenizer = None
 device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
 model_loaded = False
 
+# Get project root (works from any directory)
+PROJECT_ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+
 # Constants
-MODEL_PATH = os.path.join("src", "models", "bert_jawa_hate_speech")
+MODEL_PATH = os.path.join(PROJECT_ROOT, "models", "production", "custom_javanese_bert_v2")
 LABEL_MAPPING = {
     0: "Bukan Ujaran Kebencian",
-    1: "Ujaran Kebencian - Ringan", 
+    1: "Ujaran Kebencian - Ringan",
     2: "Ujaran Kebencian - Sedang",
     3: "Ujaran Kebencian - Berat"
 }
 
-# Demo mode when model is not available
-DEMO_MODE = True
+# Demo mode when model is not available (set to False in production)
+DEMO_MODE = False
 
 # Pydantic models for request/response
 class PredictionRequest(BaseModel):

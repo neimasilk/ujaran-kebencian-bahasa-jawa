@@ -61,16 +61,17 @@ def main():
     )
     
     args = parser.parse_args()
-    
+
     logger.info(f"Starting Javanese Hate Speech Detection API...")
     logger.info(f"Host: {args.host}")
     logger.info(f"Port: {args.port}")
     logger.info(f"Reload: {args.reload}")
     logger.info(f"Workers: {args.workers}")
     logger.info(f"Log Level: {args.log_level}")
-    
-    # Check if model exists
-    model_path = "models/bert_jawa_hate_speech"
+
+    # Check if model exists (use absolute path)
+    project_root = os.path.abspath(os.path.join(os.path.dirname(__file__), "..", ".."))
+    model_path = os.path.join(project_root, "models", "production", "custom_javanese_bert_v2")
     if not os.path.exists(model_path):
         logger.warning(f"Model path tidak ditemukan: {model_path}")
         logger.warning("API akan berjalan tapi prediksi tidak akan tersedia.")
