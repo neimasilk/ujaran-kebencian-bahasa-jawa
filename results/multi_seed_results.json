@@ -1,0 +1,273 @@
+{
+  "metadata": {
+    "model": "xlm-roberta-large",
+    "description": "XLM-RoBERTa Large",
+    "label_smoothing": 0.0,
+    "seeds": [
+      42,
+      123,
+      456,
+      789,
+      1024
+    ],
+    "dataset": "D:\\documents\\ujaran-kebencian-bahasa-jawa\\data\\cleaned\\final_dataset.csv",
+    "timestamp": "2026-02-25 13:43:18"
+  },
+  "runs": [
+    {
+      "seed": 42,
+      "validation": {
+        "f1_macro": 79.86,
+        "accuracy": 79.84
+      },
+      "test": {
+        "f1_macro": 79.32,
+        "f1_weighted": 79.34,
+        "accuracy": 79.45,
+        "precision_macro": 79.27,
+        "recall_macro": 79.44
+      },
+      "confusion_matrix": [
+        [
+          180,
+          42,
+          9,
+          11
+        ],
+        [
+          36,
+          178,
+          24,
+          15
+        ],
+        [
+          4,
+          15,
+          245,
+          14
+        ],
+        [
+          8,
+          11,
+          12,
+          174
+        ]
+      ],
+      "train_time_seconds": 914.0
+    },
+    {
+      "seed": 123,
+      "validation": {
+        "f1_macro": 80.72,
+        "accuracy": 80.86
+      },
+      "test": {
+        "f1_macro": 79.01,
+        "f1_weighted": 79.07,
+        "accuracy": 79.04,
+        "precision_macro": 79.06,
+        "recall_macro": 79.04
+      },
+      "confusion_matrix": [
+        [
+          181,
+          49,
+          3,
+          9
+        ],
+        [
+          31,
+          190,
+          20,
+          12
+        ],
+        [
+          8,
+          16,
+          233,
+          21
+        ],
+        [
+          9,
+          11,
+          16,
+          169
+        ]
+      ],
+      "train_time_seconds": 918.0
+    },
+    {
+      "seed": 456,
+      "validation": {
+        "f1_macro": 82.38,
+        "accuracy": 82.5
+      },
+      "test": {
+        "f1_macro": 81.44,
+        "f1_weighted": 81.38,
+        "accuracy": 81.39,
+        "precision_macro": 81.38,
+        "recall_macro": 81.52
+      },
+      "confusion_matrix": [
+        [
+          195,
+          33,
+          4,
+          10
+        ],
+        [
+          30,
+          190,
+          23,
+          10
+        ],
+        [
+          7,
+          21,
+          235,
+          15
+        ],
+        [
+          8,
+          8,
+          13,
+          176
+        ]
+      ],
+      "train_time_seconds": 903.0
+    },
+    {
+      "seed": 789,
+      "validation": {
+        "f1_macro": 80.25,
+        "accuracy": 80.35
+      },
+      "test": {
+        "f1_macro": 83.55,
+        "f1_weighted": 83.45,
+        "accuracy": 83.44,
+        "precision_macro": 83.55,
+        "recall_macro": 83.57
+      },
+      "confusion_matrix": [
+        [
+          192,
+          36,
+          4,
+          10
+        ],
+        [
+          28,
+          202,
+          19,
+          4
+        ],
+        [
+          9,
+          17,
+          240,
+          12
+        ],
+        [
+          6,
+          7,
+          10,
+          182
+        ]
+      ],
+      "train_time_seconds": 1225.0
+    },
+    {
+      "seed": 1024,
+      "validation": {
+        "f1_macro": 11.08,
+        "accuracy": 28.45
+      },
+      "test": {
+        "f1_macro": 11.07,
+        "f1_weighted": 12.58,
+        "accuracy": 28.43,
+        "precision_macro": 7.11,
+        "recall_macro": 25.0
+      },
+      "confusion_matrix": [
+        [
+          0,
+          0,
+          242,
+          0
+        ],
+        [
+          0,
+          0,
+          253,
+          0
+        ],
+        [
+          0,
+          0,
+          278,
+          0
+        ],
+        [
+          0,
+          0,
+          205,
+          0
+        ]
+      ],
+      "train_time_seconds": 975.0
+    }
+  ],
+  "statistics": {
+    "f1_macro": {
+      "mean": 66.88,
+      "std": 27.95,
+      "min": 11.07,
+      "max": 83.55,
+      "values": [
+        79.32,
+        79.01,
+        81.44,
+        83.55,
+        11.07
+      ]
+    },
+    "accuracy": {
+      "mean": 70.35,
+      "std": 21.02,
+      "min": 28.43,
+      "max": 83.44,
+      "values": [
+        79.45,
+        79.04,
+        81.39,
+        83.44,
+        28.43
+      ]
+    },
+    "precision_macro": {
+      "mean": 66.07,
+      "std": 29.53,
+      "values": [
+        79.27,
+        79.06,
+        81.38,
+        83.55,
+        7.11
+      ]
+    },
+    "recall_macro": {
+      "mean": 69.71,
+      "std": 22.42,
+      "values": [
+        79.44,
+        79.04,
+        81.52,
+        83.57,
+        25.0
+      ]
+    }
+  }
+}

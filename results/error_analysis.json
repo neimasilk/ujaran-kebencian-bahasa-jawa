@@ -1,0 +1,494 @@
+{
+  "metadata": {
+    "dataset": "D:\\documents\\ujaran-kebencian-bahasa-jawa\\data\\cleaned\\final_dataset_with_source.csv",
+    "manual_test_count": 451,
+    "seed": 42,
+    "description": "Error analysis comparing SVM and XLM-R on manual test data",
+    "timestamp": "2026-04-13 12:24:54"
+  },
+  "results": {
+    "svm": {
+      "total_samples": 451,
+      "total_errors": 213,
+      "error_rate": 47.23,
+      "adjacent_class_errors": 141,
+      "non_adjacent_errors": 72,
+      "adjacent_error_ratio": 66.2,
+      "top_error_pairs": [
+        {
+          "pair": "Light → Not Hate",
+          "count": 58,
+          "pct_of_errors": 27.2
+        },
+        {
+          "pair": "Not Hate → Light",
+          "count": 38,
+          "pct_of_errors": 17.8
+        },
+        {
+          "pair": "Moderate → Light",
+          "count": 21,
+          "pct_of_errors": 9.9
+        },
+        {
+          "pair": "Severe → Not Hate",
+          "count": 20,
+          "pct_of_errors": 9.4
+        },
+        {
+          "pair": "Severe → Light",
+          "count": 14,
+          "pct_of_errors": 6.6
+        },
+        {
+          "pair": "Moderate → Not Hate",
+          "count": 14,
+          "pct_of_errors": 6.6
+        },
+        {
+          "pair": "Light → Moderate",
+          "count": 12,
+          "pct_of_errors": 5.6
+        },
+        {
+          "pair": "Not Hate → Severe",
+          "count": 10,
+          "pct_of_errors": 4.7
+        },
+        {
+          "pair": "Light → Severe",
+          "count": 8,
+          "pct_of_errors": 3.8
+        },
+        {
+          "pair": "Moderate → Severe",
+          "count": 7,
+          "pct_of_errors": 3.3
+        }
+      ],
+      "length_analysis": {
+        "correct_mean_words": 15.7,
+        "correct_median_words": 10.0,
+        "error_mean_words": 17.0,
+        "error_median_words": 11.0
+      },
+      "per_class_errors": {
+        "Not Hate": {
+          "total": 183,
+          "correct": 129,
+          "accuracy": 70.5,
+          "misclassified_as": {
+            "Light": 38,
+            "Severe": 10,
+            "Moderate": 6
+          }
+        },
+        "Light": {
+          "total": 136,
+          "correct": 58,
+          "accuracy": 42.6,
+          "misclassified_as": {
+            "Not Hate": 58,
+            "Moderate": 12,
+            "Severe": 8
+          }
+        },
+        "Moderate": {
+          "total": 61,
+          "correct": 19,
+          "accuracy": 31.1,
+          "misclassified_as": {
+            "Light": 21,
+            "Not Hate": 14,
+            "Severe": 7
+          }
+        },
+        "Severe": {
+          "total": 71,
+          "correct": 32,
+          "accuracy": 45.1,
+          "misclassified_as": {
+            "Not Hate": 20,
+            "Light": 14,
+            "Moderate": 5
+          }
+        }
+      },
+      "feature_comparison": {
+        "word_count": {
+          "correct_mean": 15.697,
+          "error_mean": 17.042
+        },
+        "char_count": {
+          "correct_mean": 100.92,
+          "error_mean": 108.592
+        },
+        "has_numbers": {
+          "correct_mean": 0.063,
+          "error_mean": 0.099
+        },
+        "has_urls": {
+          "correct_mean": 0.0,
+          "error_mean": 0.0
+        },
+        "has_mentions": {
+          "correct_mean": 0.0,
+          "error_mean": 0.014
+        },
+        "has_hashtags": {
+          "correct_mean": 0.0,
+          "error_mean": 0.0
+        },
+        "exclamation_count": {
+          "correct_mean": 0.336,
+          "error_mean": 0.282
+        },
+        "caps_ratio": {
+          "correct_mean": 0.029,
+          "error_mean": 0.025
+        }
+      },
+      "example_errors": [
+        {
+          "text_preview": "yen kowe mikir pinter, wong coklat masalah nyata",
+          "true_label": "Severe",
+          "predicted": "Not Hate",
+          "word_count": 8
+        },
+        {
+          "text_preview": "Aku mikir umume wong wadon setuju yen tukang perkosa kuwi sampah masyarakat.",
+          "true_label": "Not Hate",
+          "predicted": "Moderate",
+          "word_count": 12
+        },
+        {
+          "text_preview": "Aku ngomong karo Paki iki yen dheweke duwe darah amarga wong tuwane sepupu lan dheweke ora ngerti ap...",
+          "true_label": "Light",
+          "predicted": "Not Hate",
+          "word_count": 21
+        },
+        {
+          "text_preview": "Wong wadon sing ora gelem nduwe anak dudu wong wadon sing bener.",
+          "true_label": "Light",
+          "predicted": "Not Hate",
+          "word_count": 12
+        },
+        {
+          "text_preview": "sampeyan duwe bajingan?",
+          "true_label": "Light",
+          "predicted": "Moderate",
+          "word_count": 3
+        },
+        {
+          "text_preview": "Aku ora pengin nongkrong karo wong Asia",
+          "true_label": "Not Hate",
+          "predicted": "Light",
+          "word_count": 7
+        },
+        {
+          "text_preview": "wong wadon ireng kudu nganggo wangi amarga ambune mambu",
+          "true_label": "Light",
+          "predicted": "Not Hate",
+          "word_count": 9
+        },
+        {
+          "text_preview": "dadi dosa iku dadi manungsa",
+          "true_label": "Not Hate",
+          "predicted": "Severe",
+          "word_count": 5
+        },
+        {
+          "text_preview": "Heshes ora bakal seneng",
+          "true_label": "Not Hate",
+          "predicted": "Light",
+          "word_count": 4
+        },
+        {
+          "text_preview": "Kaya biasane, wong wadon lan bakate ora ngerti wates lan bisa ndeleng miturut logika.",
+          "true_label": "Light",
+          "predicted": "Not Hate",
+          "word_count": 14
+        },
+        {
+          "text_preview": "Isih ana wong kang nggunakake tembung n*gga",
+          "true_label": "Light",
+          "predicted": "Not Hate",
+          "word_count": 7
+        },
+        {
+          "text_preview": "Mussies minangka virus sing ngrusak jagad iki",
+          "true_label": "Severe",
+          "predicted": "Not Hate",
+          "word_count": 7
+        },
+        {
+          "text_preview": "ACARA TV, LAGU, ALBUM, FILM JANCOK....campuran cilik...ora pantes iki",
+          "true_label": "Light",
+          "predicted": "Not Hate",
+          "word_count": 9
+        },
+        {
+          "text_preview": "Nelpon wong Islam 'kecoak' mung luar biasa! Istilah deskriptif kuwi - kowe mbusak siji lan liyane ba...",
+          "true_label": "Severe",
+          "predicted": "Moderate",
+          "word_count": 18
+        },
+        {
+          "text_preview": "Nuduhake yen sampeyan nindakake apa sing ditindakake bakal ngilangi \"mantra\". Kanthi h00knoses, mest...",
+          "true_label": "Light",
+          "predicted": "Not Hate",
+          "word_count": 28
+        }
+      ]
+    },
+    "xlmr_large": {
+      "total_samples": 451,
+      "total_errors": 191,
+      "error_rate": 42.35,
+      "adjacent_class_errors": 141,
+      "non_adjacent_errors": 50,
+      "adjacent_error_ratio": 73.82,
+      "top_error_pairs": [
+        {
+          "pair": "Not Hate → Light",
+          "count": 38,
+          "pct_of_errors": 19.9
+        },
+        {
+          "pair": "Light → Not Hate",
+          "count": 34,
+          "pct_of_errors": 17.8
+        },
+        {
+          "pair": "Light → Moderate",
+          "count": 22,
+          "pct_of_errors": 11.5
+        },
+        {
+          "pair": "Moderate → Light",
+          "count": 20,
+          "pct_of_errors": 10.5
+        },
+        {
+          "pair": "Severe → Moderate",
+          "count": 19,
+          "pct_of_errors": 9.9
+        },
+        {
+          "pair": "Light → Severe",
+          "count": 12,
+          "pct_of_errors": 6.3
+        },
+        {
+          "pair": "Severe → Not Hate",
+          "count": 12,
+          "pct_of_errors": 6.3
+        },
+        {
+          "pair": "Not Hate → Moderate",
+          "count": 10,
+          "pct_of_errors": 5.2
+        },
+        {
+          "pair": "Moderate → Severe",
+          "count": 8,
+          "pct_of_errors": 4.2
+        },
+        {
+          "pair": "Not Hate → Severe",
+          "count": 7,
+          "pct_of_errors": 3.7
+        }
+      ],
+      "length_analysis": {
+        "correct_mean_words": 16.3,
+        "correct_median_words": 10.0,
+        "error_mean_words": 16.4,
+        "error_median_words": 11.0
+      },
+      "per_class_errors": {
+        "Not Hate": {
+          "total": 183,
+          "correct": 128,
+          "accuracy": 69.9,
+          "misclassified_as": {
+            "Light": 38,
+            "Moderate": 10,
+            "Severe": 7
+          }
+        },
+        "Light": {
+          "total": 136,
+          "correct": 68,
+          "accuracy": 50.0,
+          "misclassified_as": {
+            "Not Hate": 34,
+            "Moderate": 22,
+            "Severe": 12
+          }
+        },
+        "Moderate": {
+          "total": 61,
+          "correct": 28,
+          "accuracy": 45.9,
+          "misclassified_as": {
+            "Light": 20,
+            "Severe": 8,
+            "Not Hate": 5
+          }
+        },
+        "Severe": {
+          "total": 71,
+          "correct": 36,
+          "accuracy": 50.7,
+          "misclassified_as": {
+            "Moderate": 19,
+            "Not Hate": 12,
+            "Light": 4
+          }
+        }
+      },
+      "feature_comparison": {
+        "word_count": {
+          "correct_mean": 16.3,
+          "error_mean": 16.377
+        },
+        "char_count": {
+          "correct_mean": 104.0,
+          "error_mean": 105.283
+        },
+        "has_numbers": {
+          "correct_mean": 0.085,
+          "error_mean": 0.073
+        },
+        "has_urls": {
+          "correct_mean": 0.0,
+          "error_mean": 0.0
+        },
+        "has_mentions": {
+          "correct_mean": 0.004,
+          "error_mean": 0.01
+        },
+        "has_hashtags": {
+          "correct_mean": 0.0,
+          "error_mean": 0.0
+        },
+        "exclamation_count": {
+          "correct_mean": 0.285,
+          "error_mean": 0.346
+        },
+        "caps_ratio": {
+          "correct_mean": 0.025,
+          "error_mean": 0.031
+        }
+      },
+      "example_errors": [
+        {
+          "text_preview": "yen kowe mikir pinter, wong coklat masalah nyata",
+          "true_label": "Severe",
+          "predicted": "Light",
+          "word_count": 8
+        },
+        {
+          "text_preview": "Aku mikir umume wong wadon setuju yen tukang perkosa kuwi sampah masyarakat.",
+          "true_label": "Not Hate",
+          "predicted": "Moderate",
+          "word_count": 12
+        },
+        {
+          "text_preview": "sampeyan duwe bajingan?",
+          "true_label": "Light",
+          "predicted": "Moderate",
+          "word_count": 3
+        },
+        {
+          "text_preview": "wong wadon ireng kudu nganggo wangi amarga ambune mambu",
+          "true_label": "Light",
+          "predicted": "Severe",
+          "word_count": 9
+        },
+        {
+          "text_preview": "dadi dosa iku dadi manungsa",
+          "true_label": "Not Hate",
+          "predicted": "Moderate",
+          "word_count": 5
+        },
+        {
+          "text_preview": "Heshes ora bakal seneng",
+          "true_label": "Not Hate",
+          "predicted": "Light",
+          "word_count": 4
+        },
+        {
+          "text_preview": "ALL wong coklat duwe kulit coklat, rambute ireng, mata coklat, lan sikap sing nengsemake",
+          "true_label": "Not Hate",
+          "predicted": "Severe",
+          "word_count": 14
+        },
+        {
+          "text_preview": "Isih ana wong kang nggunakake tembung n*gga",
+          "true_label": "Light",
+          "predicted": "Not Hate",
+          "word_count": 7
+        },
+        {
+          "text_preview": "Mussies minangka virus sing ngrusak jagad iki",
+          "true_label": "Severe",
+          "predicted": "Not Hate",
+          "word_count": 7
+        },
+        {
+          "text_preview": "ACARA TV, LAGU, ALBUM, FILM JANCOK....campuran cilik...ora pantes iki",
+          "true_label": "Light",
+          "predicted": "Not Hate",
+          "word_count": 9
+        },
+        {
+          "text_preview": "Donya dadi papan sing luwih bahagia tanpa sampeyan!",
+          "true_label": "Light",
+          "predicted": "Not Hate",
+          "word_count": 8
+        },
+        {
+          "text_preview": "Nelpon wong Islam 'kecoak' mung luar biasa! Istilah deskriptif kuwi - kowe mbusak siji lan liyane ba...",
+          "true_label": "Severe",
+          "predicted": "Moderate",
+          "word_count": 18
+        },
+        {
+          "text_preview": "Napa p@kis teka ing negara kita? Mesthine ora.",
+          "true_label": "Severe",
+          "predicted": "Moderate",
+          "word_count": 8
+        },
+        {
+          "text_preview": "Pernyataan ad hominem cenderung ora logis. Malah jam break persis kaping pindho dina. Wong ngapusi i...",
+          "true_label": "Not Hate",
+          "predicted": "Light",
+          "word_count": 34
+        },
+        {
+          "text_preview": "Apa padha sambat babagan wong Papua sing \"ora tip\"? Utawa \"wong Papua ora duwe kontrol volume\"? Utaw...",
+          "true_label": "Not Hate",
+          "predicted": "Light",
+          "word_count": 31
+        }
+      ],
+      "confidence_analysis": {
+        "correct_mean_confidence": 0.9253,
+        "error_mean_confidence": 0.8549,
+        "correct_median_confidence": 0.9904,
+        "error_median_confidence": 0.9341
+      }
+    },
+    "cross_model_agreement": {
+      "both_correct": 186,
+      "svm_only_correct": 52,
+      "xlmr_only_correct": 74,
+      "both_wrong": 139,
+      "both_wrong_same_prediction": 89,
+      "ensemble_potential": 312,
+      "ensemble_potential_pct": 69.18
+    }
+  }
+}

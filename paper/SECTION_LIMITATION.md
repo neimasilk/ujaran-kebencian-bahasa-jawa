@@ -10,7 +10,7 @@ Klasifikasi tingkat keparahan ujaran kebencian bersifat inherently subjektif. Ba
 
 **LLM-Generated Data Bias**
 
-Sebanyak 33% (3,319 dari 10,019) dari dataset kami dihasilkan menggunakan LLM (DeepSeek-Coder-V2). Meskipun kami melakukan quality check, data ini mungkin memperkenalkan bias yang spesifik untuk model LLM tersebut. Model seperti DeepSeek dilatih pada corpus internet yang mungkin mengandung stereotip dan bias budaya yang kemudian tertuang dalam generated text. Selain itu, LLM mungkin tidak sepenuhnya menangkap nuansa budaya dan bahasa Jawa yang halus.
+Sebanyak 52.3% (5,240 dari 10,019) dari dataset kami dihasilkan menggunakan LLM (DeepSeek-Coder-V2). Proporsi data sintetis yang tinggi ini merupakan limitasi signifikan. Meskipun kami melakukan quality check dan aggressive cleanup (menghasilkan 9,775 sampel bersih), data sintetis mungkin memperkenalkan bias yang spesifik untuk model LLM tersebut. Model seperti DeepSeek dilatih pada corpus internet yang mungkin mengandung stereotip dan bias budaya yang kemudian tertuang dalam generated text. Selain itu, LLM mungkin tidak sepenuhnya menangkap nuansa budaya dan bahasa Jawa yang halus. Ketergantungan tinggi pada data sintetis berarti performa model mungkin tidak sepenuhnya merepresentasikan kemampuan deteksi pada ujaran kebencian alami di media sosial.
 
 **Domain Coverage**
 
@@ -42,11 +42,11 @@ Meskipun IndoBERT dilatih pada corpus bahasa Indonesia, dan bahasa Jawa termasuk
 
 **Single Test Set**
 
-Kami menggunakan single test set dengan 1,002 samples. Idealnya, kami melakukan evaluasi menggunakan multiple test sets dari berbagai sumber dan periode waktu untuk mengukur generalisasi yang lebih robust. Selain itu, test split berasal dari distribusi yang sama dengan training data, yang berarti evaluation kami mungkin overestimate performa sebenarnya pada data yang sangat berbeda.
+Kami menggunakan single test set dengan 978 samples (10% dari 9,775 sampel bersih, stratified split). Idealnya, kami melakukan evaluasi menggunakan multiple test sets dari berbagai sumber dan periode waktu untuk mengukur generalisasi yang lebih robust. Selain itu, test split berasal dari distribusi yang sama dengan training data, yang berarti evaluation kami mungkin overestimate performa sebenarnya pada data yang sangat berbeda.
 
-**Lack of Statistical Significance Testing**
+**Statistical Significance**
 
-Hasil terbaik kami (F1-Macro 81.38%) berasal dari single training run. Tanpa multiple runs dengan random seeds berbeda, kami tidak dapat melaporkan standard deviation atau melakukan statistical significance testing untuk membuktikan bahwa peningkatan dari label smoothing bukan karena kebetulan.
+Untuk mengatasi keterbatasan single-run evaluation, kami melakukan evaluasi dengan 5 random seeds berbeda (42, 123, 456, 789, 1024) pada model terbaik (XLM-RoBERTa Large) dan melaporkan mean ± standard deviation. Dari 5 seeds, 4 seeds menghasilkan performa konsisten (F1=80.83% ± 1.74%), namun 1 seed (1024) mengalami training collapse (F1=11.07%), menunjukkan instabilitas training yang mungkin terjadi pada model besar. Evaluasi pada external test set tetap diperlukan untuk validasi yang lebih kuat.
 
 **No Human Evaluation**
 

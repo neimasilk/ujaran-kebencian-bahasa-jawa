@@ -1,0 +1,514 @@
+{
+  "metadata": {
+    "dataset": "D:\\documents\\ujaran-kebencian-bahasa-jawa\\data\\cleaned\\final_dataset_with_source.csv",
+    "synthetic_train_count": 4212,
+    "manual_train_count": 3608,
+    "manual_test_count": 451,
+    "full_test_count": 978,
+    "seed": 42,
+    "description": "Two-stage curriculum learning: synthetic → manual fine-tuning",
+    "timestamp": "2026-04-13 13:00:40"
+  },
+  "results": {
+    "indobert": {
+      "stage1_synthetic_only": {
+        "manual_test": {
+          "f1_macro": 24.48,
+          "f1_weighted": 24.42,
+          "accuracy": 24.61,
+          "precision_macro": 29.42,
+          "recall_macro": 30.11,
+          "confusion_matrix": [
+            [
+              33,
+              37,
+              49,
+              64
+            ],
+            [
+              18,
+              21,
+              53,
+              44
+            ],
+            [
+              6,
+              11,
+              29,
+              15
+            ],
+            [
+              6,
+              3,
+              34,
+              28
+            ]
+          ],
+          "per_class": {
+            "Bukan Ujaran Kebencian": {
+              "precision": 52.38,
+              "recall": 18.03,
+              "f1": 26.83,
+              "support": 183
+            },
+            "Ujaran Kebencian - Ringan": {
+              "precision": 29.17,
+              "recall": 15.44,
+              "f1": 20.19,
+              "support": 136
+            },
+            "Ujaran Kebencian - Sedang": {
+              "precision": 17.58,
+              "recall": 47.54,
+              "f1": 25.66,
+              "support": 61
+            },
+            "Ujaran Kebencian - Berat": {
+              "precision": 18.54,
+              "recall": 39.44,
+              "f1": 25.23,
+              "support": 71
+            }
+          }
+        },
+        "full_test": {
+          "f1_macro": 63.01,
+          "f1_weighted": 63.31,
+          "accuracy": 64.83,
+          "precision_macro": 67.04,
+          "recall_macro": 64.58,
+          "confusion_matrix": [
+            [
+              91,
+              37,
+              50,
+              64
+            ],
+            [
+              18,
+              138,
+              53,
+              44
+            ],
+            [
+              6,
+              12,
+              245,
+              15
+            ],
+            [
+              6,
+              3,
+              36,
+              160
+            ]
+          ],
+          "per_class": {
+            "Bukan Ujaran Kebencian": {
+              "precision": 75.21,
+              "recall": 37.6,
+              "f1": 50.14,
+              "support": 242
+            },
+            "Ujaran Kebencian - Ringan": {
+              "precision": 72.63,
+              "recall": 54.55,
+              "f1": 62.3,
+              "support": 253
+            },
+            "Ujaran Kebencian - Sedang": {
+              "precision": 63.8,
+              "recall": 88.13,
+              "f1": 74.02,
+              "support": 278
+            },
+            "Ujaran Kebencian - Berat": {
+              "precision": 56.54,
+              "recall": 78.05,
+              "f1": 65.57,
+              "support": 205
+            }
+          }
+        },
+        "train_samples": 4212,
+        "epochs": 3,
+        "learning_rate": 2e-05,
+        "train_time_seconds": 58.0
+      },
+      "stage2_manual_finetune": {
+        "manual_test": {
+          "f1_macro": 45.34,
+          "f1_weighted": 48.93,
+          "accuracy": 50.33,
+          "precision_macro": 46.11,
+          "recall_macro": 45.65,
+          "confusion_matrix": [
+            [
+              129,
+              33,
+              7,
+              14
+            ],
+            [
+              59,
+              44,
+              14,
+              19
+            ],
+            [
+              16,
+              21,
+              16,
+              8
+            ],
+            [
+              17,
+              10,
+              6,
+              38
+            ]
+          ],
+          "per_class": {
+            "Bukan Ujaran Kebencian": {
+              "precision": 58.37,
+              "recall": 70.49,
+              "f1": 63.86,
+              "support": 183
+            },
+            "Ujaran Kebencian - Ringan": {
+              "precision": 40.74,
+              "recall": 32.35,
+              "f1": 36.07,
+              "support": 136
+            },
+            "Ujaran Kebencian - Sedang": {
+              "precision": 37.21,
+              "recall": 26.23,
+              "f1": 30.77,
+              "support": 61
+            },
+            "Ujaran Kebencian - Berat": {
+              "precision": 48.1,
+              "recall": 53.52,
+              "f1": 50.67,
+              "support": 71
+            }
+          }
+        },
+        "full_test": {
+          "f1_macro": 58.75,
+          "f1_weighted": 58.03,
+          "accuracy": 58.69,
+          "precision_macro": 60.71,
+          "recall_macro": 59.89,
+          "confusion_matrix": [
+            [
+              187,
+              33,
+              8,
+              14
+            ],
+            [
+              155,
+              65,
+              14,
+              19
+            ],
+            [
+              24,
+              79,
+              160,
+              15
+            ],
+            [
+              19,
+              13,
+              11,
+              162
+            ]
+          ],
+          "per_class": {
+            "Bukan Ujaran Kebencian": {
+              "precision": 48.57,
+              "recall": 77.27,
+              "f1": 59.65,
+              "support": 242
+            },
+            "Ujaran Kebencian - Ringan": {
+              "precision": 34.21,
+              "recall": 25.69,
+              "f1": 29.35,
+              "support": 253
+            },
+            "Ujaran Kebencian - Sedang": {
+              "precision": 82.9,
+              "recall": 57.55,
+              "f1": 67.94,
+              "support": 278
+            },
+            "Ujaran Kebencian - Berat": {
+              "precision": 77.14,
+              "recall": 79.02,
+              "f1": 78.07,
+              "support": 205
+            }
+          }
+        },
+        "train_samples": 3608,
+        "epochs": 5,
+        "learning_rate": 5e-06,
+        "train_time_seconds": 90.0
+      }
+    },
+    "xlmr_large": {
+      "stage1_synthetic_only": {
+        "manual_test": {
+          "f1_macro": 25.0,
+          "f1_weighted": 24.57,
+          "accuracy": 24.83,
+          "precision_macro": 28.7,
+          "recall_macro": 29.79,
+          "confusion_matrix": [
+            [
+              28,
+              52,
+              58,
+              45
+            ],
+            [
+              18,
+              29,
+              46,
+              43
+            ],
+            [
+              10,
+              16,
+              22,
+              13
+            ],
+            [
+              3,
+              4,
+              31,
+              33
+            ]
+          ],
+          "per_class": {
+            "Bukan Ujaran Kebencian": {
+              "precision": 47.46,
+              "recall": 15.3,
+              "f1": 23.14,
+              "support": 183
+            },
+            "Ujaran Kebencian - Ringan": {
+              "precision": 28.71,
+              "recall": 21.32,
+              "f1": 24.47,
+              "support": 136
+            },
+            "Ujaran Kebencian - Sedang": {
+              "precision": 14.01,
+              "recall": 36.07,
+              "f1": 20.18,
+              "support": 61
+            },
+            "Ujaran Kebencian - Berat": {
+              "precision": 24.63,
+              "recall": 46.48,
+              "f1": 32.2,
+              "support": 71
+            }
+          }
+        },
+        "full_test": {
+          "f1_macro": 63.34,
+          "f1_weighted": 63.42,
+          "accuracy": 65.13,
+          "precision_macro": 66.55,
+          "recall_macro": 65.08,
+          "confusion_matrix": [
+            [
+              86,
+              52,
+              59,
+              45
+            ],
+            [
+              18,
+              146,
+              46,
+              43
+            ],
+            [
+              10,
+              16,
+              238,
+              14
+            ],
+            [
+              3,
+              4,
+              31,
+              167
+            ]
+          ],
+          "per_class": {
+            "Bukan Ujaran Kebencian": {
+              "precision": 73.5,
+              "recall": 35.54,
+              "f1": 47.91,
+              "support": 242
+            },
+            "Ujaran Kebencian - Ringan": {
+              "precision": 66.97,
+              "recall": 57.71,
+              "f1": 62.0,
+              "support": 253
+            },
+            "Ujaran Kebencian - Sedang": {
+              "precision": 63.64,
+              "recall": 85.61,
+              "f1": 73.01,
+              "support": 278
+            },
+            "Ujaran Kebencian - Berat": {
+              "precision": 62.08,
+              "recall": 81.46,
+              "f1": 70.46,
+              "support": 205
+            }
+          }
+        },
+        "train_samples": 4212,
+        "epochs": 3,
+        "learning_rate": 2e-05,
+        "train_time_seconds": 362.0
+      },
+      "stage2_manual_finetune": {
+        "manual_test": {
+          "f1_macro": 52.16,
+          "f1_weighted": 55.25,
+          "accuracy": 55.21,
+          "precision_macro": 51.54,
+          "recall_macro": 53.17,
+          "confusion_matrix": [
+            [
+              121,
+              45,
+              6,
+              11
+            ],
+            [
+              38,
+              58,
+              23,
+              17
+            ],
+            [
+              5,
+              20,
+              23,
+              13
+            ],
+            [
+              7,
+              8,
+              9,
+              47
+            ]
+          ],
+          "per_class": {
+            "Bukan Ujaran Kebencian": {
+              "precision": 70.76,
+              "recall": 66.12,
+              "f1": 68.36,
+              "support": 183
+            },
+            "Ujaran Kebencian - Ringan": {
+              "precision": 44.27,
+              "recall": 42.65,
+              "f1": 43.45,
+              "support": 136
+            },
+            "Ujaran Kebencian - Sedang": {
+              "precision": 37.7,
+              "recall": 37.7,
+              "f1": 37.7,
+              "support": 61
+            },
+            "Ujaran Kebencian - Berat": {
+              "precision": 53.41,
+              "recall": 66.2,
+              "f1": 59.12,
+              "support": 71
+            }
+          }
+        },
+        "full_test": {
+          "f1_macro": 73.04,
+          "f1_weighted": 72.67,
+          "accuracy": 72.7,
+          "precision_macro": 72.96,
+          "recall_macro": 73.37,
+          "confusion_matrix": [
+            [
+              179,
+              46,
+              6,
+              11
+            ],
+            [
+              70,
+              143,
+              23,
+              17
+            ],
+            [
+              5,
+              50,
+              209,
+              14
+            ],
+            [
+              7,
+              8,
+              10,
+              180
+            ]
+          ],
+          "per_class": {
+            "Bukan Ujaran Kebencian": {
+              "precision": 68.58,
+              "recall": 73.97,
+              "f1": 71.17,
+              "support": 242
+            },
+            "Ujaran Kebencian - Ringan": {
+              "precision": 57.89,
+              "recall": 56.52,
+              "f1": 57.2,
+              "support": 253
+            },
+            "Ujaran Kebencian - Sedang": {
+              "precision": 84.27,
+              "recall": 75.18,
+              "f1": 79.47,
+              "support": 278
+            },
+            "Ujaran Kebencian - Berat": {
+              "precision": 81.08,
+              "recall": 87.8,
+              "f1": 84.31,
+              "support": 205
+            }
+          }
+        },
+        "train_samples": 3608,
+        "epochs": 5,
+        "learning_rate": 5e-06,
+        "train_time_seconds": 529.0
+      }
+    }
+  }
+}

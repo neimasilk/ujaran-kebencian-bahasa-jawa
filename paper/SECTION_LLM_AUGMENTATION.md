@@ -104,13 +104,13 @@ Generated samples melewati filter berikut:
 
 ### 4.5 Integration with Existing Data
 
-LLM-generated data digabungkan dengan:
-- **Phase 1**: Original manually labeled data (2,500 samples)
-- **Phase 2**: Translated data from English/Indonesian (1,200 samples)
-- **Phase 3**: Cleaned and naturalized data (3,000 samples)
-- **Phase 4**: LLM-generated data (3,319 samples)
+LLM-generated data digabungkan dengan data asli melalui pipeline bertahap:
+- **Phase 1-3**: Data asli yang telah difilter, dinaturalisasi, dan di-relabel (4,779 samples, 47.7%)
+- **Phase 4**: LLM-generated data dengan konteks Indonesia (5,240 samples, 52.3%)
 
-**Final dataset (Phase 5)**: 10,019 samples setelah DeepSeek re-labeling
+**Final dataset (Phase 5)**: 10,019 samples setelah DeepSeek re-labeling, kemudian dibersihkan menjadi 9,775 samples setelah aggressive cleanup (penghapusan duplikat, teks pendek, dan teks non-Javanese).
+
+**Catatan penting**: Proporsi data LLM-generated yang tinggi (52.3%) merupakan trade-off yang disadari — diperlukan untuk mencapai ukuran dataset yang cukup besar untuk pelatihan model transformer, namun berpotensi memperkenalkan bias dari model LLM.
 
 ## Quality Assessment
 
@@ -127,13 +127,7 @@ Kami melakukan penilaian kualitas linguistik pada 200 sampel acak:
 
 ### 5.2 Downstream Performance
 
-Model yang dilatih dengan data yang mengandung LLM-augmented samples menunjukkan:
-
-| Training Data | F1-Macro | Accuracy |
-|---------------|----------|----------|
-| Without Phase 4 (6,700 samples) | 78.24% | 78.05% |
-| With Phase 4 (10,019 samples) | 81.38% | 81.24% |
-| **Improvement** | **+3.14%** | **+3.19%** |
+Dampak penambahan data LLM-generated terhadap performa model diukur melalui eksperimen komparatif pada dataset bersih (9,775 sampel). Hasil menunjukkan bahwa model XLM-RoBERTa Large mencapai F1-Macro **80.26%** pada test set (978 sampel), mengungguli IndoBERT base (76.12%) dan IndoBERT + Label Smoothing (77.36%). Evaluasi multi-seed (5 seeds) pada model terbaik menghasilkan F1-Macro **80.83% ± 1.74%** (4 seeds stabil), menunjukkan performa yang konsisten meskipun 52.3% dataset berasal dari generasi LLM.
 
 ## Limitations of LLM Augmentation
 
@@ -149,11 +143,11 @@ Model yang dilatih dengan data yang mengandung LLM-augmented samples menunjukkan
 | Manual Collection | 2,500 | High (3 months) | Very Slow | High |
 | Translation | 1,200 | Medium | Medium | Medium |
 | Back-Translation | 800 | Low | Fast | Low-Medium |
-| **LLM Generation** | **3,319** | **Low ($15)** | **Fast (2 days)** | **Medium-High** |
+| **LLM Generation** | **5,240** | **Low ($15)** | **Fast (2 days)** | **Medium-High** |
 
 ## Conclusion
 
-LLM augmentation menggunakan DeepSeek-Coder-V2 terbukti efektif untuk meningkatkan ukuran dataset ujaran kebencian bahasa Jawa dari 6,700 menjadi 10,019 samples dengan peningkatan performa model sebesar +3.14% F1-Macro. Pendekatan ini memberikan trade-off yang baik antara biaya, waktu, dan kualitas dibandingkan dengan pengumpulan data manual.
+LLM augmentation menggunakan DeepSeek-Coder-V2 terbukti efektif untuk meningkatkan ukuran dataset ujaran kebencian bahasa Jawa dari 4,779 menjadi 10,019 samples (9,775 setelah cleaning). Proporsi data LLM-generated sebesar 52.3% menunjukkan ketergantungan yang signifikan pada data sintetis, namun pendekatan ini memberikan trade-off yang baik antara biaya, waktu, dan kualitas dibandingkan dengan pengumpulan data manual.
 
 Untuk penelitian masa depan, kami merekomendasikan:
 1. Menggunakan model LLM yang lebih banyak dilatih pada data Austronesian

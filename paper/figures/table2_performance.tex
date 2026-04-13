@@ -1,21 +1,17 @@
-
-% Table 2: Model Performance on Test Set
+% Table 2: Comparative Model Performance
 \begin{table}[h]
 \centering
-\caption{Model Performance on Test Set (N=1002)}
-\label{tab:model_performance}
-\begin{tabular}{lccc}
+\caption{Perbandingan Performa Model pada Test Set}
+\label{tab:model_comparison}
+\begin{tabular}{lcccc}
 \hline
-\textbf{Class} & \textbf{Precision} & \textbf{Recall} & \textbf{F1-Score} \\
+\textbf{Model} & \textbf{Val F1} & \textbf{Test F1} & \textbf{Test Acc} & \textbf{Test P} \\
 \hline
-Bukan Ujaran Kebencian & 0.86 & 0.85 & 0.85 \\
-Ujaran Kebencian - Ringan & 0.78 & 0.76 & 0.77 \\
-Ujaran Kebencian - Sedang & 0.78 & 0.82 & 0.80 \\
-Ujaran Kebencian - Berat & 0.85 & 0.84 & 0.84 \\
+IndoBERT base (no label smoothing) & 75.44 & 76.12 & 76.28 & 76.12 \\
+\textbf{XLM-RoBERTa Large} & \textbf{80.54} & \textbf{80.26} & \textbf{80.27} & \textbf{80.44} \\
+IndoBERT base + Label Smoothing (eps=0.1) & 76.59 & 77.36 & 77.51 & 77.36 \\
 \hline
-\textbf{Macro Average} & \textbf{0.82} & \textbf{0.81} & \textbf{0.81} \\
-\hline
-\multicolumn{3}{l}{\textbf{Accuracy}} & \multicolumn{2}{r}{\textbf{81.24\%}} \\
+\multicolumn{5}{l}{\textit{Statistical significance (5 seeds): F1 = 66.88\% $\pm$ 27.95\%}} \\
 \hline
 \end{tabular}
 \end{table}

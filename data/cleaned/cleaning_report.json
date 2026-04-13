@@ -1,0 +1,102 @@
+{
+  "initial_count": 10019,
+  "initial_distribution": {
+    "0": 2497,
+    "1": 2591,
+    "2": 2842,
+    "3": 2089
+  },
+  "steps": [
+    {
+      "step": "fix_encoding",
+      "removed": 0,
+      "remaining": 10019
+    },
+    {
+      "step": "remove_duplicates",
+      "removed": 33,
+      "remaining": 9986
+    },
+    {
+      "step": "remove_short_texts",
+      "threshold": 20,
+      "removed": 186,
+      "remaining": 9800,
+      "examples": [
+        [
+          "Jancok kowe, nikah",
+          2
+        ],
+        [
+          "c00ns mati iku apik",
+          3
+        ],
+        [
+          "Sampeyan gagal.",
+          1
+        ],
+        [
+          "yids iku elek",
+          2
+        ],
+        [
+          "l3zv0z ati-ati!",
+          0
+        ]
+      ]
+    },
+    {
+      "step": "remove_non_javanese",
+      "removed": 25,
+      "remaining": 9775,
+      "examples": [
+        [
+          "LELAKI BANGSAT LELAKI KARDUS LELAKI ANJING !!! KALOO CEWEEE LU GAK MAU GOSAHH DIPAKSAA ANJENG !!! GE",
+          3
+        ],
+        [
+          "kesel deh pagi2 anjing ku masa mau gigit perban kakiku",
+          1
+        ],
+        [
+          "! w!sh muss13s w3r3 d34d",
+          3
+        ],
+        [
+          "kalian kayak tidak pernah nonton bokep semua saja munafik lo anjing.",
+          3
+        ],
+        [
+          "Boneka Monyet Kecil ini yg slalu menemani hari2ku",
+          0
+        ],
+        [
+          "Dulu punya pacar yg baik, nggk kyak skrng brutal sprti bangsat!!",
+          2
+        ],
+        [
+          "Partai tersebut adalah sarang para penipu dan pembohong.",
+          2
+        ],
+        [
+          "Di New Jersey dari Department of Corrections melatih anjing untuk mengendus ponsel tersembunyi.",
+          0
+        ]
+      ]
+    },
+    {
+      "step": "remove_spaced_out",
+      "removed": 0,
+      "remaining": 9775
+    }
+  ],
+  "final_count": 9775,
+  "total_removed": 244,
+  "final_distribution": {
+    "0": 2417,
+    "1": 2531,
+    "2": 2779,
+    "3": 2048
+  },
+  "removal_percentage": 2.44
+}

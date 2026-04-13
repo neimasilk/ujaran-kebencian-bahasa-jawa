@@ -1,0 +1,264 @@
+{
+  "metadata": {
+    "dataset": "D:\\documents\\ujaran-kebencian-bahasa-jawa\\data\\cleaned\\final_dataset.csv",
+    "total_samples": 9775,
+    "train_samples": 7820,
+    "val_samples": 977,
+    "test_samples": 978,
+    "seed": 42,
+    "split": "80/10/10 stratified",
+    "timestamp": "2026-02-25 12:02:46",
+    "device": "cuda"
+  },
+  "models": {
+    "indobert": {
+      "model_key": "indobert",
+      "description": "IndoBERT base (no label smoothing)",
+      "pretrained": "indobenchmark/indobert-base-p1",
+      "hyperparameters": {
+        "batch_size": 16,
+        "learning_rate": 2e-05,
+        "epochs": 5,
+        "label_smoothing": 0.0,
+        "weight_decay": 0.01,
+        "warmup_ratio": 0.1,
+        "max_len": 128,
+        "seed": 42
+      },
+      "validation": {
+        "f1_macro": 75.44,
+        "f1_weighted": 75.51,
+        "accuracy": 75.44
+      },
+      "test": {
+        "f1_macro": 76.12,
+        "f1_weighted": 76.23,
+        "accuracy": 76.28,
+        "precision_macro": 76.12,
+        "recall_macro": 76.14
+      },
+      "confusion_matrix": [
+        [
+          172,
+          42,
+          11,
+          17
+        ],
+        [
+          39,
+          176,
+          21,
+          17
+        ],
+        [
+          9,
+          22,
+          236,
+          11
+        ],
+        [
+          12,
+          14,
+          17,
+          162
+        ]
+      ],
+      "per_class": {
+        "Bukan Ujaran Kebencian": {
+          "precision": 74.14,
+          "recall": 71.07,
+          "f1": 72.57,
+          "support": 242
+        },
+        "Ujaran Kebencian - Ringan": {
+          "precision": 69.29,
+          "recall": 69.57,
+          "f1": 69.43,
+          "support": 253
+        },
+        "Ujaran Kebencian - Sedang": {
+          "precision": 82.81,
+          "recall": 84.89,
+          "f1": 83.84,
+          "support": 278
+        },
+        "Ujaran Kebencian - Berat": {
+          "precision": 78.26,
+          "recall": 79.02,
+          "f1": 78.64,
+          "support": 205
+        }
+      },
+      "train_time_seconds": 152.0,
+      "best_model_path": "D:\\documents\\ujaran-kebencian-bahasa-jawa\\models\\comparative\\indobert\\best"
+    },
+    "xlmr_large": {
+      "model_key": "xlmr_large",
+      "description": "XLM-RoBERTa Large",
+      "pretrained": "xlm-roberta-large",
+      "hyperparameters": {
+        "batch_size": 8,
+        "learning_rate": 2e-05,
+        "epochs": 5,
+        "label_smoothing": 0.0,
+        "weight_decay": 0.01,
+        "warmup_ratio": 0.1,
+        "max_len": 128,
+        "seed": 42
+      },
+      "validation": {
+        "f1_macro": 80.54,
+        "f1_weighted": 80.42,
+        "accuracy": 80.45
+      },
+      "test": {
+        "f1_macro": 80.26,
+        "f1_weighted": 80.21,
+        "accuracy": 80.27,
+        "precision_macro": 80.44,
+        "recall_macro": 80.16
+      },
+      "confusion_matrix": [
+        [
+          185,
+          39,
+          11,
+          7
+        ],
+        [
+          34,
+          185,
+          22,
+          12
+        ],
+        [
+          5,
+          20,
+          245,
+          8
+        ],
+        [
+          12,
+          4,
+          19,
+          170
+        ]
+      ],
+      "per_class": {
+        "Bukan Ujaran Kebencian": {
+          "precision": 78.39,
+          "recall": 76.45,
+          "f1": 77.41,
+          "support": 242
+        },
+        "Ujaran Kebencian - Ringan": {
+          "precision": 74.6,
+          "recall": 73.12,
+          "f1": 73.85,
+          "support": 253
+        },
+        "Ujaran Kebencian - Sedang": {
+          "precision": 82.49,
+          "recall": 88.13,
+          "f1": 85.22,
+          "support": 278
+        },
+        "Ujaran Kebencian - Berat": {
+          "precision": 86.29,
+          "recall": 82.93,
+          "f1": 84.58,
+          "support": 205
+        }
+      },
+      "train_time_seconds": 904.0,
+      "best_model_path": "D:\\documents\\ujaran-kebencian-bahasa-jawa\\models\\comparative\\xlmr_large\\best"
+    },
+    "indobert_ls": {
+      "model_key": "indobert_ls",
+      "description": "IndoBERT base + Label Smoothing (eps=0.1)",
+      "pretrained": "indobenchmark/indobert-base-p1",
+      "hyperparameters": {
+        "batch_size": 16,
+        "learning_rate": 2e-05,
+        "epochs": 5,
+        "label_smoothing": 0.1,
+        "weight_decay": 0.01,
+        "warmup_ratio": 0.1,
+        "max_len": 128,
+        "seed": 42
+      },
+      "validation": {
+        "f1_macro": 76.59,
+        "f1_weighted": 76.6,
+        "accuracy": 76.56
+      },
+      "test": {
+        "f1_macro": 77.36,
+        "f1_weighted": 77.43,
+        "accuracy": 77.51,
+        "precision_macro": 77.36,
+        "recall_macro": 77.39
+      },
+      "confusion_matrix": [
+        [
+          173,
+          42,
+          13,
+          14
+        ],
+        [
+          43,
+          176,
+          18,
+          16
+        ],
+        [
+          8,
+          19,
+          242,
+          9
+        ],
+        [
+          10,
+          13,
+          15,
+          167
+        ]
+      ],
+      "per_class": {
+        "Bukan Ujaran Kebencian": {
+          "precision": 73.93,
+          "recall": 71.49,
+          "f1": 72.69,
+          "support": 242
+        },
+        "Ujaran Kebencian - Ringan": {
+          "precision": 70.4,
+          "recall": 69.57,
+          "f1": 69.98,
+          "support": 253
+        },
+        "Ujaran Kebencian - Sedang": {
+          "precision": 84.03,
+          "recall": 87.05,
+          "f1": 85.51,
+          "support": 278
+        },
+        "Ujaran Kebencian - Berat": {
+          "precision": 81.07,
+          "recall": 81.46,
+          "f1": 81.27,
+          "support": 205
+        }
+      },
+      "train_time_seconds": 158.0,
+      "best_model_path": "D:\\documents\\ujaran-kebencian-bahasa-jawa\\models\\comparative\\indobert_ls\\best"
+    }
+  },
+  "best_model": {
+    "key": "xlmr_large",
+    "description": "XLM-RoBERTa Large",
+    "test_f1_macro": 80.26,
+    "test_accuracy": 80.27
+  }
+}

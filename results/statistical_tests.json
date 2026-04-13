@@ -1,0 +1,12 @@
+{
+  "svm_full_vs_manual": {
+    "t": 47.4777,
+    "p": 4.28e-11,
+    "cohens_d": 33.57
+  },
+  "lr_full_vs_manual": {
+    "t": 50.1811,
+    "p": 2.75e-11,
+    "cohens_d": 35.48
+  }
+}

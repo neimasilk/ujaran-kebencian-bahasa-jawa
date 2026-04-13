@@ -1,0 +1,330 @@
+{
+  "metadata": {
+    "dataset": "D:\\documents\\ujaran-kebencian-bahasa-jawa\\data\\cleaned\\final_dataset_with_source.csv",
+    "manual_count": 4538,
+    "synthetic_count": 5237,
+    "description": "Comparative analysis of manual vs synthetic data quality",
+    "timestamp": "2026-04-13 12:40:10"
+  },
+  "results": {
+    "manual_stats": {
+      "count": 4538,
+      "word_count_mean": 16.46,
+      "word_count_median": 11.0,
+      "word_count_std": 17.54,
+      "word_count_min": 2,
+      "word_count_max": 298,
+      "char_count_mean": 104.45,
+      "char_count_median": 66.5,
+      "vocab_size": 10691,
+      "total_tokens": 74712,
+      "type_token_ratio": 0.1431,
+      "hapax_count": 6460,
+      "hapax_ratio": 0.6042
+    },
+    "synthetic_stats": {
+      "count": 5237,
+      "word_count_mean": 10.77,
+      "word_count_median": 11.0,
+      "word_count_std": 3.21,
+      "word_count_min": 4,
+      "word_count_max": 23,
+      "char_count_mean": 70.01,
+      "char_count_median": 68.0,
+      "vocab_size": 6922,
+      "total_tokens": 56379,
+      "type_token_ratio": 0.1228,
+      "hapax_count": 3640,
+      "hapax_ratio": 0.5259
+    },
+    "vocabulary_overlap": {
+      "vocab_a_size": 10691,
+      "vocab_b_size": 6922,
+      "overlap_size": 2246,
+      "overlap_ratio_a": 0.2101,
+      "overlap_ratio_b": 0.3245,
+      "jaccard_similarity": 0.1462,
+      "only_in_a_count": 8445,
+      "only_in_b_count": 4676,
+      "sample_only_a": [
+        "!",
+        "!!",
+        "!!!",
+        "\"\"",
+        "\"-",
+        "\"..dheweke",
+        "\"?",
+        "\"aku",
+        "\"aku,",
+        "\"alice",
+        "\"all",
+        "\"aman\"",
+        "\"amarga",
+        "\"amerika",
+        "\"anti-degenerates\"",
+        "\"antisemite\"<9d>",
+        "\"apa",
+        "\"asu",
+        "\"asu!!!\"-",
+        "\"bajingan",
+        "\"bajingan\",",
+        "\"bajingan\"<9d>",
+        "\"bali",
+        "\"bapak",
+        "\"basa",
+        "\"berbagi",
+        "\"budaya\"",
+        "\"buku",
+        "\"bulldogs",
+        "\"cacat\""
+      ],
+      "sample_only_b": [
+        "\"kok",
+        "\"mah\"",
+        "\"teh\"",
+        "\"tindak",
+        "'hadiah'",
+        "'kepincut'.",
+        "'nyempil'",
+        "'sinetron'",
+        "'stop',",
+        "'tiba'",
+        "'tuk-tuk'",
+        "'tuk-tuk-tuk'",
+        "(sindiran",
+        "*drill*",
+        "17-an",
+        "98.",
+        "a*eh",
+        "aceh",
+        "aceh,",
+        "ada,",
+        "adat,",
+        "adat.",
+        "adate",
+        "adem",
+        "adhek",
+        "adhem,",
+        "adhuh,",
+        "adik",
+        "adiluhung.",
+        "adoh-adoh."
+      ]
+    },
+    "source_distinguishability": {
+      "cv_f1_macro_mean": 97.26,
+      "cv_f1_macro_std": 0.22,
+      "interpretation": "HIGH (>80%): synthetic and manual are very distinguishable — model can easily learn source-specific patterns",
+      "top_synthetic_indicators": [
+        [
+          "rakyat",
+          3.7081
+        ],
+        [
+          "tukang",
+          3.5853
+        ],
+        [
+          "nganti",
+          3.4491
+        ],
+        [
+          "pemerintah",
+          3.278
+        ],
+        [
+          "wah",
+          3.095
+        ],
+        [
+          "kula",
+          3.0817
+        ],
+        [
+          "korupsi",
+          3.0689
+        ],
+        [
+          "mboten",
+          3.0667
+        ],
+        [
+          "golongan",
+          2.9684
+        ],
+        [
+          "kok",
+          2.8847
+        ],
+        [
+          "jawa",
+          2.8788
+        ],
+        [
+          "ning",
+          2.7858
+        ],
+        [
+          "mung",
+          2.7445
+        ],
+        [
+          "neng",
+          2.7232
+        ],
+        [
+          "suku",
+          2.5811
+        ],
+        [
+          "wes",
+          2.5268
+        ],
+        [
+          "sing beda",
+          2.4862
+        ],
+        [
+          "maling",
+          2.4795
+        ],
+        [
+          "liya",
+          2.3438
+        ],
+        [
+          "tetangga",
+          2.3003
+        ]
+      ],
+      "top_manual_indicators": [
+        [
+          "wadon",
+          -4.6905
+        ],
+        [
+          "aku",
+          -4.5865
+        ],
+        [
+          "ireng",
+          -4.2714
+        ],
+        [
+          "ora",
+          -4.146
+        ],
+        [
+          "minangka",
+          -3.6769
+        ],
+        [
+          "kanggo",
+          -3.5958
+        ],
+        [
+          "wong wadon",
+          -3.5348
+        ],
+        [
+          "ing",
+          -3.5146
+        ],
+        [
+          "apa",
+          -3.4565
+        ],
+        [
+          "seneng",
+          -3.2225
+        ],
+        [
+          "ala",
+          -2.8593
+        ],
+        [
+          "homo",
+          -2.8172
+        ],
+        [
+          "sengit",
+          -2.7715
+        ],
+        [
+          "sampeyan",
+          -2.7322
+        ],
+        [
+          "cina",
+          -2.7282
+        ],
+        [
+          "kamu",
+          -2.4868
+        ],
+        [
+          "pendatang",
+          -2.4714
+        ],
+        [
+          "aku ora",
+          -2.4261
+        ],
+        [
+          "islam",
+          -2.4243
+        ],
+        [
+          "banget",
+          -2.3643
+        ]
+      ]
+    },
+    "per_class_distribution": {
+      "class_0": {
+        "total": 2417,
+        "manual": 1877,
+        "synthetic": 540,
+        "synthetic_ratio": 0.2234
+      },
+      "class_1": {
+        "total": 2531,
+        "manual": 1198,
+        "synthetic": 1333,
+        "synthetic_ratio": 0.5267
+      },
+      "class_2": {
+        "total": 2779,
+        "manual": 685,
+        "synthetic": 2094,
+        "synthetic_ratio": 0.7535
+      },
+      "class_3": {
+        "total": 2048,
+        "manual": 778,
+        "synthetic": 1270,
+        "synthetic_ratio": 0.6201
+      }
+    },
+    "sentence_patterns": {
+      "manual": {
+        "starts_with_capital": 0.7461,
+        "ends_with_period": 0.2904,
+        "ends_with_exclamation": 0.0846,
+        "has_quotes": 0.0577,
+        "has_emoji_chars": 0.0494,
+        "all_lowercase": 0.1692,
+        "has_repetition": 0.0414
+      },
+      "synthetic": {
+        "starts_with_capital": 1.0,
+        "ends_with_period": 0.9578,
+        "ends_with_exclamation": 0.0212,
+        "has_quotes": 0.0029,
+        "has_emoji_chars": 0.0691,
+        "all_lowercase": 0.0,
+        "has_repetition": 0.0
+      }
+    }
+  }
+}
